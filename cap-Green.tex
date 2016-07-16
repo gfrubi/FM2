@@ -1,0 +1,285 @@
+\chapter{Funciones de Green}
+
+\section{Motivaci'on}
+
+El m'etodo de las funciones de Green\footnote{George Green (1793-1841): matem'atico brit'anico. Ver \url{http://es.wikipedia.org/wiki/George_Green}.} permite reducir el problema de encontrar una soluci'on de una \textit{E.D.P. lineal inhomog'enea} a una forma est'andar.
+
+Por ejemplo, en electrost'atica, el potencial satisface la ecuaci'on de Poisson (3D):
+\begin{equation}\label{Poisson}
+\nabla^2\phi=-\frac{\rho(x)}{\varepsilon_0}.
+\end{equation}
+Adem'as, sabemos que para una carga puntual ubicada en el punto con coordenadas $\vec{x}'$
+\begin{equation}
+\phi(\vec{x})=\frac{1}{4\pi\varepsilon_0}\frac{q}{\left|\vec{x}-\vec{x}'\right|},
+\end{equation}
+y que el potencial producido por una distribuci'on continua de carga con densidad $\rho(\vec{x})$ es
+\begin{equation}\label{phirho}
+\phi(\vec{x})=\frac{1}{4\pi\varepsilon_0}\int_V\frac{\rho(\vec{x}')}{\left|\vec{x}-\vec{x}'\right|}dV'.
+\end{equation}
+En ambos casos se eligi'o el potencial nulo en el infinito. Vemos entonces que en la soluci'on general \eqref{phirho} aparece la funci'on
+\begin{equation}\label{G1}
+G(\vec{x},\vec{x}')=-\frac{1}{4\pi}\frac{1}{\left|\vec{x}-\vec{x}'\right|}.
+\end{equation}
+de modo que 
+\begin{equation}\label{phirho2}
+\phi(\vec{x})=\int_V G(\vec{x},\vec{x}')\left(-\frac{\rho(\vec{x}')}{\varepsilon_0}\right)dV'.
+\end{equation}
+La funci'on \eqref{G1} satisface
+\begin{equation}\label{propG1}
+\nabla^2G(\vec{x}',\vec{x})=\delta^{(3)}(\vec{x}-\vec{x}').
+\end{equation}
+Como veremos a continuaci'on, la propiedad \eqref{propG1} es la que permite encontrar soluciones de la ecuaci'on inhomog'enea \eqref{Poisson}.
+\begin{align}
+\nabla^2\phi(\vec{x}) &= \nabla^2\int_V G(\vec{x},\vec{x}')\left(-\frac{\rho(\vec{x}')} {\varepsilon_0}\right)dV'\\
+&= \int_V \left[\nabla^2G(\vec{x},\vec{x}')\right]\left(-\frac{\rho(\vec{x}')}{\varepsilon_0}\right)dV' \\
+&= \int_V \delta(\vec{x}-\vec{x}')\left(-\frac{\rho(\vec{x}')}{\varepsilon_0}\right)dV'\\
+&= -\frac{\rho(\vec{x})}{\varepsilon_0}.
+\end{align}
+
+
+\section{Generalizaci'on}
+Consideremos la E.D.P. lineal inhomog'enea de la forma (en $d$-dimensiones)
+\begin{equation}\label{EDP1}
+\hat{L}\Psi=f(\vec{x}),
+\end{equation}
+donde $f(\vec{x})$ es una funci'on ``fuente'' conocida, y $\hat{L}$ es el operador lineal definido por
+\begin{equation}
+\hat{L}\Psi=\vec\nabla\cdot\left[p(\vec{x})\vec\nabla\Psi\right]+q(\vec{x})\Psi,
+\end{equation}
+y $p(\vec{x})$ y $q(\vec{x})$ son funciones conocidas.
+
+Para solucionar la E.D.P. \eqref{EDP1} buscamos primero la funci'on de Green $G(\vec{x},\vec{x}')$ asociada al operador $\hat L$, definida como la funci'on que satisface
+\begin{equation}\label{EDPG}
+\hat{L}G(\vec{x}',\vec{x})=\delta(\vec{x}-\vec{x}').
+\end{equation}
+La utilidad de introducir la funci'on de Green es que, conociendo una soluci'on de \eqref{EDP1}, es posible escribir la soluci'on del problema inhomog'eneo general \eqref{EDP1} como
+\begin{equation}\label{solLG}
+\boxed{\Psi(\vec{x})=\int_VG(\vec{x},\vec{x}')f(\vec{x}')dV'+\oint_{\partial V}p(\vec{x}')\left[\Psi(\vec{x}')\vec\nabla' G(\vec{x},\vec{x}')
+-G(\vec{x},\vec{x}')\vec\nabla'\Psi(\vec{x}')\right]\cdot d\vec{S}'.}
+\end{equation}
+Aqu'i $V$ denota el dominio en el que la soluci'on $\Psi$ es v'alida (es decir, $\vec{x}\in V$) y  $\partial V$ su frontera.
+
+Para probar \eqref{solLG} partimos desde la integral sobre $\partial V$ en el en lado derecho de \eqref{solLG}, que luego podemos escribir como una integral de volumen, por medio del teorema de Gauss:
+\begin{align}
+I &= \oint_{\partial V}p(\vec{x}')\left[\Psi(\vec{x}')\vec\nabla'G(\vec{x},\vec{x}')
+-G(\vec{x},\vec{x}')\vec\nabla'\Psi(\vec{x}')\right]\cdot d\vec{S}' \label{I1}\\
+&= \int_V\vec\nabla'\cdot\left[p(\vec{x}')\Psi(\vec{x}')\vec\nabla'G(\vec{x},\vec{x}')
+-p(\vec{x}')G(\vec{x},\vec{x}')\vec\nabla'\Psi(\vec{x}')\right]dV' \\
+&= \int_V\left[\Psi(\vec{x}')\vec\nabla'\cdot\left(p(\vec{x}')\vec\nabla' G(\vec{x},\vec{x}')\right) 
+-G(\vec{x},\vec{x}')\vec\nabla'\cdot\left(p(\vec{x}')\vec\nabla'\Psi(\vec{x}')\right)\right]dV' \\
+&= \int_V\left[\Psi(\vec{x}')\left(\hat{L}'G(\vec{x},\vec{x}')\right) 
+-G(\vec{x},\vec{x}')\left(\hat{L}'\Psi(\vec{x}')\right)\right]dV' \\
+&= \int_V\left[\Psi(\vec{x}')\delta(\vec{x}-\vec{x}')
+-G(\vec{x},\vec{x}')f(\vec{x}')\right]dV' \\
+&= \Psi(\vec{x})- \int_VG(\vec{x},\vec{x}')f(\vec{x}')dV'. \label{I2}
+\end{align}
+En el 'ultimo paso, hemos asumido que el punto $\vec{x}\in V$  para evaluar la integral que involucra la delta de Dirac. El resultado \eqref{solLG} se sigue de igualar \eqref{I1} y \eqref{I2}.
+
+La soluci'on de la ecuaci'on \eqref{EDPG} queda determinada, adem'as de la funci'on fuente $f(\vec{x})$, por las condiciones de borde del problema. T'ipicamente, estas condiciones de borde se expresan como condiciones que la soluci'on debe satisfacer en la frontera $\partial V$. Esta informaci'on modifica la soluci'on a trav'es de los t'erminos de borde en \eqref{solLG}. Sin embargo, la integral sobre $\partial V$ en \eqref{solLG} depende tanto del valor de la inc'ognita como de su derivada normal, y usualmente no se conoce simult'aneamente estos dos valores. M'as a'un, en general puede ser inconsistente imponer simult'aneamente el valor de $\Psi$ y de su derivada normal en $\partial V$.
+
+\begin{itemize}
+\item Si las condiciones de Borde son tipo Dirichlet, es decir, la funci'on $\Psi$ es conocida en $\partial V$, entonces el primer t'ermino en la integral sobre $\partial V$ en \eqref{solLG} es queda determinado luego de encontrar la funci'on de Green, no as'i el segundo t'ermino. Por esta raz'on, en estos casos es \textit{conveniente} elegir una funci'on de Green que satisfaga condiciones de borde tipo Dirichlet homog'eneas en $\partial V$, es decir
+\begin{equation}
+G(\vec{x},\vec{x}')=0, \qquad \forall\ \vec{x}'\in\partial V.
+\end{equation}
+Entonces la soluci'on se reduce a
+\begin{align}
+\Psi(\vec{x}) &= \int_VG(\vec{x},\vec{x}')f(\vec{x}')dV'+\oint_{\partial V}p(\vec{x}')\Psi(\vec{x}')\vec\nabla' G(\vec{x},\vec{x}')\cdot d\vec{S}' \\
+&= \int_VG(\vec{x},\vec{x}')f(\vec{x}')dV'+\oint_{\partial V}p(\vec{x}')\Psi(\vec{x}')\frac{\partial G(\vec{x},\vec{x}')}{\partial n'}dS'.
+\end{align}
+
+\item Si las condiciones de borde son tipo Neumann, es decir se conoce $\partial\Psi/\partial n=\hat{n}\cdot\vec\nabla\Psi$ sobre $\partial V$, entonces es conveniente escoger una funci'on de Green que satisfaga condiciones de Neumann homog'eneas en la frontera:
+\begin{equation}
+\frac{\partial G(\vec{x},\vec{x}')}{\partial n'}=0, \qquad \forall\ \vec{x}'\in\partial V.
+\end{equation}
+Entonces, la soluci'on es dada por
+\begin{align}
+\Psi(\vec{x}) &= \int_VG(\vec{x},\vec{x}')f(\vec{x}')dV'-\oint_{\partial V}p(\vec{x}')G(\vec{x},\vec{x}')\vec\nabla'\Psi(\vec{x}')\cdot d\vec{S}' \\
+&= \int_VG(\vec{x},\vec{x}')f(\vec{x}')dV'-\oint_{\partial V}p(\vec{x}')G(\vec{x},\vec{x}')\frac{\partial \Psi(\vec{x}')}{\partial n'}dS'.
+\end{align}
+\end{itemize}
+
+Note que, sin embargo, dependiendo del operador $\hat{L}$ puede no ser posible elegir la funci'on de Green tal que $\hat{n}\cdot\vec\nabla'G(\vec{x},\vec{x}')=0$ sobre toda la frontera $\partial V$. Esto ocurre, en el importante caso del operador Laplaciano, $\hat{L}=\nabla^2$.
+
+\section{Simetr'ia de la funci'on de Green}
+En el caso particular en el que el operador $\hat{L}$ es el operador Laplaciano, vemos que la  funci'on de Green \eqref{G1} es sim'etrica bajo intercambio de argumentos, es decir, $G(\vec{x},\vec{x}')=G(\vec{x}',\vec{x})$. Puede verificarse que esta propiedad puede implementarse en casos m'as generales, siempre que se satisfagan ciertas condiciones de contorno. Para ver esto, usamos el resultado general \eqref{solLG} en el caso particular en que elegimos $\Psi(\vec{x})=G(\vec{x}'',\vec{x})$, con $\vec{x}'\in V$, y entonces $f(\vec{x})=\delta(\vec{x}''-\vec{x})$. En este caso, encontramos que
+\begin{align}\label{simG}
+G(\vec{x}'',\vec{x}) &= \int_VG(\vec{x},\vec{x}')\delta(\vec{x}''-\vec{x}')dV' \nonumber\\
+& \qquad +\oint_{\partial V}p(\vec{x}')\left[G(\vec{x}'',\vec{x}')\vec\nabla' G(\vec{x},\vec{x}') -G(\vec{x},\vec{x}')\vec\nabla'G(\vec{x}'',\vec{x}')\right]\cdot d\vec{S}' \\
+&= G(\vec{x},\vec{x}'')+\oint_{\partial V}p(\vec{x}')\left[G(\vec{x}'',\vec{x}')\vec\nabla' G(\vec{x},\vec{x}')-G(\vec{x},\vec{x}')\vec\nabla'G(\vec{x}'',\vec{x}')\right]\cdot d\vec{S}'. \label{simG2}
+\end{align}
+Por lo tanto, la funci'on de Green es sim'etrica si la integral del segundo t'ermino en \eqref{simG2} se anula. Esto puede ocurrir, t'ipicamente, si la funci'on de Green se anula en la frontera:
+\begin{equation}
+G(\vec{x},\vec{x}')=0, \qquad \forall\ \vec{x}'\in\partial V
+\end{equation}
+
+\section{Expresiones expl'icitas de algunas funciones de Green}
+La funci'on de Green definida por la ecuaci'on \eqref{EDPG} no es 'unica. Si $G_1(\vec{x},\vec{x}')$ es soluci'on, entonces $G_2(\vec{x},\vec{x}'):=G_1(\vec{x},\vec{x}')+H(\vec{x},\vec{x}')$ tambi'en es soluci'on, si $H(\vec{x},\vec{x}')$ es soluci'on del problema homog'eneo asociado, 
+\begin{equation}
+\hat{L}H(\vec{x},\vec{x}')=0.
+\end{equation}
+Este hecho permite considerar soluciones soluciones particulares simples como base para otras funciones de Green, que pueden obtenerse agregando una soluci'on de la ecuaci'on homog'enea de modo que la funci'on resultante satisfaga las condiciones de borde que simplifiquen el problema.
+
+\subsection{Operador Laplaciano}
+En este caso $p(\vec{x})=1$ y $q(\vec{x})=0$. En F'isica, usualmente se busca la funci'on de Green que ``respete la homogeneidad e isotrop'ia del espacio''. La primera condici'on (homogeneidad) significa que $G$ funci'on que depende de $\vec{x}$ y $\vec{x}'$ s'olo a trav'es de su diferencia $\vec{x}-\vec{x}'$. La segunda condici'on (isotrop'ia=invariancia bajo rotaciones) implica que $G$ s'olo depende del m'odulo de $\vec{x}-\vec{x}'$. Esto reduce la funci'on de Green b'asicamente a una funci'on de una variable, ya que entonces
+\begin{equation}
+G(\vec{x},\vec{x}')=G(|\vec{x}-\vec{x}'|).
+\end{equation}
+
+\subsubsection{$D=3$}
+En coordenadas esf'ericas centradas en $\vec{x}'$
+\begin{equation}\label{n2Gd}
+\nabla^2G=\frac{1}{r^2}\frac{d\ }{dr}\left(r^2\frac{dG}{dr}\right)=\delta^{(3)}(r)
+\end{equation}
+por lo tanto 
+\begin{equation}
+\frac{1}{r^2}\frac{d\ }{dr}\left(r^2\frac{dG}{dr}\right)=0, \qquad r\neq 0.
+\end{equation}
+La soluci'on para $r\neq 0$ se encuentra entonces r'apidamente integrando esta ecuaci'on, obteniendo
+\begin{equation}
+G(r)=\alpha+\frac{\beta}{r}.
+\end{equation}
+Por otro lado, la condici'on \eqref{n2Gd} implica, usando el teorema de Gauss, que
+\begin{equation}
+\int_{\partial V}\vec\nabla G\cdot d\vec{S}=\int_{\partial V}\frac{dG}{dr}r^2d\Omega=1,
+\end{equation}
+que requiere entonces que $-4\pi\beta=1$. Finalmente, en la mayor'ia de los problemas es conveniente elegir una funci'on de Green que se anule para distancias muy grandes, es decir, tal que $\lim_{r\to\infty}G(r)=0$. Esta condici'on impone que $\alpha=0$ (note que, equivalentemente, esta condici'on implica agregar la soluci'on homog'enea $H=-\alpha$ a la funci'on de Green original), y por lo tanto
+\begin{equation}
+\boxed{G(\vec{x}-\vec{x}')=-\frac{1}{4\pi}\frac{1}{|\vec{x}-\vec{x}'|}.}
+\end{equation}
+
+\subsubsection{$D=2$}
+En coordenadas polares $(\rho,\varphi)$ centradas en $\vec{x}'$, con $G=G(\rho)$
+\begin{equation}
+\nabla^2G=\frac{1}{\rho}\frac{d\ }{d\rho}\left(\rho\frac{dG}{d\rho}\right)=\delta^{(2)}(\rho).
+\end{equation}
+Integrando la ecuaci'on para $\rho\neq 0$, es decir,
+\begin{equation}
+\frac{1}{\rho}\frac{d\ }{d\rho}\left(\rho\frac{dG}{d\rho}\right)=0,
+\end{equation}
+encontramos que
+\begin{equation}
+G(\rho)=\alpha+\beta\ln\rho.
+\end{equation}
+Nuevamente, el teorema de Gauss (versi'on 2D), 
+\begin{equation}
+\int_{\partial S}\vec\nabla G\cdot d\vec{S}=\oint\frac{dG}{d\rho}\rho\,d\varphi=2\pi\beta=1.
+\end{equation}
+De esto modo, eliminando el t'ermino constante (que es una soluci'on de la ecuaci'on homog'enea), encontramos
+\begin{equation}
+\boxed{G(\vec{x}-\vec{x}')=\frac{1}{2\pi}\ln{|\vec{x}-\vec{x}'|}.}
+\end{equation}
+
+%\subsubsection{$D=1$}
+%En este caso, usando una coordenada cartesiana centrada en $x'$, tenemos
+%\begin{equation}\label{n2Gd1}
+%\nabla^2G(|x|)=\frac{d^2G(|x|)}{dx^2}=\delta(x),
+%\end{equation}
+%y por lo tanto
+%\begin{equation}
+%\frac{d^2G}{dx^2}=0, \qquad x\neq 0.
+%\end{equation}
+%Integrando esta condici'on para $x>0$ encontramos que
+%\begin{equation}
+%G(x)=\alpha+\beta x, \qquad x>0,
+%\end{equation}
+%y entonces
+%\begin{equation}
+%G(|x|)=\alpha+\beta |x|, \qquad x\neq 0.
+%\end{equation}
+%Integrando \eqref{n2Gd1} en el intervalo $[-a,a]$, $a>0$ y usando el teorema fundamental del c'alculo (``Teorema de Gauss 1D''), encontramos
+%\begin{equation}
+%\int_{-a}^a\frac{d^2G}{dx^2}=\left.\frac{dG}{dx}\right|^a_{-a}=\beta-(-\beta)=2\beta=1.
+%\end{equation}
+%Vemos que en este caso
+%\begin{equation}
+%G(x,x')=\alpha+\frac{1}{2}|x-x'|,
+%\end{equation}
+%de donde vemos que no existe una fuci'on de Green que satisfaga $G\to 0$ para $|x-x'|\to\infty$.
+
+\subsection{Operador de Helmoltz}
+En el caso del operador de Helmholtz $\hat{L}=\nabla^2+k^2$, que corresponde al caso $p(\vec{x})=1$ y $q(\vec{x})=k^2$.
+
+En cada caso, buscaremos las funciones de Green de la forma $G(\vec{x},\vec{x}')=G(|\vec{x}-\vec{x}'|)$
+
+\subsubsection{$D=3$}
+En coordenadas esf'ericas centradas en $\vec{x}'$
+\begin{equation}\label{HGd}
+(\nabla^2+k^2)G=\frac{1}{r^2}\frac{d\ }{dr}\left(r^2\frac{dG}{dr}\right)+k^2G=\delta^{(3)}(r),
+\end{equation}
+por lo tanto 
+\begin{equation}\label{HG0}
+\frac{1}{r^2}\frac{d\ }{dr}\left(r^2\frac{dG}{dr}\right)+k^2G=0, \qquad r\neq 0.
+\end{equation}
+Para solucionar \eqref{HG0} realizamos el cambio de variable $G(r)=u(r)/r$, que conduce a $r^2dG/dr=ru'-u$. Con esto, \eqref{HG0} se reduce a $u''+k^2u=0$. Por lo tanto, las soluciones son de la forma
+\begin{equation}\label{GH3d}
+G(r)=\alpha\frac{e^{ikr}}{r}+\beta\frac{e^{-ikr}}{r}.
+\end{equation}
+Con esta soluci'on, v'alida para $r\neq 0$, retornamos a la ecuaci'on \eqref{HGd} que, luego de integrar sobre una esfera de radi $R$ centrada en $r=0$ y usando el teorema de Gauss, implica que
+\begin{align}
+1 &= \oint_{\partial V}\vec\nabla G\cdot d\vec{S}+k^2\int_VG\,dV \\
+&= \oint_{\partial V}\frac{dG}{dr}r^2d\Omega+k^2\int_VGr^2\,drd\Omega \\
+&= 4\pi G'R^2+4\pi k^2\int_0^R Gr^2\,dr \\
+&= 4\pi\left[\alpha\left(ikR-1\right)e^{ikR}-\beta\left(ikR+1\right)e^{-ikR}\right]+4\pi k^2\int_0^R \left[\alpha e^{ikr}+\beta e^{-ikr}\right]r\,dr \\
+&= -4\pi(\alpha+\beta).
+\end{align}
+De esta forma encontramos las condici'on
+\begin{equation}
+\alpha+\beta=-\frac{1}{4\pi},
+\end{equation}
+que permite escribir la soluci'on \eqref{GH3d} como
+\begin{equation}\label{GH3d2}
+G(r)=-\frac{1}{4\pi}\frac{e^{ikr}}{r}-i\beta\frac{\sen(kr)}{r}.
+\end{equation}
+Note que el segundo t'ermino es una soluci'on de la ecuaci'on de Helmholtz \textit{homog'nenea} (es proporcional a la funci'on esf'erica de Bessel $j_0(kr)$). Por lo tanto, es posible elegir
+\begin{equation}\label{GH3d3}
+\boxed{G^{+}(\vec{x},\vec{x}')=-\frac{1}{4\pi}\frac{e^{ik|\vec{x}-\vec{x}'|}}{|\vec{x}-\vec{x}'|},}
+\end{equation}
+que corresponde a la elecci'on $\beta=0$. An'alogamente, podeomos considerar la funci'on de Green 
+\begin{equation}\label{GH3d4}
+G^{-}(\vec{x},\vec{x}')=-\frac{1}{4\pi}\frac{e^{-ik|\vec{x}-\vec{x}'|}}{|\vec{x}-\vec{x}'|},
+\end{equation}
+que se encuentra en el caso en que $\beta=-1/4\pi$.
+
+\subsubsection{$D=2$}
+En coordenadas polares $(\rho,\varphi)$ centradas en $\vec{x}'$, con $G=G(\rho)$
+\begin{equation}\label{HGd2d}
+(\nabla^2+k^2)G=\frac{1}{\rho}\frac{d\ }{d\rho}\left(\rho\frac{dG}{d\rho}\right)+k^2G=\delta^{(2)}(\rho).
+\end{equation}
+Para $\rho\neq 0$, 
+\begin{equation}
+\frac{1}{\rho}\frac{d\ }{d\rho}\left(\rho\frac{dG}{d\rho}\right)+k^2G=0.
+\end{equation}
+Definiendo $x:=k\rho$ esta ecuaci'on se reduce a
+\begin{equation}
+x\frac{d\ }{dx}\left(x\frac{dG}{dx}\right)+x^2G(x)=0, \qquad x\neq 0,
+\end{equation}
+que es la ecuaci'on de Bessel de orden $\nu=0$, ver \eqref{Besselec1}. Por lo tanto, su soluci'on general es de la forma
+\begin{equation}
+G(\rho)=\alpha J_0(k\rho)+\beta N_0(k\rho)=\tilde\alpha H^{(1)}_0(k\rho)+\tilde\beta H^{(2)}_0(k\rho).
+\end{equation}
+Nuevamente, retornando a la ecuaci'on original \eqref{HGd2d} e integrando sobre un c'irculo $S$ de radio $R$ centrado en $\rho=0$, obtenemos
+\begin{align}
+1 &= \oint_{\partial S}\vec\nabla G\cdot d\vec{S}+k^2\int_S G\,dS \\
+&= 2\pi\left[R\frac{dG}{d\rho}(kR)+k^2\int_0^RG\rho\,d\rho\right] \\
+&= 2\pi\left[kR\left(\tilde\alpha H'^{(1)}_0(kR)+\tilde\beta H'^{(2)}_0(kR)\right)+\int_0^{kR}\left(\tilde\alpha H^{(1)}_0(x)+\tilde\beta H^{(2)}_0(x)\right)x\,dx\right].
+\end{align}
+Usando las identidades $H'^{(1)}_0(x)=-H_1^{(1)}(x)$ y $xH_0^{(1)}(x)=d[xH_1^{(1)}(x)]/dx$ y similarmente para $H'^{(2)}_0$ y $H'^{(2)}_1$, evaluamos la expresi'on anterior, obteniendo
+\begin{align}
+1 &= -2\pi\lim_{x\to 0}\left(\tilde\alpha xH_1^{(1)}(x)-\tilde\beta xH_1^{(2)}(x)\right) \\
+&= 2\pi\left[\tilde\alpha\frac{2i}{\pi} -\tilde\beta\frac{2i}{\pi} \right]\\ 
+&= 4i(\tilde\alpha -\tilde\beta).
+\end{align}
+Con esto, la soluci'on adopta la forma
+\begin{align}
+G(\rho) &= -\frac{i}{4}H_0^{(1)}(k\rho)+\tilde\beta\left(H_0^{(1)}(k\rho)+H_0^{(2)}(k\rho)\right)\\
+&= -\frac{i}{4}H_0^{(1)}(k\rho)+2\tilde\beta J_0(k\rho).
+\end{align} 
+Tal como en el caso anterior, el t'ermino proporcional a $\tilde\beta$ es una soluci'on del problema homog'eneo. Si elegimos $\tilde\beta=0$, encontramos la siguiente funci'on de Green:
+\begin{equation}
+\boxed{G^{(1)}(\vec{x},\vec{x}') = -\frac{i}{4}H_0^{(1)}(k|\vec{x}-\vec{x}'|).}
+\end{equation}
+Alternativamente, si se elige $\tilde\alpha=0$, se encuentra
+\begin{equation}
+G^{(2)}(\vec{x},\vec{x}') = \frac{i}{4}H_0^{(2)}(k|\vec{x}-\vec{x}'|).
+\end{equation}

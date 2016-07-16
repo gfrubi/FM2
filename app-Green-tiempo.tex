@@ -1,0 +1,220 @@
+\chapter{M'etodo 2: Funci'on de Green dependiente del tiempo}
+\section{Tranformada de Fourier}
+
+ Consideremos una funci'on $\Psi(x^\mu)  $,
+ y definimos su transformada de Fourier $\bar{\Psi}(k^\mu)$ mediante
+ la ecuaci'on%
+ \begin{equation}
+ \Psi(x^\mu)  =\frac{1}{(2\pi)^2}\int \bar\Psi(k^\mu)
+ ~e^{-ik_\mu x^\mu }d^4k,
+ \end{equation}
+ en donde la integraci'on se extiende a todo el espacio
+ (cuadridimensional) $k$. Se incluye el factor $(2\pi)
+ ^{-2}$ en frente a la integral
+ para permitir que la transformaci'on inversa tenga la misma forma:%
+
+ \begin{equation}
+ \bar{\Psi}(k^\mu)  =\frac{1}{(2\pi)^2}\int \Psi(x^\mu)
+ ~e^{ik_\mu x^\mu }d^4x.
+ \end{equation}
+
+ \begin{equation}
+ \delta(z^\mu) =\frac{1}{(2\pi)^4}\int~e^{-ik_\mu z^\mu }d^4k.
+ \end{equation}
+
+ \subsubsection{Funci'on de Green}
+
+ Por definici'on, las funciones de Green $G(z^\mu)$ son soluciones de la ecuaci'on
+ \begin{equation}
+ \Box G(z^\mu)  =\delta(z^\mu)  .
+ \end{equation}
+ \begin{equation}
+ \Psi (x)=\frac{4\pi}{c}\int G\left(x-x'\right) g(x')\,d^4x'
+ \end{equation}
+ La soluci'on de esta ecuaci'on no es 'unica. Si consideramos otra
+ funci'on $\tilde{G}$ que cumple con la ecuaci'on de onda homogen'enea
+ \begin{equation}
+ \Box\tilde{G}(z^\mu)  =0.
+ \end{equation}
+ Sumando podemos obtener%
+ \begin{equation}
+ \Box\left(  G(z^\mu)  +\tilde{G}\left(
+ z^\mu \right) \right)  =\delta(z^\mu)  .
+ \end{equation}
+ Por lo tanto, podemos buscar soluciones particulares para $G$ y
+ ajustar a gusto sumando una soluci'on $\tilde{G}$ de la
+ ecuaci'on homog'enea.
+
+ Para resolver la ecuaci'on de Green, pasamos del espacio
+ coordenado $z^\mu $ al espacio de los momenta $k_\mu $ mediante
+ una transformaci'on
+ de Fourier:%
+ \begin{equation}
+ \Box\left\{  \frac{1}{(2\pi)
+ ^2}\int\bar{G}\left( k_\mu \right)
+ ~e^{-ik_\mu z^\mu }d^4k\right\}  =\frac{1}{\left( 2\pi\right)
+ ^4}\int~e^{-ik_\mu z^\mu }d^4k.
+ \end{equation}
+ Aqu'i, $\Box$ puede operar dentro de la integral:%
+ \begin{align*}
+ \Box e^{-ik_\mu z^\mu }  &
+ =-\partial_{\alpha}\partial^{\alpha}e^{-ik_\mu z^\mu }\\
+ & =-\left(  -ik_{\alpha}\right)  \left(
+ -ik^{\alpha}\right)e^{-ik_\mu z^\mu }\\
+ & =k^2e^{-ik_\mu z^\mu }.
+ \end{align*}
+ Con esto, encontramos que
+ \begin{equation}
+ \frac{1}{(2\pi)  ^2}\int\bar{G}\left(k_\mu \right)
+ k^2e^{-ik_\mu z^\mu }d^4k=\frac{1}{(2\pi)  ^4}%
+ \int~e^{-ik_\mu z^\mu }d^4k,
+ \end{equation}
+ y, por lo tanto,
+ \begin{equation}
+ \bar{G}\left(  k_\mu \right)  =\frac{1}{(2\pi)
+ ^2}\frac {1}{k^2}~.
+ \end{equation}
+ Luego, la soluci'on de la ecuaci'on de Green en el espacio $z$ es
+ \begin{equation}
+ G(z^\mu)  =\frac{1}{(2\pi)  ^4}\int
+ ~\frac{e^{-ik_\mu z^\mu }}{k^2}d^4k,
+ \end{equation}
+ en donde $k^2=k_{\alpha}k^{\alpha}$. Si \ $k^{\alpha}=(k^0,\vec{k}) $,
+ entonces
+ $k_{\alpha}k^{\alpha}=(k^0)^2-\vec{k}^2$, entonces
+ \begin{equation}
+ G(z^\mu)  =\frac{1}{(2\pi)  ^4}\int
+ ~\frac{e^{-ik_\mu z^\mu }}{(k^0)^2-k^2}d^4k.
+ \end{equation}
+ Similarmente, $z^\mu =(x^0,\vec{z})  $ es un cuadrivector. Su producto interno
+ con $k^\mu$ es
+ \begin{equation}
+ k_\mu z^\mu =k^0z^0-\vec{k}\cdot\vec{z}.
+ \end{equation}
+ Separamos las integrales en, espaciales y temporales:%
+ \begin{align}
+ G(z^\mu)    & =\frac{1}{\left(
+ 2\pi\right)^4}\int\frac{e^{-ik_\mu z^\mu }}{(k^0)^2-k^2}d^4k\nonumber\\
+ & =\frac{1}{(2\pi)
+ ^4}\int\frac{e^{-i\left(k^0z^0-\vec{k}\cdot\vec{z}\right)
+ }}{(k^0)^2-k^2}d^4k\nonumber\\
+ & =\frac{1}{(2\pi) ^4}\int e^{i\vec{k}\cdot\vec{z}}\int\frac
+ {e^{-ik^0 z^0}}{(k^0)^2-k^2}dk^0d^3k.\label{R-rela02}%
+ \end{align}
+
+ Veamos primero la integral temporal:%
+ \begin{equation}
+ I=\int_{-\infty}^{\infty}\frac{e^{-ik^0z^0}}{(k^0)^2-k^2}dk^0.
+ \end{equation}
+ Esta integral puede evaluarse usando el teorema de los residuos
+ del
+ an'alisis complejo,%
+ \begin{equation}
+ \oint f\left(  z\right)  dz=2\pi i\sum_{k}\text{Res}\left(
+ f,z_{k}\right)  .
+ \end{equation}
+ \begin{equation}
+ Res(f,a)=\frac{1}{\left(  m-1\right)
+ !}\underset{z\rightarrow a}{\lim}\left\{  \frac{ d^{m-1}}{ d%
+ z^{m-1}}\left[  \left(  z-a\right)  ^{m}f\left(  z\right)  \right]  \right\}
+ \end{equation}
+
+ If we consider the retarded Green's function $G_{\text{ret}}$,
+ which we get by integrating along $\Gamma_1$, we see that
+ for $z^0 < 0$, $G(x,x') = 0$ as we can close the contour
+ in the upper half plane and apply Cauchy's theorem.  For
+ $z^0 > 0$ we have to close the contour in the lower half plane.  In doing
+ this we pick up two poles at $\pm |\vec{k}|$ and can apply the residue
+ theorem.
+
+ The advanced Green's function $G_{\text{adv}}$ is obtained by
+ integrating along $\Gamma_2$.  In this case $G$ is only non-zero
+ for $z^0 > 0$.
+
+ The retarded Green's function agrees with intuitive
+ ideas of causality so we use that.  All we have to do now is
+ evaluate it.
+
+ Los residuos son
+ \begin{equation}
+ \text{Res}\left(  f,\pm k\right)  =\pm \frac{e^{\mp ikz^0}}{2k}.
+ \end{equation}
+ Debemos escoger el contorno de integraci'on. \'{E}ste debe
+ incluir al eje real, el resto del contorno lo escogemos de modo
+ que $f\left(  z\right)  $ se
+ anule all'i. Ver figura (\ref{contornos})
+
+ Usando el teorema del residuo encontramos que, para $z>0$,
+ \begin{figure}[h]
+ \centerline{\psfig{file=fig-contorno-01.eps,height=5cm,angle=0}}
+ \caption{Distintos contornos de integraci'on en el plano complejo.}
+ \label{contornos}
+ \end{figure}
+ \begin{equation}
+ \int_{-\infty}^{\infty}\frac{e^{-ik^0 z^0}}{(k^0)^2-k^2}\,dk^0=\pi
+ i\frac{e^{iz^0k}}{k},
+ \end{equation}
+ donde ya hemos hecho el l'imite $\varepsilon\rightarrow0$.
+ Reemplazando en (\ref{R-rela02}), tenemos%
+ \begin{equation}
+ G(z^\mu)  =\frac{1}{(2\pi)  ^4}\int
+ e^{i\vec{k}\cdot\vec{z}}~\pi i\frac{e^{iz^0k}}{k}~d^3k.
+ \end{equation}
+
+ Ahora veamos la parte espacial. Usamos coordenadas esf'ericas
+ en el espacio $k$, con el eje $k_{3}$ en la direcci'on $\vec{z}$.
+ Ver figura (\ref{R4}).
+ \begin{figure}[h]
+ \centerline{\psfig{file=fig-espacio-k.eps,height=5cm,angle=0}}
+ \caption{Coordenadas esf'ericas en el espacio $\vec{k}$.}
+ \label{R4}
+ \end{figure}
+
+ Llamando $r=\left\vert \vec{z}\right\vert $, tenemos%
+ \begin{align*}
+ G(z^\mu)    & =\frac{\pi i}{(2\pi)
+ ^4}\int
+ _{0}^{\infty}\int_{0}^{\pi}\int_{0}^{2\pi}\frac{1}{k}e^{ikr\cos\theta
+ }~e^{iz^0k}~k^2dk\sin\theta d\theta d\varphi\\
+ & =\frac{2\pi^2i}{(2\pi)
+ ^4}\int_{0}^{\infty}\int_{0}^{\pi
+ }e^{ikr\cos\theta}~~\sin\theta d\theta e^{iz^0k}kdk\\
+ & =\frac{-1}{8\pi^2r}\int_{0}^{\infty}\left.  \left(
+ e^{ikr\cos\theta
+ }\right)  \right\vert _{\theta=0}^{\theta=\pi}~e^{iz^0k}dk\\
+ & =\frac{-1}{8\pi^2r}\int_{0}^{\infty}\left(  e^{ikr\left(
+ z^0-r\right) }-e^{ikr\left(  z^0+r\right)  }\right)  dk.
+ \end{align*}
+  En resumen,%
+ \begin{equation}
+ G(z^\mu)  =\frac{-1}{8\pi^2r}\left\{
+ \int_{-\infty}^{\infty }e^{ikr\left(  z^0-r\right)
+ }dk-\int_{-\infty}^{\infty}e^{ikr\left( z^0+r\right)
+ }dk\right\}  .
+ \end{equation}
+ De las propiedades de la delta de Dirac, obtenemos que%
+ \begin{equation}
+ G(z^\mu)  =\frac{-1}{8\pi^2r}\left\{
+ 2\pi\delta\left( z^0-r\right)  -2\pi\delta\left(  z^0+r\right)
+ \right\}  .
+ \end{equation}
+ Pero, puesto que $z^0+r=ct+r$ es siempre positivo, entonces
+ $\delta\left(
+ z^0+r\right)  =0$. Por lo tanto,%
+ \begin{equation}
+ G_{\rm ret}(z^\mu)  =\frac{1}{4\pi r}\delta\left(
+ z^0-r\right)  .
+ \end{equation}
+ Usando
+ \begin{equation}
+ \delta\left(  x^2-a^2\right)  =\frac{1}{2a}\left\{
+ \delta\left( x-a\right)  +\delta\left(  x+a\right)  \right\}  ,
+ \end{equation}
+ y  tomando en cuenta que $z_\mu z^\mu =(z^0)^2-r^2$, podemos escribir
+ \begin{equation}
+ G_{\rm ret}(z^\mu)  =\frac{\Theta(z_0)}{2\pi}\delta(z_\mu z^\mu) .
+ \end{equation}
+ Por lo que,%
+ \begin{equation}
+ \Psi_{\rm ret}(x)=\frac{2}{c}\int\Theta(x_0-x'_0)\delta\left[(x^{\alpha}-x^{\prime\alpha})  (x_{\alpha}-x_{\alpha }')\right] g(x^{\prime\alpha})\,d^4x'.\label{R-rela04}%
+ \end{equation}

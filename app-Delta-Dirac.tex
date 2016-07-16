@@ -1,0 +1,210 @@
+\chapter{La Delta de Dirac}\label{app:Dirac}
+\section{La funci'on $\delta$}
+Decimos que $\delta(x)$ es una \textit{delta de Dirac}, si
+\begin{equation}
+\delta (x-a) = 0\quad \forall x\not = a,
+\end{equation}
+donde $a\in {\bf R}$, pero
+\begin{equation}
+\int_b^cf(x)\delta(x-a) d x = \left\{\begin{array}{ccl}
+ 0 & \text{si} & x\notin (b,c) ,\\
+f(a)& \text{si} & x\in (b,c) ,
+\end{array}\right.
+\end{equation}
+para toda funci'on $f$ de clase $C^1$.
+
+ La noci'on general de una delta de Dirac es que 'esta se anula para todo punto,
+excepto en $x=a$, y que all'i ``asume un valor divergente'', pero tal que
+\begin{equation}
+  \int_{-\infty}^{\infty}\delta(x-a)d x = 1.
+ \end{equation}
+ La delta de Dirac, que en realidad no es una funci'on en sentido estricto,
+puede ser entendida como el \textit{l'imite de una sucesi'on de funciones}.
+Por ejemplo, si definimos
+\begin{equation}
+  D_n(x-a) := \sqrt\frac n\pi\cdot e^{-n(x-a)^2}, \qquad n=1,2,3,\dots,
+\end{equation}
+entonces es posible probar que
+\begin{equation}
+\int_{-\infty}^{\infty}D_n(x) d x =  1,
+\end{equation}
+y adem'as
+\begin{equation}
+\lim_{n\to\infty} D_n(x) =  \left\{\begin{array}{l}0 \quad \forall x\neq
+a,\\\infty \quad \text{para }      x=a.\end{array}\right.
+\end{equation}
+\begin{equation}
+\lim_{n\to\infty}\int_b^cD_n(x)f(x)d x = \left\{\begin{array}{ccl}
+ 0 & \text{si} & x\notin (b,c) ,\\
+f(a)& \text{si} & x\in (b,c) .
+\end{array}\right.
+\end{equation}
+Por lo tanto, escribimos
+\begin{equation}
+  \lim_{n\to\infty}D_n(x)=\delta(x-a).
+ \end{equation}
+ Una descripci'on matem'aticamente consistente de la delta de Dirac puede ser
+dada en el marco de la teor'ia de distribuciones.
+
+Otros ejemplos de sucesiones de funciones que convergen a una Delta de Dirac $\delta(x)$ son:
+\begin{equation}
+D_n(x)=\frac{n}{\pi}\frac{1}{1+n^2x^2},
+\end{equation}
+\begin{equation}
+D_n(x)=\frac{1}{n\pi}\frac{\sen^2(nx)}{x^2}.
+\end{equation}
+
+
+\subsection{Derivada de la delta de Dirac}
+
+Considerando la funci'on $\delta$ como si fuese una funci'on normal,
+encontramos, integrando por partes, que
+\begin{equation}
+  \int_{-\infty}^{\infty}\underbrace{\delta'(x-a)}_{:=\frac{d}{dx}
+   \delta(x-a)} f(x)d x =\underbrace{[\delta(x-a)
+   f(x)]_{-\infty}^{\infty}}_{=0}
+  -\int_{-\infty}^{\infty}\delta(x-a)f'(x)d x = -f'(a),
+ \end{equation}
+es decir,
+\begin{equation}
+  \int_{-\infty}^{\infty}\delta'(x-a) f(x) d x = -f'(a).
+ \end{equation}
+
+\section{Delta de Dirac evaluada en una funci'on y cambios de variable}
+Por otro lado, de las reglas de cambio de variables, obtenemos
+\begin{equation}
+\boxed{  \delta(g(x)) = \sum_i\frac{\delta(x-x_i)}{\left|g'(x)\right|},}
+ \end{equation}
+ donde $x_i$ son las soluciones nulas (simples!) de $g$, e.d., que satisfacen
+$g(x)=0$.
+
+Por ejemplo,
+\begin{equation}
+\boxed{\delta(a x) = \frac{1}{\mid a \mid} \delta(x).}\label{deltaax}
+\end{equation}
+Esto puede probarse de la forma siguiente: Si $a > 0$ el cambio de variable de
+integraci'on $y = a x$ conduce a
+\begin{equation}
+\int_{- \infty}^{\infty} \delta(a x) f(x)\,d x =
+\int_{- \infty}^{\infty} \delta(y) f(\frac{y}{a})\,dy = \frac{1}{a} f(0) =
+\int_{- \infty}^{\infty} \frac{1}{a} \delta(x) f(x) \,dx.
+\end{equation}
+Si $a < 0$, entonces el mismo cambio de variable conduce a
+\begin{equation}
+\int_{- \infty}^{\infty} \delta(a x) f(x)\,dx =
+\int_{\infty}^{- \infty} \delta(y) f(\frac{y}{a})\,dy = - \frac{1}{a} f(0) =
+- \int_{- \infty}^{\infty} \frac{1}{a} \delta(x) f(x)\,dx.
+\end{equation}
+Estos dos resultados son equivalentes a la identidad (\ref{deltaax}).
+
+Como caso particular, si $a=-1$ (\ref{deltaax}), encontramos
+\begin{equation}
+\boxed{\delta(-x) = \delta(x),}
+\end{equation}
+e.d., la funci'on $\delta$ es una funci'on par.
+
+\subsection{Otras identidades}
+La identidad
+\begin{equation}
+\boxed{s(x + a) \delta(x) = s(a) \delta(x),}\label{sdelta}
+\end{equation}
+donde $s(x)$ es una funci'on continua y $a$ una constante, se sigue de
+\begin{equation}
+\int_{- \infty}^{\infty} s(x + a) \delta(x) f(x)\,dx = s(a) f(0) =
+\int_{- \infty}^{\infty} s(a) \delta(x) f(x)\,dx .
+\end{equation}
+Un caso particular de (\ref{sdelta}) es
+\begin{equation}
+\boxed{x \delta(x) = 0 .}
+\end{equation}
+
+\subsection{Representaci'on integral}\label{sec:DiracFourier}
+La expresi'on
+\begin{equation}
+\boxed{\delta(x) = \frac{1}{2 \pi} \int_{-\infty}^{\infty} e^{i k x}\,d k}
+\label{DiracFourier}
+\end{equation}
+puede ser derivada de la siguiente forma: La transformada de Fourier
+$\tilde{f}(k)$ de una funci'on $f(x)$ es definida por
+\begin{equation}
+f(x) = \frac{1}{2 \pi} \int_{- \infty}^{\infty} e^{i k x } \tilde{f}(k)\,dk ,
+\label{Fourier1}
+\end{equation}
+donde
+\begin{equation}
+ \tilde{f}(k) := \int_{- \infty}^{\infty} e^{- i k x } f(x)\,dx.
+\end{equation}
+Para $f(x)=\delta(x)$ obtenemos
+\begin{equation}
+ \tilde{f}(k) := \int_{- \infty}^{\infty} e^{- i k x } \delta(x)\,dx=\left.e^{-
+i k x}\right|_{x=0}=1,
+\end{equation}
+de modo que (\ref{Fourier1}) se reduce a (\ref{DiracFourier}).
+
+\subsection{La delta de Dirac tridimensional}
+ La definici'on de la delta de Dirac tridimensional $\delta^{(3)}(\vec x-\vec
+a)$ es an'aloga a aquella de la versi'on unidimensional:
+\begin{equation}
+  \delta^{(3)}(\vec x-\vec a) = 0,\qquad \forall\  \vec x\not=\vec a ,
+\end{equation}
+pero
+\begin{equation}
+  \int_V \delta^{(3)}(\vec x-\vec a) f(\vec x)\,dV = \left\{\begin{array}{ccl}
+ 0 & \text{si} & \vec{a}\notin V ,\\
+f(\vec{a})& \text{si} & \vec{a}\in V .
+\end{array}\right.
+\end{equation}
+ Esta definici'on puede ser usada, por ejemplo, para describir la densidad
+de carga de una carga puntual situada en $\vec{x}'$:
+\begin{equation}
+  \rho(\vec{x}) = q\,\delta^{(3)}(\vec x-\vec{x}'),
+ \end{equation}
+de modo que
+\begin{equation}
+ \int_{R^3}\rho(\vec x)\, dV= q.
+\end{equation}
+ Adem'as, la siguiente identidad es de mucha utilidad:
+\begin{equation}
+  \boxed{\nabla^2\frac 1{|\vec x-\vec x'|} = -4\pi\,\delta^3(\vec x-\vec x').}
+\label{dreid1}
+\end{equation}
+Para probar esta identidad, debe mostrarse que: a) $\nabla^2\frac 1{|\vec x-\vec
+x'|}=0$, $\forall\ \vec x\not= \vec x'$, lo que puede ser directamente
+comprobado calculando las derivadas respectivas, y b)  $\int_V
+f(\vec x)\nabla^2\frac 1{|\vec x-\vec x'|}\, dV=-4\pi f(\vec x')$  para
+cualquier funci'on de clase $C^1$ en el volumen $V$, que contiene el punto $\vec
+x'$. Para probar esto 'ultimo, es conveniente usar coordenadas esf'ericas
+centradas en el punto $\vec x'$, de modo que $\frac 1{|\vec x-\vec
+x'|}=\frac{1}{r}$. Adem'as, como la propiedad a) es v'alida es posible
+reemplazar el dominio de integraci'on $V$ (que incluye el punto $\vec x'$) por
+una esfera $E$ de radio $R$, centrada en $\vec x'$, de modo que
+\begin{eqnarray}
+  \int_V f(\vec{x})\nabla^2\frac 1r\, dV &=&
+  \int_E f(\vec{x})\nabla^2\frac 1r\, dV \\
+&=&\int_E f(\vec
+x)\vec\nabla\cdot\left(\vec\nabla\frac {1}{r}\right) \, dV\\
+&=&
+\int_E\left[\vec\nabla\cdot\left(f\vec\nabla\frac{1}{r}\right)-\vec\nabla
+f\cdot \vec\nabla\frac{1}{r}\right]\,
+dV\\
+&=& \oint_{\partial E}\left(f\vec\nabla\frac{1}{r}\right)\cdot
+d\vec{S}
+-\int_E \vec\nabla f\cdot \vec\nabla\frac{1}{r}\, dV\\
+&=& -\oint_{\partial E}f\frac{1}{r^2}\, (\hat{r}\cdot d\vec{S})
++\int_E (\vec\nabla f\cdot\hat{r})\frac{1}{r^2}\, dV\\
+&=& -\oint_{\partial E}f\frac{1}{r^2}\, dS
++\int_E \frac{\partial f}{\partial r}\frac{1}{r^2}\, dV \\
+&=& -\oint_{\partial E}f\, d\Omega
++\int_E \frac{\partial f}{\partial r}\, drd\Omega .
+\end{eqnarray}
+Si $f$ es una funci'on de clase $C^1$, ambos t'erminos son finitos y su suma es
+independiente de $R$. En el l'imite $R\rightarrow 0$, el primer t'ermino tiende
+a $-f|_{r=0}\oint d\Omega=-4\pi f(\vec x')$, mientras que el segundo tiende a
+cero debido a la integral sobre la variable $r$, desde $r=0$ hasta $r=R$. De
+este modo, obtenemos
+\begin{eqnarray}
+  \int_V f(\vec{x})\nabla^2\frac 1r\, dV &=& \lim_{R\rightarrow
+0}\left[-\oint_{\partial E}f\, d\Omega+\int_E \frac{\partial f}{\partial r}\,
+drd\Omega \right]\\
+&=& -4\pi f(\vec x')+0.
+\end{eqnarray}
