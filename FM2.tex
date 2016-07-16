@@ -1,0 +1,140 @@
+\documentclass[letterpaper,11pt]{report}
+\usepackage{epsfig,epstopdf}
+\usepackage{float,captdef,multicol,amssymb,amsmath,amsfonts,fancybox}
+\usepackage[activeacute,spanish]{babel}
+%\usepackage[latin1]{inputenc}
+\usepackage[colorlinks]{hyperref}
+
+\usepackage{cancel}
+\usepackage{marginnote}
+\renewcommand*{\marginnotevadjust}{-0.1cm}
+\renewcommand*{\marginfont}{\footnotesize}
+%\renewcommand*{\marginfont}{\tiny}
+\usepackage[right=4.5cm,left=2cm,top=2cm,bottom=2cm,headsep=0.7cm,footskip=0.5cm]{geometry}
+
+%\usepackage[notref]{showkeys} % muestra los labels de las referencias.
+
+\def\refname{Referencias}
+\def\abstractname{Resumen}
+\def\bibname{Referencias}
+\def\chaptername{Cap{\'\i}tulo}
+\def\appendixname{Ap'endice}
+\def\contentsname{\'Indice}
+\def\listfigurename{\'Indice de Figuras}
+\def\listtablename{\'Indice de Tablas}
+\def\indexname{\'Indice de Materias}
+\def\figurename{Figura}
+\def\tablename{Tabla}
+\def\partname{Parte}
+\def\enclname{Adjunto}
+\def\ccname{Copia a}
+\def\headtoname{A}
+\def\headpagename{P\'agina}
+\def\today{\number\day~de\space\ifcase\month\or
+ enero\or febrero\or marzo\or abril\or mayo\or junio\or
+ julio\or agosto\or septiembre\or octubre\or noviembre\or diciembre\fi
+ \space de~\number\year}
+
+
+%\topmargin -0.5cm  %regula margen superior (desde donde comienza a escribir)
+%\headheight 10pt
+%\headsep 0.6cm
+%\textheight 22.5cm %regula el alto del texto
+
+
+
+\begin{document}
+
+\thispagestyle{empty}
+\begin{center}
+
+\ 
+
+\vspace{6.5cm}
+
+\rule{15cm}{0.1cm}
+
+\vspace{1.5cm}
+
+{\huge \textsc{\textbf{F\'ISICA MATEM\'ATICA II}}}
+
+\vspace{1.5cm}
+
+\rule{15cm}{0.1cm}
+
+\vspace{1.5cm}
+
+Versi'on del \today
+
+\end{center}
+
+
+\newpage
+\thispagestyle{empty}
+\ \\
+\newpage
+\setcounter{page}{1}
+\pagenumbering{roman}
+
+\pagestyle{plain}
+\chapter*{Prefacio}
+\addcontentsline{toc}{chapter}{Prefacio}
+\bigskip
+\bigskip
+\bigskip
+\bigskip
+\bigskip
+\bigskip
+
+
+
+\bigskip\emph{Este apunte se confeccion'o con contribuciones de Guillermo Rubilar, Oscar Fuentealba, y parte del c'odigo \LaTeX\, de los apuntes de Sean Mauch \cite{Mauch}.} 
+
+\bigskip
+\bigskip
+\bigskip
+\bigskip
+\bigskip
+
+
+
+\textbf{Anti-Copyright:} No se reserva ning'un derecho. Cualquier parte de esta obra puede ser usada, almacenada y/o transmitida, y modificada sin requerir permiso.
+
+
+
+\bigskip
+\bigskip
+\bigskip
+\bigskip
+\bigskip
+
+
+
+
+
+\emph{\textquotedblleft ...As\'i, nosotros los mortales, somos
+inmortales en lo que creamos en com\'un."}
+
+\begin{flushright}
+Albert Einstein.
+\end{flushright}
+\newpage
+
+\tableofcontents
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+\input{./cap-Fourier.tex}
+\input{./cap-EDPF.tex}
+\input{./cap-MSV.tex}
+\input{./cap-Legendre.tex}
+\input{./cap-Bessel.tex}
+\input{./cap-Green.tex}
+\input{./cap-tensores-cartesianos.tex}
+\appendix
+\input{./app-funciones-especiales.tex}
+\input{./app-Delta-Dirac.tex}
+\input{./app-Coordenadas-Curvilineas.tex}
+\input{./bibliografia.tex}
+
+\end{document}
