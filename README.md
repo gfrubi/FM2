@@ -6,7 +6,7 @@ Este apunte ha sido escrito con contribuciones [G. Rubilar](https://google.com/+
 
 Esta obra ha sido publicada bajo una [licencia GPL v3](https://github.com/gfrubi/GR/blob/master/LICENSE).
 
-Puede descargar el archivo pdf compilado directamente desde [aquí](https://github.com/gfrubi/FM2/raw/master/FM2.pdf)
+Puede descargar el archivo pdf compilado directamente desde [aquí](https://github.com/gfrubi/FM2/raw/master/FM2.pdf).
 
 
 Otros apuntes en https://github.com/gfrubi
