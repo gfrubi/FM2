@@ -31,7 +31,7 @@ Equivalentemente, $f(\theta)$ puede expandirse en t'erminos proporcionales a las
 \begin{equation}\label{sf2}
 f(\theta)=\sum_{n=-\infty}^\infty c_n e^{i n\theta},
 \end{equation}
-donde los coeficientes $c_n$ est'an dados por
+donde los coeficientes (complejos) $c_n$ est'an dados por
 \begin{equation}
 c_n =\frac{1}{2\pi}\int_{-\pi}^\pi f(\theta) e^{-in\theta}\,d\theta .
 \end{equation}
@@ -39,7 +39,7 @@ Lo anterior puede ser verificado a partir de (\ref{sf1}), (\ref{cf1}) y (\ref{cf
 \begin{equation}
 \int_{-\pi}^\pi e^{i n\theta} e^{-i m \theta}\,d\theta =2\pi\delta_{nm}.
 \end{equation}
-Los coeficientes de la series (\ref{sf1}) y (\ref{sf2}) est'an relacionados por
+Los coeficientes de las series (\ref{sf1}) y (\ref{sf2}) est'an relacionados por
 \begin{equation}c_n = 
 \begin{cases}
 \frac{1}{2}(a_n - i b_n)\quad &\text{para } n\geq 0,\\
@@ -112,6 +112,8 @@ podemos graficar algunas funciones $S_n$ que, a medida que $n$ aumenta, se acerc
 
 \subsection{Convoluci'on}
 
+La relaci'on o ``Teorema'' de Convoluci'on establece una relaci'on entre los coeficientes $C_{n}^{(1\cdot 2)}$ de la expansi'on de Fourier de la funci'on producto $f_1(\theta)f_2(\theta)$ y los respectivos coeficientes $C_{n}^{(1)}$ y $C_{n}^{(2)}$ de las funciones $f_1(\theta)$ y $f_2(\theta)$.
+
 \begin{align}
 c_n^{(1\cdot 2)} &= \frac{1}{2\pi}\int_{-\pi}^\pi f_1(\theta)f_2(\theta)e^{-in\theta}\,d\theta \\
  &= \frac{1}{2\pi}\sum_m \int_{-\pi}^\pi f_1(\theta)C_m^{(2)}e^{im\theta}e^{-in\theta}\,d\theta \\
@@ -134,33 +136,37 @@ Si elegimos $f_1(\theta)=f^\ast (\theta)$, $f_2(\theta)=f(\theta)$ y $n=0$ en (\
 \subsection{Convergencia}
 
 \begin{itemize}
-\item Una sucesi'on $S_n(x)$ de funciones definidas en el intervalo $x\in[-\pi,\pi]$ \textit{converge en media} a una funci'on $f(x)$ si
+\item Una sucesi'on $S_n(\theta)$ de funciones definidas en el intervalo $\theta\in[-\pi,\pi]$ \textit{converge en media} a una funci'on $f(\theta)$ si
 \begin{equation}
-\lim_{n\to\infty}\int_{-\pi}^{\pi}\left[f(x)-S_n(x)\right]^2dx=0.
+\lim_{n\to\infty}\int_{-\pi}^{\pi}\left[f(\theta)-S_n(\theta)\right]^2d\theta=0.
 \end{equation}
 
-``La sucesi'on $S_n$ converge a $f(x)$ excepto en un conjunto de medida cero''
-\item Una sucesi'on $S_n(x)$ de funciones \textit{converge uniformemente} a una funci'on $f(x)$ si para todo $\epsilon>0$ existe un $N>0$ tal que
+``La sucesi'on $S_n$ converge a $f(\theta)$ excepto en un conjunto de medida cero''
+\item Una sucesi'on $S_n(\theta)$ de funciones \textit{converge uniformemente} a una funci'on $f(\theta)$ si para todo $\epsilon>0$ existe un $N>0$ tal que
 \begin{equation}
-\left|f(x)-S_n(x)\right|<\epsilon, \qquad \forall n>N,
+\left|f(\theta)-S_n(\theta)\right|<\epsilon, \qquad \forall n>N,
 \end{equation}
-para cada $x$ ($N$ independiente de $x$).
+para cada $\theta$ ($N$ independiente de $\theta$).
 \end{itemize}
-Teorema \cite{Butkov}: Si $f(x)$ es una funci'on es ``muy suave por tramos'' (es decir, si la funci'on, su primera y segunda derivadas son continuas por tramos) en el intervalo $(-\pi,\pi)$ entonces su serie de Fourier converge a
+
+\textbf{Teorema 1} \cite{Butkov}: Si $f(\theta)$ es una funci'on es ``muy suave por tramos'' (es decir, si la funci'on, su primera y segunda derivadas son continuas por tramos) en el intervalo $(-\pi,\pi)$ entonces su serie de Fourier converge a
 \begin{equation}
-\frac{1}{2}\left[f(x-0)+f(x+0)\right], \qquad x\in (-\pi,\pi),
+\frac{1}{2}\left[f(\theta-0)+f(\theta+0)\right], \qquad \theta\in (-\pi,\pi),
 \end{equation}
 \begin{equation}
-\frac{1}{2}\left[f(-\pi+0)+f(\pi-0)\right], \qquad x=\pm\pi .
+\frac{1}{2}\left[f(-\pi+0)+f(\pi-0)\right], \qquad \theta=\pm\pi .
 \end{equation}
-La convergencia es \textit{uniforme} en cada subintervalo cerrado donde $f(x)$ es continua.
+La convergencia es \textit{uniforme} en cada subintervalo cerrado donde $f(\theta)$ es \textit{continua}.
 
-Teorema \cite{Butkov}: Si una funci'on definida en un intervalo cerrado $[a,b]$ satisface las condiciones de Dirichlet (es decir, si a) $f(x)$ es continua por tramos, y b) el intervalo $(a,b)$ puede ser dividido en un n'umero finito de subinteralos donde $f(x)$ es monotona) entonces tambi'en se satisfacen las propiedades de convergencia del Teorema 1.
+\textbf{Teorema 2} \cite{Butkov}: Si una funci'on definida en un intervalo cerrado $[a,b]$ satisface las condiciones de Dirichlet (es decir, si $f(\theta)$ es continua por tramos, y si el intervalo $(a,b)$ puede ser dividido en un n'umero finito de subinteralos donde $f(\theta)$ es monotona) entonces tambi'en se satisfacen las propiedades de convergencia del Teorema 1.
 
-Teorema \cite{Butkov}: Si la funci'on $f(x)$ es \textit{cuadrado-integrale} en $(-\pi,\pi)$ ($f\in {\cal L}^2(-\pi,\pi)$, es decir, si $\int_{-\pi}^\pi|f(x)|^2dx$ es finito) entonces su serie de Fourier converge en media a $f(x)$.
+\textbf{Teorema 3} \cite{Butkov}: Si la funci'on $f(\theta)$ es \textit{cuadrado-integrable} en $(-\pi,\pi)$ ($f\in {\cal L}^2(-\pi,\pi)$, es decir, si $\int_{-\pi}^\pi|f(\theta)|^2d\theta$ es finito) entonces su serie de Fourier \textit{converge en media} a $f(\theta)$.
 
-Esto no cubre todas las posibilidades de covergencia! Ej. $f(x)=\ln(\cos(x/2))$ (Butkov, pag.  168)
+\textbf{Ojo!:} Esto no cubre todas las posibilidades de convergencia! Ej. $f(\theta)=\ln(\cos(\theta/2))$ (Ver \cite{Butkov}, pag.  168).
 
+\subsection{Fen'omeno de Gibbs}
+
+Si la funci'on $f(\theta)$, continua por tramos, posee una discontinuidad en un punto $\theta_0$, si bien la serie truncada converge uniformemente en puntos en la vecindad de $\theta_0$, 'esta siempre sobreestima/subestima el valor de la funci'on en puntos cercanos a $\theta_0$. La regi'on donde ocurre esta sobreestimaci'on/subestimaci'on es cada vez m'as peque\~na a medidad que se agregan t'erminos a la serie truncada, pero el monto de la sobreestimaci'on/subestimaci'on es siempre finito. De hecho, se puede mostrar\footnote{Ver por ejemplo \cite{Arfken}, cap'itulo 14.} que la serie de Fourier sobreestima el ``salto'' de la funci'on en la discontinuidad por aproximadamente $17.9\%$.
 
 \section{Cambio de Intervalo}
 Es simple extender los resultados anteriores al caso de funciones peri'odicas de periodo arbitrario. Si $f(t)$ es una funci'on de periodo $T=b-a$ entonces
