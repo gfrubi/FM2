@@ -244,22 +244,24 @@ f(t) =\int_{-\infty}^\infty\left[\frac{1}{2\pi}\int_{-\infty}^\infty
 \end{equation}
 a partir de la cual podemos definir la \textbf{transformada de Fourier} de la funci'on $f(t)$ como
 \begin{equation}\label{TFf}
-\boxed{\tilde{f}(\omega) :=\frac{1}{\sqrt{2\pi}}\int_{-\infty}^\infty f(t) e^{-i\omega t}\,dt,}
+\boxed{\tilde{f}(\omega) :=\int_{-\infty}^\infty f(t) e^{-i\omega t}\,dt,}
 \end{equation}
 de modo que la ``transformada inversa'' resulta ser
 \begin{equation}\label{TFIf}
-\boxed{f(t)=\frac{1}{\sqrt{2\pi}}\int_{-\infty}^\infty\tilde{f}(\omega) e^{i\omega t} \,d\omega.}
+\boxed{f(t)=\frac{1}{2\pi}\int_{-\infty}^\infty\tilde{f}(\omega) e^{i\omega t} \,d\omega.}
 \end{equation}
+
+
 
 Observaciones:
 
 \begin{itemize}
 \item Cuidado! La derivaci'on anterior es ``heur'istica'' (e.d. no rigurosa). 
-\item Otras notaciones: $\tilde{f}(\omega)=g(\omega)={\cal F}(f(t))$.
-\item El factor $1/\sqrt{2\pi}$ en las definiciones (\ref{TFf}) y (\ref{TFIf}) es hasta cierto punto convencional. Lo importante es la identidad (\ref{idfnp}). Por ejemplo, en lugar de estos factores, podr'ia introducirse $\alpha$ en (\ref{TFf}) y $1/2\pi\alpha$ en (\ref{TFIf}), con una constante $\alpha$ arbitraria. Algunas elecciones populares son $\alpha=1$ y $\alpha=1/2\pi$.
+\item Otras notaciones: $\tilde{f}(\omega)=g(\omega)={\cal F}(f)(\omega)$.
+\item El factor $1/2\pi$ en la definici'on (\ref{TFIf}) es hasta cierto punto convencional. Lo importante es la identidad (\ref{idfnp}). Por ejemplo, en lugar de estos factores, podr'ia introducirse $\alpha$ en (\ref{TFf}) y $1/2\pi\alpha$ en (\ref{TFIf}), con una constante $\alpha$ arbitraria. Otras elecciones populares son $\alpha=1$ y $\alpha=1/\sqrt{2\pi}$.
 \item Note que en (\ref{TFIf}) la integral se extiende sobre ``frecuencias positivas y negativas''.
 \item Compare (\ref{TFf}) con la definici'on de la \textbf{transformada de Laplace}: $F(s):=\int_0^\infty f(t)e^{-st}dt$.
-\item En F'isica es costumbre denotar, en el caso en que se considere una funci'on de la posici'on, $f(t)\to f(x)$ y usar el \textit{n'umero de onda} $k$ en lugar de la frecuecia $\omega$, de modo que la expansi'on adopta la forma $f(x)=(1/\sqrt{2\pi})\int_{-\infty}^\infty\tilde{f}(k) e^{ikx} \,dk.$
+\item En F'isica es costumbre denotar, en el caso en que se considere una funci'on de la posici'on, $f(t)\to f(x)$ y usar el \textit{n'umero de onda} $k$ en lugar de la frecuecia $\omega$, de modo que la expansi'on adopta la forma $f(x)=(1/{2\pi})\int_{-\infty}^\infty\tilde{f}(k) e^{ikx} \,dk.$
 \end{itemize}
 
 \subsection{Ejemplo: Distribuci'on Gaussiana}
@@ -269,8 +271,8 @@ f(t):=N e^{-\alpha t^2}, \qquad \alpha>0,
 \end{equation}
 entonces su transformada de Fourier es dada por
 \begin{align}
-\tilde{f}(\omega)=&\frac{N}{\sqrt{2\pi}}\int_{-\infty}^{\infty}e^{-\alpha t^2} e^{-i \omega t}dt\notag \\
-=&\frac{N}{\sqrt{2\pi}}\int_{-\infty}^{\infty}e^{-\alpha t^2-i\omega t} dt.
+\tilde{f}(\omega)=&N\int_{-\infty}^{\infty}e^{-\alpha t^2} e^{-i \omega t}dt\notag \\
+=&N\int_{-\infty}^{\infty}e^{-\alpha t^2-i\omega t} dt.
 \end{align}
 Notando que
 \begin{align}
@@ -281,12 +283,12 @@ Notando que
 \end{align}
 se halla entonces que
 \begin{align}
-\tilde{f}(\omega)=&\frac{N}{\sqrt{2\pi}}\int_{-\infty}^{\infty}e^{-\alpha \left( t+\frac{i\omega}{2\alpha} \right)^2-\left(\frac{\omega^2}{4\alpha}\right)}dt\notag\\
-=&\frac{N e^{-\frac{\omega^2}{4\alpha}}}{\sqrt{2\pi}}\int_{-\infty}^{\infty}e^{-\alpha \left( t+\frac{i\omega}{2\alpha} \right)^2}dt,
+\tilde{f}(\omega)=&N\int_{-\infty}^{\infty}e^{-\alpha \left( t+\frac{i\omega}{2\alpha} \right)^2-\left(\frac{\omega^2}{4\alpha}\right)}dt\notag\\
+=&N e^{-\frac{\omega^2}{4\alpha}}\int_{-\infty}^{\infty}e^{-\alpha \left( t+\frac{i\omega}{2\alpha} \right)^2}dt,
 \end{align}
 pero haciendo el cambio de variables $x:=\sqrt{\alpha}(t+i\omega/4\alpha)$, entonces $dx=\sqrt{\alpha}\,dt$, luego
 \begin{align}
-\tilde{f}(\omega)=\frac{N e^{-\frac{\omega^2}{4\alpha}}}{\sqrt{2\pi}}\int_{-\infty}^{\infty}e^{-x^2} \frac{dx}{\sqrt{\alpha}}.
+\tilde{f}(\omega)=N e^{-\frac{\omega^2}{4\alpha}}\int_{-\infty}^{\infty}e^{-x^2} \frac{dx}{\sqrt{\alpha}}.
 \end{align}
 Adem'as, recordando que
 \begin{align}
@@ -294,7 +296,7 @@ Adem'as, recordando que
 \end{align}
 encontramos que
 \begin{equation}\label{Tfgauss}
-\tilde{f}(\omega)=\frac{N}{\sqrt{2\alpha}}e^{-\frac{\omega^2}{4\alpha}}.
+\tilde{f}(\omega)=N\sqrt{\frac{\pi}{\alpha}}e^{-\frac{\omega^2}{4\alpha}}.
 \end{equation}
 \begin{figure}[h]
 \centering
@@ -302,7 +304,9 @@ encontramos que
 \caption{Distribuci'on gaussiana y su transformada de Fourier con $N=1$ y $\alpha=1$.}
 \label{im:gaussiana}
 \end{figure}
-%
+
+*** cambio convenci'on! listo hasta aqu'i ***
+
 \section{Propiedades de la Transformada de Fourier} 
 \subsection{Delta de Dirac}
 \begin{align}
