@@ -305,15 +305,14 @@ encontramos que
 \label{im:gaussiana}
 \end{figure}
 
-*** cambio convenci'on! listo hasta aqu'i ***
 
 \section{Propiedades de la Transformada de Fourier} 
 \subsection{Delta de Dirac}
 \begin{align}
 {\cal F}[\delta(t-\xi)] 
- &=\frac{1}{\sqrt{2\pi}}\int_{-\infty}^\infty\delta(t-\xi) e^{-i\omega t}\,dt 
+ &=\int_{-\infty}^\infty\delta(t-\xi) e^{-i\omega t}\,dt 
 \\
- &=\frac{1}{\sqrt{2\pi}} e^{-i\omega\xi}
+ &=e^{-i\omega\xi} \label{Fd}
 \end{align}
 \begin{equation}
 \boxed{ 
@@ -324,11 +323,11 @@ encontramos que
 \subsection{Transformada de Fourier de la derivada de una funci'on}
 \begin{align}
 {\cal F}[f'(t)]
- &=\frac{1}{\sqrt{2\pi}}\int_{-\infty}^\infty f'(t) e^{-i\omega t}\,dt \\
- &=\left[\frac{1}{\sqrt{2\pi}} f(t) e^{-i\omega x}\right]_{-\infty}^\infty
- -\frac{1}{\sqrt{2\pi}}\int_{-\infty}^\infty (-i\omega) f(t) e^{-i\omega t}\,dt \\
- &=\left[\frac{1}{\sqrt{2\pi}} f(t) e^{-i\omega x}\right]_{-\infty}^\infty+ i\omega\frac{1}{2\pi}\int_{-\infty}^\infty f(t) e^{-i\omega t}\,dt \\
- &= i\omega{\cal F}[f(t)]+\left.\frac{1}{\sqrt{2\pi}} f(t) e^{-i\omega x}\right|_{-\infty}^\infty.\label{eq:trans-fourier-derivada-gen}
+ &=\int_{-\infty}^\infty f'(t) e^{-i\omega t}\,dt \\
+ &=\left[ f(t) e^{-i\omega x}\right]_{-\infty}^\infty
+ -\int_{-\infty}^\infty (-i\omega) f(t) e^{-i\omega t}\,dt \\
+ &=\left[ f(t) e^{-i\omega x}\right]_{-\infty}^\infty+ i\omega\int_{-\infty}^\infty f(t) e^{-i\omega t}\,dt \\
+ &= i\omega{\cal F}[f(t)]+\left. f(t) e^{-i\omega x}\right|_{-\infty}^\infty.\label{eq:trans-fourier-derivada-gen}
 \end{align}
 Entonces, \textit{si la funci'on $f(t)$ se anula en el infinito}, es decir si $\lim_{t\to\pm\infty}f(t)=0$, tendremos que
 \begin{equation}
@@ -342,11 +341,13 @@ Aplicaci'on sucesiva de esta relaci'on, bajo las mismas condiciones, conduce a
 {\cal F}\left[f^{(n)}(t)\right] = (i\omega)^n{\cal F}[f(t)]. 
  } 
 \end{equation} 
-%
+
+
+
 \subsubsection{Ejemplo: Funci'on escal'on.}
-Sea la funci'on escal'on $H:=H(t)$ tal que
+Sea la funci'on escal'on $H(t)$ tal que
 \begin{equation}
-H(t-c) := 
+H_c(t) := 
 \begin{cases}
 0, &\text{si }t < c,\\
 1, &\text{si }t > c
@@ -360,26 +361,22 @@ H(t-c) :=
 \label{im:escalon}
 \end{figure}
 con la interesante propiedad que
-\begin{align}
-\delta(t-c)] &= \frac{d\ }{dt}H(t-c).
-\end{align}
-Es de relevancia mencionar que ingenuamente podr'iamos pasar por alto el hecho que la funci'on escal'on no satisface la hip'otesis que $\lim_{t\to\pm\infty}H(t-c)=0$ y recordando que
-\begin{align}
-{\cal F}[\delta(t-c)]=\frac{1}{\sqrt{2\pi}} e^{-i c\omega},
-\end{align}
-podr'iamos pretender calcular la transformada de Fourier simplemente usando la expresi'on \eqref{eq:trans-fourier-derivada-esp}, lo que nos conducir'ia err'oneamente a que
 \begin{equation}
-\boxed{ {\cal F}[H(t-c)] =\frac{1}{2\pi i\omega} e^{-i c\omega}.}
+\frac{dH}{dt}(t) = \delta(t-c).
+\end{equation}
+Es de relevancia mencionar que ingenuamente podr'iamos pasar por alto el hecho que la funci'on escal'on no satisface la hip'otesis que $\lim_{t\to\pm\infty}H(t-c)=0$ y recordando \eqref{Fd} podr'iamos pretender calcular la transformada de Fourier simplemente usando la expresi'on \eqref{eq:trans-fourier-derivada-esp}, lo que nos conducir'ia err'oneamente a que
+\begin{equation}
+\boxed{ {\cal F}[H(t-c)] =\frac{1}{i\omega} e^{-i c\omega}.}
 \end{equation}
 Sin embargo, al emplear directamente la definici'on de la transformada de Fourier vemos que
 \begin{align}
-{\cal F}[H](\omega)=&\frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}H(t)e^{-i\omega t}dt\notag \\
-=&\frac{1}{\sqrt{2\pi}}\int_{c}^{\infty}1\cdot e^{-i\omega t}dt\notag \\
-=&\frac{1}{\sqrt{2\pi}}\left.\frac{e^{-i\omega t}}{-i\omega}\right|_{c}^{\infty}, \label{TFH}
+{\cal F}[H](\omega)=&\int_{-\infty}^{\infty}H(t)e^{-i\omega t}dt\notag \\
+=&\int_{c}^{\infty}1\cdot e^{-i\omega t}dt\notag \\
+=&\left.\frac{e^{-i\omega t}}{-i\omega}\right|_{c}^{\infty}, \label{TFH}
 \end{align}
 y debido a que
 \begin{align}
-\frac{1}{\sqrt{2\pi}}\left.\frac{e^{-i\omega t}}{-i\omega}\right|_{\infty}=\lim_{t \rightarrow \infty} \frac{1}{\sqrt{2\pi}}\frac{e^{-i\omega t}}{-i\omega}
+\left.\frac{e^{-i\omega t}}{-i\omega}\right|_{\infty}=\lim_{t \rightarrow \infty}\frac{e^{-i\omega t}}{-i\omega}
 \end{align}
 no existe (el l'imite no tiende a un valor 'unico), entonces se concluye que la transformada de Fourier de la funci'on escal'on tampoco. Sin embargo, la relaci'on  completa \eqref{eq:trans-fourier-derivada-gen} sigue siendo v'alida y suministra una expresi'on equivalente a \eqref{TFH}.
 %
@@ -387,23 +384,25 @@ no existe (el l'imite no tiende a un valor 'unico), entonces se concluye que la 
 El teorema de convoluci'on suministra una 'util relaci'on entre la transformada de Fourier de un producto de funciones y las transformadas de Fourier de cada una de las funcioes.
 \begin{align}
 {\cal F}[f_1(t)f_2(t)]
- &=\frac{1}{\sqrt{2\pi}}\int_{-\infty}^\infty f_1(t)f_2(t) e^{-i\omega t}\,dt \\
+ &=\int_{-\infty}^\infty f_1(t)f_2(t) e^{-i\omega t}\,dt \\
  &=\frac{1}{2\pi}\int_{-\infty}^\infty f_1(t) \left(\int_{-\infty}^\infty\tilde{f}_2(\omega')
  e^{i\omega' t}\,d\omega'\right)e^{-i\omega t}\,dt \\
  &=\frac{1}{2\pi}\int_{-\infty}^\infty\left(\int_{-\infty}^\infty f_1(t) 
  e^{-i(\omega-\omega')t}\,dt\right)\tilde{f}_2(\omega')\,d\omega' \\
- &=\frac{1}{\sqrt{2\pi}} \int_{-\infty}^\infty\tilde{f}_1(\omega-\omega')\tilde{f}_2(\omega)\,d\omega'.
+ &=\frac{1}{2\pi} \int_{-\infty}^\infty\tilde{f}_1(\omega-\omega')\tilde{f}_2(\omega)\,d\omega'.
 \end{align}
 Por lo tanto, 
 \begin{equation}
-\boxed{ \tilde{f}_{1\cdot 2}(\omega)=\frac{1}{\sqrt{2\pi}} \int_{-\infty}^\infty\tilde{f}_1(\omega-\omega')\tilde{f}_2(\omega)\,d\omega' .
+\boxed{ \tilde{f}_{1\cdot 2}(\omega)=\frac{1}{2\pi} \int_{-\infty}^\infty\tilde{f}_1(\omega-\omega')\tilde{f}_2(\omega)\,d\omega' .
  } 
 \end{equation}   
 An'alogamente, la relaci'on entre las transformadas inversas es
 \begin{equation}
 {\cal F}^{-1}[\tilde{f}_1(\omega)\tilde{f}_2(\omega)]
-=\frac{1}{\sqrt{2\pi}}\int_{-\infty}^\infty f_1(\xi)f_2(t-\xi)\,d\xi .	
+=\int_{-\infty}^\infty f_1(\xi)f_2(t-\xi)\,d\xi .	
 \end{equation}
+
+
 
 \subsubsection{Ejemplo} Usando el teorema de convoluci'on podemos encontrar la transformada de Fourier de 
 \begin{equation}
@@ -413,44 +412,44 @@ An'alogamente, la relaci'on entre las transformadas inversas es
  f(t) =\frac{1}{(t^2+1)(t^2+4)}
 \end{equation}
 \begin{equation}
-{\cal F}\left[\frac{c}{t^2+c^2}\right] = \sqrt{\frac{\pi}{2}}e^{-c |\omega|}\quad\text{for }c > 0. 
+{\cal F}\left[\frac{c}{t^2+c^2}\right] = \pi e^{-c |\omega|},\qquad\text{ para }c > 0. 
 \end{equation}
 \begin{align}
 {\cal F}[f(t)]
  &={\cal F}\left[\frac{1}{t^2+1}\frac{1}{t^2+4}\right] 
 \\
- &=\frac{1}{\sqrt{2\pi}}\frac{\pi}{2}\frac{1}{2}\left(\int_{-\infty}^\infty e^{-|\eta|} e^{-2|\omega -\eta|}\,d\eta\right) 
+ &=\frac{1}{2\pi}\frac{\pi}{1}\frac{\pi}{2}\left(\int_{-\infty}^\infty e^{-|\eta|} e^{-2|\omega -\eta|}\,d\eta\right) 
 \\
- &=\frac{1}{4}\sqrt{\frac{\pi}{2}}\left(\int_{-\infty}^0 e^\eta e^{-2|\omega -\eta|}\,d\eta
+ &=\frac{\pi}{4}\left(\int_{-\infty}^0 e^\eta e^{-2|\omega -\eta|}\,d\eta
  +\int_0^\infty e^{-\eta} e^{-2|\omega -\eta|}\,d\eta\right)
 \end{align}
 Si $\omega > 0$,
 \begin{align}
 {\cal F}[f(t)]
- &=\frac{1}{4}\sqrt{\frac{\pi}{2}}\left(\int_{-\infty}^0 e^{-2\omega + 3\eta}\,d\eta
+ &=\frac{\pi}{4}\left(\int_{-\infty}^0 e^{-2\omega + 3\eta}\,d\eta
  +\int_0^\omega e^{-2\omega +\eta}\,d\eta
  +\int_\omega^\infty e^{2\omega - 3\eta}\,d\eta\right) 
 \\
- &=\frac{1}{4}\sqrt{\frac{\pi}{2}}\left(\frac{1}{3} e^{-2\omega} + e^{-\omega}
+ &=\frac{\pi}{4}\left(\frac{1}{3} e^{-2\omega} + e^{-\omega}
  - e^{-2\omega} +\frac{1}{3} e^{-\omega}\right) 
 \\
- &=\frac{1}{2}\sqrt{\frac{\pi}{2}}\left[ \frac{2}{3}e^{-\omega} -\frac{1}{3} e^{-2\omega}\right].
+ &=\frac{\pi}{2}\left[ \frac{2}{3}e^{-\omega} -\frac{1}{3} e^{-2\omega}\right].
 \end{align}
 Si $\omega < 0$,
 \begin{align}
 {\cal F}[f(t)]
- &=\frac{1}{4}\sqrt{\frac{\pi}{2}}\left(\int_{-\infty}^\omega e^{-2\omega+3\eta}\,d\eta
+ &=\frac{\pi}{4}\left(\int_{-\infty}^\omega e^{-2\omega+3\eta}\,d\eta
  +\int_\omega^0 e^{2\omega -\eta}\,d\eta
  +\int_0^\infty e^{2\omega-3\eta}\,d\eta\right) 
 \\
- &=\frac{1}{4}\sqrt{\frac{\pi}{2}}\left(\frac{1}{3} e^\omega - e^{2\omega}
+ &=\frac{\pi}{4}\left(\frac{1}{3} e^\omega - e^{2\omega}
  + e^\omega +\frac{1}{3} e^{2\omega}\right)\\
- &=\frac{1}{2}\sqrt{\frac{\pi}{2}}\left[\frac{2}{3}e^\omega -\frac{1}{3} e^{2\omega} \right]
+ &=\frac{\pi}{2}\left[\frac{2}{3}e^\omega -\frac{1}{3} e^{2\omega} \right].
 \end{align}
 Podemos expresar los resultados para ambos signos de $\omega$ como:
 \begin{equation}
 \boxed{ 
-{\cal F}[f(t)] =\frac{1}{2}\sqrt{\frac{\pi}{2}}\left[\frac{2}{3} e^{-|\omega|} -\frac{1}{3} e^{-2|\omega|} \right]
+{\cal F}[f(t)] =\frac{\pi}{2}\left[\frac{2}{3} e^{-|\omega|} -\frac{1}{3} e^{-2|\omega|} \right].
  } 
 \end{equation} 
 Otra forma de encontrar la transformada de
@@ -459,19 +458,19 @@ f(t) =\frac{1}{t^4 + 5 t^2 + 4}
 \end{equation}
 es expandir la funci'on en fracciones parciales:
 \begin{equation}
-f(t) =\frac{1}{3}\frac{1}{t^2 + 1} -\frac{1}{3}\frac{1}{t^2 + 4}
+f(t) =\frac{1}{3}\frac{1}{t^2 + 1} -\frac{1}{3}\frac{1}{t^2 + 4},
 \end{equation}
 \begin{align}
 {\cal F}[f(t)]
 &=\frac{1}{3}{\cal F}\left[\frac{1}{t^2 + 1}\right]
 -\frac{1}{3}{\cal F}\left[\frac{1}{t^2+4}\right]\\
-&=\sqrt{\frac{\pi}{2}}\frac{1}{3} e^{-|\omega|} -\sqrt{\frac{\pi}{2}}\frac{1}{3}\frac{1}{2} e^{-2|\omega|}
+&=\frac{1}{3}\frac{\pi}{1} e^{-|\omega|} -\frac{1}{3}\frac{\pi}{2} e^{-2|\omega|}.
 \end{align}        
 
 \subsection{Teorema de Parseval}
 \begin{equation}
 \boxed{
-\int_{-\infty}^\infty |f(t)|^2\,dt=\int_{-\infty}^\infty |\tilde{f}(\omega)|^2\,d\omega.
+\int_{-\infty}^\infty |f(t)|^2\,dt=\frac{1}{2\pi}\int_{-\infty}^\infty |\tilde{f}(\omega)|^2\,d\omega.
  }
 \end{equation}
     
@@ -498,12 +497,11 @@ Finalmente, la varianza de $\omega$ respecto a $\tilde{f}(\omega)$ es dada por:
 Sea $f(t)$ una funci'on tal que $\lim_{t \rightarrow \pm \infty} f(t)=0$ y $f'=df/dt$, entonces $\tilde{f'}=i \omega \tilde{f}$, y podemos escribir $\omega \tilde{f}=-i \tilde{f'}$. Por lo tanto
 \begin{align}
 (\Delta \omega)^2 \int |\tilde{f}|^2 d\omega =&\int |i\tilde{f'}+\langle \omega \rangle \tilde{f}|^2 d \omega \notag \\
-=&\int |\tilde{if'+\langle \omega \rangle f}|^2 d\omega \notag\\
 =&\int |{\cal F}[if'+\langle \omega \rangle f]|^2 d\omega.
 \end{align}
 Pero empleando el teorema de Parseval se encuentra que
 \begin{align}
-(\Delta \omega)^2 \int |\tilde{f}|^2 d\omega =&\int |if'+\langle \omega \rangle f]|^2 dt.
+(\Delta \omega)^2 \int |\tilde{f}|^2 d\omega &= 2\pi\int |if'+\langle \omega \rangle f]|^2 dt.
 \end{align}
 Recordando la desigualdad (triangular) de Schwarz, que establece que $\forall f_{1},f_{2}$ se cumple que
 \begin{align}
@@ -559,15 +557,19 @@ Verificamos que en ambos casos los valores medios son una medida del ``valor cen
 \Delta t\cdot \Delta\omega =\frac{1}{2}.
 \end{equation}
 \section{Generalizaci'on a mayores dimensiones}
+En $D$ dimensiones:
 \begin{equation}
 {\cal F}[f(\vec{x})]=\tilde{f}(\vec{k})
-:=\frac{1}{(2\pi)^{d/2}}\int f(\vec{x})e^{i(\vec{k}\cdot\vec{x})}d^dx
+:= \int f(\vec{x})e^{i(\vec{k}\cdot\vec{x})}d^Dx,
 \end{equation}
 \begin{equation}
-f(\vec{x})={\cal F}^{-1}(\tilde{f})
-:=\frac{1}{(2\pi)^{d/2}}\int \tilde{f}(\vec{k})e^{-i(\vec{k}\cdot\vec{x})}d^dk
+f(\vec{x}) = {\cal F}^{-1}(\tilde{f})
+:= \frac{1}{(2\pi)^{D}}\int \tilde{f}(\vec{k})e^{-i(\vec{k}\cdot\vec{x})}d^Dk.
 \end{equation}
-%
+
+*** cambio convenci'on! listo hasta aqu'i ***
+
+
 \section{Transformada de Fourier seno y coseno}
 
 
