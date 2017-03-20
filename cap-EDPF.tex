@@ -122,25 +122,25 @@ Existen teoremas de existencia y unicidad de soluciones de EDP's de segundo orde
 \item E.D.P. parab'olica + C.de B. tipo \textit{Dirichlet o Neumann} sobre una (hiper)superficie \textit{abierta}.
 \end{itemize}
 
-\subsection{Ejemplo: Difusi'on del calor $1-$dimensional}
+\subsection{Ejemplo: Difusi'on del calor unidimensional}
 
-Resolver la ecuaci'on de difusi´on del calor $1-$dimensional, empleando la transformada de Fourier espacial y temporal e imponiendo la siguiente condiciones de contorno
+Usando la transformada de Fourier espacial (o temporal) podemos resolver la ecuaci'on de difusi'on del calor unidimensional, es decir,
+\begin{align}\label{ec1dej1}
+\alpha \frac{\partial^2 \psi}{\partial^2 x}-\frac{\partial \psi}{\partial t}=0,
+\end{align}
+en el dominio $-\infty<x<\infty$, $t\ge 0$, y sujeta a las siguientes condiciones de contorno
 \begin{align}
 \lim_{x \rightarrow \pm \infty}\psi(x,t)=0,\label{eq:bc1}\\
 \psi(x,0)=\phi(x).\label{eq:bc2}
 \end{align}
 
-Como el problema es $1-$dimensional, la ecuaci'on a resolver es
-\begin{align}
-\alpha \frac{\partial^2 \psi}{\partial^2 x}-\frac{\partial \psi}{\partial t}=0,
-\end{align}
-as'i, aplicando la tranformada de Fourier espacial a la ecuaci'on precendente, se tiene que
+Aplicando la tranformada de Fourier espacial a la ecuaci'on \eqref{ec1dej1}, se obtiene
 \begin{align}
 \alpha {\cal F}_{x}[\frac{\partial^2 \psi}{\partial^2 x}]-{\cal F}_{x}[\frac{\partial \psi}{\partial t}]=0,
 \end{align}
-adem'as por la condici'on de contorno \eqref{eq:bc1} se tiene que
+adem'as por la condici'on de contorno \eqref{eq:bc1} tenemos que
 \begin{align}
-\frac{\partial^2 \psi}{\partial^2 x}=(i k)^2 \tilde{\psi}(k,t),
+{\cal F}_{x}[\frac{\partial^2 \psi}{\partial^2 x}]=(i k)^2 {\cal F}_{x}[\psi]=(i k)^2 \tilde{\psi}(k,t),
 \end{align}
 y como
 \begin{align}
@@ -148,64 +148,74 @@ y como
 \end{align}
 entonces
 \begin{align}
--\alpha k^2 \tilde{\psi}(k,t)-\frac{\partial}{\partial t}\tilde{\psi}(k,t)=0,
+-\alpha k^2 \tilde{\psi}(k,t)-\frac{\partial}{\partial t}\tilde{\psi}(k,t)=0.
 \end{align}
-por lo tanto
+Por lo tanto, obtenemos una ecuaci'on diferencial m'as simple, donde la dependencia espacial original ha sido ahora reducida a una dependencia algebraica:
 \begin{align}
-\frac{\partial}{\partial t}\tilde{\psi}(k,t)=-\alpha \tilde{\psi}(k,t),
+\frac{\partial}{\partial t}\tilde{\psi}(k,t)=-\alpha\, \tilde{\psi}(k,t).
 \end{align}
-e integrando parcialmente en la variable $t$ se halla que
+Rsolviendo esta ecuaci'on respeto a la variable $t$, encontramos
 \begin{align}
-\tilde{\psi}(k,t)=\tilde{\psi}(k,0)e^{-\alpha k^2 t}.
+\tilde{\psi}(k,t)=\tilde{\psi}(k,0)\,e^{-\alpha k^2 t}.
 \end{align}
-Por otro lado, empleando la condición \eqref{eq:bc2} vemos que
+Por otro lado, empleando la condici'on \eqref{eq:bc2} vemos que
 \begin{align}
-{\cal F}_{x}[\psi(x,0)]={\cal F}_{x}[\psi(x)]\notag \\
-\tilde{\psi}(k,0)=\tilde{\phi}(k),
+\tilde{\psi}(k,0) = {\cal F}_{x}[\psi(x,0)]={\cal F}_{x}[\psi(x)] =\tilde{\phi}(k).
 \end{align}
-en consecuencia
+En consecuencia,
 \begin{align}
-\tilde{\psi}(k,t)=\tilde{\phi}(k)e^{-\alpha k^2 t}.
+\tilde{\psi}(k,t)=\tilde{\phi}(k)\,e^{-\alpha k^2 t}.
 \end{align}
-En efecto, la soluci'on del problema es
+Con esto, la soluci'on $\psi(x,t)$ del problema es dada por la transformada inversa,
 \begin{align}
-\psi(x,t)=&\frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}\tilde{\psi}(k,t)e^{ikx} dk\notag \\
-=&\frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}\tilde{\phi}(k)e^{-\alpha k^2 t}e^{ikx} dk,
+\psi(x,t) &= {\cal F}^{-1}[\tilde{\psi}(k,t)]= {\cal F}^{-1}[\tilde{\phi}(k)\,e^{-\alpha k^2 t}]
+\end{align}
+o, m'as expl'icitamente,
+\begin{align}
+\psi(x,t) &= \frac{1}{2\pi}\int_{-\infty}^{\infty}\tilde{\psi}(k,t)e^{ikx} dk\notag \\
+&= \frac{1}{2\pi}\int_{-\infty}^{\infty}\tilde{\phi}(k)e^{-\alpha k^2 t}e^{ikx} dk,
 \end{align}
 con
 \begin{align}
-\tilde{\phi}(k)=\frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}\phi(x)e^{ikx}dx.
+\tilde{\phi}(k)=\int_{-\infty}^{\infty}\phi(x)e^{ikx}dx.
 \end{align}
-En particular, si suponemos
+Por ejemplo, si
 \begin{align}
-\phi(x)=T_{0}\delta(x),
+\phi(x)=T_{0}\,\delta(x),
 \end{align}
 entonces
 \begin{align}
-\tilde{\phi}(k)=T_{0}{\cal F}_{x}[\delta(x)]=\frac{T_{0}}{\sqrt{2\pi}}.
+\tilde{\phi}(k)=T_{0}\,{\cal F}_{x}[\delta(x)]=T_{0}.
 \end{align}
-Por consiguiente
+Por consiguiente,
 \begin{align}
-\psi(x,t)=\frac{T_{0}}{2\pi}\int_{-\infty}^{\infty}e^{-\alpha k^2 t} e^{ikx}dk
-=\frac{T_{0}}{2\pi}\int_{-\infty}^{\infty}e^{-\alpha k^2 t+ikx}dk,
+\psi(x,t) &= T_{0}{\cal F}^{-1}[e^{-\alpha k^2 t}].
 \end{align}
-pero completando cuadrados vemos que
+Adaptando nuestro resultado para la transformada inversa de la funci'on gaussiana, es decir \eqref{Tfinvgauss}, podemos escribir
 \begin{align}
--\alpha k^2 t+ikx=&-\alpha t \left( k^2-\frac{ikx}{\alpha t}\right)\notag \\
-=&-\alpha t \left( k^2-\frac{ikx}{\alpha t}+\left(\frac{ix}{2\alpha t}\right)^2-\left(\frac{ix}{2\alpha t}\right)^2\right)\notag \\
-=&-\alpha t\left( \left(k-\frac{ix}{2\alpha t} \right)^2 +\frac{x^2}{4 \alpha^2 t^2}\right)\notag \\
-=& -\alpha t \left(k-\frac{ix}{2\alpha t} \right)^2-\frac{x^2}{4 \alpha t},
+{\cal F}^{-1}[e^{-\alpha k^2 t}] = \frac{1}{2\sqrt{\pi\alpha t}}e^{-x^2/4\alpha t}.
 \end{align}
-luego
-\begin{align}
-\psi(x,t)=&\frac{T_{0}}{2\pi}\int _{-\infty}^{\infty}e^{-\frac{x^2}{4 \alpha t}} e^{-\alpha t \left(k-\frac{ix}{2\alpha t} \right)^2} dk\notag \\
-=&\frac{T_{0} e^{-\frac{x^2}{4 \alpha t}}}{2\pi}\int _{-\infty}^{\infty}e^{-\alpha t \left(k-\frac{ix}{2\alpha t} \right)^2} dk,
-\end{align}
-y haciendo el cambio de variables $y:=\sqrt{\alpha t}(k-ix/2\alpha t)$ se tiene que $dy=\sqrt{\alpha t} dk$, entonces
-\begin{align}
-\psi(x,t)=&\frac{T_{0} e^{-\frac{x^2}{4 \alpha t}}}{2\pi}\int _{-\infty}^{\infty}e^{-y^2} \frac{dy}{\sqrt{\alpha t}},
-\end{align}
+%\begin{align}
+%\psi(x,t)=\frac{T_{0}}{2\pi}\int_{-\infty}^{\infty}e^{-\alpha k^2 t} e^{ikx}dk
+%=\frac{T_{0}}{2\pi}\int_{-\infty}^{\infty}e^{-\alpha k^2 t+ikx}dk,
+%\end{align}
+%pero completando cuadrados vemos que
+%\begin{align}
+%-\alpha k^2 t+ikx=&-\alpha t \left( k^2-\frac{ikx}{\alpha t}\right)\notag \\
+%=&-\alpha t \left( k^2-\frac{ikx}{\alpha t}+\left(\frac{ix}{2\alpha t}\right)^2-\left(\frac{ix}{2\alpha t}\right)^2\right)\notag \\
+%=&-\alpha t\left( \left(k-\frac{ix}{2\alpha t} \right)^2 +\frac{x^2}{4 \alpha^2 t^2}\right)\notag \\
+%=& -\alpha t \left(k-\frac{ix}{2\alpha t} \right)^2-\frac{x^2}{4 \alpha t},
+%\end{align}
+%luego
+%\begin{align}
+%\psi(x,t)=&\frac{T_{0}}{2\pi}\int _{-\infty}^{\infty}e^{-\frac{x^2}{4 \alpha t}} e^{-\alpha t \left(k-\frac{ix}{2\alpha t} \right)^2} dk\notag \\
+%=&\frac{T_{0} e^{-\frac{x^2}{4 \alpha t}}}{2\pi}\int _{-\infty}^{\infty}e^{-\alpha t \left(k-\frac{ix}{2\alpha t} \right)^2} dk,
+%\end{align}
+%y haciendo el cambio de variables $y:=\sqrt{\alpha t}(k-ix/2\alpha t)$ se tiene que $dy=\sqrt{\alpha t} dk$, entonces
+%\begin{align}
+%\psi(x,t)=&\frac{T_{0} e^{-\frac{x^2}{4 \alpha t}}}{2\pi}\int _{-\infty}^{\infty}e^{-y^2} \frac{dy}{\sqrt{\alpha t}},
+%\end{align}
 Por lo tanto, se ha hallado que\footnote{En \url{http://nbviewer.ipython.org/urls/dl.dropbox.com/s/0dgalwtzh6cr33m/difusion-calor.ipynb?dl=0} puede visualizar un notebook con la animaci'on de la soluci'on.}
 \begin{align}
-\psi(x,t)=&\frac{T_{0}}{2\sqrt{\pi \alpha t}}e^{-\frac{x^2}{4 \alpha t}}\qquad \forall t>0.
+\psi(x,t)=&\frac{T_{0}}{2\sqrt{\pi \alpha t}}e^{-\frac{x^2}{4 \alpha t}},\qquad \forall t>0.
 \end{align}

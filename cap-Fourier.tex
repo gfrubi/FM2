@@ -267,12 +267,12 @@ Observaciones:
 \subsection{Ejemplo: Distribuci'on Gaussiana}
 Considere la \textbf{distribuci'on gaussiana} definida por
 \begin{equation}\label{fgauss}
-f(t):=N e^{-\alpha t^2}, \qquad \alpha>0,
+f(t):= e^{-\alpha t^2}, \qquad \alpha>0,
 \end{equation}
 entonces su transformada de Fourier es dada por
 \begin{align}
-\tilde{f}(\omega)=&N\int_{-\infty}^{\infty}e^{-\alpha t^2} e^{-i \omega t}dt\notag \\
-=&N\int_{-\infty}^{\infty}e^{-\alpha t^2-i\omega t} dt.
+\tilde{f}(\omega) &= \int_{-\infty}^{\infty}e^{-\alpha t^2} e^{-i \omega t}dt\notag \\
+&= \int_{-\infty}^{\infty}e^{-\alpha t^2-i\omega t} dt.
 \end{align}
 Notando que
 \begin{align}
@@ -283,28 +283,32 @@ Notando que
 \end{align}
 se halla entonces que
 \begin{align}
-\tilde{f}(\omega)=&N\int_{-\infty}^{\infty}e^{-\alpha \left( t+\frac{i\omega}{2\alpha} \right)^2-\left(\frac{\omega^2}{4\alpha}\right)}dt\notag\\
-=&N e^{-\frac{\omega^2}{4\alpha}}\int_{-\infty}^{\infty}e^{-\alpha \left( t+\frac{i\omega}{2\alpha} \right)^2}dt,
+\tilde{f}(\omega)=&\int_{-\infty}^{\infty}e^{-\alpha \left( t+\frac{i\omega}{2\alpha} \right)^2-\left(\frac{\omega^2}{4\alpha}\right)}dt\notag\\
+=& e^{-\frac{\omega^2}{4\alpha}}\int_{-\infty}^{\infty}e^{-\alpha \left( t+\frac{i\omega}{2\alpha} \right)^2}dt,
 \end{align}
 pero haciendo el cambio de variables $x:=\sqrt{\alpha}(t+i\omega/4\alpha)$, entonces $dx=\sqrt{\alpha}\,dt$, luego
 \begin{align}
-\tilde{f}(\omega)=N e^{-\frac{\omega^2}{4\alpha}}\int_{-\infty}^{\infty}e^{-x^2} \frac{dx}{\sqrt{\alpha}}.
+\tilde{f}(\omega)=e^{-\frac{\omega^2}{4\alpha}}\int_{-\infty}^{\infty}e^{-x^2} \frac{dx}{\sqrt{\alpha}}.
 \end{align}
 Adem'as, recordando que
 \begin{align}
 \int_{-\infty}^{\infty}e^{-x^2}dx=\sqrt{\pi},
 \end{align}
-encontramos que
+encontramos finalmente que
 \begin{equation}\label{Tfgauss}
-\tilde{f}(\omega)=N\sqrt{\frac{\pi}{\alpha}}e^{-\frac{\omega^2}{4\alpha}}.
+{\cal F}[e^{-\alpha t^2}]=\sqrt{\frac{\pi}{\alpha}}e^{-\frac{\omega^2}{4\alpha}}.
 \end{equation}
 \begin{figure}[h]
 \centering
 \includegraphics[scale=0.4]{figs/fig-Fourier-Gaussiana.pdf}
-\caption{Distribuci'on gaussiana y su transformada de Fourier con $N=1$ y $\alpha=1$.}
+\caption{Distribuci'on gaussiana y su transformada de Fourier con $\alpha=1$.}
 \label{im:gaussiana}
 \end{figure}
 
+\textbf{Tarea:} Verifique que, efectivamente, la transformada inversa reproduce la funci'on original, es decir,
+\begin{equation}\label{Tfinvgauss}
+{\cal F}^{-1}[e^{-\frac{\omega^2}{4\alpha}}]=\sqrt{\frac{\alpha}{\pi}}e^{-\alpha t^2}.
+\end{equation}
 
 \section{Propiedades de la Transformada de Fourier} 
 \subsection{Delta de Dirac}
@@ -327,7 +331,7 @@ encontramos que
  &=\left[ f(t) e^{-i\omega x}\right]_{-\infty}^\infty
  -\int_{-\infty}^\infty (-i\omega) f(t) e^{-i\omega t}\,dt \\
  &=\left[ f(t) e^{-i\omega x}\right]_{-\infty}^\infty+ i\omega\int_{-\infty}^\infty f(t) e^{-i\omega t}\,dt \\
- &= i\omega{\cal F}[f(t)]+\left. f(t) e^{-i\omega x}\right|_{-\infty}^\infty.\label{eq:trans-fourier-derivada-gen}
+ &= i\omega{\cal F}[f(t)]+\left. f(t) e^{-i\omega t}\right|_{-\infty}^\infty.\label{eq:trans-fourier-derivada-gen}
 \end{align}
 Entonces, \textit{si la funci'on $f(t)$ se anula en el infinito}, es decir si $\lim_{t\to\pm\infty}f(t)=0$, tendremos que
 \begin{equation}
