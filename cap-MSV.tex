@@ -1,5 +1,28 @@
 \chapter{El M'etodo de Separaci'on de Variables}
 
+El m'etodo de separaci'on de variables (MSV, originalmente introducido por Daniel Bernoulli, 1700-1782) para encontrar soluciones de EDP's \textit{lineales} consiste en reducir la EDP a un conjunto de EDO's para un conjunto de funciones auxiliares. Cada una de estas funciones auxiliares depende s'olo de una de las variables independientes del problema. La soluci'on es entonces construida como una \textit{superposici'on} (e.d. combinaci'on lineal) de \textbf{soluciones separables}, consistentes en productos de las funciones auxiliares.
+
+M'as expl'citamente, el MSV consiste en:
+\begin{itemize}
+\item Buscar soluciones separables de la EDP. Esto conduce a un conjunto de EDO's.
+\item Construir una superposici'on general de soluciones separables, e imponer las condiciones de contorno y/o iniciales del problema.
+\end{itemize}
+
+Si bien en general el MSV sigue los pasos anteriores, en la pr'actica es 'util considerar un paso intermedio:
+\begin{itemize}
+\item Imponer las condiciones de contorno/iniciales homog'eneas a cada funci'on separable. Esto simplifica mucho el c'alculo puesto que t'ipicamente elimina muchas posibles contribuciones a la (futura) combinaci'on lineal. Esto s'olo puede ser realizado con las condiciones de borde/iniciales homog'eneas para EDP's lineales y homog'eneas, puesto que si la soluci'on separable satisface estas condiciones entonces cualquier superposici'on lineal lo har'a. Adem'as, no se pierde generalidad con este m'etodo, puesto que (puede demostrarse que) las funciones separables obtenidas son linealmente independientes.
+\end{itemize}
+
+En resumen, es conveniente aplicar el MSV de la siguiente forma:
+\begin{itemize}
+\item Buscar soluciones separables de la EDP (conjunto de EDO's).
+\item Imponer las condiciones de borde/iniciales \textit{homog'eneas} a las soluciones separables.
+\item Construir una combinaci'on lineal general con las soluciones separables anteriores.
+\item Determinar los coeficientes de la combinaci'on lineal que aseguran que la soluci'on final satisface las \textit{condiciones de borde/iniciales inhomog'eneas}.
+\end{itemize}
+
+
+
 \section{Coordenadas Cartesianas}
 \subsection{Ejemplo: Ecuaci'on de onda en $1-$dimensi'on.}
 Resolver la ecuaci'on de onda $1-$dimensional empleando el m'etodo de separaci'on de variables e imponiendo las siguientes condiciones de contorno 
