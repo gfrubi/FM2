@@ -24,6 +24,73 @@ En resumen, es conveniente aplicar el MSV de la siguiente forma:
 
 
 \section{Coordenadas Cartesianas}
+\section{Ejemplo: Ecuaci'on de Laplace en dominio rectangular}
+Buscaremos la soluci'on $\Psi(x,y)$ que satisface la ecuaci'on de Laplace bidimensional
+\begin{equation}\label{ejLap2D}
+\frac{\partial^2\Psi }{\partial x^2}+\frac{\partial^2\Psi }{\partial y^2}=0,
+\end{equation}
+en el rect'angulo $0<x<1$, $0<y<2$, con la condici'on de borde
+\begin{equation}
+\Psi(x,2) = x(1-x), 
+\end{equation}
+y con $\Psi=0$ en los otros tres lados. 
+
+Primero buscamos soluciones separables de la EDP, de la forma
+\begin{equation}
+\Psi_{\rm sep}(x,y)=X(x)Y(y).
+\end{equation}
+Al reemplazar en \eqref{ejLap2D} y dividir por $\Psi_{\rm sep}$ encontramos
+\begin{equation}
+\frac{1}{X(x)}\frac{d^2X}{dx^2}+\frac{1}{Y(y)}\frac{d^2Y}{dy^2} = 0,
+\end{equation}
+lo que implica que t'ermino debe ser igual a una constante, es decir
+\begin{equation}
+\frac{1}{X(x)}\frac{d^2X}{dx^2} = \lambda, \qquad \frac{d^2X}{dx^2}-\lambda X(x)=0,
+\end{equation}
+\begin{equation}
+\frac{1}{Y(y)}\frac{d^2Y}{dy^2} = -\lambda, \qquad \frac{d^2Y}{dy^2}+\lambda Y(y)=0.
+\end{equation}
+La forma expl'icita de estas ecuaciones depende del valor, y en particular del signo, de la constante de separaci'on $\lambda$, que por ahora tiene valor desconocido: Por ejemplo,
+\begin{equation}
+X_\lambda(x)= 	\begin{cases}
+		c_1e^{\sqrt{\lambda}x} + c_2e^{-\sqrt{\lambda}x}, & \text{si }\lambda>0 \\
+		c_1 + c_2x,  & \text{si } \lambda=0 \\
+		c_1\cos(\sqrt{-\lambda}x) + c_2\sin(\sqrt{-\lambda}x), & \text{si } \lambda<0
+		\end{cases}.
+\end{equation}
+Similarmente,
+\begin{equation}
+Y_\lambda(y)= 	\begin{cases}
+		\bar{c}_1\cos(\sqrt{\lambda}y) + \bar{c}_2\sin(\sqrt{\lambda}y), & \text{si }\lambda>0 \\
+		\bar{c}_1 + \bar{c}_2y,  & \text{si } \lambda=0 \\
+		\bar{c}_1e^{\sqrt{-\lambda}y} + \bar{c}_2e^{-\sqrt{-\lambda}y}, & \text{si } \lambda<0
+		\end{cases}.
+\end{equation}
+As'i, hemos encontrado infinitas soluciones separables, cada una de la forma
+\begin{equation}\label{EjLapPsiXY}
+\Psi_\lambda^{\rm sep}(x,y)=X_\lambda(x)Y_\lambda(y),
+\end{equation}
+para cada valor posible de la constante de separaci'on $\lambda$. Como esta constante puede tomar distintos valores, y como la EDP es \textit{lineal}, entonces cualquier combinaci'on lineal de la forma
+\begin{equation}\label{EjLapPsisumaSep}
+\Psi(x,y) = \sum_{\lambda}\Psi_\lambda^{\rm sep}(x,y) = \sum_{\lambda}X_\lambda(x)Y_\lambda(y),
+\end{equation}
+es tambi'en soluci'on.
+
+Procedemos ahora a imponer las condiciones de borde a la soluci'on. Los c'alculos se simplifican si imponemos primero las \textit{condiciones de borde homog'eneas}. Por ejemplo, la condici'on $\Psi(0,y)=0$, $\forall y\in[0,2]$ (borde izquierdo del dominio) requiere que
+\begin{equation}
+\Psi(0,y) = \sum_{\lambda}\Psi_\lambda^{\rm sep}(0,y) = \sum_{\lambda}X_\lambda(0)Y_\lambda(y) = 0.
+\end{equation}
+La 'ultima expresi'on es una combinaci'on lineal de los coeficientes (constantes) $X_\lambda(0)$ y las funciones $Y_\lambda(y)$. Ya que las funciones $Y_\lambda(y)$ son l.i. en esta combinaci'on ser'a nula s'olo si $X_\lambda(0)=0$. An'alogamente, la condici'on 
+$\Psi(1,y)=0$, $\forall y\in[0,2]$ requiere $X_\lambda(1)=0$. Estas dos condiciones sobre las funciones $X_\lambda(x)$ restringen fuertemente los valores posibles de $\lambda$. En nuestro caso particular, s'olo valores negativos de esta constante de separaci'on son permitidos.
+\begin{equation}
+X_n(x)=c_n\sen\left(n\pi x\right), \qquad \lambda = -n^2\pi^2
+\end{equation}
+
+
+\begin{equation}
+\psi(x,y)=\frac{8}{\pi^3}\sum_{k=1}^{\infty}\frac{\sin((2k-1) \pi x)}{(2k-1)^3}\frac{\sinh((2k-1)\pi y)}{\sinh(2\pi (2k-1))}.
+\end{equation}
+
 \subsection{Ejemplo: Ecuaci'on de onda en $1-$dimensi'on.}
 Resolver la ecuaci'on de onda $1-$dimensional empleando el m'etodo de separaci'on de variables e imponiendo las siguientes condiciones de contorno 
 \begin{align}
