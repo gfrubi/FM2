@@ -138,44 +138,36 @@ Con todo esto, y denotanto $n=2k-1$, con $k=1,2,3,\cdots$, encontramos que nuest
 \label{fig-SolLap}
 \end{figure}
 
-\subsection{Ejemplo: Ecuaci'on de onda en $1-$dimensi'on.}
-Resolver la ecuaci'on de onda $1-$dimensional empleando el m'etodo de separaci'on de variables e imponiendo las siguientes condiciones de contorno 
+\subsection{Ejemplo: Ecuaci'on de la onda unidimensional}
+Usaremos ahora el MSV para encontrar una soluci'on del siguiente problema:
+\begin{align}
+\frac{\partial^2 \psi}{\partial x^2}-\frac{1}{v^2}\frac{\partial^2 \psi}{\partial t^2}=0,\label{eq:ec-onda}
+\end{align}
+en el dominio $x\in[0,L]$, $t\ge 0$, con las condiones de borde (homog'eneas)
 \begin{align}
 \psi(0,t)=0,\qquad \psi(L,t)=0,\label{eq:cond-borde}
 \end{align}
 y las siguientes condiciones iniciales 
 \begin{align}
-\psi(x,0)=\psi_{0}(x),\qquad \frac{\partial \psi}{dt}(x,0)=v_{0}(x),\label{eq:cond-inicial}
+\psi(x,0)=\psi_{0}(x),\qquad \frac{\partial \psi}{\partial t}(x,0)=v_{0}(x),\label{eq:cond-inicial}
 \end{align}
-suponiendo que $\psi_{0}(x)$ y $v_{0}(x)$ son dadas pero arbitrarias de la variable $x$.
+suponiendo que $\psi_{0}(x)$ y $v_{0}(x)$ son dadas, pero arbitrarias de la variable $x$.
 
-Como el problema a resolver es $1-$dimensional, la ecuaci'on a resolver es
-\begin{align}
-\frac{\partial^2 \psi}{\partial x^2}-\frac{1}{v^2}\frac{\partial^2 \psi}{\partial t^2}=0.\label{eq:ec-onda}
-\end{align}
 
-As'i, al emplear el MSV y suponer una soluci'on del tipo $\psi(x,t)=X(x)T(t)$, entonces
-\begin{align}
-\frac{\partial^2 \psi}{\partial x^2}=T(t) \frac{d^2X}{dx^2}(x),\qquad \frac{\partial^2 \psi}{\partial t^2}=X(x) \frac{d^2 T}{dt^2}(x),
-\end{align}
-de esta forma, al introducir las ecuaciones precedentes en \eqref{eq:ec-onda} se halla que
-\begin{align}
-T(t) \frac{d^2X}{dx^2}(x)-\frac{1}{v^2}X(x) \frac{d^2 T}{dt^2}(t)=0,
-\end{align}
-pero al dividir la ecuaci'on anterior por $\psi$, suponiendo que $\psi \neq 0$, entonces
+Buscamos entoces una soluci'on separable, $\psi_{\rm sep}(x,t) = X(x)T(t)$. Reemplazando en la EDP \eqref{eq:ec-onda} y dividiendo por $\psi_{\rm sep}$ encontramos:
 \begin{align}
 \frac{1}{X}\frac{d^2 X}{dx^2}=\frac{1}{v^2}\frac{1}{T}\frac{d^2 T}{dt^2}.\label{eq:ec-separable}
 \end{align} 
 
-Como el primer miembro de la ecuaci'on \eqref{eq:ec-separable} depende de $x$ y el segundo miembro de $t$, es evidente que ambos deben ser constantes con respecto a ambas variables, vale decir
+Como el primer miembro de la ecuaci'on \eqref{eq:ec-separable} depende de $x$ y el segundo miembro de $t$, ambos deben necesariamente ser constantes con respecto a ambas variables, vale decir
 \begin{align}
-\frac{1}{X}\frac{d^2 X}{dx^2}=\lambda \text{  y  }\frac{1}{v^2}\frac{1}{T}\frac{d^2 T}{dt^2}=\lambda,
+\frac{1}{X}\frac{d^2 X}{dx^2}=\lambda, \qquad \frac{1}{v^2}\frac{1}{T}\frac{d^2 T}{dt^2}=\lambda,
 \end{align}
-donde $\lambda$ es llamada la ``constante de separaci'on''. Luego podemos escribir la siguiente EDO para $X=X(x)$
+donde la constante de separaci'on $\lambda$ puede asumir valores reales. Luego, podemos escribir la siguiente EDO para $X(x)$ como
 \begin{align}
 \frac{d^2 X}{dx^2}=\lambda X,
 \end{align}
-cuya soluci'on est'a condicionada por los posibles valores que tome la constante de separaci'on. Es directo verificar que
+cuya soluci'on es de la forma
 \begin{align}
 X(x)=
 \begin{cases}
@@ -185,84 +177,89 @@ A'' e^{x\sqrt{\lambda}}+B'' e^{-x\sqrt{\lambda}}, & \text{si }\lambda >0
 \end{cases}.
 \end{align}
 
-Ahora bien, al imponer las condiciones de borde homog'eneas y suponer que $T(t) \neq 0$ para $t \geq 0$, entonces $X(x)$ debe satisfacer que $X(0)=0$ y $X(L)=0$. Por lo tanto
+Las condiciones de borde homog'eneas pueden trasladarse a las funciones $X(x)$, que entonces deben satisfacer que $X(0)=0$ y $X(L)=0$. 
+%Por lo tanto
+%\begin{align}
+%A \cos(0\sqrt{-\lambda})+B \sin(0\sqrt{-\lambda})=&A \cos(L\sqrt{-\lambda})+B \sin(L\sqrt{-\lambda})=0 & \text{ si }\lambda<0,\\
+%A' 0+B'=&A' L+B'=0 & \text{ si }\lambda=0,\\
+%A'' e^{0\sqrt{\lambda}}+B'' e^{-0\sqrt{\lambda}}=&A'' e^{L\sqrt{\lambda}}+B'' e^{-L\sqrt{\lambda}}=0 & \text{ si }\lambda >0.
+%\end{align}
+Tal como en el ejemplo anterior, no es dif'icil verificar que estas conficiones pueden ser satisfechas s'olo si $\lambda < 0$, $A=0$, y adem'as 
 \begin{align}
-A \cos(0\sqrt{-\lambda})+B \sin(0\sqrt{-\lambda})=&A \cos(L\sqrt{-\lambda})+B \sin(L\sqrt{-\lambda})=0 & \text{ si }\lambda<0,\\
-A' 0+B'=&A' L+B'=0 & \text{ si }\lambda=0,\\
-A'' e^{0\sqrt{\lambda}}+B'' e^{-0\sqrt{\lambda}}=&A'' e^{L\sqrt{\lambda}}+B'' e^{-L\sqrt{\lambda}}=0 & \text{ si }\lambda >0.
-\end{align}
-
-No es dif'icil verificar que el sistema de ecuaciones precedentes puede ser resuelto s'olo si $A=0$, con $\lambda < 0$ y satisfaciendo que
-\begin{align}
-\sqrt{-\lambda}=\frac{n\pi}{L},\qquad n=1,2,\hdots.
+\sqrt{-\lambda}=\frac{n\pi}{L},\qquad n=1,2,\dots.
 \end{align} 
 
-Por lo tanto, los valores permitidos para la constante de separaci'on, tambi'en llamados ``autovalores'' o ``valores caracter'isticos'' son
-\begin{align}
+Por lo tanto, los valores permitidos para la constante de separaci'on, tambi'en llamados ``autovalores'', son
+\begin{align}\label{LnEO1D}
 \lambda_{n}=-\frac{n^2 \pi^2}{L^2},\qquad n=1,2,\hdots.
 \end{align}
 
 Mientr'as que las ``autofunciones'' correspondientes est'an dadas por
 \begin{align}
-X_{n}(x)=B\sin\left(\frac{n \pi x}{L}\right),\qquad n=1,2,\hdots.
+X_{n}(x)=B_n\sin\left(\frac{n \pi x}{L}\right),\qquad n=1,2,\hdots.
 \end{align}
 
-Por otro lado, la EDO para la $T_{n}(t)$ resulta ser
+Dada la restricci'on \eqref{LnEO1D}, la EDO para la $T_{n}(t)$ adopta la forma
 \begin{align}
-\frac{1}{v^2}\frac{1}{T_{n}}\frac{d^2 T_{n}}{dt^2}=-\frac{n^2 \pi^2}{L^2},
+\frac{d^2 T_{n}}{dt^2}=-\frac{n^2 \pi^2v^2}{L^2}T_{n},
 \end{align}
-cuya soluci'on est'a dada por
+cuya soluci'on general est'a dada por
 \begin{align}
 T_{n}(t)=C_{n}\cos\left(\frac{n \pi vt}{L}\right)+D_{n}\sin\left(\frac{n\pi vt}{L}\right),
 \end{align}
-con $C_{n}$ y $D_{n}$ constantes arbitrarias. En efecto una soluci'on separable del problema es tal que
+con $C_{n}$ y $D_{n}$ constantes arbitrarias. De esta forma, hemos encontrado soluciones separables de la forma
 \begin{align}
-\psi_{n}(x,t)=\left[C_{n}\cos\left(\frac{n \pi vt}{L}\right)+D_{n}\sin\left(\frac{n\pi vt}{L}\right) \right]B_{n}\sin\left(\frac{n \pi x}{L}\right),
-\end{align}
-y redefiniendo el valor de las constantes como $a_{n}:=C_{n}B_{n}$ y $b_{n}:=D_{n}B_{n}$ se encuentra que
-\begin{align}
-\psi_{n}(x,t)=\left[a_{n}\cos\left(\frac{n \pi v}{L}t\right)+b_{n}\sin\left(\frac{n \pi v}{L}t\right)\right] \sin\left(\frac{n\pi x}{L}\right).
+\psi^{\rm sep}_n(x,t)=\left[C_{n}\cos\left(\frac{n \pi vt}{L}\right)+D_{n}\sin\left(\frac{n\pi vt}{L}\right) \right]B_{n}\sin\left(\frac{n \pi x}{L}\right).
 \end{align}
 
-Es directo verificar que cada una de estas soluciones satisface las condiciones de contorno homog'eneas impuestas \eqref{eq:cond-borde}. Sin embargo, ninguna de ellas, por separado satisface las condiciones iniciales \eqref{eq:cond-inicial}. Pese a ello, podemos encontrar una soluci'on al problema usando el hecho que la \eqref{eq:ec-onda} es lineal y homog'enea. Debido a esto, una superposici'on de soluciones $\psi_{n}(x,t)$, con distintos $n$, ser'a tambi'en soluci'on de la EDP. Adem'as, esta superposici'on satisface las condiciones de borde (para cualquier valor de los coeficientes que determinan la combinaci'on lineal), ya que son condiciones de borde homog'eneas.
+Redefiniendo el valor de las constantes como $a_{n}:=C_{n}B_{n}$ y $b_{n}:=D_{n}B_{n}$ se encuentra que
+\begin{align}
+\psi_{n}(x,t)=\left[a_{n}\cos\left(\frac{n \pi v}{L}t\right)+b_{n}\sin\left(\frac{n \pi v}{L}t\right)\right] \sin\left(\frac{n\pi x}{L}\right), \qquad n=1,2,\dots.
+\end{align}
+
+Es directo verificar que cada una de estas soluciones satisface las condiciones de contorno homog'eneas \eqref{eq:cond-borde}. Sin embargo, ninguna de ellas, por separado satisface las condiciones iniciales \eqref{eq:cond-inicial}. Podemos encontrar la soluci'on al problema usando el hecho que la \eqref{eq:ec-onda} es lineal y homog'enea. Debido a esto, una superposici'on de soluciones $\psi_{n}(x,t)$, con distintos $n$, ser'a tambi'en soluci'on de la EDP. Adem'as, esta superposici'on satisface las condiciones de borde (para cualquier valor de los coeficientes que determinan la combinaci'on lineal), ya que son condiciones de borde homog'eneas.
 
 Consideremos por tanto, una superposici'on general de todas las soluciones separables $\psi_{n}(x,t)$ disponibles
 \begin{align}
-\psi(x,t)=&\sum_{n=1}^{\infty}\psi_{n}(x,t)\\
-=&\sum_{n=1}^{\infty}\left[a_{n}\cos\left(\frac{n \pi v}{L}t\right)+b_{n}\sin\left(\frac{n \pi v}{L}t\right)\right] \sin\left(\frac{n\pi x}{L}\right),
-\end{align}
-donde los coeficientes pueden ser calculados al imponer las condiciones iniciales tales que
-\begin{align}
-\psi_{0}(x)=&\psi(x,0)=\sum_{n=1}^{\infty}a_{n}\sin\left(\frac{n \pi x}{L}\right),\label{eq:psi0}\\
-v_{0}(x)=&\frac{\partial \psi}{\partial t}(x,0)=\sum_{n=1}^{\infty}\left( \frac{n \pi v}{L}\right) b_{n}\sin\left( \frac{n \pi x}{L}\right).\label{eq:v0}
+\psi(x,t)=&\sum_{n=1}^{\infty}\psi^{\rm sep}_{n}(x,t)\\
+=&\sum_{n=1}^{\infty}\left[A_{n}\cos\left(\frac{n \pi v}{L}t\right)+B_{n}\sin\left(\frac{n \pi v}{L}t\right)\right] \sin\left(\frac{n\pi x}{L}\right).
 \end{align}
 
-De esta forma, multiplicando las ecuaciones precedentes por $\sin(n\pi x/L)$ y empleando la relaci'on de ortogonalidad en \eqref{eq:ortogo-sin-cos}, se encuentra que $a_{n}$ y $b_{n}$ son tales que:
+Finalmente, los coeficientes pueden ser calculados al imponer las condiciones iniciales:
 \begin{align}
-a_{n}:=\frac{2}{L}\int_{0}^{L} \psi_{0}(x)\sin\left(\frac{k\pi x}{L}\right)dx \text{  y  }
-b_{n}:=\frac{2}{n \pi v}\int_{0}^{L} v_{0}(x)\sin\left(\frac{k\pi x}{L}\right)dx.
+\psi_{0}(x) &= \psi(x,0)=\sum_{n=1}^{\infty}a_{n}\sin\left(\frac{n \pi x}{L}\right),\label{eq:psi0}\\
+v_{0}(x) &= \frac{\partial \psi}{\partial t}(x,0)=\sum_{n=1}^{\infty}\left( \frac{n \pi v}{L}\right) b_{n}\sin\left( \frac{n \pi x}{L}\right).\label{eq:v0}
 \end{align}
 
-As'i, si
+De esta forma, multiplicando las ecuaciones precedentes por $\sin(n\pi x/L)$ y empleando la relaci'on de ortogonalidad en \eqref{eq:ortogo-sin-cos}, se encuentra que $A_{n}$ y $B_{n}$ son dadas por
 \begin{align}
-\psi_{0}(x)=
-\begin{cases}
-\frac{2A}{L}x, &\text{si }x \in (0,\frac{L}{2}),\\
-2A-\frac{2A}{L}x, &\text{si}x \in (\frac{L}{2},L)
-\end{cases} .
+A_{n}=\frac{2}{L}\int_{0}^{L} \psi_{0}(x)\sin\left(\frac{k\pi x}{L}\right)dx, \qquad 
+B_{n}=\frac{2}{n \pi v}\int_{0}^{L} v_{0}(x)\sin\left(\frac{k\pi x}{L}\right)dx.
 \end{align}
-y $v_{0}(x)=0$, entonces
-\begin{align}
-a_{n}=\frac{8A}{\pi^2 n^2}
-\begin{cases}
-0, &\text{si }n \text{ par}\\
-(-1)^{(n-1)/2}, &\text{si }n \text{ impar}
-\end{cases},
-\end{align}
-mientr'as que $b_{n}=0$. Luego, haciendo $n:=2k+1$ con $k=0,1,\hdots$ se halla que:\footnote{En \url{http://nbviewer.ipython.org/urls/dl.dropbox.com/s/3ud8im827ntf3bw/MSV-01.ipynb?dl=0} pueden visualizar un notebook con una animaci'on de la soluci'on.}
-\begin{align}
-\psi(x,t)=\frac{8A}{\pi^2}\sum_{k=0}^{\infty}\frac{(-1)^k}{(2k+1)^2}\sin\left[(2k+1)\frac{\pi}{L}x\right]\cos\left[(2k+1)\frac{\pi v}{L}t\right].
-\end{align}
+
+Puede encontrar la discusi'on de un ejemplo en \href{https://github.com/gfrubi/FM2/blob/master/Notebooks/Ejemplo-MSV-Ecuacion-Onda-1D.ipynb}{este notebook}.
+%
+%Esto completa la soluci'on del problema. Como ejemplo, consideremos el caso particular en el que
+%\begin{align}
+%\psi_{0}(x)=
+%\begin{cases}
+%\frac{2A}{L}x, &\text{si }x \in (0,\frac{L}{2})\\
+%2A-\frac{2A}{L}x, &\text{si}x \in (\frac{L}{2},L)
+%\end{cases} .
+%\end{align}
+%y $v_{0}(x)=0$. En este caso, obtenemos
+%\begin{align}
+%a_{n}=\frac{8A}{\pi^2 n^2}
+%\begin{cases}
+%0, &\text{si }n \text{ par}\\
+%(-1)^{(n-1)/2}, &\text{si }n \text{ impar}
+%\end{cases},
+%\end{align}
+%mientr'as que $b_{n}=0$. Luego, denotando $n=2k+1$ con $k=0,1,\dots$ podemos escribir
+%\begin{align}
+%\psi(x,t)=\frac{8A}{\pi^2}\sum_{k=0}^{\infty}\frac{(-1)^k}{(2k+1)^2}\sin\left[(2k+1)\frac{\pi}{L}x\right]\cos\left[(2k+1)\frac{\pi v}{L}t\right].
+%\end{align}
+\section{Coordenadas polares}
 \section{Coordenadas Cil\'indricas}
 \section{Coordenadas Esf'ericas}
 La ecuaci'on de Helmholtz (modificada),
