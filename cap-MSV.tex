@@ -260,6 +260,27 @@ Puede encontrar la discusi'on de un ejemplo en \href{https://github.com/gfrubi/F
 %\psi(x,t)=\frac{8A}{\pi^2}\sum_{k=0}^{\infty}\frac{(-1)^k}{(2k+1)^2}\sin\left[(2k+1)\frac{\pi}{L}x\right]\cos\left[(2k+1)\frac{\pi v}{L}t\right].
 %\end{align}
 \section{Coordenadas polares}
+
+Considere la ecuaci'on de Laplace bidimensional, en coordenadas polares $(r,\varphi)$
+
+
+Las soluciones separables de la ecuaci'on son de la forma
+\begin{equation}
+\Psi_{\rm sep}(r,\varphi)=R(r)\Phi(\varphi), \qquad 0<r<\infty, \quad 0<\varphi<2\pi,
+\end{equation}
+
+La condici'on de periodidad $\Psi(r,\varphi)=\Psi(r,\varphi+2\pi)$ y restringe los valores de la constante de saparaci'on.
+
+\begin{equation}
+\Psi(r,\varphi)=c_0+c_1\ln(r)+\sum_{n=1}^\infty\left(A_n\cos(n\varphi)+B_n\sin(n\varphi)\right)
+\left(C_nr^{-n}+D_nr^n\right),
+\end{equation}
+donde $c_0,c_1,A_n,B_n,C_n$ y $D_n$ son constantes.
+\begin{equation}
+\Psi(r=R,\varphi)=f(\varphi),
+\end{equation}
+
+
 \section{Coordenadas Cil\'indricas}
 \section{Coordenadas Esf'ericas}
 La ecuaci'on de Helmholtz (modificada),
@@ -302,7 +323,7 @@ que, al dividir por $\sen^2\theta$ implica que
 +\frac{1}{\Theta\sen\theta}\frac{d\ }{d\theta}\left(\sen\theta\frac{
 d\Theta}{d\theta}\right) -\frac{m^2}{\sen^2\theta} = 0.
  \end{equation}
-Esta ecuaci'on est'a nuevamente separada, ya que los primeros dos t'erminos dependen s'olo de $r$ mientras que los 'ultimos dos s'olo de $\theta$. Por lo tanto, podemos introducir una segunda constante de separaci'on, $Q$, tal que las EDOS separadas se escriben como:
+Esta ecuaci'on est'a nuevamente separada, ya que los primeros dos t'erminos dependen s'olo de $r$ mientras que los 'ultimos dos s'olo de $\theta$. Por lo tanto, podemos introducir una segunda constante de separaci'on, $Q$, tal que las EDO's separadas se escriben como:
 \begin{gather}
 \frac{d\ }{dr}\left(r^2\frac{dR}{dr}\right)+\left(\alpha r^2-Q\right)R=0, \label{ecrHelmce}\\
 \frac{1}{\sen\theta}\frac{d}{d\theta}\left(\sen\theta\frac{d\Theta}{d\theta}\right)
@@ -324,3 +345,11 @@ donde $A$ y $B$ son constantes arbitrarias y $l_1$ y $l_2$ son las soluciones de
 \begin{equation}
 R_n(r) = A_l\cdot r^n + \frac{B_n}{r^{n+1}},\label{Rn}
 \end{equation}
+
+\subsubsection{Caso de simetr\'ia axial}
+Si por alguna raz'on justificada (usualmente, de simetr'ia de la situaci'on f'isica) se busca una \textit{soluci'on axialmente sim'etrica}, es decir, independiente de la variable $\varphi$, entonces $\Psi=\Psi(r,\theta)$. Desde el punto de vista de la formulaci'on del problema m'as general (sin simetr'ia) este caso particular requiere que $m=0$, ya que en ese caso las soluciones angulares $\Phi(\varphi)$ son constantes y por tanto la soluci'on no depender'a de $\varphi$. En este caso, la ecuaci'on se reduce a
+\begin{equation}
+\frac{1}{\sen\theta}\frac{d}{d\theta}\left(\sen\theta\frac{d\Theta}{d\theta}\right)
++Q\Theta = 0
+\end{equation}
+que, como veremos a continuaci'on es equivalente a la EDO de Legendre.
