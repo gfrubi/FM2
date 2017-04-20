@@ -9,19 +9,23 @@ Substituyendo $x:=\cos\theta$ tendremos que la ecuaci'on diferencial \eqref{ecTh
 de modo que, dada una soluci'on $y(x)$, la soluci'on de \eqref{ecThHelm} es dada por $\Theta(\theta)=y(\cos\theta)$. 
 
 \subsection{E.D.O de Legendre}
-En el caso $m=0$, la ecuaci'on (\ref{est22}) es llamada \textit{ecuaci'on
+En el caso $m=0$, la ecuaci'on (\ref{est22}) es llamada \textbf{ecuaci'on
 diferencial de Legendre}:
 \begin{equation}\label{ecLeg}
-\frac{d}{dx}\left[\left(1-x^2 \right)\frac{dy}{dx}\right]+Qy=0.
+\frac{d}{dx}\left[\left(1-x^2 \right)\frac{dy}{dx}\right]+Qy=0, \qquad x\in [-1,1].
 \end{equation}
 
- En la secci'on \ref{sec:FrobLeg} estudiaremos la soluci'on general de esta ecuaci'on, para valores arbitrarios de la constante $Q$. Verificaremos que \eqref{ecLeg} s'olo posee soluciones \textit{finitas en los puntos extremos} $(\pm 1)$ si y s'olo si
+ En la secci'on \ref{sec:FrobLeg} estudiaremos la soluci'on general de esta ecuaci'on, para valores arbitrarios de la constante $Q$. Ah'i verificaremos que 
+\begin{quotation}
+\textbf{Teorema:} La ecuaci'on \eqref{ecLeg} s'olo posee soluciones \textit{finitas en los puntos extremos} ($x=\pm 1$) si y s'olo si
 \begin{equation}
 Q=n(n+1),\qquad n=0, 1,2, \cdots,
 \end{equation} 
-es decir, s'olo si $Q=0,2,6,12,20,30,\cdots$. En este caso las soluciones finitas son los \textit{Polinomios de Legendre} de orden $n$.
+es decir, s'olo si $Q=0,2,6,12,20,30,\dots$. En este caso las soluciones finitas son los \textbf{Polinomios de Legendre} de orden $n$. 
+\end{quotation}
 
-Antes de abordar el problema m'as general, introduciremos los polinomios de Legendre por medio de su funci'on generadora. Para esto, consideramos el siguiente argumento:
+\subsection{Polinomios de Legendre y funci\'on generadora}
+Antes de abordar el problema m'as general, introduciremos los polinomios de Legendre por medio de su \textbf{funci'on generadora}. Para esto, consideramos el siguiente argumento:
 
 La funci'on (en coordenadas esf'ericas $(r,\theta,\varphi)$)
 \begin{equation}\label{PsisolLap}
@@ -34,9 +38,9 @@ Expandiendo \eqref{PsisolLap} en potencias de $t:=a/r$, para $r>a$, obtenemos
 \Psi(r,\theta) &= \frac{1}{\sqrt{r^2+a^2-2ar\cos\theta}} \\
 &= \frac{1}{r}\frac{1}{\sqrt{1+t^2-2xt}} \\
 &= \frac{1}{r}\sum_{n=0}^\infty P_n(x)t^n \\
-&= \frac{1}{a}\sum_{n=0}^\infty P_n(x)t^{n+1},
+&= \frac{1}{a}\sum_{n=0}^\infty P_n(x)t^{n+1}, \label{solPntn+1}
 \end{align}
-donde hemos introducido nuevamente $x:=\cos\theta$. De esta forma, tenemos una soluci'on finita para todo $t<1$ que consiste en una superposici'on de soluciones separables $P_n(x)$ y $t^{n+1}$. Comparando esta soluci'on con \eqref{loes2} vemos que esta soluci'on corresponde al caso particular en que $Q=n(n+1)$. Por lo tanto, esperamos que las funciones $P_n(x)$ satisfagan la ecuaci'on \eqref{ecLeg} en este caso.  
+donde hemos introducido nuevamente $x:=\cos\theta$. De esta forma, tenemos una soluci'on finita para todo $t<1$ que consiste en una superposici'on de soluciones separables $P_n(x)$ y $t^{n+1}$. Comparando esta soluci'on con \eqref{loes2} vemos que \eqref{solPntn+1} corresponde al caso particular en que $Q=n(n+1)$. Por lo tanto, esperamos que las funciones $P_n(x)$ satisfagan la ecuaci'on \eqref{ecLeg} en este caso.  
 
 Con esta motivaci'on, podemos definir las funciones de Legendre de orden $n$, $P_n(x)$, como los \textit{coeficientes de la expansi'on en serie de Taylor de la ``funci'on generadora''}  $g(t,x):=(1-2xt+t^2)^{-1/2}$, tal que
 \begin{equation}
