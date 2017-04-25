@@ -51,23 +51,6 @@ Equivalentemente, tenemos entonces que
 P_n(x)=\frac{1}{n!}\left.\left[\frac{\partial^ng(t,x)}{\partial t^n}\right]\right|_{t=0}.
 \end{equation}
 
-\begin{equation}
-(1-x)^{-1/2}=\sum_{n=0}^\infty\frac{(2n)!}{2^{2n}(n!)^2}x^n
-\end{equation}
-\begin{equation}
-(a+b)^n=\sum_{k=0}^\infty\frac{n!}{k!(n-k)!}a^{n-k}b^k
-\end{equation}
-\begin{align}
-g(t,x) &= \sum_{n=0}^\infty\frac{(2n)!}{2^{2n}(n!)^2}(2xt-t^2)^n \\
-&= \sum_{n=0}^\infty\frac{(2n)!}{2^{2n}(n!)^2}t^n(2x-t)^n \\
-&= \sum_{n=0}^\infty\frac{(2n)!}{2^{2n}(n!)^2}t^n \sum_{k=0}^\infty\frac{n!}{k!(n-k)!}(2x)^{n-k}(-t)^k\\
-&= \sum_{n=0}^\infty\sum_{k=0}^\infty\frac{(-1)^k(2n)!}{2^{n+k}n!k!(n-k)!}x^{n-k}t^{n+k}\\
-\end{align}
-
-\begin{equation}\label{seriePn}
-P_n(x)= \sum_{k=0}^{[n/2]}\frac{(-1)^{k}(2n-2k)!}{2^nk!(n-k)!(n-2k)!}x^{n-2k}
-\end{equation}
-
 \subsubsection{Expresiones expl'icitas}
 Los primeros cuatro polinomios son
  \begin{align*}
@@ -76,6 +59,37 @@ Los primeros cuatro polinomios son
   P_4(x) &= \frac{35 x^{4}}{8} - \frac{15 x^{2}}{4} + \frac{3}{8}, \qquad 
   &P_5(x) &= \frac{63 x^{5}}{8} - \frac{35 x^{3}}{4} + \frac{15 x}{8}.
  \end{align*}
+ 
+\subsubsection{Serie de potencias}
+Podemos encontrar una primera expresi'on para las funciones $P_n(x)$ en t'erminos de una serie de potencias. Para esto, podemos expandir la funci'on generadora en una serie, usando
+\begin{equation}
+(1-x)^{-1/2}=\sum_{n=0}^\infty\frac{(2n)!}{2^{2n}(n!)^2}x^n,
+\end{equation}
+con la identificaci'on $x\rightarrow 2xt-t^2$, de modo que
+\begin{align}
+g(t,x) &= \sum_{n=0}^\infty\frac{(2n)!}{2^{2n}(n!)^2}(2xt-t^2)^n \\
+&= \sum_{n=0}^\infty\frac{(2n)!}{2^{2n}(n!)^2}t^n(2x-t)^n \\.
+\end{align}
+Empleamos ahora la expansi'on binomial,
+\begin{equation}
+(a+b)^n=\sum_{k=0}^n\frac{n!}{k!(n-k)!}a^{n-k}b^k,
+\end{equation}
+con $a=2x$ y $b=-t$. Entonces, podemos escribir
+\begin{align}
+g(t,x) 
+&= \sum_{n=0}^\infty\frac{(2n)!}{2^{2n}(n!)^2}t^n \sum_{k=0}^n\frac{n!}{k!(n-k)!}(2x)^{n-k}(-t)^k\\
+&= \sum_{n=0}^\infty\sum_{k=0}^n\frac{(-1)^k(2n)!}{2^{n+k}n!k!(n-k)!}x^{n-k}t^{n+k}.
+\end{align}
+Podemos expresar esta suma doble cambiando de variable de suma desde $(n,k)$ hasta $(\bar{n},k)$, con $\bar{n}:=n+k$. Esto implica reemplazar $n$ en la expresi'on anterior por $\bar{n}-k$ y el rango de variaci'on de estas variables. Si $\bar{n}=0,1,2,\dots$, entonces $k=0,1,\cdots,[\bar{n}/2]$, ya que en la suma original $n-k=\bar{n}-2k>0$. Por lo tanto
+\begin{equation}
+g(t,x)= \sum_{\bar{n}=0}^\infty\sum_{k=0}^{[\bar{n}/2]}\frac{(-1)^k(2\bar{n}-2k)!}{2^{\bar{n}}k!(\bar{n}-k)!(\bar{n}-2k)!} x^{\bar{n}-2k}t^{\bar{n}},
+\end{equation}
+y por lo tanto
+\begin{equation}\label{seriePn}
+P_n(x)= \sum_{k=0}^{[n/2]}\frac{(-1)^{k}(2n-2k)!}{2^nk!(n-k)!(n-2k)!}x^{n-2k}.
+\end{equation}
+
+\subsubsection{Propiedades}
 Los polinomios de Legendre satisfacen las siguientes propiedades:
 \begin{itemize}
 \item Normalizaci'on
@@ -86,7 +100,7 @@ En otras palabras, los $P_n$ son normalizados de modo que para $x=1$ ellos
 asumen siempre el valor $1$.
  \item Simetr'ia
 \begin{equation}
-P_n(-x) = (-1)^n P_n(x)
+P_n(-x) = (-1)^n P_n(x).
 \end{equation}
 Los polinomios $P_n$ son funciones sim'etricas si $n$ es par y antisim'etricas
 si $n$ es impar
@@ -96,7 +110,7 @@ si $n$ es impar
 P_n(0)=\left\{\begin{array}{cl}
 0 & \text{si } n \text{ par} \\
 \frac{(-1)^m(2m)!}{2^{2m}(m!)^2} & \text{si } n=2m \text{ (par)}
-\end{array}\right.
+\end{array}\right. .
 \end{equation}
 
 \item Completitud: Los polinomios de Legendre $P_n$ forman un conjunto
@@ -106,14 +120,14 @@ completo de funciones definidas en $[-1,1]$.
 \begin{figure}[H]
 \centering
 \includegraphics[angle=0,width=0.8\textwidth]{figs/fig-Legendre-P.pdf}
-\caption{Primeros cinco polinomios de Legendre.}
+\caption{Primeros cinco polinomios de Legendre. C'odigo Python disponible \href{https://github.com/gfrubi/FM2/blob/master/figuras-editables/fig-Legendre.py}{aqu\'i}.}
 \label{fig-Pn}
 \end{figure}
 
 \begin{figure}[H]
 \centering
 \includegraphics[angle=0,width=0.8\textwidth]{figs/fig-Legendre-der-P.pdf}
-\caption{Derivada de los primeros cinco polinomios de Legendre.}
+\caption{Derivada de los primeros cinco polinomios de Legendre. C'odigo Python disponible \href{https://github.com/gfrubi/FM2/blob/master/figuras-editables/fig-Legendre.py}{aqu\'i}.}
 \label{fig-Pnp}
 \end{figure}
 
@@ -134,8 +148,8 @@ nP_{n-1}(x)+(n+1)P_{n+1}(x)=(2n+1)\,x\,P_n(x), \\
 
 \subsection{Relaci'on de ortogonalidad}
 \begin{equation}
-\frac{d\ }{dx}\left[(1 - x^2) P_n' \right]+ n (n + 1) P_n, \quad
-\frac{d\ }{dx}\left[(1 - x^2) P_m' \right]+ m (m + 1) P_m .
+\frac{d\ }{dx}\left[(1 - x^2) P_n' \right]+ n (n + 1) P_n=0, \quad
+\frac{d\ }{dx}\left[(1 - x^2) P_m' \right]+ m (m + 1) P_m=0 .
 \end{equation}
 
 \begin{gather}
@@ -174,7 +188,7 @@ y entonces
 \end{equation}
 En particular, usando \eqref{Pn0} encontramos
 \begin{equation}
-\delta(x-a)=\sum_{m=0}^\infty \frac{(-1)^m(4m+1)(2m)!}{2^{2m+1}(m!)^2}P_{2m}(x).
+\delta(x)=\sum_{m=0}^\infty \frac{(-1)^m(4m+1)(2m)!}{2^{2m+1}(m!)^2}P_{2m}(x).
 \end{equation}
 
 \begin{figure}[H]
