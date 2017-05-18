@@ -27,7 +27,7 @@ for n in range(nmax+1):
         C = sp.sph_harm(m, n, p, t).real
         norm = colors.Normalize()
         ax.plot_surface(X(1),Y(1),Z(1),rstride=1, cstride=1,norm=norm,cmap=cm.jet,facecolors=cm.jet(norm(C)))
-        ax.set_title('$n = %d, m= %d$'%(n,m))
+        ax.set_title('$n = %d, m= %d$'%(n,m), fontsize=20)
         #ax.set_frame_on(False)
         ax.set_axis_off()
         cosa = cm.ScalarMappable(cmap=cm.jet)
