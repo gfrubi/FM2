@@ -928,9 +928,15 @@ Si $r_2<r_1$, con $r_1=\left|\vec{x}_1\right|$ y $r_2=\left|\vec{x}_2\right|$ en
 donde hemos definido $t:=r_2/r_1 <1$. Entonces
 \begin{align}
 \frac{1}{\left|\vec{x}_1-\vec{x}_2\right|} &= \frac{1}{r_1}\sum_{n=0}^\infty P_n(\cos\gamma)ṭ^n \\
-&= \frac{1}{r_1}\sum_{n=0}^\infty t^n\frac{4\pi}{2n+1} \sum_{m=-n}^n Y_n^m(\theta,\varphi)(Y_n^{m})^\ast(\theta',\varphi')  \\
-&= 4\pi \sum_{n,m}\frac{1}{2n+1}\frac{r_2^n}{r_1^{n+1}}Y_n^m(\theta,\varphi)(Y_n^{m})^\ast(\theta',\varphi').
+&= \frac{1}{r_1}\sum_{n=0}^\infty t^n\frac{4\pi}{2n+1} \sum_{m=-n}^n Y_n^m(\theta_1,\varphi_1)(Y_n^{m})^\ast(\theta_2,\varphi_2)  \\
+&= 4\pi \sum_{n,m}\frac{1}{2n+1}\frac{r_2^n}{r_1^{n+1}} Y_n^m(\theta_1,\varphi_1)(Y_n^{m})^\ast(\theta_2,\varphi_2).
 \end{align}
+En com'un encontrar esta identidad escrita de la siguiente forma:
+\begin{align}
+\frac{1}{\left|\vec{x}-\vec{x}'\right|} 
+&= 4\pi \sum_{n,m}\frac{1}{2n+1}\frac{r_<^n}{r_>^{n+1}}Y_n^m(\theta,\varphi)(Y_n^{m})^\ast(\theta',\varphi'),
+\end{align}
+donde $r_> = max(r,r')$ y $r_< = min(r,r')$.
 
 \subsubsection{Ecuaci'on de Laplace y arm'onicos esf'ericos}
 En el caso de la ecuaci'on de Laplace, podemos entonces usar el resultado en \eqref{loes2}, con $Q=n(n+1)$, para escribir una expresi'on general para la soluci'on (finita para $\theta=0$ y $\theta=\pi$), en coordenadas esf'ericas:
