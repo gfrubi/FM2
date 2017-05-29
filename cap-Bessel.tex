@@ -20,7 +20,7 @@ Afortunadamente, s'i es posible encontrar soluciones de la forma\footnote{Una fo
 \begin{equation}\label{yzasum}
 y(z) = z^\alpha \sum_{n=0}^\infty a_n z^n = \sum_{n=0}^\infty a_n z^{n+\alpha},
 \end{equation}
-donde $\alpha$ es una constante (no necesariamente un entero) que ser'a elegida convenientemente. Asumiendo \eqref{yzasum}, las derivadas de $y(z)$ adoptan la forma siguiente:
+donde $\alpha$ es una constante (no necesariamente un entero) que ser'a elegida convenientemente. Suponiendo \eqref{yzasum}, las derivadas de $y(z)$ adoptan la forma siguiente:
 \begin{equation}
 y' = \sum_{n=0}^\infty (n+\alpha) a_n z^{n+\alpha-1}, \quad
 y'' = \sum_{n=0}^\infty (n+\alpha)(n+\alpha-1) a_n z^{n+\alpha-2}.
@@ -44,7 +44,7 @@ Por lo tanto, los coeficientes deben satisfacer las siguientes condiciones:
 \end{equation}
 Encontramos as'i una relaci'on de recurrencia entre $a_n$ y $a_{n-2}$, que permite entonces expresar todos los coeficientes $a_n$ con $n$ par en t'erminos de $a_0$ y todos los con $n$ impar en t'erminos de $a_1$. 
 
-Como buscamos soluciones no nulas, asumimos primero que $a_0\neq 0$. Entonces la primera condici'on en \eqref{rrBess} implica que $\alpha=\pm\nu$. En este caso la segunda condici'on en \eqref{rrBess} se reduce a $(1+2\alpha)a_1=0$. Analizaremos primero el caso gen'erico en que $\alpha\neq -1/2$. Entonces necesariamente $a_1=0$ y s'olo los coefientes pares, de la forma $a_{2k}$, $k=0,1,2,\cdots$, ser'an no nulos. De la relaci'on de recurrencia en \eqref{rrBess} obtenemos
+Como buscamos soluciones no nulas, suponemos primero que $a_0\neq 0$. Entonces la primera condici'on en \eqref{rrBess} implica que $\alpha=\pm\nu$. En este caso la segunda condici'on en \eqref{rrBess} se reduce a $(1+2\alpha)a_1=0$. Analizaremos primero el caso gen'erico en que $\alpha\neq -1/2$. Entonces necesariamente $a_1=0$ y s'olo los coefientes pares, de la forma $a_{2k}$, $k=0,1,2,\cdots$, ser'an no nulos. De la relaci'on de recurrencia en \eqref{rrBess} obtenemos
 \begin{equation}\label{anan-2}
 a_n=-\frac{a_{n-2}}{n(n+2\alpha)}.
 \end{equation}
@@ -95,7 +95,7 @@ y(z)=c_3J_\nu(z)+c_4N_\nu(z).
 \end{equation}
 
 \subsubsection{Caso en que $\alpha^2\neq\nu^2$}
-Asumiendo ahora que $\alpha^2\neq\nu^2$, entonces $a_0=0$ con lo cual $a_{2k}= 0$, con esto $a_1\neq 0$ luego $(\alpha+1)^2-\nu^2=0$. Reemplazando esto \'utlimo en \eqref{rrBess}, se tiene que
+Suponemos ahora que $\alpha^2\neq\nu^2$, entonces $a_0=0$ con lo cual $a_{2k}= 0$, con esto $a_1\neq 0$ luego $(\alpha+1)^2-\nu^2=0$. Reemplazando esto \'utlimo en \eqref{rrBess}, se tiene que
 \begin{equation} \label{rrBEssimpar}
 a_n=-\frac{a_{n-2}}{(n-1)(n+1+2\alpha)}.
 \end{equation}
@@ -172,7 +172,7 @@ donde $\gamma=0.577216\cdots$ es la constante de Euler-Mascheroni\footnote{$\gam
 \begin{figure}[H]
 \centering
 \includegraphics[angle=0,width=0.7\textwidth]{figs/fig-funcion-Gamma.pdf}
-\caption{La funci'on $\Gamma$ con argumento real.}
+\caption{La funci'on $\Gamma$ con argumento real. C'odigo Python \href{https://github.com/gfrubi/FM2/blob/master/figuras-editables/fig-Gamma.py}{aqu\'i}.}
 \label{fig-Gamma}
 \end{figure}
 
