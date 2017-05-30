@@ -197,7 +197,7 @@ z\frac{d\ }{dz}(zJ'_\nu) &= zJ_{\nu-1}+z\left[(\nu-1)J_{\nu-1}-zJ_\nu\right]-\nu
 que es equivalente a la ecuaci'on \eqref{Besselec1}.
 
 \subsection{Representaci'on integral}
-Las funciones de Bessel de orden $\nu$ y argumento real pueden expresarse como la siguiente integral en el plano completo
+Las funciones de Bessel de orden $\nu$ y argumento real pueden expresarse como la siguiente integral en el plano complejo
 \begin{equation}\label{RIJnu}
 \boxed{J_\nu(x)=2\pi i\int_{\cal C}e^{(x/2)(t-t^{-1})}t^{-\nu-1}dt,}
 \end{equation}
@@ -239,7 +239,7 @@ J_\nu(x)\approx \sqrt{\frac{2}{\pi x}}\cos\left(x-\frac{\nu\pi}{2}-\frac{\pi}{4}
 \end{equation}
 
 \subsection{Ceros de las funciones de Bessel}
-Frecuentemente, es necesario evaluar las raices, o ceros, de las funciones de Bessel. La funci'on de Bessel $J_\nu(x)$ tiene infinitas raices (ver, por ejemplo, figura \ref{fig-Jn}). Denotaremos $\alpha_{\nu,n}$ a la $n$-'esima raiz de la funci'on $J_\nu(x)$, es decir, tal que $J_\nu(\alpha_{\nu,n})=0$ y $\alpha_{\nu,n+1}<\alpha_{\nu,n}$, $n=1,2,\cdots$. Los valores de estas raices son calculadas num'ericamente a partir, por ejemplo, de la expresi'on en serie \eqref{Besselnu} para las funciones de Bessel. En la tabla \ref{tabla:alphanun} se muestran algunas de estos ceros\footnote{Un sitio donde puede calcular en l'inea los ceros es: \url{http://cose.math.bas.bg/webMathematica/webComputing/BesselZeros.jsp}.}:
+Frecuentemente, es necesario evaluar las raices, o ceros, de las funciones de Bessel. La funci'on de Bessel $J_\nu(x)$ tiene infinitas raices (ver, por ejemplo, figura \ref{fig-Jn}). Denotaremos $\alpha_{\nu,n}$ a la $n$-'esima raiz de la funci'on $J_\nu(x)$, es decir, tal que $J_\nu(\alpha_{\nu,n})=0$ y $\alpha_{\nu,n+1}<\alpha_{\nu,n}$, $n=1,2,\cdots$. Los valores de estas raices son calculadas num'ericamente a partir, por ejemplo, de la expresi'on en serie \eqref{Besselnu} para las funciones de Bessel. En la tabla \ref{tabla:alphanun} se muestran algunos de estos ceros.:
 \begin{table}
 \begin{center}
 \begin{tabular}{ccccccc}
@@ -251,11 +251,22 @@ $m=3$ & 6.3801619 &  9.7610231 & 13.0152007 & 16.2234661 & 19.4094152 \\
 $m=4$ & 7.5883424 & 11.0647094 & 14.3725366 & 17.6159660 & 20.8269329 \\
 \hline 
 \end{tabular} 
-\caption{Las primeras ra'ices $\alpha_{m,n}$ de $J_m(x)$, $m=0,1,2,3,4$.}
+\caption{Las primeras ra'ices $\alpha_{m,n}$ de $J_m(x)$, $m=0,1,2,3,4$. C'odigo Python disponible en \href{https://github.com/gfrubi/FM2/blob/master/Notebooks/Bessel-Ceros.ipynb}{este} notebook.}
 \label{tabla:alphanun}
 \end{center}
 \end{table}
-
+\begin{figure}[H]
+\centering
+\includegraphics[angle=0,width=0.7\textwidth]{figs/fig-Bessel-ceros-01.pdf}
+\caption{Algunos ceros de las funciones $J_m(x)$. C'odigo Python disponible en \href{https://github.com/gfrubi/FM2/blob/master/Notebooks/Bessel-Ceros.ipynb}{este} notebook.}
+\label{fig-0Jn}
+\end{figure}
+\begin{figure}[H]
+\centering
+\includegraphics[angle=0,width=0.7\textwidth]{figs/fig-Bessel-ceros-02.pdf}
+\caption{Diferencias entre ceros sucesivos de las funciones $J_m(x)$. C'odigo Python disponible en \href{https://github.com/gfrubi/FM2/blob/master/Notebooks/Bessel-Ceros.ipynb}{este} notebook.}
+\label{fig-0Jn2}
+\end{figure}
 Es tambi'en frecuente requerir calcular las \textit{raices de las derivadas de las funciones de Bessel}. 'Estas ser'an denotadas por $\beta_{\nu,n}$ y entonces satisfacen $J'_\nu(\beta_{\nu,n})=0$ y $\beta_{\nu,n+1}<\alpha_{\beta,n}$, $n=1,2,\cdots$. La tabla  \ref{tabla:betanun} resume algunos de estos valores:
 \begin{table}
 \begin{center}
@@ -268,7 +279,7 @@ $m=3$ & 4.2011889 &  8.0152366 & 11.3459243 & 14.5858482 & 17.7887478 \\
 $m=4$ & 5.3175531 &  9.2823962 & 12.6819084 & 15.9641070 & 19.1960288 \\
 \hline 
 \end{tabular} 
-\caption{Las primeras ra'ices $\beta_{m,n}$ de $J'_m(x)$, $m=0,1,2,3,4$.}
+\caption{Las primeras ra'ices $\beta_{m,n}$ de $J'_m(x)$, $m=0,1,2,3,4$. Código disponible en \href{https://github.com/gfrubi/FM2/blob/master/Notebooks/Bessel-Ceros.ipynb}{este} notebook.}
 \label{tabla:betanun}
 \end{center}
 \end{table}
