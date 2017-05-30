@@ -242,13 +242,13 @@ J_\nu(x)\approx \sqrt{\frac{2}{\pi x}}\cos\left(x-\frac{\nu\pi}{2}-\frac{\pi}{4}
 Frecuentemente, es necesario evaluar las raices, o ceros, de las funciones de Bessel. La funci'on de Bessel $J_\nu(x)$ tiene infinitas raices (ver, por ejemplo, figura \ref{fig-Jn}). Denotaremos $\alpha_{\nu,n}$ a la $n$-'esima raiz de la funci'on $J_\nu(x)$, es decir, tal que $J_\nu(\alpha_{\nu,n})=0$ y $\alpha_{\nu,n+1}<\alpha_{\nu,n}$, $n=1,2,\cdots$. Los valores de estas raices son calculadas num'ericamente a partir, por ejemplo, de la expresi'on en serie \eqref{Besselnu} para las funciones de Bessel. En la tabla \ref{tabla:alphanun} se muestran algunas de estos ceros\footnote{Un sitio donde puede calcular en l'inea los ceros es: \url{http://cose.math.bas.bg/webMathematica/webComputing/BesselZeros.jsp}.}:
 \begin{table}
 \begin{center}
-\begin{tabular}{cccccc}
-\hline $\alpha_{m,n}$ & $m=0$ & $m=1$ & $m=2$ & $m=3$ \\ \hline 
-$n=1$ & $2.4048$ & $3.8317$ & $5.1356$ & $6.3802$  \\ 
-$n=2$ & $5.5201$ & $7.0156$ & $8.4172$ & $9.7610$  \\ 
-$n=3$ & $8.6537$ & $10.1735$ & $11.6198$ & $13.0152$  \\ 
-$n=4$ & $11.7915$ & $13.3237$ & $14.7960$ & $16.2235$  \\ 
-$n=5$ & $14.9309$ & $16.4706$ & $17.9598$ & $19.4094$ \\
+\begin{tabular}{ccccccc}
+\hline $\alpha_{m,n}$ & $n=1$ & $n=2$ & $n=3$ & $n=4$ & $n=5$ \\ \hline 
+$m=0$ & 2.4048255 &  5.5200781 &  8.6537279 & 11.7915344 & 14.9309177\\
+$m=1$ & 3.8317059 &  7.0155866 & 10.1734681 & 13.3236919 & 16.4706300\\
+$m=2$ & 5.1356223 &  8.4172441 & 11.6198411 & 14.7959517 & 17.9598194 \\
+$m=3$ & 6.3801619 &  9.7610231 & 13.0152007 & 16.2234661 & 19.4094152 \\
+$m=4$ & 7.5883424 & 11.0647094 & 14.3725366 & 17.6159660 & 20.8269329 \\
 \hline 
 \end{tabular} 
 \caption{Las primeras ra'ices $\alpha_{m,n}$ de $J_m(x)$, $m=0,1,2,3,4$.}
@@ -259,11 +259,13 @@ $n=5$ & $14.9309$ & $16.4706$ & $17.9598$ & $19.4094$ \\
 Es tambi'en frecuente requerir calcular las \textit{raices de las derivadas de las funciones de Bessel}. 'Estas ser'an denotadas por $\beta_{\nu,n}$ y entonces satisfacen $J'_\nu(\beta_{\nu,n})=0$ y $\beta_{\nu,n+1}<\alpha_{\beta,n}$, $n=1,2,\cdots$. La tabla  \ref{tabla:betanun} resume algunos de estos valores:
 \begin{table}
 \begin{center}
-\begin{tabular}{cccccc}
-\hline $\beta_{m,n}$ & $m=0$ & $m=1$ & $m=2$ & $m=3$ \\ \hline 
-$n=1$ & $3.8317$ & $1.8412$ & $3.0542$ & $4.2012$  \\ 
-$n=2$ & $7.0156$ & $5.3314$ & $6.7061$ & $8.0152$  \\ 
-$n=3$ & $10.1735$ & $8.5363$ & $9.9695$ & $11.3459$ \\ 
+\begin{tabular}{ccccccc}
+\hline $\beta_{m,n}$ & $n=1$ & $n=2$ & $n=3$ & $n=4$ & $n=5$ \\ \hline 
+$m=0$ & 3.8317059 &  7.0155866 & 10.1734681 & 13.3236919 & 16.4706300\\
+$m=1$ & 1.8411837 &  5.3314427 &  8.5363163 & 11.7060049 & 14.8635886 \\
+$m=2$ & 3.0542369 &  6.7061331 &  9.9694678 & 13.1703708 & 16.3475223 \\
+$m=3$ & 4.2011889 &  8.0152366 & 11.3459243 & 14.5858482 & 17.7887478 \\
+$m=4$ & 5.3175531 &  9.2823962 & 12.6819084 & 15.9641070 & 19.1960288 \\
 \hline 
 \end{tabular} 
 \caption{Las primeras ra'ices $\beta_{m,n}$ de $J'_m(x)$, $m=0,1,2,3,4$.}
