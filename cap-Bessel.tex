@@ -44,7 +44,7 @@ Por lo tanto, los coeficientes deben satisfacer las siguientes condiciones:
 \end{equation}
 Encontramos as'i una relaci'on de recurrencia entre $a_n$ y $a_{n-2}$, que permite entonces expresar todos los coeficientes $a_n$ con $n$ par en t'erminos de $a_0$ y todos los con $n$ impar en t'erminos de $a_1$. 
 
-Como buscamos soluciones no nulas, suponemos primero que $a_0\neq 0$. Entonces la primera condici'on en \eqref{rrBess} implica que $\alpha=\pm\nu$. En este caso la segunda condici'on en \eqref{rrBess} se reduce a $(1+2\alpha)a_1=0$. Analizaremos primero el caso gen'erico en que $\alpha\neq -1/2$. Entonces necesariamente $a_1=0$ y s'olo los coefientes pares, de la forma $a_{2k}$, $k=0,1,2,\cdots$, ser'an no nulos. De la relaci'on de recurrencia en \eqref{rrBess} obtenemos
+Como buscamos soluciones no nulas, suponemos primero que $a_0\neq 0$. Entonces la primera condici'on en \eqref{rrBess} implica que $\alpha=\pm\nu$. En este caso la segunda condici'on en \eqref{rrBess} se reduce a $(1+2\alpha)a_1=0$. Analizaremos primero el caso gen'erico en que $\alpha\neq -1/2$. Entonces necesariamente $a_1=0$ y s'olo los coeficientes pares, de la forma $a_{2k}$, $k=0,1,2,\cdots$, ser'an no nulos. De la relaci'on de recurrencia en \eqref{rrBess} obtenemos
 \begin{equation}\label{anan-2}
 a_n=-\frac{a_{n-2}}{n(n+2\alpha)}.
 \end{equation}
@@ -53,7 +53,7 @@ Aplicaci'on sucesiva de \eqref{anan-2} conduce a
 a_{2 k} &= \frac{a_0(-1)^k}{2^{2k}k!}\frac{1}{(1+\alpha)(2+\alpha)(3+\alpha)\cdots (k+\alpha)}\\
 &= \frac{a_0 (-1)^k}{2^{2k} k!}\frac{\Gamma(1+\alpha)}{\Gamma(k +\alpha+ 1) }, \qquad k=0,1,2,\cdots. 
 \end{align}
-Aqu'i hemos introducido la funci'on Gamma. Por lo tanto, para $\alpha=\nu$ hemos encontrado una soluci'on de la forma
+Aqu'i hemos introducido la funci'on Gamma, ver ap'endice \ref{app-Gamma}. Por lo tanto, para $\alpha=\nu$ hemos encontrado una soluci'on de la forma
 \begin{equation}
 y_\nu(z) = a_0 \sum_{k=0}^\infty \frac{(-1)^k}{2^{2k}k!}\frac{\Gamma(1+\nu)}{\Gamma(k+\nu+ 1) }
 z^{2k+\nu},
@@ -93,88 +93,53 @@ Entonces la soluci'on general de \eqref{Besselec1} puede expresarse como una com
 \begin{equation}
 y(z)=c_3J_\nu(z)+c_4N_\nu(z).
 \end{equation}
-
-\subsubsection{Caso en que $\alpha^2\neq\nu^2$}
-Suponemos ahora que $\alpha^2\neq\nu^2$, entonces $a_0=0$ con lo cual $a_{2k}= 0$, con esto $a_1\neq 0$ luego $(\alpha+1)^2-\nu^2=0$. Reemplazando esto \'utlimo en \eqref{rrBess}, se tiene que
-\begin{equation} \label{rrBEssimpar}
-a_n=-\frac{a_{n-2}}{(n-1)(n+1+2\alpha)}.
-\end{equation}
-Aplicando sucesivamente \eqref{rrBEssimpar}, se tiene que
-\begin{eqnarray}
-a_{2k+1}&=&\frac{(-1)^ka_1}{2^{2k}k!}\frac{1}{(\alpha+2)(\alpha+3)(\alpha+4)\cdots (\alpha +k+1)}\\
-&=&\frac{(-1)^ka_1}{2^{2k }k!}\frac{\Gamma(\alpha+2)}{\Gamma(\alpha+k+2)}
-\end{eqnarray}
-
-As\'i, para $\alpha=\nu-1$ se tiene que la soluci\'on toma la forma
-\begin{equation}
-y_\nu(z) = a_1 \sum_{k=0}^\infty \frac{(-1)^k}{2^{2k}k!}\frac{\Gamma(1+\nu)}{\Gamma(k+\nu+ 1) }
-z^{2k+\nu}
-\end{equation}
-
-Eligiendo $a_1=1/(2^{\nu}\Gamma(1+\nu))$, se obtiene nuevamente la funci\'on de Bessel de primera especie, dada por \eqref{Besselnu}
-
-\subsubsection{Caso en que $\alpha=-\frac{1}{2}$}
+\subsubsection{Caso en que $\alpha=-1/2$}
 
 En este caso $a_0\neq 0$ y $a_1\neq 0$, de \eqref{rrBess} se tiene la siguiente relaci\'on de recurrencia
 \begin{equation}
 a_n=-\frac{a_{n-2}}{n(n-1)}.
 \end{equation} 
-
-Si $n$ es par entonces
+Como consecuencia encontramos que, si $n$ es par, entonces
 \begin{equation}
-a_{2k}=\frac{(-1)^k a_0}{(2k)!}.
+a_{2k}=\frac{(-1)^k a_0}{(2k)!},
 \end{equation}
-
-Si $n$ es impar entonces
+mientras que si $n$ es impar,
 \begin{equation}
 a_{2k+1}=\frac{(-1)^k a_1}{(2k+1)!}.
 \end{equation}
 
-As\'i, en la soluci\'on se tiene los siguiente
+As\'i, en la soluci\'on es de la forma
 \begin{eqnarray}
 y(z)&=&z^{-1/2}\left(\sum_{k=0}^{+\infty}a_{2k}z^{2k}+\sum_{k=0}^{+\infty}a_{2k+1}z^{2k+1} \right)\\
 &=&z^{-1/2}\left(a_0\sum_{k=0}^{+\infty}\frac{(-1)^k}{(2k)!}z^{2k}+a_1\sum_{k=0}^{+\infty}\frac{(-1)^k}{(2k+1)!}z^{2k+1} \right).
 \end{eqnarray}
 
-Por lo tanto, la soluci\'on de la E.D.O. de Bessel en este caso toma la siguiente forma
+Por lo tanto, la soluci\'on general de la E.D.O. de Bessel con $\nu^2=1/4$ es de la forma
 \begin{equation}
 \boxed{y(z)= z^{-1/2}\left(a_0\cos(z)+a_1\sen(z) \right).}
 \end{equation}
 
 
+\subsubsection{Caso en que $\alpha^2\neq\nu^2$}
+Suponemos ahora que $\alpha^2\neq\nu^2$, entonces $a_0=0$ con lo cual $a_{2k}= 0$ y adem'as  $a_1\neq 0$. Luego, $(\alpha+1)^2-\nu^2=0$. Reemplazando esto \'utlimo en \eqref{rrBess}, se obtiene que
+\begin{equation} \label{rrBEssimpar}
+a_n=-\frac{a_{n-2}}{(n-1)(n+1+2\alpha)}.
+\end{equation}
+Aplicando sucesivamente \eqref{rrBEssimpar}, encontramos
+\begin{eqnarray}
+a_{2k+1}&=&\frac{(-1)^ka_1}{2^{2k}k!}\frac{1}{(\alpha+2)(\alpha+3)(\alpha+4)\cdots (\alpha +k+1)}\\
+&=&\frac{(-1)^ka_1}{2^{2k }k!}\frac{\Gamma(\alpha+2)}{\Gamma(\alpha+k+2)}.
+\end{eqnarray}
 
-\subsubsection{Funci'on Gamma}
+As\'i, para $\alpha=\nu-1$ se tiene que la soluci\'on toma la forma
 \begin{equation}
-\Gamma(z):=\lim_{n\to\infty}\frac{1\cdot 2\cdot 3\cdots n}{z(z+1)(z+2)\cdots (z+n)}n^z,
+y_\nu(z) = a_1 \sum_{k=0}^\infty \frac{(-1)^k}{2^{2k}k!}\frac{\Gamma(1+\nu)}{\Gamma(k+\nu+ 1) }
+z^{2k+\nu}.
 \end{equation}
-\begin{equation}
-\Gamma(z):=\int_0^\infty e^{-t}t^{z-1}dt, \qquad \Re(z)>0,
-\end{equation}
-\begin{equation}
-\frac{1}{\Gamma(z)}:=ze^{\gamma z}\prod_{n=1}^\infty \left(1+\frac{z}{n}\right)e^{-z/n},
-\end{equation}
-donde $\gamma=0.577216\cdots$ es la constante de Euler-Mascheroni\footnote{$\gamma:=\lim_{n\to\infty}\left(1+{1}/{2}+{1}/{3}+\cdots {1}/{n}-\ln n\right)$.}.
-\begin{equation}
-\Gamma(z+1)=z\Gamma(z),
-\end{equation}
-\begin{equation}
-\Gamma(1+n)=n!, \qquad n=0,1,2,\cdots ,
-\end{equation}
-\begin{equation}\label{GzG1-z}
-\Gamma(z)\Gamma(1-z)=\frac{\pi}{\sen(z\pi)}.
-\end{equation}
-\begin{equation}
-\Gamma(-n)\to\pm\infty, \qquad n=0,1,2,\cdots .
-\end{equation}
-\begin{equation}
-\Gamma(1/2)=\sqrt{\pi}.
-\end{equation}
-\begin{figure}[H]
-\centering
-\includegraphics[angle=0,width=0.7\textwidth]{figs/fig-funcion-Gamma.pdf}
-\caption{La funci'on $\Gamma$ con argumento real. C'odigo Python \href{https://github.com/gfrubi/FM2/blob/master/figuras-editables/fig-Gamma.py}{aqu\'i}.}
-\label{fig-Gamma}
-\end{figure}
+
+Eligiendo $a_1=1/(2^{\nu}\Gamma(1+\nu))$, se obtiene nuevamente la funci\'on de Bessel de primera especie, dada por \eqref{Besselnu}.
+
+
 
 
 \section{Relaciones de Recurrencia}
