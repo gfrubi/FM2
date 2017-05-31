@@ -16,7 +16,7 @@ y'' + \frac{1}{z} y' + \left( 1 - \frac{\nu^2}{z^2} \right)y = 0.
 Buscaremos soluciones en serie de potencias de \eqref{Besselec1}. Es conveniente encontrar una serie en torno a $z=0$ (el ``punto m'as sim'etrico de la ecuaci'on''). Sin embargo, este punto es un punto singular de la ecuaci'on, por lo que en general no es posible expresar la soluci'on como una serie de la forma $y(z) = \sum_{n=0}^\infty a_n z^n$. Para entender esto m'as claramente, recuerde que los coeficientes $a_n$ ser'ian entonces proporcionales a la $n-$'esima derivada de la soluci'on $y(z)$, evaluada en $z=0$. Por lo tanto, encontrar la soluci'on de esta forma es equivalente a requerir que cada una de las derivadas de la soluci'on sean finitas en $z=0$. Como la E.D.O. es de segundo orden, se requieren dos condiciones iniciales, que pueden elegirse como $y(0)$ e $y'(0)$. Las derivadas superiores quedan determinadas por la E.D.O. Sin embargo, vemos de 
 \eqref{EDOBessel} que $y''(0)$ (y las derivadas superiores) ser'a en general divergente, a'un en el caso en que se elija $y'(0)$, debido al t'ermino $({\nu^2}/{z^2})y(z)$. 
 
-Afortunadamente, s'i es posible encontrar soluciones de la forma\footnote{Una forma alternativa de verificar que este es el caso es realizar el cambio de variable $y(z):=x^\alpha f(z)$ y ajustar la constante $\alpha$ de modo que la E.D.O. resultante para la funci'on $f(z)$ s'i pueda expresarse como una serie de potencias de la forma $f(z) = \sum_{n=0}^\infty b_n z^n$.}
+Afortunadamente, s'i es posible encontrar soluciones de la forma\footnote{Una forma alternativa de verificar que este es el caso es realizar el cambio de variable $y(z):=z^\alpha f(z)$ y ajustar la constante $\alpha$ de modo que la E.D.O. resultante para la funci'on $f(z)$ s'i pueda expresarse como una serie de potencias de la forma $f(z) = \sum_{n=0}^\infty a_n z^n$.}
 \begin{equation}\label{yzasum}
 y(z) = z^\alpha \sum_{n=0}^\infty a_n z^n = \sum_{n=0}^\infty a_n z^{n+\alpha},
 \end{equation}
@@ -71,8 +71,6 @@ J_\nu(z) &= \frac{1}{\Gamma(\nu+1)}\left(\frac{z}{2}\right)^{\nu}
 &= \frac{1}{\Gamma(\nu+1)}\left(\frac{z}{2}\right)^{\nu}\left[1-\frac{1}{(\nu+1)}\left(\frac{z}{2}\right)^2+\cdots \right].
 \end{align}
 
-
-
 Como la E.D.O. de Bessel \eqref{Besselec1} depende del cuadrado de $\nu$, tendremos que 
 \begin{equation}
 J_{-\nu}(z) = \sum_{k = 0}^\infty \frac{ (-1)^k }{ k! \Gamma(k-\nu+1) }
@@ -85,17 +83,19 @@ En este caso la soluci'on general de \eqref{Besselec1} es de la forma
 \begin{equation}
 y(z)=c_1J_\nu(z)+c_2J_{-\nu}(z).
 \end{equation}
-Por razones hist'oricas y de conveniencia futura se definen adicionalmente las \textbf{funciones de Bessel de segunda especie} de orden $\nu$, tambi'en llamadas \textbf{funciones de Neumann} de orden $\nu$, $N_\nu(z)$, por
+Por razones hist'oricas y de conveniencia futura se definen adicionalmente las \textbf{funciones de Bessel de segunda especie} de orden $\nu$, $Y_\nu(z)$ (tambi'en llamadas \textbf{funciones de Neumann} y denotadas por $N_\nu(z)$), por
 \begin{equation}
-N_\nu(z):=\frac{\cos(\pi\nu)J_\nu(z)-J_{-\nu}(z)}{\sen(\pi\nu)}.
+Y_\nu(z)=N_\nu(z):=\frac{\cos(\pi\nu)J_\nu(z)-J_{-\nu}(z)}{\sen(\pi\nu)}.
 \end{equation}
 Entonces la soluci'on general de \eqref{Besselec1} puede expresarse como una combinaci'on lineal de la funci'on de Bessel y de Neumann correspondiente:
 \begin{equation}
-y(z)=c_3J_\nu(z)+c_4N_\nu(z).
+y(z)=c_3J_\nu(z)+c_4Y_\nu(z).
 \end{equation}
+
+
 \subsubsection{Caso en que $\alpha=-1/2$}
 
-En este caso $a_0\neq 0$ y $a_1\neq 0$, de \eqref{rrBess} se tiene la siguiente relaci\'on de recurrencia
+En este caso en general tendremos que $a_0\neq 0$ y $a_1\neq 0$, y la relaci'on de recurrencia \eqref{anan-2} se reduce a 
 \begin{equation}
 a_n=-\frac{a_{n-2}}{n(n-1)}.
 \end{equation} 
@@ -108,7 +108,7 @@ mientras que si $n$ es impar,
 a_{2k+1}=\frac{(-1)^k a_1}{(2k+1)!}.
 \end{equation}
 
-As\'i, en la soluci\'on es de la forma
+As\'i, la soluci\'on es de la forma
 \begin{eqnarray}
 y(z)&=&z^{-1/2}\left(\sum_{k=0}^{+\infty}a_{2k}z^{2k}+\sum_{k=0}^{+\infty}a_{2k+1}z^{2k+1} \right)\\
 &=&z^{-1/2}\left(a_0\sum_{k=0}^{+\infty}\frac{(-1)^k}{(2k)!}z^{2k}+a_1\sum_{k=0}^{+\infty}\frac{(-1)^k}{(2k+1)!}z^{2k+1} \right).
@@ -192,11 +192,11 @@ z\frac{d\ }{dz}(zJ'_\nu) &= z\left(J_{\nu-1}+zJ'_{\nu-1}-\nu J'_\nu\right)\\
 Usando \eqref{rrJni+1} (reemplazando $\nu$ por $\nu-1$) para reescribir el segundo t'ermino de \eqref{zdzJ'} y nuevamente \eqref{Jnu-1JpJ} en el 'ultimo t'ermino, llegamos a
 \begin{align}
 z\frac{d\ }{dz}(zJ'_\nu) &= zJ_{\nu-1}+z\left[(\nu-1)J_{\nu-1}-zJ_\nu\right]-\nu (zJ_{\nu-1}-\nu J_\nu) \\
-&= -(x^2-\nu^2) J_\nu,
+&= -(z^2-\nu^2) J_\nu,
 \end{align}
 que es equivalente a la ecuaci'on \eqref{Besselec1}.
 
-\subsection{Representaci'on integral}
+\subsection{Representaci'on integral ***}
 Las funciones de Bessel de orden $\nu$ y argumento real pueden expresarse como la siguiente integral en el plano complejo
 \begin{equation}\label{RIJnu}
 \boxed{J_\nu(x)=2\pi i\int_{\cal C}e^{(x/2)(t-t^{-1})}t^{-\nu-1}dt,}
@@ -279,7 +279,7 @@ $m=3$ & 4.2011889 &  8.0152366 & 11.3459243 & 14.5858482 & 17.7887478 \\
 $m=4$ & 5.3175531 &  9.2823962 & 12.6819084 & 15.9641070 & 19.1960288 \\
 \hline 
 \end{tabular} 
-\caption{Las primeras ra'ices $\beta_{m,n}$ de $J'_m(x)$, $m=0,1,2,3,4$. Código disponible en \href{https://github.com/gfrubi/FM2/blob/master/Notebooks/Bessel-Ceros.ipynb}{este} notebook.}
+\caption{Las primeras ra'ices $\beta_{m,n}$ de $J'_m(x)$, $m=0,1,2,3,4$. C'odigo disponible en \href{https://github.com/gfrubi/FM2/blob/master/Notebooks/Bessel-Ceros.ipynb}{este} notebook.}
 \label{tabla:betanun}
 \end{center}
 \end{table}
