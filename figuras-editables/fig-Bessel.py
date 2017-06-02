@@ -18,7 +18,7 @@ grid()
 xlabel(r'$x$',fontsize=15)
 ylabel(r'$J_n(x)$',fontsize=15)
 ylim(-1.1,1.1)
-#title(r'Funciones de Bessel de $1^{\circ}$ especie a orden entero')
+#title(r'Funciones de Bessel de $1^{a}$ especie y orden entero')
 legend(loc='best',fontsize=12)
 ylim(-0.7,1.1)
 savefig('../figs/fig-Bessel-J.pdf')
@@ -30,12 +30,12 @@ for n in range(5):
     plot(x,yn(n,x),colores[n], dashes=dasheses[n],label='$n= $'+str(n), linewidth=2)
 grid()
 xlabel(r'$x$',fontsize=15)
-ylabel(r'$N_n(x)$',fontsize=15)
+ylabel(r'$Y_n(x)$',fontsize=15)
 ylim(-1.1,1.1)
-#title(r'Funciones de Bessel de $2^{\circ}$ especie a orden entero')
+#title(r'Funciones de Bessel de $2^{da}$ especie y orden entero')
 legend(loc='best',fontsize=12)
 ylim(-2,0.7)
-savefig('../figs/fig-Bessel-N.pdf')
+savefig('../figs/fig-Bessel-Y.pdf')
 
 
 # $I_{\nu}(z)$
@@ -93,11 +93,11 @@ for n in range(5):
     plot(x,spherical_yn(n,x),colores[n], dashes=dasheses[n],label='$n= $'+str(n), linewidth=2)
 grid()
 xlabel(r'$x$',fontsize=15)
-ylabel(r'$n_n(x)$',fontsize=15)
+ylabel(r'$y_n(x)$',fontsize=15)
 #title(ur'Funciones Esféricas de Bessel de $2^{\circ}$ especie a orden entero',fontsize=12)
 legend(loc='best',fontsize=12)
 ylim(-1,1)
-savefig('../figs/fig-Bessel-Esferica-n.pdf')
+savefig('../figs/fig-Bessel-Esferica-y.pdf')
 
 
 # #$i_{n}(x)$:

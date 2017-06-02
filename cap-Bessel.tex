@@ -83,7 +83,7 @@ En este caso la soluci'on general de \eqref{Besselec1} es de la forma
 \begin{equation}
 y(z)=c_1J_\nu(z)+c_2J_{-\nu}(z).
 \end{equation}
-Por razones hist'oricas y de conveniencia futura se definen adicionalmente las \textbf{funciones de Bessel de segunda especie} de orden $\nu$, $Y_\nu(z)$ (tambi'en llamadas \textbf{funciones de Neumann} y denotadas por $N_\nu(z)$), por
+Por razones hist'oricas y de conveniencia futura se definen adicionalmente las \textbf{funciones de Bessel de segunda especie} de orden $\nu$, $Y_\nu(z)$ (tambi'en llamadas \textbf{funciones de Neumann} y denotadas por $Y_\nu(z)$), por
 \begin{equation}
 Y_\nu(z)=N_\nu(z):=\frac{\cos(\pi\nu)J_\nu(z)-J_{-\nu}(z)}{\sen(\pi\nu)}.
 \end{equation}
@@ -119,7 +119,43 @@ Por lo tanto, la soluci\'on general de la E.D.O. de Bessel con $\nu^2=1/4$ es de
 \boxed{y(z)= z^{-1/2}\left(a_0\cos(z)+a_1\sen(z) \right).}
 \end{equation}
 
+Podemos verificar que estas soluciones no son independientes, sino que compinaciones lineales de $J_{1/2}(z)$ y $J_{-1/2}(z)$, ya que
+\begin{align}
+J_{1/2}(z) &= \sum_{k=0}^\infty\frac{(-1)^k}{k!\Gamma(k+1/2+1)}
+\left(\frac{z}{2}\right)^{2k+1/2} \\
+&= \sum_{k=0}^\infty\frac{(-1)^k}{k!\Gamma(k+3/2)}
+\left(\frac{z}{2}\right)^{2k+1/2} \\
+&= \left(\frac{2}{\pi z}\right)^{1/2} \sum_{k=0}^\infty \frac{(-1)^k}
+{(2k+1)!} z^{2k+1} \\
+&= \left(\frac{2}{\pi z}\right)^{1/2} \sen z. \label{J1/2}
+\end{align}
+Aqu'i hemos usado
+\begin{align}
+\Gamma(k+\frac{3}{2}) &= (k+\frac{1}{2})\Gamma(k+\frac{1}{2}) \\
+&= (k+\frac{1}{2})(k-\frac{1}{2})\Gamma(k-\frac{1}{2}) \\
+&=  (k+\frac{1}{2})(k-\frac{1}{2})(k-\frac{3}{2})\Gamma(k-\frac{3}{2}) \\
+&= \quad \cdots \\
+&=  (k+\frac{1}{2})(k-\frac{1}{2})(k-\frac{3}{2})\frac{1}{2}\Gamma(\frac{1}{2}) \\
+&= \frac{\sqrt{\pi}}{2^{k+1}} \underbrace{1\cdot 3\cdot 5\cdots (2k-1)(2k+1)}_{k+1\text{ t'erminos}} \\
+&= \frac{\sqrt{\pi}}{2^{2k+1}}\frac{(2k+1)!}{k!}.
+\end{align}
 
+An'alogamente,
+\begin{align}
+J_{-1/2}(z) &= \sum_{k=0}^\infty\frac{(-1)^k}{k!\Gamma(k-1/2+1)}
+\left(\frac{z}{2}\right)^{2k+1/2} \\
+&= \sum_{k=0}^\infty\frac{(-1)^k}{k!\Gamma(k+1/2)}
+\left(\frac{z}{2}\right)^{2k+1/2} \\
+&= \left(\frac{2}{\pi z}\right)^{1/2} \sum_{k=0}^\infty \frac{(-1)^k}
+{(2k)!} z^{2k} \\
+&= \left(\frac{2}{\pi z}\right)^{1/2} \cos z, \label{J-1/2}
+\end{align}
+ya que
+\begin{align}
+\Gamma(k+\frac{1}{2}) &= \frac{\Gamma(k+\frac{3}{2})}{(k+\frac{1}{2}}) \\
+&= \frac{\sqrt{\pi}}{2^{2k+1}}\frac{(2k+1)!}{(k+\frac{1}{2})k!}\\
+&= \frac{\sqrt{\pi}}{2^{2k}}\frac{(2k)!}{k!}.
+\end{align}
 \subsubsection{Caso en que $\alpha^2\neq\nu^2$}
 Suponemos ahora que $\alpha^2\neq\nu^2$, entonces $a_0=0$ con lo cual $a_{2k}= 0$ y adem'as  $a_1\neq 0$. Luego, $(\alpha+1)^2-\nu^2=0$. Reemplazando esto \'utlimo en \eqref{rrBess}, se obtiene que
 \begin{equation} \label{rrBEssimpar}
@@ -161,7 +197,7 @@ J_{\nu-1}(z)+J_{\nu+1}(z) &=
 &\ \left.\qquad\qquad +\sum_{k=1}^\infty\frac{(-1)^{k-1}}{(k-1)!\Gamma(k+\nu+1)}\left(\frac{z}{2}\right)^{2k+\nu}\right] \\
 &= \frac{2}{z}\left[\sum_{k=0}^\infty\frac{(-1)^k(k+\nu)}{k!\Gamma(k+\nu+1)}\left(\frac{z}{2}\right)^{2k+\nu}  +\sum_{k=1}^\infty\frac{(-1)^{k-1}}{\Gamma(k+\nu+1)}\frac{k}{k!}\left(\frac{z}{2}\right)^{2k+\nu}\right] \\
 &= \frac{2}{z}\sum_{k=0}^\infty\frac{(-1)^k}{k!\Gamma(k+\nu+1)}\left[(k+\nu)-k\right]\left(\frac{z}{2}\right)^{2k+\nu} \label{idJ2}\\
-&= \frac{2\nu}{x}\sum_{k=0}^\infty\frac{(-1)^k}{k!\Gamma(k+\nu+1)}\left(\frac{z}{2}\right)^{2k+\nu} \\
+&= \frac{2\nu}{z}\sum_{k=0}^\infty\frac{(-1)^k}{k!\Gamma(k+\nu+1)}\left(\frac{z}{2}\right)^{2k+\nu} \\
 &= \frac{2\nu}{z}J_\nu(z).
 \end{align}
 De manera an'aloga, realizando ahora la resta de $J_{\nu-1}(z)$ y $J_{\nu+1}(z)$ obtenemos (ver \eqref{idJ1} y \eqref{idJ2}):
@@ -171,8 +207,8 @@ J_{\nu-1}(z)-J_{\nu+1}(z) &=
 -\sum_{k=0}^\infty\frac{(-1)^k}{k!\Gamma(k+\nu+2)}\left(\frac{z}{2}\right)^{2k+\nu+1} \\
 &= \frac{2}{z}\sum_{k=0}^\infty\frac{(-1)^k}{k!\Gamma(k+\nu+1)}\left[(k+\nu)+k\right]\left(\frac{z}{2}\right)^{2k+\nu}\\
 &= \sum_{k=0}^\infty\frac{(-1)^k}{k\Gamma(k+\nu+1)}(2k+\nu)\left(\frac{z}{2}\right)^{2k+\nu-1}\\
-&= \frac{d\ }{dz}\sum_{k=0}^\infty\frac{(-1)^k}{k!\Gamma(k+\nu+1)}\left(\frac{z}{2}\right)^{2k+\nu} \\
-&= J'_\nu(z).
+&= 2\frac{d\ }{dz}\sum_{k=0}^\infty\frac{(-1)^k}{k!\Gamma(k+\nu+1)}\left(\frac{z}{2}\right)^{2k+\nu} \\
+&= 2J'_\nu(z).
 \end{align}
 A partir de las relaciones \eqref{rrJnu1} y \eqref{rrJnu2} podemos derivar otras relaciones. Por ejemplo, sumando \eqref{rrJnu1} y \eqref{rrJnu2} llegamos a
 \begin{align}
@@ -239,7 +275,7 @@ J_\nu(x)\approx \sqrt{\frac{2}{\pi x}}\cos\left(x-\frac{\nu\pi}{2}-\frac{\pi}{4}
 \end{equation}
 
 \subsection{Ceros de las funciones de Bessel}
-Frecuentemente, es necesario evaluar las raices, o ceros, de las funciones de Bessel. La funci'on de Bessel $J_\nu(x)$ tiene infinitas raices (ver, por ejemplo, figura \ref{fig-Jn}). Denotaremos $\alpha_{\nu,n}$ a la $n$-'esima raiz de la funci'on $J_\nu(x)$, es decir, tal que $J_\nu(\alpha_{\nu,n})=0$ y $\alpha_{\nu,n+1}<\alpha_{\nu,n}$, $n=1,2,\cdots$. Los valores de estas raices son calculadas num'ericamente a partir, por ejemplo, de la expresi'on en serie \eqref{Besselnu} para las funciones de Bessel. En la tabla \ref{tabla:alphanun} se muestran algunos de estos ceros.:
+Frecuentemente, es necesario evaluar las ra'ices, o ceros, de las funciones de Bessel. La funci'on de Bessel $J_\nu(x)$ tiene infinitas ra'ices (ver, por ejemplo, figura \ref{fig-Jn}). Denotaremos $\alpha_{\nu,n}$ a la $n$-'esima raiz de la funci'on $J_\nu(x)$, es decir, tal que $J_\nu(\alpha_{\nu,n})=0$ y $\alpha_{\nu,n+1}<\alpha_{\nu,n}$, $n=1,2,\cdots$. Los valores de estas ra'ices son calculadas num'ericamente a partir, por ejemplo, de la expresi'on en serie \eqref{Besselnu} para las funciones de Bessel. En la tabla \ref{tabla:alphanun} se muestran algunos de estos ceros.:
 \begin{table}
 \begin{center}
 \begin{tabular}{ccccccc}
@@ -267,7 +303,7 @@ $m=4$ & 7.5883424 & 11.0647094 & 14.3725366 & 17.6159660 & 20.8269329 \\
 \caption{Diferencias entre ceros sucesivos de las funciones $J_m(x)$. C'odigo Python disponible en \href{https://github.com/gfrubi/FM2/blob/master/Notebooks/Bessel-Ceros.ipynb}{este} notebook.}
 \label{fig-0Jn2}
 \end{figure}
-Es tambi'en frecuente requerir calcular las \textit{raices de las derivadas de las funciones de Bessel}. 'Estas ser'an denotadas por $\beta_{\nu,n}$ y entonces satisfacen $J'_\nu(\beta_{\nu,n})=0$ y $\beta_{\nu,n+1}<\alpha_{\beta,n}$, $n=1,2,\cdots$. La tabla  \ref{tabla:betanun} resume algunos de estos valores:
+Es tambi'en frecuente requerir calcular las \textit{ra'ices de las derivadas de las funciones de Bessel}. 'Estas ser'an denotadas por $\beta_{\nu,n}$ y entonces satisfacen $J'_\nu(\beta_{\nu,n})=0$ y $\beta_{\nu,n+1}<\alpha_{\beta,n}$, $n=1,2,\cdots$. La tabla  \ref{tabla:betanun} resume algunos de estos valores:
 \begin{table}
 \begin{center}
 \begin{tabular}{ccccccc}
@@ -298,7 +334,7 @@ Similarmente,
 \begin{figure}[H]
 \centering
 \includegraphics[angle=0,width=0.7\textwidth]{figs/fig-Bessel-J.pdf}
-\caption{Primeras cinco funciones de Bessel de primera especie a orden entero.}
+\caption{Primeras cinco funciones de Bessel de primera especie y orden entero.}
 \label{fig-Jn}
 \end{figure}
 Consideremos las soluciones enteras de orden $n=0,1,2,\cdots$, entonces \eqref{Besselnu} se reduce a
@@ -407,42 +443,7 @@ J_0(x)+2\sum_{n=1}^\infty J_{2n}(x)=1.
 \end{equation}
 
 \section{Funciones de Bessel de orden semi-entero}
-\begin{align}
-J_{1/2}(z) &= \sum_{k=0}^\infty\frac{(-1)^k}{k!\Gamma(k+1/2+1)}
-\left(\frac{z}{2}\right)^{2k+1/2} \\
-&= \sum_{k=0}^\infty\frac{(-1)^k}{k!\Gamma(k+3/2)}
-\left(\frac{z}{2}\right)^{2k+1/2} \\
-&= \left(\frac{2}{\pi z}\right)^{1/2} \sum_{k=0}^\infty \frac{(-1)^k}
-{(2k+1)!} z^{2k+1} \\
-&= \left(\frac{2}{\pi z}\right)^{1/2} \sen z. \label{J1/2}
-\end{align}
-Aqu'i hemos usado
-\begin{align}
-\Gamma(k+\frac{3}{2}) &= (k+\frac{1}{2})\Gamma(k+\frac{1}{2}) \\
-&= (k+\frac{1}{2})(k-\frac{1}{2})\Gamma(k-\frac{1}{2}) \\
-&=  (k+\frac{1}{2})(k-\frac{1}{2})(k-\frac{3}{2})\Gamma(k-\frac{3}{2}) \\
-&= \quad \cdots \\
-&=  (k+\frac{1}{2})(k-\frac{1}{2})(k-\frac{3}{2})\frac{1}{2}\Gamma(\frac{1}{2}) \\
-&= \frac{\sqrt{\pi}}{2^{k+1}} \underbrace{1\cdot 3\cdot 5\cdots (2k-1)(2k+1)}_{k+1\text{ t'erminos}} \\
-&= \frac{\sqrt{\pi}}{2^{2k+1}}\frac{(2k+1)!}{k!}.
-\end{align}
 
-An'alogamente,
-\begin{align}
-J_{-1/2}(z) &= \sum_{k=0}^\infty\frac{(-1)^k}{k!\Gamma(k-1/2+1)}
-\left(\frac{z}{2}\right)^{2k+1/2} \\
-&= \sum_{k=0}^\infty\frac{(-1)^k}{k!\Gamma(k+1/2)}
-\left(\frac{z}{2}\right)^{2k+1/2} \\
-&= \left(\frac{2}{\pi z}\right)^{1/2} \sum_{k=0}^\infty \frac{(-1)^k}
-{(2k)!} z^{2k} \\
-&= \left(\frac{2}{\pi z}\right)^{1/2} \cos z, \label{J-1/2}
-\end{align}
-ya que
-\begin{align}
-\Gamma(k+\frac{1}{2}) &= \frac{\Gamma(k+\frac{3}{2})}{(k+\frac{1}{2}}) \\
-&= \frac{\sqrt{\pi}}{2^{2k+1}}\frac{(2k+1)!}{(k+\frac{1}{2})k!}\\
-&= \frac{\sqrt{\pi}}{2^{2k}}\frac{(2k)!}{k!}.
-\end{align}
 
 Podemos encontrar las otras funciones de Bessel de orden semi-entero usando las relaciones de recurrencia \eqref{rrJnu1} y \eqref{rrJnu2}. Por ejemplo
 \begin{align}
@@ -468,47 +469,47 @@ Podemos encontrar las otras funciones de Bessel de orden semi-entero usando las 
 
 
 \section{Funciones de Bessel de segunda especie}\label{sec:FB2E}
-Como hemos ya discutido en la secci'on \ref{secsolBess}, cuando $\nu$ no es un entero, las funciones de Bessel de segunda especie, tambi'en llamadas funciones de Neumann $N_\nu(z)$ ('o $Y_\nu(z)$), definidas por
+Como hemos ya discutido en la secci'on \ref{secsolBess}, cuando $\nu$ no es un entero, las funciones de Bessel de segunda especie, tambi'en llamadas funciones de Neumann $Y_\nu(z)$ ('o $N_\nu(z)$), definidas por
 \begin{equation}\label{defNnu}
-N_\nu (z):=  \frac{J_\nu(z) \cos(\nu \pi) - J_{-\nu}(z)}{\sen(\nu \pi)} , \qquad \nu\neq n=0, \pm 1, \pm, 2, \cdots,
+Y_\nu (z):=  \frac{J_\nu(z) \cos(\nu \pi) - J_{-\nu}(z)}{\sen(\nu \pi)} , \qquad \nu\neq n=0, \pm 1, \pm, 2, \cdots,
 \end{equation}
 son soluciones linealmente independientes de $J_\nu(z)$ de ecuaci'on de Bessel. Esta combinaci'on lineal particular es 'util puesto que, entre otras cosas, suministra una expresi'on complementaria a las funciones $J_\nu(z)$ en lo que respecta a su forma asint'otica. En efecto, a partir de \eqref{asinJnu} encontramos que
 \begin{equation}\label{asinNnu}
-\boxed{N_\nu(x)\approx \sqrt{\frac{2}{\pi x}}\sen\left(x-\frac{\nu\pi}{2}-\frac{\pi}{4}\right), 
+\boxed{Y_\nu(x)\approx \sqrt{\frac{2}{\pi x}}\sen\left(x-\frac{\nu\pi}{2}-\frac{\pi}{4}\right), 
 \qquad x\gg\left|\nu^2-\frac{1}{4}\right|.}
 \end{equation}
-Adem'as, puede usarse la misma expresi'on \eqref{defNnu} en el caso en que $\nu$ es entero ($\nu=n$). Sabemos que en este caso, $J_{-n}(z)$ no es linealmente independiente de $J_{-n}(z)$ ya que se cumple que $J_{-n}(z)=(-1)^nJ_n(z)$. No obstante, podemos usar \eqref{defNnu} para encontrar la segunda soluci'on linealmente independiente $N_n(z)$, \textit{como el l'imite de \eqref{defNnu} cuando el par'ametro $\nu$ se acerca al entero $n$}, es decir,
+Adem'as, puede usarse la misma expresi'on \eqref{defNnu} en el caso en que $\nu$ es entero ($\nu=n$). Sabemos que en este caso, $J_{-n}(z)$ no es linealmente independiente de $J_{-n}(z)$ ya que se cumple que $J_{-n}(z)=(-1)^nJ_n(z)$. No obstante, podemos usar \eqref{defNnu} para encontrar la segunda soluci'on linealmente independiente $Y_n(z)$, \textit{como el l'imite de \eqref{defNnu} cuando el par'ametro $\nu$ se acerca al entero $n$}, es decir,
 \begin{equation}\label{Nnlim}
-N_n(z):=  \lim_{\nu\to n}\frac{J_\nu(z) \cos(\nu \pi) - J_{-\nu}(z)}{\sen(\nu \pi)} , \qquad n=0, \pm 1, \pm, 2, \cdots .
+Y_n(z):=  \lim_{\nu\to n}\frac{J_\nu(z) \cos(\nu \pi) - J_{-\nu}(z)}{\sen(\nu \pi)} , \qquad n=0, \pm 1, \pm, 2, \cdots .
 \end{equation}
 Note que los coeficientes de la combinaci'on lineal \eqref{defNnu} son tales que el l'imite es no trivial, ya que tanto el numerador como el denominador tienden a cero cuando $\nu$ tiende a $n$. Por esto, usando la regla de L'H\^opital, encontramos que
 \begin{equation}\label{Nnder}
-N_n(z)=\frac{1}{\pi}\left[\frac{\partial J_\nu(z)}{\partial\nu}-(-1)^n\frac{\partial J_{-\nu}(z)}{\partial\nu}\right]_{\nu=n}.
+Y_n(z)=\frac{1}{\pi}\left[\frac{\partial J_\nu(z)}{\partial\nu}-(-1)^n\frac{\partial J_{-\nu}(z)}{\partial\nu}\right]_{\nu=n}.
 \end{equation}
 Puede (h'agalo!) verificarse que la funci'on definida por \eqref{Nnder}, efectivamente satisface la ecuaci'on de Bessel \eqref{Besselec1}. Adem'as, de \eqref{Nnder} se sigue, usando $(\partial J_\nu/\partial\nu)_{\nu=-n}=-(\partial J_{-\nu}/\partial\nu)_{\nu=n}$, que
 \begin{equation}
-\boxed{N_{-n}(z)=(-1)^nN_n(z).}
+\boxed{Y_{-n}(z)=(-1)^nY_n(z).}
 \end{equation}
 Por otro lado, de la expansi'on \eqref{J-nu} obtenemos que cerca de $z=0$, y para $\nu>0$,
 \begin{equation}
-N_\nu(z)\approx -\frac{1}{\sen(\nu\pi)}\frac{1}{\Gamma(1-\nu)}\left(\frac{2}{z}\right)^\nu=-\frac{1}{\pi}\Gamma{(\nu)}\left(\frac{2}{z}\right)^\nu.
+Y_\nu(z)\approx -\frac{1}{\sen(\nu\pi)}\frac{1}{\Gamma(1-\nu)}\left(\frac{2}{z}\right)^\nu=-\frac{1}{\pi}\Gamma{(\nu)}\left(\frac{2}{z}\right)^\nu.
 \end{equation}
 Aqu'i hemos usamos la identidad \eqref{GzG1-z}. Por lo tanto, para $\nu\to n$, obtenemos
 \begin{equation}
-N_n(z)\approx -\frac{1}{\pi}(n-1)!\left(\frac{2}{z}\right)^n, \qquad z\approx 0, \qquad n>0,
+Y_n(z)\approx -\frac{1}{\pi}(n-1)!\left(\frac{2}{z}\right)^n, \qquad z\approx 0, \qquad n>0,
 \end{equation}
-de donde vemos que estas funciones divergen en el origen origen. Note que incluso $N_0(z)$ diverge en $z=0$, ya que\footnote{A partir de \eqref{Nnder}, se encuentra, usando la \textit{funci'on  digamma} $\Psi_0(z):=\Gamma'(z)/\Gamma(z)$, que: \begin{equation}
-N_0(z)=\frac{2}{\pi}\left(\frac{\partial J_\nu}{\partial\nu}\right)_{\nu=0}=\frac{2}{\pi}\left[-\frac{\Psi_0(\nu+1)}{\Gamma(\nu+1)}\left(\frac{z}{2}\right)^\nu+\frac{1}{\Gamma(\nu+1)}\left(\frac{z}{2}\right)^\nu\ln\left(\frac{z}{2}\right)+\cdots\right]_{\nu=0}=\frac{2}{\pi}\left[-\Psi_0(1)+\ln\left(\frac{z}{2}\right)+\cdots\right].
+de donde vemos que estas funciones divergen en el origen. Note que incluso $Y_0(z)$ diverge en $z=0$, ya que\footnote{A partir de \eqref{Nnder}, se encuentra, usando la \textit{funci'on  digamma} $\Psi_0(z):=\Gamma'(z)/\Gamma(z)$, que \begin{equation}
+Y_0(z)=\frac{2}{\pi}\left(\frac{\partial J_\nu}{\partial\nu}\right)_{\nu=0}=\frac{2}{\pi}\left[-\frac{\Psi_0(\nu+1)}{\Gamma(\nu+1)}\left(\frac{z}{2}\right)^\nu+\frac{1}{\Gamma(\nu+1)}\left(\frac{z}{2}\right)^\nu\ln\left(\frac{z}{2}\right)+\cdots\right]_{\nu=0}=\frac{2}{\pi}\left[-\Psi_0(1)+\ln\left(\frac{z}{2}\right)+\cdots\right].
 \end{equation}}  
 \begin{equation}
-N_0(z)\approx \frac{2}{\pi}\left[\ln\left(\frac{z}{2}\right) + \gamma \right], \qquad z\approx 0,	
+Y_0(z)\approx \frac{2}{\pi}\left[\ln\left(\frac{z}{2}\right) + \gamma \right], \qquad z\approx 0,	
 \end{equation}
 donde $\gamma=-\Psi_0(1)$ es la constante de Euler-Mascheroni, $\gamma=0.5772\cdots$.
 
 
 \subsection{Representaci'on integral}
 \begin{equation}
-N_n(x) =\frac{1}{\pi} \int_0^\pi \sen(x \sen\theta - n\theta) \, d\theta
+Y_n(x) =\frac{1}{\pi} \int_0^\pi \sen(x \sen\theta - n\theta) \, d\theta
 - \frac{1}{\pi} \int_0^\infty\left[ e^{n t} + (-1)^n e^{-n t} \right]
  e^{-x \senh t} \, dt.
 \end{equation}
@@ -517,17 +518,17 @@ N_n(x) =\frac{1}{\pi} \int_0^\pi \sen(x \sen\theta - n\theta) \, d\theta
 \subsection{Relaciones de Recurrencia}
 A partir de la definici'on \eqref{Nnlim} y las relaciones de recurrencia para las funciones de Bessel \eqref{rrJnu1} y \eqref{rrJnu2}, puede verificarse que las funciones de Bessel de segunda especie satisfacen \textit{las mismas relaciones de recurrencia que las de primera especie}:
 \begin{equation}\label{rrNnu1}
-N_{\nu-1}(z)+N_{\nu+1}(z)=\frac{2\nu}{z}N_\nu(z),
+Y_{\nu-1}(z)+Y_{\nu+1}(z)=\frac{2\nu}{z}Y_\nu(z),
 \end{equation}
 \begin{equation}\label{rrNnu2}
-N_{\nu-1}(z)-N_{\nu+1}(z)=2N'_\nu(z).
+Y_{\nu-1}(z)-Y_{\nu+1}(z)=2Y'_\nu(z).
 \end{equation}
 
 
 
 \begin{figure}[H]
 \centering
-\includegraphics[angle=0,width=0.7\textwidth]{figs/fig-Bessel-N.pdf}
+\includegraphics[angle=0,width=0.7\textwidth]{figs/fig-Bessel-Y.pdf}
 \caption{Primeras cinco funciones de Bessel de segunda especie (funciones de Neumann) de orden entero.}
 \label{fig-Nn}
 \end{figure}
@@ -535,8 +536,8 @@ N_{\nu-1}(z)-N_{\nu+1}(z)=2N'_\nu(z).
 \section{Funciones de Hankel}
 En muchas aplicaciones f'isicas (especialmente cuando se estudian soluciones de la ecuaci'on de onda) es conveniente introducir otro par de funciones linealmente independientes, llamadas funciones de Hankel y denotadas por $H_\nu^{(1)}$ y $H_\nu^{(2)}$, definidas por
 \begin{align}
-  H_\nu^{(1)}(z) &:= J_\nu(z) + i N_\nu(z),  \\
-  H_\nu^{(2)}(z) &:= J_\nu(z) - i N_\nu(z) .
+  H_\nu^{(1)}(z) &:= J_\nu(z) + i Y_\nu(z),  \\
+  H_\nu^{(2)}(z) &:= J_\nu(z) - i Y_\nu(z) .
 \end{align}
 %Wronskiano:
 %\begin{equation} 
@@ -650,11 +651,11 @@ En el caso en que $\alpha>0$, las soluciones $u(x)$ ser'an entonces combinacione
 j_{n}(x) := \sqrt{\frac{\pi}{2x}} J_{n+1/2}(x),
 \end{equation}
 \begin{equation}
-n_{n}(x) := \sqrt{\frac{\pi}{2x}} N_{n+1/2}(x) = (-1)^{n+1} \sqrt{\frac{\pi}{2x}} J_{-n-1/2}(x).
+y_{n}(x) := \sqrt{\frac{\pi}{2x}} Y_{n+1/2}(x) = (-1)^{n+1} \sqrt{\frac{\pi}{2x}} J_{-n-1/2}(x).
 \end{equation}
 El factor $\sqrt{\pi/2}$ es incluido por conveniencia, ya que entonces (ver \eqref{J1/2} y \eqref{J-1/2}) las primeras funciones resultan ser simples:
 \begin{equation}\label{j0n0}
-j_0(x) = \frac{\sen x}{x}, \qquad n_0(x)=-\,\frac{\cos x} {x}.
+j_0(x) = \frac{\sen x}{x}, \qquad y_0(x)=-\,\frac{\cos x} {x}.
 \end{equation}
 Podemos encontrar una expresi'on en serie simple a partir\footnote{y usando la ``f'ormula de duplicaci'on de Legendre'', ver por ejemnplo ec. (10.66b) de \cite{Arfken}: $\Gamma(z+1)\Gamma(z+1/2)\equiv 2^{-2z}\pi^{1/2}\Gamma(2z+1)$, con $z=k+n+1/2$.} de \eqref{Besselnu},
 \begin{align}
@@ -674,11 +675,11 @@ Por lo tanto,
 
 An'alogamente, para la funci'on esf'erica de segunda especie, encontramos
 \begin{equation}
-\boxed{n_n(x)=\frac{(-1)^{n+1}}{2^nx^{n+1}}\sum_{k=0}^\infty \frac{(-1)^k(k-n)!}{k!(2k-2n)!}x^{2k} .}
+\boxed{y_n(x)=\frac{(-1)^{n+1}}{2^nx^{n+1}}\sum_{k=0}^\infty \frac{(-1)^k(k-n)!}{k!(2k-2n)!}x^{2k} .}
 \end{equation}
 
 \subsection{Relaciones de Recurrencia}
-A partir de las relaciones de recurrencia para $J_\nu$ y $N_\nu$, ver \eqref{rrJnu1}, \eqref{rrJnu2}, \eqref{rrNnu1} y \eqref{rrNnu2}, podemos derivar directamente las correspondientes relaciones para las funciones esf'ericas, obteniendo:
+A partir de las relaciones de recurrencia para $J_\nu$ y $Y_\nu$, ver \eqref{rrJnu1}, \eqref{rrJnu2}, \eqref{rrNnu1} y \eqref{rrNnu2}, podemos derivar directamente las correspondientes relaciones para las funciones esf'ericas, obteniendo:
 \begin{equation}
 j_{n-1}(x)+j_{n+1}(x)=\frac{2n+1}{x}j_n(x), \qquad nj_{n-1}(x)-(n+1)j_{n+1}(x)=(2n+1)j'_n(x).
 \end{equation}
@@ -695,7 +696,7 @@ j_n(x) = (-x)^n \left(\frac{1}{x}\frac{d}{dx}\right)^n\,j_0(x) .
 \end{equation}
 Similarmente,
 \begin{equation}
-n_n(x) = (-x)^n \left(\frac{1}{x}\frac{d}{dx}\right)^n\,n_0(x).
+y_n(x) = (-x)^n \left(\frac{1}{x}\frac{d}{dx}\right)^n\,y_0(x).
 \end{equation}
 
 \subsection{Expresiones expl'icitas}
@@ -705,7 +706,7 @@ De este modo, usando \eqref{j0n0} encontramos las siguientes 'utiles expresiones
 \boxed{j_n(x) = (-x)^n \left(\frac{1}{x}\frac{d}{dx}\right)^n\,\frac{\sen x}{x},}
 \end{equation}
 \begin{equation}
-\boxed{n_n(x) = -(-x)^n \left(\frac{1}{x}\frac{d}{dx}\right)^n\,\frac{\cos x}{x}.}
+\boxed{y_n(x) = -(-x)^n \left(\frac{1}{x}\frac{d}{dx}\right)^n\,\frac{\cos x}{x}.}
 \end{equation}
 De este modo, podemos calcular expl'icitamente las funciones que necesitemos. Por ejemplo:
 \begin{align}
@@ -715,10 +716,10 @@ j_2(x) &= \left(\frac{3} {x^2} - 1 \right)\frac{\sen x}{x} - \frac{3\cos x} {x^2
 j_3(x) &= \left(\frac{15}{x^3} - \frac{6}{x} \right)\frac{\sen x}{x} -\left(\frac{15}{x^2} - 1\right) \frac{\cos x} {x},
 \end{align}
 \begin{align}
-n_0(x) &= -j_{-1}(x)=-\,\frac{\cos x} {x} ,\\
-n_1(x) &= j_{-2}(x)=-\,\frac{\cos x} {x^2}- \frac{\sen x} {x}, \\
-n_2(x) &=-j_{-3}(x)=\left(-\,\frac{3}{x^2}+1 \right)\frac{\cos x}{x}- \frac{3 \sen x} {x^2}, \\
-n_{3}(x) &= j_{-4}(x) =\left( -\frac{15}{x^{3}}+\frac{6}{x}\right) \frac{\cos
+y_0(x) &= -j_{-1}(x)=-\,\frac{\cos x} {x} ,\\
+y_1(x) &= j_{-2}(x)=-\,\frac{\cos x} {x^2}- \frac{\sen x} {x}, \\
+y_2(x) &=-j_{-3}(x)=\left(-\,\frac{3}{x^2}+1 \right)\frac{\cos x}{x}- \frac{3 \sen x} {x^2}, \\
+y_{3}(x) &= j_{-4}(x) =\left( -\frac{15}{x^{3}}+\frac{6}{x}\right) \frac{\cos
 x}{x}-\left( \frac{15}{x^{2}}-1\right) \frac{\sen x}{x}.
 \end{align}
 \begin{figure}[H]
@@ -730,7 +731,7 @@ x}{x}-\left( \frac{15}{x^{2}}-1\right) \frac{\sen x}{x}.
 %
 \begin{figure}[H]
 \centering
-\includegraphics[angle=0,width=0.7\textwidth]{figs/fig-Bessel-Esferica-n.pdf}
+\includegraphics[angle=0,width=0.7\textwidth]{figs/fig-Bessel-Esferica-y.pdf}
 \caption{Primeras cinco funciones esf'ericas de Bessel de segunda especie (funciones de Newmann) de orden entero.}
 \label{fig-nn}
 \end{figure}
@@ -747,8 +748,8 @@ donde $\bar{\alpha}_{n,m}$ denota la $m$-'esima raiz de la la funci'on esf'erica
 
 \subsection{Funciones esf'ericas de Hankel} 
 \begin{align}
-h_n^{(1)}(x) &= j_n(x) + i n_n(x) , \\
-h_n^{(2)}(x) &= j_n(x) - i n_n(x).
+h_n^{(1)}(x) &= j_n(x) + i y_n(x) , \\
+h_n^{(2)}(x) &= j_n(x) - i y_n(x).
 \end{align}
 \begin{equation}
 h_n^{(1)}(x) = (-i)^{n+1} \frac{e^{ix}}{x} \sum_{m=0}^n \frac{i^m}{m!(2x)^m} \frac{(n+m)!}{(n-m)!}
@@ -758,12 +759,12 @@ h_n^{(1)}(x) = (-i)^{n+1} \frac{e^{ix}}{x} \sum_{m=0}^n \frac{i^m}{m!(2x)^m} \fr
 Para $x\ll 1$,
 \begin{align}
 j_n(x) &\approx \frac{2^nn!}{(2n+1)!}x^n, \\
-n_n(x) &\approx -\frac{(2n)!}{2^nn!}\frac{1}{x^{n+1}}.
+y_n(x) &\approx -\frac{(2n)!}{2^nn!}\frac{1}{x^{n+1}}.
 \end{align}
 Para $x\gg n(n+1)$,
 \begin{align}
 j_n(x) &\approx \frac{1}{x}\sen\left(x-\frac{n\pi}{2}\right), \\
-n_n(x) &\approx -\frac{1}{x}\cos\left(x-\frac{n\pi}{2}\right), \\
+y_n(x) &\approx -\frac{1}{x}\cos\left(x-\frac{n\pi}{2}\right), \\
 h^{(1)}_n(x) &\approx -\frac{i}{x}e^{i(x-{n\pi}/{2})}=(-i)^{n+1}\frac{e^{ix}}{x}, \\
 h^{(2)}_n(x) &\approx \frac{i}{x}e^{-i(x-{n\pi}/{2})}=(i)^{n+1}\frac{e^{-ix}}{x}.
 \end{align}
