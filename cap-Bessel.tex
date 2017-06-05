@@ -334,10 +334,10 @@ Similarmente,
 \begin{figure}[H]
 \centering
 \includegraphics[angle=0,width=0.7\textwidth]{figs/fig-Bessel-J.pdf}
-\caption{Primeras cinco funciones de Bessel de primera especie y orden entero.}
+\caption{Primeras cinco funciones de Bessel de primera especie y orden entero. C'odigo Python \href{https://github.com/gfrubi/FM2/blob/master/figuras-editables/fig-Bessel.py}{aqu\'i}.}
 \label{fig-Jn}
 \end{figure}
-Consideremos las soluciones enteras de orden $n=0,1,2,\cdots$, entonces \eqref{Besselnu} se reduce a
+Consideremos el caso en que $\nu=n=0,1,2,\cdots$, entonces \eqref{Besselnu} se reduce a
 \begin{align}
 J_n(z) &= \sum_{k=0}^\infty \frac{(-1)^k}{k!\Gamma(k+n+ 1)}
 \left(\frac{z}{2}\right)^{2k+n},
@@ -393,6 +393,8 @@ Finalmente, la funci'on $f(t)$ puede determinarse evaluando \eqref{defgtz} para 
 g(t,0)=f(t)=\sum_{n = -\infty}^\infty J_n(0) t^n=J_0(0)=1.
 \end{equation}
 Aqu'i usamos el hecho que todas las funciones de Bessel de orden entero se anulan en $z=0$, excepto para $n=0$, ya que $J_0(0)=1$.
+
+Por lo tanto, obtenemos:
 \begin{equation}\label{gtzJ}
 \boxed{g(t,z)=e^{\frac{z}{2}\left(t-t^{-1}\right)}=\sum_{n = -\infty}^\infty J_n(z) t^n.}
 \end{equation}
@@ -529,7 +531,7 @@ Y_{\nu-1}(z)-Y_{\nu+1}(z)=2Y'_\nu(z).
 \begin{figure}[H]
 \centering
 \includegraphics[angle=0,width=0.7\textwidth]{figs/fig-Bessel-Y.pdf}
-\caption{Primeras cinco funciones de Bessel de segunda especie (funciones de Neumann) de orden entero.}
+\caption{Primeras cinco funciones de Bessel de segunda especie (funciones de Neumann) de orden entero. C'odigo Python \href{https://github.com/gfrubi/FM2/blob/master/figuras-editables/fig-Bessel.py}{aqu\'i}.}
 \label{fig-Nn}
 \end{figure}
 
@@ -561,7 +563,7 @@ La \textit{ecuaci'on modificada de Bessel} es
 \begin{equation} 
 y'' + \frac{1}{x}y' -\left(1+\frac{\nu^2}{x^2}\right)y(x) = 0. 
 \end{equation}
-Las soluciones finitas en $x=0$ de esta ecuaci'on son de la forma $y(x)=J_\nu(ix)$. Como estamos especialmente interesados en el caso en que tanto $x$ como $y$ son reales, es conveniente  definir las \textit{funciones modificadas de Bessel de primera especia y orden} $\nu$:
+Las soluciones finitas en $x=0$ de esta ecuaci'on son de la forma $y(x)=J_\nu(ix)$. Como estamos especialmente interesados en el caso en que tanto $x$ como $y$ son reales, es conveniente  definir las \textit{funciones modificadas de Bessel de primera especie y orden} $\nu$:
 \begin{equation}\label{defInu}
 I_\nu(x) = i^{-\nu} J_\nu(ix). 
 \end{equation}
@@ -585,7 +587,7 @@ I_{-n}(x)=I_n(z)
 \begin{figure}[H]
 \centering
 \includegraphics[angle=0,width=0.7\textwidth]{figs/fig-Bessel-I.pdf}
-\caption{Primeras cinco funciones modificadas de Bessel (de primera especie) de orden entero.}
+\caption{Primeras cinco funciones modificadas de Bessel (de primera especie) de orden entero. C'odigo Python \href{https://github.com/gfrubi/FM2/blob/master/figuras-editables/fig-Bessel.py}{aqu\'i}.}
 \label{fig-In}
 \end{figure}
 La correspondiente forma asint'otica de las funciones modificadas de Bessel $I_\nu(x)$ es
@@ -624,7 +626,7 @@ K_n(x)=\frac{(-1)^n}{2}\left[\frac{\partial I_{-\nu}(x)}{\partial\nu}-\frac{\par
 \begin{figure}[H]
 \centering
 \includegraphics[angle=0,width=0.7\textwidth]{figs/fig-Bessel-K.pdf}
-\caption{Primeras cinco funciones modificadas de Bessel de segunda primera especie y orden entero.}
+\caption{Primeras cinco funciones modificadas de Bessel de segunda primera especie y orden entero. C'odigo Python \href{https://github.com/gfrubi/FM2/blob/master/figuras-editables/fig-Bessel.py}{aqu\'i}.}
 \label{fig-Kn}
 \end{figure}
 Las funciones $K_\nu(x)$ satisfacen las siguientes relaciones de recurrencia
@@ -725,14 +727,14 @@ x}{x}-\left( \frac{15}{x^{2}}-1\right) \frac{\sen x}{x}.
 \begin{figure}[H]
 \centering
 \includegraphics[angle=0,width=0.7\textwidth]{figs/fig-Bessel-Esferica-j.pdf}
-\caption{Primeras cinco funciones esf'ericas de Bessel de primera especie de orden entero.}
+\caption{Primeras cinco funciones esf'ericas de Bessel de primera especie de orden entero. C'odigo Python \href{https://github.com/gfrubi/FM2/blob/master/figuras-editables/fig-Bessel.py}{aqu\'i}.}
 \label{fig-jn}
 \end{figure}
 %
 \begin{figure}[H]
 \centering
 \includegraphics[angle=0,width=0.7\textwidth]{figs/fig-Bessel-Esferica-y.pdf}
-\caption{Primeras cinco funciones esf'ericas de Bessel de segunda especie (funciones de Newmann) de orden entero.}
+\caption{Primeras cinco funciones esf'ericas de Bessel de segunda especie (funciones de Newmann) de orden entero. C'odigo Python \href{https://github.com/gfrubi/FM2/blob/master/figuras-editables/fig-Bessel.py}{aqu\'i}.}
 \label{fig-nn}
 \end{figure}
 
@@ -820,13 +822,13 @@ k_4(x) &= \frac{{e}^{-x}}{x}+\frac{10\,{e}^{-x}}{{x}^{2}}+\frac{45\,{e}^{-x}}{{x
 \begin{figure}[H]
 \centering
 \includegraphics[angle=0,width=0.7\textwidth]{figs/fig-Bessel-Esferica-i.pdf}
-\caption{Primeras cinco funciones esf'ericas modificadas de Bessel de primera especie de orden entero.}
+\caption{Primeras cinco funciones esf'ericas modificadas de Bessel de primera especie de orden entero. C'odigo Python \href{https://github.com/gfrubi/FM2/blob/master/figuras-editables/fig-Bessel.py}{aqu\'i}.}
 \label{fig-in}
 \end{figure}
 %
 \begin{figure}[H]
 \centering
 \includegraphics[angle=0,width=0.7\textwidth]{figs/fig-Bessel-Esferica-k.pdf}
-\caption{Primeras cinco funciones esf'ericas modificadas de Bessel de segunda especie (funciones de Newmann) de orden entero.}
+\caption{Primeras cinco funciones esf'ericas modificadas de Bessel de segunda especie (funciones de Newmann) de orden entero. C'odigo Python \href{https://github.com/gfrubi/FM2/blob/master/figuras-editables/fig-Bessel.py}{aqu\'i}.}
 \label{fig-kn}
 \end{figure}
