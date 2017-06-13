@@ -560,12 +560,15 @@ H_\nu^{(2)}(x)\approx \sqrt{\frac{2}{\pi x}}\,e^{-i(x-\nu\pi/2-\pi/4)},
 
 \section{Funciones modificadas de Bessel}
 La \textit{ecuaci'on modificada de Bessel} es 
-\begin{equation} 
-y'' + \frac{1}{x}y' -\left(1+\frac{\nu^2}{x^2}\right)y(x) = 0. 
+\begin{equation}\label{Besselec1}
+x\frac{d\ }{dx}\left(x\frac{dy}{dx}\right)-(x^2+\nu^2)y(x)=0.
 \end{equation}
+%\begin{equation} 
+%y'' + \frac{1}{x}y' -\left(1+\frac{\nu^2}{x^2}\right)y(x) = 0. 
+%\end{equation}
 Las soluciones finitas en $x=0$ de esta ecuaci'on son de la forma $y(x)=J_\nu(ix)$. Como estamos especialmente interesados en el caso en que tanto $x$ como $y$ son reales, es conveniente  definir las \textit{funciones modificadas de Bessel de primera especie y orden} $\nu$:
 \begin{equation}\label{defInu}
-I_\nu(x) = i^{-\nu} J_\nu(ix). 
+I_\nu(x) := i^{-\nu} J_\nu(ix). 
 \end{equation}
 La funci'on $I_\nu(x)$ as'i definida es real. En efecto, de la expansi'on en serie \eqref{Besselnu}
 \begin{align}
