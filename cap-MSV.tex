@@ -108,21 +108,21 @@ Imponemos por tanto que
 \end{equation}
 con $f(x)=x(1-x)$. Esto significa que los coeficientes $d_n\senh(2\pi n)$ son los coeficientes de la expansi'on de Fourier (seno) de la funci'on $f(x)$ en el intervalo $[0,1]$. Usando las relaciones de ortogonalidad de las funciones $\senh(\pi nx)$, 
 \begin{equation}
-\int_0^1 \senh(\pi nx)\senh(\pi mx)\,dx = \frac{1}{2}\delta_{nm},
+\int_0^1 \sen(\pi nx)\sen(\pi mx)\,dx = \frac{1}{2}\delta_{nm},
 \end{equation}
 encontramos
 \begin{equation}
-d_n\senh(2\pi n) = 2 \int_0^1 f(x)\senh(\pi nx)\,dx,
+d_n\senh(2\pi n) = 2 \int_0^1 f(x)\sen(\pi nx)\,dx,
 \end{equation}
 y por lo tanto
 \begin{equation}
-d_n = \frac{2}{\senh(2\pi n)} \int_0^1 f(x)\senh(\pi nx)\,dx.
+d_n = \frac{2}{\senh(2\pi n)} \int_0^1 f(x)\sen(\pi nx)\,dx.
 \end{equation}
 
 En el ejemplo particular en que $f(x)=x(1-x)$, luego de calcular la integral correspondiente, encontramos que
 \begin{equation}
 d_n = \begin{cases}
-	\frac{8}{\pi^3n^3}\senh(2\pi n) , & \text{para } n \text{ impar} \\
+	\frac{8}{\pi^3n^3}\frac{1}{\senh(2\pi n)} , & \text{para } n \text{ impar} \\
 	0 , & \text{para } n \text{ par} \end{cases}
 \end{equation}
 
