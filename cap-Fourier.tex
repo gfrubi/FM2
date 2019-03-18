@@ -8,24 +8,24 @@
 \subsection{Propiedades Generales} Si $f(\theta)$ es una funci'on (real o compleja) peri'odica, de periodo $2\pi$, su \textbf{serie de Fourier} es dada por
 \begin{equation}\label{sf1}
  f(\theta) =\frac{a_0}{2}  +\sum_{n=1}^\infty 
-\big(a_n\cos(n\theta) + b_n\sen(n\theta)\big).
+\big(a_n\cos(n\theta) + b_n\sin(n\theta)\big).
 \end{equation}
-Recuerde que las funciones $\left\lbrace\cos(n\theta),\sen(n\theta)\right\rbrace_{n=0}^{\infty}$ forman una base completa para el espacio de las funciones peri'odicas de periodo $2\pi$ \cite{Arfken}.
+Recuerde que las funciones $\left\lbrace\cos(n\theta),\sin(n\theta)\right\rbrace_{n=0}^{\infty}$ forman una base completa para el espacio de las funciones peri'odicas de periodo $2\pi$ \cite{Arfken}.
 
 %Si la serie de Fourier \textit{converge uniformemente} a $f$ entonces, 
 Usando las relaciones de ortogonalidad 
 \begin{equation}
-\int_{-\pi}^\pi\cos(m\theta)\cos(n\theta)\,d\theta=\int_{-\pi}^\pi\sen(m\theta)\sen(n\theta)\,d\theta=\pi\delta_{mn},\label{eq:ortogo-sin-cos}
+\int_{-\pi}^\pi\cos(m\theta)\cos(n\theta)\,d\theta=\int_{-\pi}^\pi\sin(m\theta)\sin(n\theta)\,d\theta=\pi\delta_{mn},\label{eq:ortogo-sin-cos}
 \end{equation}
 \begin{equation}
-\int_{-\pi}^\pi\cos(m\theta)\sen(n\theta)\,d\theta=0,
+\int_{-\pi}^\pi\cos(m\theta)\sin(n\theta)\,d\theta=0, \qquad m,n = 1,2,\cdots,
 \end{equation}
 podemos encontrar las expresiones para los \textbf{coeficientes de Fourier} $a_n$ y $b_n$\footnote{Es conveniente definir $b_0:=0$, tal como se incluye en (\ref{cf2}).}:
 \begin{equation}\label{cf1}
 a_n =\frac{1}{\pi}\int_{-\pi}^\pi f(\theta)\cos(n\theta)\,d\theta, \qquad n= 0, 1, 2,\cdots .
 \end{equation}
 \begin{equation}\label{cf2}
-b_n =\frac{1}{\pi}\int_{-\pi}^\pi f(\theta)\sen(n\theta)\,d\theta  \qquad n= 0, 1, 2,\cdots .
+b_n =\frac{1}{\pi}\int_{-\pi}^\pi f(\theta)\sin(n\theta)\,d\theta  \qquad n= 0, 1, 2,\cdots .
 \end{equation}
 Equivalentemente, $f(\theta)$ puede expandirse en t'erminos proporcionales a las funciones $e^{i n\theta}$, con $n=0,\pm 1,\pm 2, \cdots$:
 \begin{equation}\label{sf2}
@@ -35,7 +35,7 @@ donde los coeficientes (complejos) $c_n$ est'an dados por
 \begin{equation}
 c_n =\frac{1}{2\pi}\int_{-\pi}^\pi f(\theta) e^{-in\theta}\,d\theta .
 \end{equation}
-Lo anterior puede ser verificado a partir de (\ref{sf1}), (\ref{cf1}) y (\ref{cf2}) usando la relaci'on $e^{in\theta}=\cos(n\theta)+i\sen(n\theta)$, o directamente a partir de la relaci'on de ortogonalidad
+Lo anterior puede ser verificado a partir de (\ref{sf1}), (\ref{cf1}) y (\ref{cf2}) usando la relaci'on de Euler $e^{in\theta}\equiv\cos(n\theta)+i\sin(n\theta)$, o directamente a partir de la relaci'on de ortogonalidad
 \begin{equation}
 \int_{-\pi}^\pi e^{i n\theta} e^{-i m \theta}\,d\theta =2\pi\delta_{nm}.
 \end{equation}
@@ -70,10 +70,10 @@ f(\theta):=\left\{
 \end{align}
 Es directo ver que por tratarse de una funci'on impar, $a_{n}=0$ para $n=0,1,2,\ldots$. Sin embargo,
 \begin{align}
-b_{n}&=\frac{1}{\pi}\int_{-\pi}^{0}f(\theta) \sen(n\theta)d\theta+\frac{1}{\pi}\int_{0}^{\pi}f(\theta) \sen(n\theta)d\theta\\
-&=\frac{1}{\pi}\int_{-\pi}^{0}(-1) \sen(n\theta)d\theta+\frac{1}{\pi}\int_{0}^{\pi} (1) \sen(n\theta)d\theta\\
-&=\frac{1}{\pi}\int_{0}^{\pi} \sen(n\theta)d\theta+\frac{1}{\pi}\int_{0}^{\pi} \sen(n\theta)d\theta\\
-&=\frac{2}{\pi}\int_{0}^{\pi}\sen(n\theta)d\theta\\
+b_{n}&=\frac{1}{\pi}\int_{-\pi}^{0}f(\theta) \sin(n\theta)d\theta+\frac{1}{\pi}\int_{0}^{\pi}f(\theta) \sin(n\theta)d\theta\\
+&=\frac{1}{\pi}\int_{-\pi}^{0}(-1) \sin(n\theta)d\theta+\frac{1}{\pi}\int_{0}^{\pi} (1) \sin(n\theta)d\theta\\
+&=\frac{1}{\pi}\int_{0}^{\pi} \sin(n\theta)d\theta+\frac{1}{\pi}\int_{0}^{\pi} \sin(n\theta)d\theta\\
+&=\frac{2}{\pi}\int_{0}^{\pi}\sin(n\theta)d\theta\\
 &=\left.\frac{2}{\pi}\left(\frac{-\cos(n\theta)}{n}\right)\right|_{0}^{\pi}\\
 &=-\frac{2}{\pi}\left(\frac{\cos(n\pi)-1}{n}\right),
 \end{align}
@@ -92,11 +92,11 @@ b_{n}=\left\{
 \end{align}
 podemos escribir
 \begin{align}
-f(\theta)=\sum_{n\text{ impar}}\frac{4}{n\pi}\sen(n\theta)=\sum_{k=0}^{\infty}\frac{4}{\pi}\frac{\sen[(2k+1)\theta]}{(2k+1)}=\sum_{k=1}^{\infty}\frac{4}{\pi}\frac{\sen[(2k-1)\theta]}{(2k-1)}.
+f(\theta)=\sum_{n\text{ impar}}\frac{4}{n\pi}\sin(n\theta)=\sum_{k=0}^{\infty}\frac{4}{\pi}\frac{\sin[(2k+1)\theta]}{(2k+1)}=\sum_{k=1}^{\infty}\frac{4}{\pi}\frac{\sin[(2k-1)\theta]}{(2k-1)}.
 \end{align}
 Definiendo el $k$-'esimo t'ermino de la serie como 
 \begin{align}
-T_{k}(\theta):=\frac{4}{\pi}\frac{\sen[(2k+1)\theta]}{(2k+1)},
+T_{k}(\theta):=\frac{4}{\pi}\frac{\sin[(2k+1)\theta]}{(2k+1)},
 \end{align}
 y la \textbf{serie de Fourier truncada} hasta el t'ermino $n$-'esimo en la forma
 \begin{align}
@@ -112,17 +112,18 @@ podemos graficar algunas funciones $S_n$ que, a medida que $n$ aumenta, se acerc
 
 \subsection{Convoluci'on}
 
-La relaci'on o ``Teorema'' de Convoluci'on establece una relaci'on entre los coeficientes $C_{n}^{(1\cdot 2)}$ de la expansi'on de Fourier de la funci'on producto $f_1(\theta)f_2(\theta)$ y los respectivos coeficientes $C_{n}^{(1)}$ y $C_{n}^{(2)}$ de las funciones $f_1(\theta)$ y $f_2(\theta)$.
+La relaci'on o ``Teorema'' de Convoluci'on establece una relaci'on entre los coeficientes $c_{n}^{(1\cdot 2)}$ de la expansi'on de Fourier de la funci'on producto $f_1(\theta)f_2(\theta)$ y los respectivos coeficientes $c_{n}^{(1)}$ y $c_{n}^{(2)}$ de las funciones $f_1(\theta)$ y $f_2(\theta)$. El teorema establece que
+\begin{equation}\label{conv}
+\boxed{c_n^{(1\cdot 2)} = \sum_{m=-\infty}^{+\infty} c_m^{(2)}c_{n-m}^{(1)}.}
+\end{equation}
 
+Esto puede ser demostrado por medio del siguiente cálculo:
 \begin{align}
 c_n^{(1\cdot 2)} &= \frac{1}{2\pi}\int_{-\pi}^\pi f_1(\theta)f_2(\theta)e^{-in\theta}\,d\theta \\
- &= \frac{1}{2\pi}\sum_m \int_{-\pi}^\pi f_1(\theta)C_m^{(2)}e^{im\theta}e^{-in\theta}\,d\theta \\
- &= \frac{1}{2\pi}\sum_m C_m^{(2)}\int_{-\pi}^\pi f_1(\theta)e^{-i(n-m)\theta}\,d\theta \\
- &= \sum_m C_m^{(2)}C_{n-m}^{(1)}
+ &= \frac{1}{2\pi}\sum_m \int_{-\pi}^\pi f_1(\theta)c_m^{(2)}e^{im\theta}e^{-in\theta}\,d\theta \\
+ &= \frac{1}{2\pi}\sum_m c_m^{(2)}\int_{-\pi}^\pi f_1(\theta)e^{-i(n-m)\theta}\,d\theta \\
+ &= \sum_m c_m^{(2)}c_{n-m}^{(1)}.
 \end{align}
-\begin{equation}\label{conv}
-\boxed{c_n^{(1\cdot 2)} = \sum_m C_m^{(2)}C_{n-m}^{(1)}.}
-\end{equation}
 
 
 \subsection{Relaci'on de Parseval}
@@ -134,14 +135,14 @@ Si elegimos $f_1(\theta)=f^\ast (\theta)$, $f_2(\theta)=f(\theta)$ y $n=0$ en (\
  \end{equation}
 
 \subsection{Convergencia}
-
+Existen distintas nociones de convergencia de una función. Por ejemplo, es útil definir la \textbf{convergencia en media} y la \textbf{convergencia uniformemente}, de la forma siguiente:
 \begin{itemize}
 \item Una sucesi'on $S_n(\theta)$ de funciones definidas en el intervalo $\theta\in[-\pi,\pi]$ \textit{converge en media} a una funci'on $f(\theta)$ si
 \begin{equation}
 \lim_{n\to\infty}\int_{-\pi}^{\pi}\left[f(\theta)-S_n(\theta)\right]^2d\theta=0.
 \end{equation}
+Si esto ocurre se dice que ``La sucesi'on $S_n$ converge en media a $f(\theta)$'' lo cual significa que los valores de ambas funciones coinciden en el límite $n\to\infty$ excepto (a lo sumo) en un conjunto de medida cero.
 
-``La sucesi'on $S_n$ converge a $f(\theta)$ excepto en un conjunto de medida cero''
 \item Una sucesi'on $S_n(\theta)$ de funciones \textit{converge uniformemente} a una funci'on $f(\theta)$ si para todo $\epsilon>0$ existe un $N>0$ tal que
 \begin{equation}
 \left|f(\theta)-S_n(\theta)\right|<\epsilon, \qquad \forall n>N,
@@ -149,7 +150,7 @@ Si elegimos $f_1(\theta)=f^\ast (\theta)$, $f_2(\theta)=f(\theta)$ y $n=0$ en (\
 para cada $\theta$ ($N$ independiente de $\theta$).
 \end{itemize}
 
-\textbf{Teorema 1} \cite{Butkov}: Si $f(\theta)$ es una funci'on es ``muy suave por tramos'' (es decir, si la funci'on, su primera y segunda derivadas son continuas por tramos) en el intervalo $(-\pi,\pi)$ entonces su serie de Fourier converge a
+\textbf{Teorema 1} \cite{Butkov}: Si $f(\theta)$ es una funci'on ``muy suave por tramos'' (es decir, si la funci'on, su primera y segunda derivadas son continuas por tramos) en el intervalo $(-\pi,\pi)$ entonces su serie de Fourier converge a
 \begin{equation}
 \frac{1}{2}\left[f(\theta-0)+f(\theta+0)\right], \qquad \theta\in (-\pi,\pi),
 \end{equation}
@@ -166,7 +167,7 @@ La convergencia es \textit{uniforme} en cada subintervalo cerrado donde $f(\thet
 
 \subsection{Fen'omeno de Gibbs}
 
-Si la funci'on $f(\theta)$, continua por tramos, posee una discontinuidad en un punto $\theta_0$, si bien la serie truncada converge uniformemente en puntos en la vecindad de $\theta_0$, 'esta siempre sobreestima/subestima el valor de la funci'on en puntos cercanos a $\theta_0$. La regi'on donde ocurre esta sobreestimaci'on/subestimaci'on es cada vez m'as peque\~na a medidad que se agregan t'erminos a la serie truncada, pero el monto de la sobreestimaci'on/subestimaci'on es siempre finito. De hecho, se puede mostrar\footnote{Ver por ejemplo \cite{Arfken}, cap'itulo 14.} que la serie de Fourier sobreestima el ``salto'' de la funci'on en la discontinuidad por aproximadamente $17.9\%$.
+Si la funci'on $f(\theta)$, continua por tramos, posee una \textit{discontinuidad} en un punto $\theta_0$, si bien la serie truncada converge uniformemente en puntos en la vecindad de $\theta_0$, 'esta siempre sobreestima/subestima el valor de la funci'on en puntos cercanos a $\theta_0$. La regi'on donde ocurre esta sobreestimaci'on/subestimaci'on es cada vez m'as peque\~na a medidad que se agregan t'erminos a la serie truncada, \textit{pero el monto de la sobreestimaci'on/subestimaci'on es siempre finito}. De hecho, se puede mostrar\footnote{Ver por ejemplo \cite{Arfken}, cap'itulo 14.} que la serie de Fourier sobreestima el ``salto'' de la funci'on en la discontinuidad por aproximadamente $17.9\%$.
 
 \section{Cambio de Intervalo}
 Es simple extender los resultados anteriores al caso de funciones peri'odicas de periodo arbitrario. Si $f(t)$ es una funci'on de periodo $T=b-a$ entonces
@@ -177,14 +178,14 @@ es una funci'on de periodo $2\pi$ en la variable $\theta$. Por lo tanto, podemos
 \begin{equation}\label{sfgt}
 g(\theta)=\sum_{n=-\infty}^\infty c_n e^{i n\theta}, \qquad c_n =\frac{1}{2\pi}\int_{-\pi}^\pi g(\theta) e^{-in\theta}\,d\theta .
 \end{equation}
-Usando (\ref{defgt}), y realizando el cambio de variable de integraci'on a $t:=a+L\theta/2\pi$,  podemos expresar los coeficientes $c_n$ como
+Usando (\ref{defgt}), y realizando el cambio de variable de integraci'on a $t:=a+T\theta/2\pi$,  podemos expresar los coeficientes $c_n$ como
 \begin{align}
 c_n =& \frac{1}{2\pi}\int_{-\pi}^\pi g(\theta) e^{-in\theta}\,d\theta  \\
 =& \frac{1}{2\pi}\int_{-\pi}^\pi f(a+\frac{T}{2\pi}\theta) e^{-in\theta}\,d\theta \\
 =& \frac{1}{2\pi}\int_{a-T/2}^{b+T/2} f(t) e^{-in\frac{2\pi}{T}(t-a)}\frac{2\pi}{T}dt \\
 =& \frac{1}{T}e^{\frac{2\pi ina}{T}}\int_a^b f(t) e^{-\frac{2\pi i n}{T}t}\,dt.
 \end{align}
-Definimos la \textbf{frecuencia fundamenal} $\omega_1:=2\pi/T$ y las frecuencias arm'onicas $\omega_n:=n\omega_1$, $n=0,\pm 1, \pm 2, \cdots$. Entonces, la funci'on original $f(t)=g(2\pi(t-a)/L)$ puede escribirse como
+Definimos la \textbf{frecuencia fundamenal} $\omega_1:=2\pi/T$ y las \textbf{frecuencias arm'onicas} $\omega_n:=n\omega_1$, $n=0,\pm 1, \pm 2, \cdots$. Entonces, la funci'on original $f(t)=g(2\pi(t-a)/T)$ puede escribirse como
 \begin{equation}\label{ftpT}
 \boxed{f(t)=\sum_n f_n\, e^{i\omega_n t},}
 \end{equation}
@@ -199,10 +200,12 @@ Podemos encontrar una representaci'on de la (extensi'on peri'odica de la) delta 
 f_n &= \frac{1}{T}\int_a^b \delta(t) e^{-i\omega_n t}\,dt \\
 &= \frac{1}{T}.
 \end{align}
+
 Por lo tanto,
 \begin{equation}
 \delta(t)=\frac{1}{T}\sum_n \, e^{i\omega_n t}=\frac{1}{T}\left[1+2\sum_{n=1}^\infty\cos\left(\frac{2\pi n t}{T}\right)\right].
 \end{equation}
+
 Definimos el $k$-'esimo t'ermino de la serie como 
 \begin{align}
 T_{k}(t):=\left\{
@@ -215,11 +218,12 @@ y la serie de Fourier truncada hasta el t'ermino $n$-'esimo en la forma:
 \begin{align}
 S_n(t):=\sum_{k=0}^n T_{k}(t).
 \end{align}
+
 Es importante notar, como puede comprobarse al graficar la serie, que lo que se obtiene es en realidad la \textit{extensi'on peri'odica} (de periodo $T$) de la delta de Dirac.
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.4]{figs/fig-Fourier-serie-Dirac}
-\caption{Serie de Fourier de la Delta de Dirac con per'iodo $T=2\pi$, truncada hasta $n=4$.}
+\caption{Serie de Fourier de la delta de Dirac con per'iodo $T=2\pi$, truncada hasta $n=4$. Código Python disponible \href{https://github.com/gfrubi/FM2/blob/master/figuras-editables/fig-Fourier-serie-Dirac.py}{aquí}.}
 \label{im:delta}
 \end{figure}
 
