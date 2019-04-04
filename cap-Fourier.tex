@@ -262,11 +262,30 @@ Observaciones:
 \begin{itemize}
 \item Cuidado! La derivaci'on anterior es ``heur'istica'' (e.d. no rigurosa). 
 \item Otras notaciones: $\tilde{f}(\omega)=g(\omega)={\cal F}(f)(\omega)$.
-\item El factor $1/2\pi$ en la definici'on (\ref{TFIf}) es hasta cierto punto convencional. Lo importante es la identidad (\ref{idfnp}). Por ejemplo, en lugar de estos factores, podr'ia introducirse $\alpha$ en (\ref{TFf}) y $1/2\pi\alpha$ en (\ref{TFIf}), con una constante $\alpha$ arbitraria. Otras elecciones populares son $\alpha=1$ y $\alpha=1/\sqrt{2\pi}$ (Arfken \cite{Arfken}; Hassani \cite{Hassani}; Riley, Hobson \& Bence \cite{Riley}).
+\item El factor $1/2\pi$ en la definici'on (\ref{TFIf}) es hasta cierto punto convencional (usado, por ejemplo, por el módulo \texttt{Sympy} de Python). Lo importante es la identidad (\ref{idfnp}). Por ejemplo, en lugar de estos factores, podr'ia introducirse $\alpha$ en (\ref{TFf}) y $1/2\pi\alpha$ en (\ref{TFIf}), con una constante $\alpha$ arbitraria. Otras elecciones populares son $\alpha=1$ y $\alpha=1/\sqrt{2\pi}$ (Arfken \cite{Arfken}; Hassani \cite{Hassani}; Riley, Hobson \& Bence \cite{Riley}).
 \item Note que en (\ref{TFIf}) la integral se extiende sobre ``frecuencias positivas y negativas''.
 \item Compare (\ref{TFf}) con la definici'on de la \textbf{transformada de Laplace}: $F(s):=\int_0^\infty f(t)e^{-st}dt$.
 \item En F'isica es costumbre denotar, en el caso en que se considere una funci'on de la posici'on, $f(t)\to f(x)$ y usar el \textit{n'umero de onda} $k$ en lugar de la frecuecia $\omega$, de modo que la expansi'on adopta la forma $f(x)=(1/{2\pi})\int_{-\infty}^\infty\tilde{f}(k) e^{ikx} \,dk.$
 \end{itemize}
+
+\subsection{Ejemplo: Pulso cuadrado}
+Como primer ejemplo, consideramos la función $f(x)$ definida por
+\begin{equation}
+f(x)=\begin{cases}
+1, & |x|<a \\
+0, & |x|>a
+\end{cases}.
+\end{equation}
+En este caso, la transformada resulta ser
+\begin{equation}
+\tilde{f}(k)=\frac{2\sin(ka)}{k}.
+\end{equation}
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.4]{figs/fig-transformada-Fourier-pulso-cuadrado.pdf}
+\caption{Pulso cuadrado y su transformada de Fourier, con $a=5$.}
+\label{im:pulsocua}
+\end{figure}
 
 \subsection{Ejemplo: Distribuci'on Gaussiana}
 Considere la \textbf{distribuci'on gaussiana} definida por
@@ -315,6 +334,15 @@ encontramos finalmente que
 \end{equation}
 
 \section{Propiedades de la Transformada de Fourier} 
+\subsection{Linealidad}
+\begin{equation}
+{\cal F}[\alpha f_1(t)+\beta f_2(t)](\omega) = \alpha{\cal F}[f_1(t)](\omega)+\beta {\cal F}[f_2(t)](\omega).
+\end{equation}
+\subsection{Complejo conjugado}
+\begin{equation}
+{\cal F}[f^\ast(t)](\omega) = \left({\cal F}[f(t)](-\omega)\right)^\ast.
+\end{equation}
+
 \subsection{Delta de Dirac}
 \begin{align}
 {\cal F}[\delta(t-\xi)] 
@@ -400,8 +428,8 @@ El teorema de convoluci'on suministra una 'util relaci'on entre la transformada 
  &=\frac{1}{2\pi} \int_{-\infty}^\infty\tilde{f}_1(\omega-\omega')\tilde{f}_2(\omega')\,d\omega'.
 \end{align}
 Por lo tanto, 
-\begin{equation}
-\boxed{ \tilde{f}_{1\cdot 2}(\omega)=\frac{1}{2\pi} \int_{-\infty}^\infty\tilde{f}_1(\omega-\omega')\tilde{f}_2(\omega')\,d\omega' .
+\begin{equation}\label{TeocovTF}
+\boxed{{\cal F}[f_1(t)f_2(t)] = \tilde{f}_{1\cdot 2}(\omega)=\frac{1}{2\pi} \int_{-\infty}^\infty\tilde{f}_1(\omega-\omega')\tilde{f}_2(\omega')\,d\omega' .
  } 
 \end{equation}   
 An'alogamente, la relaci'on entre las transformadas inversas es
@@ -413,12 +441,10 @@ An'alogamente, la relaci'on entre las transformadas inversas es
 
 
 \subsubsection{Ejemplo} Usando el teorema de convoluci'on podemos encontrar la transformada de Fourier de 
-\begin{equation}
- f(t) =\frac{1}{t^4 + 5 t^2 + 4}. 
+\begin{equation}\label{ejTFconv}
+ f(t) =\frac{1}{t^4 + 5 t^2 + 4} = \frac{1}{(t^2+1)(t^2+4)}.
 \end{equation}
-\begin{equation}
- f(t) =\frac{1}{(t^2+1)(t^2+4)}
-\end{equation}
+ya que
 \begin{equation}
 {\cal F}\left[\frac{c}{t^2+c^2}\right] = \pi e^{-c |\omega|},\qquad\text{ para }c > 0. 
 \end{equation}
@@ -460,11 +486,7 @@ Podemos expresar los resultados para ambos signos de $\omega$ como:
 {\cal F}[f(t)] =\frac{\pi}{2}\left[\frac{2}{3} e^{-|\omega|} -\frac{1}{3} e^{-2|\omega|} \right].
  } 
 \end{equation} 
-Otra forma de encontrar la transformada de
-\begin{equation}
-f(t) =\frac{1}{t^4 + 5 t^2 + 4}
-\end{equation}
-es expandir la funci'on en fracciones parciales:
+Otra forma de encontrar la transformada de \eqref{ejTFconv} es expandir la funci'on en fracciones parciales:
 \begin{equation}
 f(t) =\frac{1}{3}\frac{1}{t^2 + 1} -\frac{1}{3}\frac{1}{t^2 + 4},
 \end{equation}
@@ -481,7 +503,7 @@ f(t) =\frac{1}{3}\frac{1}{t^2 + 1} -\frac{1}{3}\frac{1}{t^2 + 4},
 \int_{-\infty}^\infty |f(t)|^2\,dt=\frac{1}{2\pi}\int_{-\infty}^\infty |\tilde{f}(\omega)|^2\,d\omega.
  }
 \end{equation}
-    
+En forma análoga al caso de la relación de Parseval para una serie de Fourier, el resultado anterior puede ser encontrado como caso particular del Teorema de Convolución \eqref{TeocovTF}, eligiendo $f_1(t)=f(t)$, $f_2(t)=f^\ast(t)$ y $\omega=0$.
 \subsection{Ancho de la funci'on y su transformada}
 
 Definimos el \textbf{valor medio} de $t$ respecto a la funci'on (distribuci'on) $f(t)$ como
