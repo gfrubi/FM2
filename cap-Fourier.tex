@@ -283,11 +283,11 @@ En este caso, la transformada resulta ser
 \begin{figure}[h]
 \centering
 \includegraphics[scale=0.4]{figs/fig-transformada-Fourier-pulso-cuadrado.pdf}
-\caption{Pulso cuadrado y su transformada de Fourier, con $a=5$.}
+\caption{Pulso cuadrado y su transformada de Fourier, con $a=5$. Código Python en \href{https://github.com/gfrubi/FM2/blob/master/Notebooks/Ejemplos-Transformada-Fourier.ipynb}{este notebook}.}
 \label{im:pulsocua}
 \end{figure}
 
-\subsection{Ejemplo: Distribuci'on Gaussiana}
+\subsection{Ejemplo: Distribuci'on gaussiana}
 Considere la \textbf{distribuci'on gaussiana} definida por
 \begin{equation}\label{fgauss}
 f(t):= e^{-\alpha t^2}, \qquad \alpha>0,
@@ -306,8 +306,8 @@ Notando que
 \end{align}
 se halla entonces que
 \begin{align}
-\tilde{f}(\omega)=&\int_{-\infty}^{\infty}e^{-\alpha \left( t+\frac{i\omega}{2\alpha} \right)^2-\left(\frac{\omega^2}{4\alpha}\right)}dt\notag\\
-=& e^{-\frac{\omega^2}{4\alpha}}\int_{-\infty}^{\infty}e^{-\alpha \left( t+\frac{i\omega}{2\alpha} \right)^2}dt,
+\tilde{f}(\omega) &= \int_{-\infty}^{\infty}e^{-\alpha \left( t+\frac{i\omega}{2\alpha} \right)^2-\left(\frac{\omega^2}{4\alpha}\right)}dt\notag\\
+&= e^{-\frac{\omega^2}{4\alpha}}\int_{-\infty}^{\infty}e^{-\alpha \left( t+\frac{i\omega}{2\alpha} \right)^2}dt,
 \end{align}
 pero haciendo el cambio de variables $x:=\sqrt{\alpha}(t+i\omega/4\alpha)$, entonces $dx=\sqrt{\alpha}\,dt$, luego
 \begin{align}
@@ -324,7 +324,7 @@ encontramos finalmente que
 \begin{figure}[h]
 \centering
 \includegraphics[scale=0.4]{figs/fig-Fourier-Gaussiana.pdf}
-\caption{Distribuci'on gaussiana y su transformada de Fourier con $\alpha=1$.}
+\caption{Distribuci'on gaussiana y su transformada de Fourier con $\alpha=1$. Código Python disponible \href{https://github.com/gfrubi/FM2/blob/master/figuras-editables/fig-Fourier-Gaussiana.py}{aqu\'i}.}
 \label{im:gaussiana}
 \end{figure}
 
