@@ -74,7 +74,7 @@ Observaciones:
 
 \begin{itemize}
 \item Todas estas ecuaciones son \textit{lineales} en la funci'on desconocida.
-\item Las ecuaciones fundamentales de la f'isica atmosf'erica son no-lineales, as'i como tambi'en las ecuaciones involucradas en los problemas de turbulencia.
+\item Las ecuaciones fundamentales de la F'isica tmosf'erica son no-lineales, as'i como tambi'en las ecuaciones involucradas en los problemas de turbulencia.
 \item Estas ecuaciones son casi todas de segundo orden excepto las ecuaciones de Maxwell y de Dirac que son de primer orden.
 \end{itemize}
 
@@ -98,22 +98,25 @@ o que pueda reducirse a (\ref{EDP2O}) por medio de alg'un cambio de variables, p
 \item \textbf{Ultrahiperb'olicas en $\vec{x}_0$:} si en el punto $\vec{x}_0$ todos los coeficientes $a_j(\vec{x}_0)$ son no-nulos, pero \textit{no tienen el mismo signo}. Si s'olo uno de los coeficientes tiene signo diferente del resto, la E.D.P. es \textbf{hiperb'olica}. Ejemplo cl'asico: Ec. de onda.
 \item \textbf{Parab'olica en $\vec{x}_0$:} si en el punto $\vec{x}_0$ al menos uno de los coeficientes $a_j(\vec{x}_0)$ se anula. Ejemplo cl'asico: Ec. de difusi'on del calor.
 \end{itemize}
+
 Si una E.D.P. de segundo orden es de un tipo dado en todos los puntos de su dominio, se dice simplemente que es de ese tipo (es decir, el tipo no cambia de punto a punto). Esto ocurre, en particular con las E.D.P.'s de segundo orden con coeficientes constantes.
 
 \subsection{Condiciones de Borde y condiciones suficientes para determinar soluciones}
-La soluci'on de une EDP requiere especificar informaci'on adicional a la ecuaci'on. Esta informaci'on recibe el nombre de \textbf{Condiciones de Borde} (C. de B.), o \textbf{condiciones de Frontera}, o bien \textbf{condiciones iniciales} y generalizan las conficiones iniciales necesarias para resulver una EDO.
+La soluci'on de una EDP en un dominio dado ($\Omega$) requiere especificar informaci'on adicional a la ecuaci'on, en la frontera del dominio ($\partial\Omega$). Esta informaci'on recibe el nombre de \textbf{Condiciones de Borde} (C. de B.), o \textbf{condiciones de Frontera}, o bien \textbf{condiciones iniciales} y generalizan las condiciones necesarias para resolver una EDO.
 
 En el caso de EDP's de segundo orden, existen tres tipos principales de C. de B.:
 
 \begin{itemize}
-\item C. de B. \textbf{tipo Dirichlet}: donde el valor de la funci'on ($\Psi$) es especificada en la frontera de la regi'on considerada.
-\item C. de B. \textbf{tipo Neumann}: donde el valor de la \textbf{derivada normal de funci'on en la frontera} ($\partial\Psi/\partial t:=\hat{n}\cdot\vec\nabla\Psi$) es especificada.
-\item C. de B. \textbf{tipo Cauchy}: donde se especifican \textit{simultaneamente} C. de B. tipo Dirichlet y Neumann en la frontera.
+\item C. de B. \textbf{tipo Dirichlet}: donde el valor de la funci'on ($\Psi$) es especificada en (partes de) la frontera ($\partial\Omega$) de la regi'on considerada.
+\item C. de B. \textbf{tipo Neumann}: donde el valor de la \textbf{derivada normal de funci'on en la frontera} ($\partial\Psi/\partial t:=\hat{n}\cdot\vec\nabla\Psi$) es especificada en (partes de) la frontera ($\partial\Omega$).
+\item C. de B. \textbf{tipo Cauchy}: donde se especifican \textit{simultaneamente} C. de B. tipo Dirichlet y Neumann en (partes de) la frontera ($\partial\Omega$).
 \end{itemize}
-Por ejemplo, en electroest'atica (donde el potencial electrost'atico $\phi$ satisface la ecuaci'on de Poisson), una C. de B. tipo Dirichlet significa especificar un valor del potencial en la frontera, mientras que una C. de B. tipo Neumann equivale a especificar el valor de la componente del campo el'ectrico normal a la frontera. 
+
+Por ejemplo, en electroest'atica (donde el potencial electrost'atico $\phi$ satisface la ecuaci'on de Poisson), una C. de B. tipo Dirichlet asociada a un dominio espacial $V$ significa especificar un valor del potencial en la frontera $\partial V$, mientras que una C. de B. tipo Neumann equivale a especificar el valor de la componente del campo el'ectrico normal a la frontera. 
 
 Existen teoremas de existencia y unicidad de soluciones de EDP's de segundo orden, dependiendo de si la ecuaci'on es parab'olica, hiperb'olica o el'iptica:
 
+\begin{tcolorbox}
 \textbf{Teorema:} Existe soluci'on 'unica en cada uno de los siguientes casos:
 
 \begin{itemize}
@@ -121,7 +124,7 @@ Existen teoremas de existencia y unicidad de soluciones de EDP's de segundo orde
 \item E.D.P. hiperb'olica + C.de B. tipo \textit{Cauchy} sobre una (hiper)superficie \textit{abierta}.
 \item E.D.P. parab'olica + C.de B. tipo \textit{Dirichlet o Neumann} sobre una (hiper)superficie \textit{abierta}.
 \end{itemize}
-
+\end{tcolorbox}
 \subsection{Ejemplo: Difusi'on del calor unidimensional}
 
 Usando la transformada de Fourier espacial (o temporal) podemos resolver la ecuaci'on de difusi'on del calor unidimensional, es decir,
