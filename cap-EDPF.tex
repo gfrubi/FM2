@@ -40,7 +40,7 @@ Esta ecuaci'on, conocida tambi'en como la ecuaci'on de difusi'on independiente d
 	\item Ondas electromagn'eticas.
 	\item Reactores nucleares.
 	\end{itemize}
-\item Ecuaci'on de difusi'on dependiente del tiempo ($\alpha= $ difusividad t'ermica)
+\item \href{https://es.wikipedia.org/wiki/Ecuaci\%C3\%B3n_del_calor}{Ecuación de difusión del calor} dependiente del tiempo ($\alpha= $ difusividad t'ermica. Si $c_p$ es la capacidad calorífica del material, $\rho$ su densidad de masa, y $k$ su conductividad térmica, entonces $\alpha=k/\rho c_p$)
 \begin{equation}\label{eccalor}
 \nabla^2\Psi-\frac{1}{\alpha}\frac{\partial \Psi}{\partial t}=0 .
 \end{equation}
@@ -74,7 +74,7 @@ Observaciones:
 
 \begin{itemize}
 \item Todas estas ecuaciones son \textit{lineales} en la funci'on desconocida.
-\item Las ecuaciones fundamentales de la F'isica tmosf'erica son no-lineales, as'i como tambi'en las ecuaciones involucradas en los problemas de turbulencia.
+\item Las ecuaciones fundamentales de la F'isica atmosf'erica son no-lineales, as'i como tambi'en las ecuaciones involucradas en los problemas de turbulencia.
 \item Estas ecuaciones son casi todas de segundo orden excepto las ecuaciones de Maxwell y de Dirac que son de primer orden.
 \end{itemize}
 
@@ -139,9 +139,10 @@ en el dominio $-\infty<x<\infty$, $t\ge 0$, y sujeta a las siguientes condicione
 
 Aplicando la tranformada de Fourier espacial a la ecuaci'on \eqref{ec1dej1}, se obtiene
 \begin{align}
-\alpha {\cal F}_{x}[\frac{\partial^2 \psi}{\partial^2 x}]-{\cal F}_{x}[\frac{\partial \psi}{\partial t}]=0,
+\alpha {\cal F}_{x}[\frac{\partial^2 \psi}{\partial^2 x}]-{\cal F}_{x}[\frac{\partial \psi}{\partial t}]=0.
 \end{align}
-adem'as por la condici'on de contorno \eqref{eq:bc1} tenemos que
+
+Adem'as por la condici'on de contorno \eqref{eq:bc1} tenemos que
 \begin{align}
 {\cal F}_{x}[\frac{\partial^2 \psi}{\partial^2 x}]=(i k)^2 {\cal F}_{x}[\psi]=(i k)^2 \tilde{\psi}(k,t),
 \end{align}
@@ -153,11 +154,13 @@ entonces
 \begin{align}
 -\alpha k^2 \tilde{\psi}(k,t)-\frac{\partial}{\partial t}\tilde{\psi}(k,t)=0.
 \end{align}
+
 Por lo tanto, obtenemos una ecuaci'on diferencial m'as simple, donde la dependencia espacial original ha sido ahora reducida a una dependencia algebraica:
 \begin{align}
-\frac{\partial}{\partial t}\tilde{\psi}(k,t)=-\alpha\, \tilde{\psi}(k,t).
+\frac{\partial}{\partial t}\tilde{\psi}(k,t)=-\alpha k^2\, \tilde{\psi}(k,t).
 \end{align}
-Rsolviendo esta ecuaci'on respeto a la variable $t$, encontramos
+
+Resolviendo esta ecuaci'on respecto a la variable $t$, encontramos
 \begin{align}
 \tilde{\psi}(k,t)=\tilde{\psi}(k,0)\,e^{-\alpha k^2 t}.
 \end{align}
@@ -182,6 +185,7 @@ con
 \begin{align}
 \tilde{\phi}(k)=\int_{-\infty}^{\infty}\phi(x)e^{ikx}dx.
 \end{align}
+
 Por ejemplo, si
 \begin{align}
 \phi(x)=T_{0}\,\delta(x),
@@ -194,6 +198,7 @@ Por consiguiente,
 \begin{align}
 \psi(x,t) &= T_{0}{\cal F}^{-1}[e^{-\alpha k^2 t}].
 \end{align}
+
 Adaptando nuestro resultado para la transformada inversa de la funci'on gaussiana, es decir \eqref{Tfinvgauss}, podemos escribir
 \begin{align}
 {\cal F}^{-1}[e^{-\alpha k^2 t}] = \frac{1}{2\sqrt{\pi\alpha t}}e^{-x^2/4\alpha t}.
