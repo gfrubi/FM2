@@ -31,7 +31,7 @@ Buscaremos la soluci'on $\Psi(x,y)$ que satisface la ecuaci'on de Laplace bidime
 \end{equation}
 en el rect'angulo $0<x<1$, $0<y<2$, con la condici'on de borde
 \begin{equation}
-\Psi(x,2) = x(1-x), 
+\Psi(x,2) = f(x) = x(1-x), 
 \end{equation}
 y con $\Psi=0$ en los otros tres lados. 
 
@@ -39,6 +39,7 @@ Primero buscamos soluciones separables de la EDP, de la forma
 \begin{equation}
 \Psi_{\rm sep}(x,y)=X(x)Y(y).
 \end{equation}
+
 Al reemplazar en \eqref{ejLap2D} y dividir por $\Psi_{\rm sep}$ encontramos
 \begin{equation}
 \frac{1}{X(x)}\frac{d^2X}{dx^2}+\frac{1}{Y(y)}\frac{d^2Y}{dy^2} = 0,
@@ -50,6 +51,7 @@ lo que implica que t'ermino debe ser igual a una constante, es decir
 \begin{equation}
 \frac{1}{Y(y)}\frac{d^2Y}{dy^2} = -\lambda, \qquad \frac{d^2Y}{dy^2}+\lambda Y(y)=0.
 \end{equation}
+
 La forma expl'icita de estas ecuaciones depende del valor, y en particular del signo, de la constante de separaci'on $\lambda$, que por ahora tiene valor desconocido: Por ejemplo,
 \begin{equation}
 X_\lambda(x)= 	\begin{cases}
@@ -58,6 +60,7 @@ X_\lambda(x)= 	\begin{cases}
 		c_1\cos(\sqrt{-\lambda}x) + c_2\sin(\sqrt{-\lambda}x), & \text{si } \lambda<0
 		\end{cases}.
 \end{equation}
+
 Similarmente,
 \begin{equation}
 Y_\lambda(y)= 	\begin{cases}
@@ -66,7 +69,8 @@ Y_\lambda(y)= 	\begin{cases}
 		\bar{c}_1e^{\sqrt{-\lambda}y} + \bar{c}_2e^{-\sqrt{-\lambda}y}, & \text{si } \lambda<0
 		\end{cases}.
 \end{equation}
-As'i, hemos encontrado infinitas soluciones separables, cada una de la forma
+
+As'i, hemos encontrado \textit{infinitas soluciones separables}, cada una de la forma
 \begin{equation}\label{EjLapPsiXY}
 \Psi_\lambda^{\rm sep}(x,y)=X_\lambda(x)Y_\lambda(y),
 \end{equation}
@@ -80,6 +84,7 @@ Procedemos ahora a imponer las condiciones de borde a la soluci'on. Los c'alculo
 \begin{equation}
 \Psi(0,y) = \sum_{\lambda}\Psi_\lambda^{\rm sep}(0,y) = \sum_{\lambda}X_\lambda(0)Y_\lambda(y) = 0.
 \end{equation}
+
 La 'ultima expresi'on es una combinaci'on lineal de los coeficientes (constantes) $X_\lambda(0)$ y las funciones $Y_\lambda(y)$. Ya que las funciones $Y_\lambda(y)$ son l.i. en esta combinaci'on ser'a nula s'olo si $X_\lambda(0)=0$. An'alogamente, la condici'on 
 $\Psi(1,y)=0$, $\forall y\in[0,2]$ requiere $X_\lambda(1)=0$. Estas dos condiciones sobre las funciones $X_\lambda(x)$ restringen fuertemente los valores posibles de $\lambda$. En nuestro caso particular, s'olo valores negativos de esta constante de separaci'on son permitidos. Esto ocurre si $\lambda = -n^2\pi^2$, $n=1,2,\dots$, y entonces
 \begin{equation}
@@ -106,7 +111,7 @@ Imponemos por tanto que
 \begin{equation}
 \Psi(x,2) = \sum_{n=0}^\infty d_n \sen\left(n\pi x\right)\senh(2\pi n) \stackrel{!}{=} f(x),
 \end{equation}
-con $f(x)=x(1-x)$. Esto significa que los coeficientes $d_n\senh(2\pi n)$ son los coeficientes de la expansi'on de Fourier (seno) de la funci'on $f(x)$ en el intervalo $[0,1]$. Usando las relaciones de ortogonalidad de las funciones $\senh(\pi nx)$, 
+con $f(x)=x(1-x)$. Esto significa que los coeficientes $d_n\senh(2\pi n)$ son los coeficientes de la \textit{expansi'on de Fourier} (seno) de la funci'on $f(x)$ en el intervalo $[0,1]$. Usando las relaciones de ortogonalidad de las funciones $\senh(\pi nx)$, 
 \begin{equation}
 \int_0^1 \sen(\pi nx)\sen(\pi mx)\,dx = \frac{1}{2}\delta_{nm},
 \end{equation}
@@ -123,12 +128,12 @@ En el ejemplo particular en que $f(x)=x(1-x)$, luego de calcular la integral cor
 \begin{equation}
 d_n = \begin{cases}
 	\frac{8}{\pi^3n^3}\frac{1}{\senh(2\pi n)} , & \text{para } n \text{ impar} \\
-	0 , & \text{para } n \text{ par} \end{cases}
+	0 , & \text{para } n \text{ par} \end{cases}.
 \end{equation}
 
 Con todo esto, y denotanto $n=2k-1$, con $k=1,2,3,\cdots$, encontramos que nuestra soluci'on es dada por la siguiente serie:
 \begin{equation}
-\psi(x,y)=\frac{8}{\pi^3}\sum_{k=1}^{\infty}\frac{\sin[(2k-1) \pi x]}{(2k-1)^3}\frac{\sinh[(2k-1)\pi y]}{\sinh[2\pi (2k-1)]}.
+\Psi(x,y)=\frac{8}{\pi^3}\sum_{k=1}^{\infty}\frac{\sin[(2k-1) \pi x]}{(2k-1)^3}\frac{\sinh[(2k-1)\pi y]}{\sinh[2\pi (2k-1)]}.
 \end{equation}
 
 \begin{figure}[H]
@@ -151,10 +156,10 @@ y las siguientes condiciones iniciales
 \begin{align}
 \psi(x,0)=\psi_{0}(x),\qquad \frac{\partial \psi}{\partial t}(x,0)=v_{0}(x),\label{eq:cond-inicial}
 \end{align}
-suponiendo que $\psi_{0}(x)$ y $v_{0}(x)$ son dadas, pero arbitrarias de la variable $x$.
+suponiendo que $\psi_{0}(x)$ y $v_{0}(x)$ son funciones dadas, pero arbitrarias de la variable $x$.
 
 
-Buscamos entoces una soluci'on separable, $\psi_{\rm sep}(x,t) = X(x)T(t)$. Reemplazando en la EDP \eqref{eq:ec-onda} y dividiendo por $\psi_{\rm sep}$ encontramos:
+Buscamos entonces una soluci'on separable, $\psi_{\rm sep}(x,t) = X(x)T(t)$. Reemplazando en la EDP \eqref{eq:ec-onda} y dividiendo por $\psi_{\rm sep}$ encontramos:
 \begin{align}
 \frac{1}{X}\frac{d^2 X}{dx^2}=\frac{1}{v^2}\frac{1}{T}\frac{d^2 T}{dt^2}.\label{eq:ec-separable}
 \end{align} 
@@ -184,7 +189,7 @@ Las condiciones de borde homog'eneas pueden trasladarse a las funciones $X(x)$, 
 %A' 0+B'=&A' L+B'=0 & \text{ si }\lambda=0,\\
 %A'' e^{0\sqrt{\lambda}}+B'' e^{-0\sqrt{\lambda}}=&A'' e^{L\sqrt{\lambda}}+B'' e^{-L\sqrt{\lambda}}=0 & \text{ si }\lambda >0.
 %\end{align}
-Tal como en el ejemplo anterior, no es dif'icil verificar que estas conficiones pueden ser satisfechas s'olo si $\lambda < 0$, $A=0$, y adem'as 
+Tal como en el ejemplo anterior, no es dif'icil verificar que estas condiciones pueden ser satisfechas s'olo si $\lambda < 0$, $A=0$, y adem'as 
 \begin{align}
 \sqrt{-\lambda}=\frac{n\pi}{L},\qquad n=1,2,\dots.
 \end{align} 
@@ -214,15 +219,15 @@ con $C_{n}$ y $D_{n}$ constantes arbitrarias. De esta forma, hemos encontrado so
 
 Redefiniendo el valor de las constantes como $a_{n}:=C_{n}B_{n}$ y $b_{n}:=D_{n}B_{n}$ se encuentra que
 \begin{align}
-\psi_{n}(x,t)=\left[a_{n}\cos\left(\frac{n \pi v}{L}t\right)+b_{n}\sin\left(\frac{n \pi v}{L}t\right)\right] \sin\left(\frac{n\pi x}{L}\right), \qquad n=1,2,\dots.
+\psi^{\rm sep}_{n}(x,t)=\left[a_{n}\cos\left(\frac{n \pi v}{L}t\right)+b_{n}\sin\left(\frac{n \pi v}{L}t\right)\right] \sin\left(\frac{n\pi x}{L}\right), \qquad n=1,2,\dots.
 \end{align}
 
-Es directo verificar que cada una de estas soluciones satisface las condiciones de contorno homog'eneas \eqref{eq:cond-borde}. Sin embargo, ninguna de ellas, por separado satisface las condiciones iniciales \eqref{eq:cond-inicial}. Podemos encontrar la soluci'on al problema usando el hecho que la \eqref{eq:ec-onda} es lineal y homog'enea. Debido a esto, una superposici'on de soluciones $\psi_{n}(x,t)$, con distintos $n$, ser'a tambi'en soluci'on de la EDP. Adem'as, esta superposici'on satisface las condiciones de borde (para cualquier valor de los coeficientes que determinan la combinaci'on lineal), ya que son condiciones de borde homog'eneas.
+Es directo verificar que cada una de estas soluciones satisface las condiciones de borde homog'eneas \eqref{eq:cond-borde}. Sin embargo, ninguna de ellas, por separado satisface las condiciones iniciales \eqref{eq:cond-inicial}. Podemos encontrar la soluci'on al problema usando el hecho que la \eqref{eq:ec-onda} es lineal y homog'enea. Debido a esto, una superposici'on de soluciones $\psi_{n}(x,t)$, con distintos $n$, ser'a tambi'en soluci'on de la EDP. Adem'as, esta superposici'on seguirá satisfaciendo las condiciones de borde homogéneas (para cualquier valor de los coeficientes que determinan la combinaci'on lineal).
 
-Consideremos por tanto, una superposici'on general de todas las soluciones separables $\psi_{n}(x,t)$ disponibles
+Consideremos por tanto, una superposici'on general de todas las soluciones separables $\psi^{\rm sep}_{n}(x,t)$ disponibles:
 \begin{align}
 \psi(x,t)=&\sum_{n=1}^{\infty}\psi^{\rm sep}_{n}(x,t)\\
-=&\sum_{n=1}^{\infty}\left[A_{n}\cos\left(\frac{n \pi v}{L}t\right)+B_{n}\sin\left(\frac{n \pi v}{L}t\right)\right] \sin\left(\frac{n\pi x}{L}\right).
+=&\sum_{n=1}^{\infty}\left[a_{n}\cos\left(\frac{n \pi v}{L}t\right)+b_{n}\sin\left(\frac{n \pi v}{L}t\right)\right] \sin\left(\frac{n\pi x}{L}\right).
 \end{align}
 
 Finalmente, los coeficientes pueden ser calculados al imponer las condiciones iniciales:
@@ -231,10 +236,10 @@ Finalmente, los coeficientes pueden ser calculados al imponer las condiciones in
 v_{0}(x) &= \frac{\partial \psi}{\partial t}(x,0)=\sum_{n=1}^{\infty}\left( \frac{n \pi v}{L}\right) b_{n}\sin\left( \frac{n \pi x}{L}\right).\label{eq:v0}
 \end{align}
 
-De esta forma, multiplicando las ecuaciones precedentes por $\sin(n\pi x/L)$ y empleando la relaci'on de ortogonalidad en \eqref{eq:ortogo-sin-cos}, se encuentra que $A_{n}$ y $B_{n}$ son dadas por
+De esta forma, multiplicando las ecuaciones precedentes por $\sin(n\pi x/L)$ y empleando la relaci'on de ortogonalidad en \eqref{eq:ortogo-sin-cos}, se encuentra que $a_{n}$ y $b_{n}$ son dadas por
 \begin{align}
-A_{n}=\frac{2}{L}\int_{0}^{L} \psi_{0}(x)\sin\left(\frac{k\pi x}{L}\right)dx, \qquad 
-B_{n}=\frac{2}{n \pi v}\int_{0}^{L} v_{0}(x)\sin\left(\frac{k\pi x}{L}\right)dx.
+a_{n}=\frac{2}{L}\int_{0}^{L} \psi_{0}(x)\sin\left(\frac{k\pi x}{L}\right)dx, \qquad 
+b_{n}=\frac{2}{n \pi v}\int_{0}^{L} v_{0}(x)\sin\left(\frac{k\pi x}{L}\right)dx.
 \end{align}
 
 Puede encontrar la discusi'on de un ejemplo en \href{https://github.com/gfrubi/FM2/blob/master/Notebooks/Ejemplo-MSV-Ecuacion-Onda-1D.ipynb}{este notebook}.
