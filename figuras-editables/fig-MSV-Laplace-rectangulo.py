@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 import matplotlib.pyplot as plt
-from matplotlib import cm
 from mpl_toolkits.mplot3d import axes3d
 import numpy as np
 plt.style.use('classic')
@@ -23,7 +22,7 @@ Z = SnPsi(m,X,Y) # Evaluando el valor del potencial
 
 
 #A continuación, un gráfico en colores en el dominio.
-plt.pcolormesh(X, Y, Z)
+plt.pcolormesh(X, Y, Z, cmap='plasma')
 plt.xlabel('$x$',fontsize=15)
 plt.ylabel('$y$',fontsize=15)
 plt.title('$\psi(x,y)$',fontsize=15)
@@ -36,7 +35,7 @@ plt.show()
 
 fig = plt.figure(figsize=(8,6))
 ax = fig.gca(projection='3d')
-surf = ax.plot_surface(X, Y, Z, cmap=cm.jet, rstride=5, cstride=5, alpha=1)
+surf = ax.plot_surface(X, Y, Z, cmap='plasma', rstride=5, cstride=5, alpha=1)
 fig.colorbar(surf, shrink=0.6, aspect=8) #Se agrega barra de colores
 ax.set_xlabel('$x$',fontsize=15)
 ax.set_ylabel('$y$',fontsize=15)
