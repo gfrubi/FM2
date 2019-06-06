@@ -103,13 +103,13 @@ Y_n(y) = \bar{c}_1\left(e^{\pi ny} -e^{-\pi ny}\right) = 2\bar{c}_1 \senh(\pi ny
 
 Con esto, la soluci'on adopta la forma
 \begin{equation}\label{ejLap2D2}
-\Psi(x,y) = \sum_{n=0}^\infty d_n \sen\left(n\pi x\right)\senh(\pi ny),
+\Psi(x,y) = \sum_{n=1}^\infty d_n \sen\left(n\pi x\right)\senh(\pi ny),
 \end{equation}
 donde los coeficientes son arbitrarios. Es instructivo verificar que esta expresi'on es soluci'on de la EDP \eqref{ejLap2D}, y de las condiciones de borde homog'eneas del problema. El valor de los coeficientes $d_n$ queda determinado por la condici'on de borde no-homog'enea restante (borde superior).
 
 Imponemos por tanto que
 \begin{equation}
-\Psi(x,2) = \sum_{n=0}^\infty d_n \sen\left(n\pi x\right)\senh(2\pi n) \stackrel{!}{=} f(x),
+\Psi(x,2) = \sum_{n=1}^\infty d_n \sen\left(n\pi x\right)\senh(2\pi n) \stackrel{!}{=} f(x),
 \end{equation}
 con $f(x)=x(1-x)$. Esto significa que los coeficientes $d_n\senh(2\pi n)$ son los coeficientes de la \textit{expansi'on de Fourier} (seno) de la funci'on $f(x)$ en el intervalo $[0,1]$. Usando las relaciones de ortogonalidad de las funciones $\senh(\pi nx)$, 
 \begin{equation}
@@ -148,7 +148,7 @@ Usaremos ahora el MSV para encontrar una soluci'on del siguiente problema:
 \begin{align}
 \frac{\partial^2 \psi}{\partial x^2}-\frac{1}{v^2}\frac{\partial^2 \psi}{\partial t^2}=0,\label{eq:ec-onda}
 \end{align}
-en el dominio $x\in[0,L]$, $t\ge 0$, con las condiones de borde (homog'eneas)
+en el dominio $x\in[0,L]$, $t\ge 0$, con las condiciones de borde (homog'eneas)
 \begin{align}
 \psi(0,t)=0,\qquad \psi(L,t)=0,\label{eq:cond-borde}
 \end{align}
