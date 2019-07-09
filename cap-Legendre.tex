@@ -765,7 +765,10 @@ P_{n}^{m}(x)=\frac{1}{2^{n}n!}(1-x^2)^{m/2}\frac{d^{m+n}}{dx^{m+n}}(x^2-1)^{n}.
 \begin{equation}
 \frac{(2m)! \, (1-x^2)^{m/2}}{2^{m}\, m! \, (1-2tx+t^2)^{m+1/2}} = \sum_{n=0}^{\infty} P_{n+m}^{m}(x) \, t^n
 \end{equation}
-
+\begin{figure}[H]
+\centering
+\includegraphics[angle=0,width=0.8\textwidth]{figs/FM2-01_5.pdf}
+\end{figure}
 
 \subsection{Relaciones de recurrencia}
 
@@ -794,7 +797,14 @@ P_n^m(\pm 1)=\left\{\begin{array}{cl}
 \begin{equation}
 \int_{-1}^{1}P_{n}^m(x)P_{n'}^m(x)\,dx=\frac{2}{2n+1}\frac{(n+m)!}{(n-m)!}\,\delta_{n,n'}.
 \end{equation}
-
+\begin{figure}[H]
+\centering
+\includegraphics[angle=0,width=0.8\textwidth]{figs/FM2-01_1.pdf}
+\end{figure}
+\begin{figure}[H]
+\centering
+\includegraphics[angle=0,width=0.8\textwidth]{figs/FM2-01_2.pdf}
+\end{figure}
 
 
 \section{Funciones Arm'onicas Esf'ericas}
@@ -906,6 +916,23 @@ donde $\gamma$ es el el 'angulo entre las direcciones definidas por los pares $(
 \cos\gamma = \cos\theta_1\cos\theta_2 + \sin\theta_1\sin\theta_2\cos(\varphi_1-\varphi_1).
 \end{equation}
 
+\begin{figure}[H]
+\centering
+\includegraphics[angle=0,width=0.8\textwidth]{figs/FM2-01_8.pdf}
+\end{figure}
+\begin{figure}[H]
+\centering
+\includegraphics[angle=0,width=0.8\textwidth]{figs/FM2-01_9.pdf}
+\end{figure}
+\begin{figure}[H]
+\centering
+\includegraphics[angle=0,width=0.8\textwidth]{figs/FM2-01_10.pdf}
+\end{figure}
+\begin{figure}[H]
+\centering
+\includegraphics[angle=0,width=0.8\textwidth]{figs/FM2-01_11.pdf}
+\end{figure}
+
 Un caso particular interesante de esta identidad se encuentra cuando ambas direcciones son iguales, de modo que  $\theta_1=\theta_2=\theta$ y $\varphi_1=\varphi_2=\varphi$, de modo que $\gamma=0$ y entonces
 \begin{equation}
 P_n(0) = \frac{4\pi}{2n+1} \sum_{m=-n}^n \left|Y_n^m(\theta,\varphi)\right|^2.
@@ -936,7 +963,7 @@ En com'un encontrar esta identidad escrita de la siguiente forma:
 \frac{1}{\left|\vec{x}-\vec{x}'\right|} 
 &= 4\pi \sum_{n,m}\frac{1}{2n+1}\frac{r_<^n}{r_>^{n+1}}Y_n^m(\theta,\varphi)(Y_n^{m})^\ast(\theta',\varphi'),
 \end{align}
-donde $r_> = max(r,r')$ y $r_< = min(r,r')$.
+donde $r_> = \max(r,r')$ y $r_< = \min(r,r')$.
 
 \subsubsection{Ecuaci'on de Laplace y arm'onicos esf'ericos}
 En el caso de la ecuaci'on de Laplace, podemos entonces usar el resultado en \eqref{loes2}, con $Q=n(n+1)$, para escribir una expresi'on general para la soluci'on (finita para $\theta=0$ y $\theta=\pi$), en coordenadas esf'ericas:
