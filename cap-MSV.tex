@@ -243,31 +243,10 @@ b_{n}=\frac{2}{n \pi v}\int_{0}^{L} v_{0}(x)\sin\left(\frac{k\pi x}{L}\right)dx.
 \end{align}
 
 Puede encontrar la discusi'on de un ejemplo en \href{https://github.com/gfrubi/FM2/blob/master/Notebooks/Ejemplo-MSV-Ecuacion-Onda-1D.ipynb}{este notebook}.
-%
-%Esto completa la soluci'on del problema. Como ejemplo, consideremos el caso particular en el que
-%\begin{align}
-%\psi_{0}(x)=
-%\begin{cases}
-%\frac{2A}{L}x, &\text{si }x \in (0,\frac{L}{2})\\
-%2A-\frac{2A}{L}x, &\text{si}x \in (\frac{L}{2},L)
-%\end{cases} .
-%\end{align}
-%y $v_{0}(x)=0$. En este caso, obtenemos
-%\begin{align}
-%a_{n}=\frac{8A}{\pi^2 n^2}
-%\begin{cases}
-%0, &\text{si }n \text{ par}\\
-%(-1)^{(n-1)/2}, &\text{si }n \text{ impar}
-%\end{cases},
-%\end{align}
-%mientr'as que $b_{n}=0$. Luego, denotando $n=2k+1$ con $k=0,1,\dots$ podemos escribir
-%\begin{align}
-%\psi(x,t)=\frac{8A}{\pi^2}\sum_{k=0}^{\infty}\frac{(-1)^k}{(2k+1)^2}\sin\left[(2k+1)\frac{\pi}{L}x\right]\cos\left[(2k+1)\frac{\pi v}{L}t\right].
-%\end{align}
+
 \section{Coordenadas polares}
 
 Considere la ecuaci'on de Laplace bidimensional, en coordenadas polares $(r,\varphi)$
-
 
 Las soluciones separables de la ecuaci'on son de la forma
 \begin{equation}
@@ -280,12 +259,51 @@ La condici'on de periodidad $\Psi(r,\varphi)=\Psi(r,\varphi+2\pi)$ y restringe l
 \Psi(r,\varphi)=c_0+c_1\ln(r)+\sum_{n=1}^\infty\left(A_n\cos(n\varphi)+B_n\sin(n\varphi)\right)
 \left(C_nr^{-n}+D_nr^n\right),
 \end{equation}
+o bien
+\begin{equation}
+\Psi(r,\varphi)=c_1\ln(r)+\sum_{n=0}^\infty\left(A_n\cos(n\varphi)+B_n\sin(n\varphi)\right)
+\left(C_nr^{-n}+D_nr^n\right),
+\end{equation}
 donde $c_0,c_1,A_n,B_n,C_n$ y $D_n$ son constantes.
+
+\textbf{Ejemplo:} Ecuación de Laplace en un círculo de radio R. En este caso suponemos que
 \begin{equation}
 \Psi(r=R,\varphi)=f(\varphi),
 \end{equation}
+y 
+\begin{equation}
+\psi(r=0,\varphi) = \texttt{valor finito}.
+\end{equation}
+\begin{equation}
+\Psi(r,\varphi)=\sum_{n=0}^\infty r^n\left(A_n\cos(n\varphi)+B_n\sin(n\varphi)\right),
+\end{equation}
+\begin{equation}
+A_{n}:=\frac{1}{\pi R^{n}}\int_{-\pi}^{\pi}f(\varphi) \cos(n \varphi)\,d\varphi
+\end{equation}
+\begin{equation}
+B_{n}:=\frac{1}{\pi R^{n}}\int_{-\pi}^{\pi}f(\varphi) \sin(n \varphi)\,d\varphi
+\end{equation}
 
+\textbf{Ejemplo:} Ecuación de Laplace en una corona circular de radios $a$ y $b$. En este caso suponemos que 
+\begin{equation}
+\psi(r=b,\varphi) = f(\varphi), \qquad \psi(r=a,\varphi) = g(\varphi)
+\end{equation}
 
+\section{Problemas tridimensionales: dos constantes de separación}
+\textbf{Ejemplo:} Ecuación de Difusión del calor 2D
+
+Discutiremos la solución de la ecuación de difusión del calor bidimensional, 
+\begin{equation}
+\frac{\partial^2 \psi}{\partial^2 x} + \frac{\partial^2 \psi}{\partial^2 y}-\frac{1}{\alpha}\frac{\partial \psi}{\partial t}=0,
+\end{equation}
+en el dominio rectangular $0<x<a$, $0<y<b$, $t\ge 0$, con las condiciones de borde
+\begin{equation}
+\psi(0,y,t)=0, \qquad \psi(a,y,t)=0, \qquad \psi(x,0,y)=0, \qquad \psi(x,b,t)=0,
+\end{equation}
+y la condición inicial
+\begin{align}
+\psi(\vec{x},0) = \phi(\vec{x}).
+\end{align}
 \section{Coordenadas Cil\'indricas}
 \section{Coordenadas Esf'ericas}
 La ecuaci'on de Helmholtz (modificada),
@@ -342,16 +360,17 @@ substituci'on $r:=e^t$ , $y=U(r)=U(e^t)$, o bien con el Ansatz
   U(r) = r^l,\quad l=\text{const.}
 \end{equation}
   Reemplazando esta soluci'on en la ecuaci'on encontramos la condici'on
- $l(l-1)=Q$. La soluci'on general de la ecuaci'on para $U(r)$ es entonces
+ $l(l+1)=Q$. La soluci'on general de la ecuaci'on para $U(r)$ es entonces
 \begin{equation}
  R(r) = A\cdot r^{l_1} + B\cdot r^{l_2},\label{loes2}
 \end{equation}
-donde $A$ y $B$ son constantes arbitrarias y $l_1$ y $l_2$ son las soluciones de la ecuaci'on cuadr'atica $l^2-l-Q=0$. 
+donde $A$ y $B$ son constantes arbitrarias y $l_1$ y $l_2$ son las soluciones de la ecuaci'on cuadr'atica $l^2+l-Q=0$, es decir
+\begin{equation}
+l_\pm = \frac{1}{2}\left(-1\pm\sqrt{1+4Q}\right)
+\end{equation}
 
-%Como veremos en detalle en la secci'on \ref{sec:FrobLeg}, la ecuaci'on angular \eqref{ecThHelm} s'olo tiene soluciones finitas para $\theta=0$ y $\theta=\pi$, es decir, sobre el eje $z$ si $Q=n(n+1)$, con $n=0,1,2,\cdots$. En este caso tendremos que $l_1=n$ y $l_2=-(n+1)$, y por lo tanto
-%\begin{equation}
-%R_n(r) = A_l\cdot r^n + \frac{B_n}{r^{n+1}},\label{Rn}
-%\end{equation}
+Note que si $Q=-1/4$ entonces $l_+=l_-=-1/2$ y la solución es degenerada. En ese caso la segunda solución independiente es de la forma $R(r) = r^{-1/2}\ln r$. En el caso $Q<-1/4$ la soluciones son de la forma $r^{-1/2}\cos(y\ln r)$ y $r^{-1/2}\sen(y\ln r)$, donde $y=\Im(l_+)=\sqrt{-1-4Q}/2$.
+
 
 \subsubsection{Caso de simetr\'ia axial}
 Si por alguna raz'on justificada (usualmente, de simetr'ia de la situaci'on f'isica) se busca una \textit{soluci'on axialmente sim'etrica}, es decir, independiente de la variable $\varphi$, entonces $\Psi=\Psi(r,\theta)$. Desde el punto de vista de la formulaci'on del problema m'as general (sin simetr'ia) este caso particular requiere que $m=0$, ya que en ese caso las soluciones angulares $\Phi(\varphi)$ son constantes y por tanto la soluci'on no depender'a de $\varphi$. En este caso, la ecuaci'on se reduce a
