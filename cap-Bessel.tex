@@ -279,28 +279,28 @@ Frecuentemente, es necesario evaluar las ra'ices, o ceros, de las funciones de B
 \begin{table}
 \begin{center}
 \begin{tabular}{ccccccc}
-\hline $\alpha_{m,n}$ & $n=1$ & $n=2$ & $n=3$ & $n=4$ & $n=5$ \\ \hline 
-$m=0$ & 2.4048255 &  5.5200781 &  8.6537279 & 11.7915344 & 14.9309177\\
-$m=1$ & 3.8317059 &  7.0155866 & 10.1734681 & 13.3236919 & 16.4706300\\
-$m=2$ & 5.1356223 &  8.4172441 & 11.6198411 & 14.7959517 & 17.9598194 \\
-$m=3$ & 6.3801619 &  9.7610231 & 13.0152007 & 16.2234661 & 19.4094152 \\
-$m=4$ & 7.5883424 & 11.0647094 & 14.3725366 & 17.6159660 & 20.8269329 \\
+\hline $\alpha_{\nu,n}$ & $n=1$ & $n=2$ & $n=3$ & $n=4$ & $n=5$ \\ \hline 
+$\nu=0$ & 2.4048255 &  5.5200781 &  8.6537279 & 11.7915344 & 14.9309177\\
+$\nu=1$ & 3.8317059 &  7.0155866 & 10.1734681 & 13.3236919 & 16.4706300\\
+$\nu=2$ & 5.1356223 &  8.4172441 & 11.6198411 & 14.7959517 & 17.9598194 \\
+$\nu=3$ & 6.3801619 &  9.7610231 & 13.0152007 & 16.2234661 & 19.4094152 \\
+$\nu=4$ & 7.5883424 & 11.0647094 & 14.3725366 & 17.6159660 & 20.8269329 \\
 \hline 
 \end{tabular} 
-\caption{Las primeras ra'ices $\alpha_{m,n}$ de $J_m(x)$, $m=0,1,2,3,4$. C'odigo Python disponible en \href{https://github.com/gfrubi/FM2/blob/master/Notebooks/Bessel-Ceros.ipynb}{este} notebook.}
+\caption{Las primeras ra'ices $\alpha_{\nu,n}$ de $J_\nu(x)$, $\nu=0,1,2,3,4$. C'odigo Python disponible en \href{https://github.com/gfrubi/FM2/blob/master/Notebooks/Bessel-Ceros.ipynb}{este} notebook.}
 \label{tabla:alphanun}
 \end{center}
 \end{table}
 \begin{figure}[H]
 \centering
 \includegraphics[angle=0,width=0.7\textwidth]{figs/fig-Bessel-ceros-01.pdf}
-\caption{Algunos ceros de las funciones $J_m(x)$. C'odigo Python disponible en \href{https://github.com/gfrubi/FM2/blob/master/Notebooks/Bessel-Ceros.ipynb}{este} notebook.}
+\caption{Algunos ceros de las funciones $J_\nu(x)$ de orden entero. C'odigo Python disponible en \href{https://github.com/gfrubi/FM2/blob/master/Notebooks/Bessel-Ceros.ipynb}{este} notebook.}
 \label{fig-0Jn}
 \end{figure}
 \begin{figure}[H]
 \centering
 \includegraphics[angle=0,width=0.7\textwidth]{figs/fig-Bessel-ceros-02.pdf}
-\caption{Diferencias entre ceros sucesivos de las funciones $J_m(x)$. C'odigo Python disponible en \href{https://github.com/gfrubi/FM2/blob/master/Notebooks/Bessel-Ceros.ipynb}{este} notebook.}
+\caption{Diferencias entre ceros sucesivos de las funciones $J_\nu(x)$ de orden entero. C'odigo Python disponible en \href{https://github.com/gfrubi/FM2/blob/master/Notebooks/Bessel-Ceros.ipynb}{este} notebook.}
 \label{fig-0Jn2}
 \end{figure}
 Es tambi'en frecuente requerir calcular las \textit{ra'ices de las derivadas de las funciones de Bessel}. 'Estas ser'an denotadas por $\beta_{\nu,n}$ y entonces satisfacen $J'_\nu(\beta_{\nu,n})=0$ y $\beta_{\nu,n+1}<\alpha_{\beta,n}$, $n=1,2,\cdots$. La tabla  \ref{tabla:betanun} resume algunos de estos valores:
@@ -323,7 +323,7 @@ $m=4$ & 5.3175531 &  9.2823962 & 12.6819084 & 15.9641070 & 19.1960288 \\
 \subsection{Relaciones de Ortogonalidad}
 Para $\nu\ge 0$, $\quad n,m=1,2,\cdots$ y $a>0$, tenemos que
 \begin{equation}\label{roJnualpha}
-\int_0^a J_\nu\left(\frac{\alpha_{\nu,n}}{a}\rho\right)J_\nu\left(\frac{\alpha_{\nu,m}}{a}\rho\right)\rho \, d\rho=\delta_{n,m}\frac{a^2}{2}\left[J_{\nu+1}(\alpha_{\nu,n})\right]^2.
+\int_0^a J_\nu\left(\frac{\alpha_{\nu,n}}{a}\rho\right)J_\nu\left(\frac{\alpha_{\nu,m}}{a}\rho\right)\rho \, d\rho =\delta_{n,m}\frac{a^2}{2}\left[J'_{\nu}(\alpha_{\nu,n})\right]^2 =\delta_{n,m}\frac{a^2}{2}\left[J_{\nu+1}(\alpha_{\nu,n})\right]^2.
 \end{equation}
 Similarmente,
 \begin{equation}\label{roJnubeta}
@@ -365,8 +365,8 @@ J_{-n}(z) &= \sum_{k=n}^\infty \frac{(-1)^k}{k!\Gamma(k-n+ 1) }
 \end{align}
 
 Note adem'as que, como puede verse de su expresi'on en serie, las funciones $J_n(z)$ tienen paridad $n$, es decir,
-\begin{equation}
-J_n(-z)=(-1)^nJ_n(z).
+\begin{equation}\label{J-nJn}
+J_{-n}(z)=(-1)^nJ_n(z).
 \end{equation}
 
 \subsection{Funci'on generadora de Funciones de Bessel de orden entero}
@@ -475,12 +475,12 @@ Como hemos ya discutido en la secci'on \ref{secsolBess}, cuando $\nu$ no es un e
 \begin{equation}\label{defNnu}
 Y_\nu (z):=  \frac{J_\nu(z) \cos(\nu \pi) - J_{-\nu}(z)}{\sen(\nu \pi)} , \qquad \nu\neq n=0, \pm 1, \pm, 2, \cdots,
 \end{equation}
-son soluciones linealmente independientes de $J_\nu(z)$ de ecuaci'on de Bessel. Esta combinaci'on lineal particular es 'util puesto que, entre otras cosas, suministra una expresi'on complementaria a las funciones $J_\nu(z)$ en lo que respecta a su forma asint'otica. En efecto, a partir de \eqref{asinJnu} encontramos que
+son soluciones linealmente independientes de $J_\nu(z)$ de la ecuaci'on de Bessel. Esta combinaci'on lineal particular es 'util puesto que, entre otras cosas, suministra una expresi'on complementaria a las funciones $J_\nu(z)$ en lo que respecta a su forma asint'otica. En efecto, a partir de \eqref{asinJnu} encontramos que
 \begin{equation}\label{asinNnu}
 \boxed{Y_\nu(x)\approx \sqrt{\frac{2}{\pi x}}\sen\left(x-\frac{\nu\pi}{2}-\frac{\pi}{4}\right), 
 \qquad x\gg\left|\nu^2-\frac{1}{4}\right|.}
 \end{equation}
-Adem'as, puede usarse la misma expresi'on \eqref{defNnu} en el caso en que $\nu$ es entero ($\nu=n$). Sabemos que en este caso, $J_{-n}(z)$ no es linealmente independiente de $J_{-n}(z)$ ya que se cumple que $J_{-n}(z)=(-1)^nJ_n(z)$. No obstante, podemos usar \eqref{defNnu} para encontrar la segunda soluci'on linealmente independiente $Y_n(z)$, \textit{como el l'imite de \eqref{defNnu} cuando el par'ametro $\nu$ se acerca al entero $n$}, es decir,
+Adem'as, puede usarse la misma expresi'on \eqref{defNnu} en el caso en que $\nu$ es entero ($\nu=n$). Sabemos que en este caso, $J_{-n}(z)$ no es linealmente independiente de $J_{-n}(z)$ ya que se cumple \eqref{J-nJn}. No obstante, podemos usar \eqref{defNnu} para encontrar la segunda soluci'on linealmente independiente, $Y_n(z)$, \textit{como el l'imite de \eqref{defNnu} cuando el par'ametro $\nu$ se acerca al entero $n$}, es decir,
 \begin{equation}\label{Nnlim}
 Y_n(z):=  \lim_{\nu\to n}\frac{J_\nu(z) \cos(\nu \pi) - J_{-\nu}(z)}{\sen(\nu \pi)} , \qquad n=0, \pm 1, \pm, 2, \cdots .
 \end{equation}
@@ -488,7 +488,7 @@ Note que los coeficientes de la combinaci'on lineal \eqref{defNnu} son tales que
 \begin{equation}\label{Nnder}
 Y_n(z)=\frac{1}{\pi}\left[\frac{\partial J_\nu(z)}{\partial\nu}-(-1)^n\frac{\partial J_{-\nu}(z)}{\partial\nu}\right]_{\nu=n}.
 \end{equation}
-Puede (h'agalo!) verificarse que la funci'on definida por \eqref{Nnder}, efectivamente satisface la ecuaci'on de Bessel \eqref{Besselec1}. Adem'as, de \eqref{Nnder} se sigue, usando $(\partial J_\nu/\partial\nu)_{\nu=-n}=-(\partial J_{-\nu}/\partial\nu)_{\nu=n}$, que
+Puede verificarse (h'agalo!) que la funci'on definida por \eqref{Nnder}, efectivamente satisface la ecuaci'on de Bessel \eqref{Besselec1}. Adem'as, de \eqref{Nnder} se sigue, usando $(\partial J_\nu/\partial\nu)_{\nu=-n}=-(\partial J_{-\nu}/\partial\nu)_{\nu=n}$, que
 \begin{equation}
 \boxed{Y_{-n}(z)=(-1)^nY_n(z).}
 \end{equation}
