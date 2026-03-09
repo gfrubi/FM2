@@ -1,7 +1,6 @@
-# -*- coding: utf-8 -*-
-
 import matplotlib.pyplot as plt
 import numpy as np
+plt.style.use('bmh')
 
 def sn_signo(m,x):
     """
@@ -9,7 +8,7 @@ def sn_signo(m,x):
     """    
     sn_signo = 0
     for k in range(m+1):
-        sn_signo += (4/np.pi)*np.sin((2*k+1)*x)/(2.*k+1.)
+        sn_signo += (4/np.pi)*np.sin((2*k+1)*x)/(2*k+1)
     return sn_signo
 
 x = np.linspace(-3.*np.pi,3.*np.pi,300)
@@ -27,5 +26,5 @@ plt.xticks([-3*np.pi,-2*np.pi,-np.pi,0,np.pi,2*np.pi,3*np.pi],['$-3\pi$','$-2\pi
 plt.xlabel(r'$\theta$',fontsize=15)
 plt.ylabel(r'$S_n(\theta)$',fontsize=15)
 plt.legend(loc='best', fontsize=13)
-plt.grid()
+plt.grid(True)
 fig.savefig("../figs/fig-Fourier-serie-signo.pdf")
