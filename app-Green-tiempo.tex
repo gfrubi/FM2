@@ -1,17 +1,17 @@
-\chapter{M'etodo 2: Funci'on de Green dependiente del tiempo}
+\chapter{Método 2: Función de Green dependiente del tiempo}
 \section{Tranformada de Fourier}
 
- Consideremos una funci'on $\Psi(x^\mu)  $,
+ Consideremos una función $\Psi(x^\mu)  $,
  y definimos su transformada de Fourier $\bar{\Psi}(k^\mu)$ mediante
- la ecuaci'on%
+ la ecuación%
  \begin{equation}
  \Psi(x^\mu)  =\frac{1}{(2\pi)^2}\int \bar\Psi(k^\mu)
  ~e^{-ik_\mu x^\mu }d^4k,
  \end{equation}
- en donde la integraci'on se extiende a todo el espacio
+ en donde la integración se extiende a todo el espacio
  (cuadridimensional) $k$. Se incluye el factor $(2\pi)
  ^{-2}$ en frente a la integral
- para permitir que la transformaci'on inversa tenga la misma forma:%
+ para permitir que la transformación inversa tenga la misma forma:%
 
  \begin{equation}
  \bar{\Psi}(k^\mu)  =\frac{1}{(2\pi)^2}\int \Psi(x^\mu)
@@ -22,17 +22,17 @@
  \delta(z^\mu) =\frac{1}{(2\pi)^4}\int~e^{-ik_\mu z^\mu }d^4k.
  \end{equation}
 
- \subsubsection{Funci'on de Green}
+ \subsubsection{Función de Green}
 
- Por definici'on, las funciones de Green $G(z^\mu)$ son soluciones de la ecuaci'on
+ Por definición, las funciones de Green $G(z^\mu)$ son soluciones de la ecuación
  \begin{equation}
  \Box G(z^\mu)  =\delta(z^\mu)  .
  \end{equation}
  \begin{equation}
  \Psi (x)=\frac{4\pi}{c}\int G\left(x-x'\right) g(x')\,d^4x'
  \end{equation}
- La soluci'on de esta ecuaci'on no es 'unica. Si consideramos otra
- funci'on $\tilde{G}$ que cumple con la ecuaci'on de onda homogen'enea
+ La solución de esta ecuación no es única. Si consideramos otra
+ función $\tilde{G}$ que cumple con la ecuación de onda homogenénea
  \begin{equation}
  \Box\tilde{G}(z^\mu)  =0.
  \end{equation}
@@ -42,12 +42,12 @@
  z^\mu \right) \right)  =\delta(z^\mu)  .
  \end{equation}
  Por lo tanto, podemos buscar soluciones particulares para $G$ y
- ajustar a gusto sumando una soluci'on $\tilde{G}$ de la
- ecuaci'on homog'enea.
+ ajustar a gusto sumando una solución $\tilde{G}$ de la
+ ecuación homogénea.
 
- Para resolver la ecuaci'on de Green, pasamos del espacio
+ Para resolver la ecuación de Green, pasamos del espacio
  coordenado $z^\mu $ al espacio de los momenta $k_\mu $ mediante
- una transformaci'on
+ una transformación
  de Fourier:%
  \begin{equation}
  \Box\left\{  \frac{1}{(2\pi)
@@ -55,7 +55,7 @@
  ~e^{-ik_\mu z^\mu }d^4k\right\}  =\frac{1}{\left( 2\pi\right)
  ^4}\int~e^{-ik_\mu z^\mu }d^4k.
  \end{equation}
- Aqu'i, $\Box$ puede operar dentro de la integral:%
+ Aquí, $\Box$ puede operar dentro de la integral:%
  \begin{align*}
  \Box e^{-ik_\mu z^\mu }  &
  =-\partial_{\alpha}\partial^{\alpha}e^{-ik_\mu z^\mu }\\
@@ -74,7 +74,7 @@
  \bar{G}\left(  k_\mu \right)  =\frac{1}{(2\pi)
  ^2}\frac {1}{k^2}~.
  \end{equation}
- Luego, la soluci'on de la ecuaci'on de Green en el espacio $z$ es
+ Luego, la solución de la ecuación de Green en el espacio $z$ es
  \begin{equation}
  G(z^\mu)  =\frac{1}{(2\pi)  ^4}\int
  ~\frac{e^{-ik_\mu z^\mu }}{k^2}d^4k,
@@ -108,7 +108,7 @@
  \end{equation}
  Esta integral puede evaluarse usando el teorema de los residuos
  del
- an'alisis complejo,%
+ análisis complejo,%
  \begin{equation}
  \oint f\left(  z\right)  dz=2\pi i\sum_{k}\text{Res}\left(
  f,z_{k}\right)  .
@@ -139,34 +139,34 @@
  \begin{equation}
  \text{Res}\left(  f,\pm k\right)  =\pm \frac{e^{\mp ikz^0}}{2k}.
  \end{equation}
- Debemos escoger el contorno de integraci'on. \'{E}ste debe
+ Debemos escoger el contorno de integración. \'{E}ste debe
  incluir al eje real, el resto del contorno lo escogemos de modo
  que $f\left(  z\right)  $ se
- anule all'i. Ver figura (\ref{contornos})
+ anule allí. Ver figura (\ref{contornos})
 
  Usando el teorema del residuo encontramos que, para $z>0$,
  \begin{figure}[h]
  \centerline{\psfig{file=fig-contorno-01.eps,height=5cm,angle=0}}
- \caption{Distintos contornos de integraci'on en el plano complejo.}
+ \caption{Distintos contornos de integración en el plano complejo.}
  \label{contornos}
  \end{figure}
  \begin{equation}
  \int_{-\infty}^{\infty}\frac{e^{-ik^0 z^0}}{(k^0)^2-k^2}\,dk^0=\pi
  i\frac{e^{iz^0k}}{k},
  \end{equation}
- donde ya hemos hecho el l'imite $\varepsilon\rightarrow0$.
+ donde ya hemos hecho el límite $\varepsilon\rightarrow0$.
  Reemplazando en (\ref{R-rela02}), tenemos%
  \begin{equation}
  G(z^\mu)  =\frac{1}{(2\pi)  ^4}\int
  e^{i\vec{k}\cdot\vec{z}}~\pi i\frac{e^{iz^0k}}{k}~d^3k.
  \end{equation}
 
- Ahora veamos la parte espacial. Usamos coordenadas esf'ericas
- en el espacio $k$, con el eje $k_{3}$ en la direcci'on $\vec{z}$.
+ Ahora veamos la parte espacial. Usamos coordenadas esféricas
+ en el espacio $k$, con el eje $k_{3}$ en la dirección $\vec{z}$.
  Ver figura (\ref{R4}).
  \begin{figure}[h]
  \centerline{\psfig{file=fig-espacio-k.eps,height=5cm,angle=0}}
- \caption{Coordenadas esf'ericas en el espacio $\vec{k}$.}
+ \caption{Coordenadas esféricas en el espacio $\vec{k}$.}
  \label{R4}
  \end{figure}
 

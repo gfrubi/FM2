@@ -1,35 +1,35 @@
-\chapter{El M'etodo de Separaci'on de Variables}
+\chapter{El Método de Separación de Variables}
 
-El m'etodo de separaci'on de variables (MSV, originalmente introducido por Daniel Bernoulli, 1700-1782) para encontrar soluciones de EDP's \textit{lineales} consiste en reducir la EDP a un conjunto de EDO's para un conjunto de funciones auxiliares. Cada una de estas funciones auxiliares depende s'olo de una de las variables independientes del problema. La soluci'on es entonces construida como una \textit{superposici'on} (e.d. combinaci'on lineal) de \textbf{soluciones separables}, consistentes en productos de las funciones auxiliares.
+El método de separación de variables (MSV, originalmente introducido por Daniel Bernoulli, 1700-1782) para encontrar soluciones de EDP's \textit{lineales} consiste en reducir la EDP a un conjunto de EDO's para un conjunto de funciones auxiliares. Cada una de estas funciones auxiliares depende sólo de una de las variables independientes del problema. La solución es entonces construida como una \textit{superposición} (e.d. combinación lineal) de \textbf{soluciones separables}, consistentes en productos de las funciones auxiliares.
 
-M'as expl'citamente, el MSV consiste en:
+Más expl'citamente, el MSV consiste en:
 \begin{itemize}
 \item Buscar soluciones separables de la EDP. Esto conduce a un conjunto de EDO's.
-\item Construir una superposici'on general de soluciones separables, e imponer las condiciones de contorno y/o iniciales del problema.
+\item Construir una superposición general de soluciones separables, e imponer las condiciones de contorno y/o iniciales del problema.
 \end{itemize}
 
-Si bien en general el MSV sigue los pasos anteriores, en la pr'actica es 'util considerar un paso intermedio:
+Si bien en general el MSV sigue los pasos anteriores, en la práctica es útil considerar un paso intermedio:
 \begin{itemize}
-\item Imponer las condiciones de contorno/iniciales homog'eneas a cada funci'on separable. Esto simplifica mucho el c'alculo puesto que t'ipicamente elimina muchas posibles contribuciones a la (futura) combinaci'on lineal. Esto s'olo puede ser realizado con las condiciones de borde/iniciales homog'eneas para EDP's lineales y homog'eneas, puesto que si la soluci'on separable satisface estas condiciones entonces cualquier superposici'on lineal lo har'a. Adem'as, no se pierde generalidad con este m'etodo, puesto que (puede demostrarse que) las funciones separables obtenidas son linealmente independientes.
+\item Imponer las condiciones de contorno/iniciales homogéneas a cada función separable. Esto simplifica mucho el cálculo puesto que típicamente elimina muchas posibles contribuciones a la (futura) combinación lineal. Esto sólo puede ser realizado con las condiciones de borde/iniciales homogéneas para EDP's lineales y homogéneas, puesto que si la solución separable satisface estas condiciones entonces cualquier superposición lineal lo hará. Además, no se pierde generalidad con este método, puesto que (puede demostrarse que) las funciones separables obtenidas son linealmente independientes.
 \end{itemize}
 
 En resumen, es conveniente aplicar el MSV de la siguiente forma:
 \begin{itemize}
 \item Buscar soluciones separables de la EDP (conjunto de EDO's).
-\item Imponer las condiciones de borde/iniciales \textit{homog'eneas} a las soluciones separables.
-\item Construir una combinaci'on lineal general con las soluciones separables anteriores.
-\item Determinar los coeficientes de la combinaci'on lineal que aseguran que la soluci'on final satisface las \textit{condiciones de borde/iniciales inhomog'eneas}.
+\item Imponer las condiciones de borde/iniciales \textit{homogéneas} a las soluciones separables.
+\item Construir una combinación lineal general con las soluciones separables anteriores.
+\item Determinar los coeficientes de la combinación lineal que aseguran que la solución final satisface las \textit{condiciones de borde/iniciales inhomogéneas}.
 \end{itemize}
 
 
 
 \section{Coordenadas Cartesianas}
-\section{Ejemplo: Ecuaci'on de Laplace en dominio rectangular}
-Buscaremos la soluci'on $\Psi(x,y)$ que satisface la ecuaci'on de Laplace bidimensional
+\section{Ejemplo: Ecuación de Laplace en dominio rectangular}
+Buscaremos la solución $\Psi(x,y)$ que satisface la ecuación de Laplace bidimensional
 \begin{equation}\label{ejLap2D}
 \frac{\partial^2\Psi }{\partial x^2}+\frac{\partial^2\Psi }{\partial y^2}=0,
 \end{equation}
-en el rect'angulo $0<x<1$, $0<y<2$, con la condici'on de borde
+en el rectángulo $0<x<1$, $0<y<2$, con la condición de borde
 \begin{equation}
 \Psi(x,2) = f(x) = x(1-x), 
 \end{equation}
@@ -44,7 +44,7 @@ Al reemplazar en \eqref{ejLap2D} y dividir por $\Psi_{\rm sep}$ encontramos
 \begin{equation}
 \frac{1}{X(x)}\frac{d^2X}{dx^2}+\frac{1}{Y(y)}\frac{d^2Y}{dy^2} = 0,
 \end{equation}
-lo que implica que t'ermino debe ser igual a una constante, es decir
+lo que implica que término debe ser igual a una constante, es decir
 \begin{equation}
 \frac{1}{X(x)}\frac{d^2X}{dx^2} = \lambda, \qquad \frac{d^2X}{dx^2}-\lambda X(x)=0,
 \end{equation}
@@ -52,7 +52,7 @@ lo que implica que t'ermino debe ser igual a una constante, es decir
 \frac{1}{Y(y)}\frac{d^2Y}{dy^2} = -\lambda, \qquad \frac{d^2Y}{dy^2}+\lambda Y(y)=0.
 \end{equation}
 
-La forma expl'icita de estas ecuaciones depende del valor, y en particular del signo, de la constante de separaci'on $\lambda$, que por ahora tiene valor desconocido: Por ejemplo,
+La forma explícita de estas ecuaciones depende del valor, y en particular del signo, de la constante de separación $\lambda$, que por ahora tiene valor desconocido: Por ejemplo,
 \begin{equation}
 X_\lambda(x)= 	\begin{cases}
 		c_1e^{\sqrt{\lambda}x} + c_2e^{-\sqrt{\lambda}x}, & \text{si }\lambda>0 \\
@@ -70,23 +70,23 @@ Y_\lambda(y)= 	\begin{cases}
 		\end{cases}.
 \end{equation}
 
-As'i, hemos encontrado \textit{infinitas soluciones separables}, cada una de la forma
+Así, hemos encontrado \textit{infinitas soluciones separables}, cada una de la forma
 \begin{equation}\label{EjLapPsiXY}
 \Psi_\lambda^{\rm sep}(x,y)=X_\lambda(x)Y_\lambda(y),
 \end{equation}
-para cada valor posible de la constante de separaci'on $\lambda$. Como esta constante puede tomar distintos valores, y como la EDP es \textit{lineal}, entonces cualquier combinaci'on lineal de la forma
+para cada valor posible de la constante de separación $\lambda$. Como esta constante puede tomar distintos valores, y como la EDP es \textit{lineal}, entonces cualquier combinación lineal de la forma
 \begin{equation}\label{EjLapPsisumaSep}
 \Psi(x,y) = \sum_{\lambda}\Psi_\lambda^{\rm sep}(x,y) = \sum_{\lambda}X_\lambda(x)Y_\lambda(y),
 \end{equation}
-es tambi'en soluci'on.
+es también solución.
 
-Procedemos ahora a imponer las condiciones de borde a la soluci'on. Los c'alculos se simplifican si imponemos primero las \textit{condiciones de borde homog'eneas}. Por ejemplo, la condici'on $\Psi(0,y)=0$, $\forall y\in[0,2]$ (borde izquierdo del dominio) requiere que
+Procedemos ahora a imponer las condiciones de borde a la solución. Los cálculos se simplifican si imponemos primero las \textit{condiciones de borde homogéneas}. Por ejemplo, la condición $\Psi(0,y)=0$, $\forall y\in[0,2]$ (borde izquierdo del dominio) requiere que
 \begin{equation}
 \Psi(0,y) = \sum_{\lambda}\Psi_\lambda^{\rm sep}(0,y) = \sum_{\lambda}X_\lambda(0)Y_\lambda(y) = 0.
 \end{equation}
 
-La 'ultima expresi'on es una combinaci'on lineal de los coeficientes (constantes) $X_\lambda(0)$ y las funciones $Y_\lambda(y)$. Ya que las funciones $Y_\lambda(y)$ son l.i. en esta combinaci'on ser'a nula s'olo si $X_\lambda(0)=0$. An'alogamente, la condici'on 
-$\Psi(1,y)=0$, $\forall y\in[0,2]$ requiere $X_\lambda(1)=0$. Estas dos condiciones sobre las funciones $X_\lambda(x)$ restringen fuertemente los valores posibles de $\lambda$. En nuestro caso particular, s'olo valores negativos de esta constante de separaci'on son permitidos. Esto ocurre si $\lambda = -n^2\pi^2$, $n=1,2,\dots$, y entonces
+La última expresión es una combinación lineal de los coeficientes (constantes) $X_\lambda(0)$ y las funciones $Y_\lambda(y)$. Ya que las funciones $Y_\lambda(y)$ son l.i. en esta combinación será nula sólo si $X_\lambda(0)=0$. Análogamente, la condición 
+$\Psi(1,y)=0$, $\forall y\in[0,2]$ requiere $X_\lambda(1)=0$. Estas dos condiciones sobre las funciones $X_\lambda(x)$ restringen fuertemente los valores posibles de $\lambda$. En nuestro caso particular, sólo valores negativos de esta constante de separación son permitidos. Esto ocurre si $\lambda = -n^2\pi^2$, $n=1,2,\dots$, y entonces
 \begin{equation}
 X_n(x)=c_n\sen\left(n\pi x\right), \qquad \lambda = -n^2\pi^2, \qquad n=1,2,\dots.
 \end{equation}
@@ -96,22 +96,22 @@ Para estos valores de $\lambda$, las soluciones para $Y(y)$ son de la forma
 Y_n(y) = \bar{c}_1e^{\pi ny} + \bar{c}_2e^{-\pi ny}.
 \end{equation}
 
-Imponemos ahora la condici'on de borde en la frontera inferior del dominio, es decir, $\Psi(x,0) = 0$, lo que se traduce en $Y_n(0)=0$. Esto s'olo puede ser satisfecho si $\bar{c}_1+\bar{c}_2=0$, por lo que la soluci'on se reduce a
+Imponemos ahora la condición de borde en la frontera inferior del dominio, es decir, $\Psi(x,0) = 0$, lo que se traduce en $Y_n(0)=0$. Esto sólo puede ser satisfecho si $\bar{c}_1+\bar{c}_2=0$, por lo que la solución se reduce a
 \begin{equation}
 Y_n(y) = \bar{c}_1\left(e^{\pi ny} -e^{-\pi ny}\right) = 2\bar{c}_1 \senh(\pi ny).
 \end{equation}
 
-Con esto, la soluci'on adopta la forma
+Con esto, la solución adopta la forma
 \begin{equation}\label{ejLap2D2}
 \Psi(x,y) = \sum_{n=1}^\infty d_n \sen\left(n\pi x\right)\senh(\pi ny),
 \end{equation}
-donde los coeficientes son arbitrarios. Es instructivo verificar que esta expresi'on es soluci'on de la EDP \eqref{ejLap2D}, y de las condiciones de borde homog'eneas del problema. El valor de los coeficientes $d_n$ queda determinado por la condici'on de borde no-homog'enea restante (borde superior).
+donde los coeficientes son arbitrarios. Es instructivo verificar que esta expresión es solución de la EDP \eqref{ejLap2D}, y de las condiciones de borde homogéneas del problema. El valor de los coeficientes $d_n$ queda determinado por la condición de borde no-homogénea restante (borde superior).
 
 Imponemos por tanto que
 \begin{equation}
 \Psi(x,2) = \sum_{n=1}^\infty d_n \sen\left(n\pi x\right)\senh(2\pi n) \stackrel{!}{=} f(x),
 \end{equation}
-con $f(x)=x(1-x)$. Esto significa que los coeficientes $d_n\senh(2\pi n)$ son los coeficientes de la \textit{expansi'on de Fourier} (seno) de la funci'on $f(x)$ en el intervalo $[0,1]$. Usando las relaciones de ortogonalidad de las funciones $\senh(\pi nx)$, 
+con $f(x)=x(1-x)$. Esto significa que los coeficientes $d_n\senh(2\pi n)$ son los coeficientes de la \textit{expansión de Fourier} (seno) de la función $f(x)$ en el intervalo $[0,1]$. Usando las relaciones de ortogonalidad de las funciones $\senh(\pi nx)$, 
 \begin{equation}
 \int_0^1 \sen(\pi nx)\sen(\pi mx)\,dx = \frac{1}{2}\delta_{nm},
 \end{equation}
@@ -131,7 +131,7 @@ d_n = \begin{cases}
 	0 , & \text{para } n \text{ par} \end{cases}.
 \end{equation}
 
-Con todo esto, y denotanto $n=2k-1$, con $k=1,2,3,\cdots$, encontramos que nuestra soluci'on es dada por la siguiente serie:
+Con todo esto, y denotanto $n=2k-1$, con $k=1,2,3,\cdots$, encontramos que nuestra solución es dada por la siguiente serie:
 \begin{equation}
 \Psi(x,y)=\frac{8}{\pi^3}\sum_{k=1}^{\infty}\frac{\sin[(2k-1) \pi x]}{(2k-1)^3}\frac{\sinh[(2k-1)\pi y]}{\sinh[2\pi (2k-1)]}.
 \end{equation}
@@ -139,16 +139,16 @@ Con todo esto, y denotanto $n=2k-1$, con $k=1,2,3,\cdots$, encontramos que nuest
 \begin{figure}[H]
 \centering
 \includegraphics[angle=0,width=0.7\textwidth]{figs/fig-MSV-rectangulo-3D.pdf}
-\caption{La soluci'on a nuestro problema, en 3D y colores. C'odigo Python \href{https://github.com/gfrubi/FM2/blob/master/figuras-editables/fig-MSV-Laplace-rectangulo.py}{aqu\'i}.}
+\caption{La solución a nuestro problema, en 3D y colores. Código Python \href{https://github.com/gfrubi/FM2/blob/master/figuras-editables/fig-MSV-Laplace-rectangulo.py}{aquí}.}
 \label{fig-SolLap}
 \end{figure}
 
-\subsection{Ejemplo: Ecuaci'on de la onda unidimensional}
-Usaremos ahora el MSV para encontrar una soluci'on del siguiente problema:
+\subsection{Ejemplo: Ecuación de la onda unidimensional}
+Usaremos ahora el MSV para encontrar una solución del siguiente problema:
 \begin{align}
 \frac{\partial^2 \psi}{\partial x^2}-\frac{1}{v^2}\frac{\partial^2 \psi}{\partial t^2}=0,\label{eq:ec-onda}
 \end{align}
-en el dominio $x\in[0,L]$, $t\ge 0$, con las condiciones de borde (homog'eneas)
+en el dominio $x\in[0,L]$, $t\ge 0$, con las condiciones de borde (homogéneas)
 \begin{align}
 \psi(0,t)=0,\qquad \psi(L,t)=0,\label{eq:cond-borde}
 \end{align}
@@ -159,20 +159,20 @@ y las siguientes condiciones iniciales
 suponiendo que $\psi_{0}(x)$ y $v_{0}(x)$ son funciones dadas, pero arbitrarias de la variable $x$.
 
 
-Buscamos entonces una soluci'on separable, $\psi_{\rm sep}(x,t) = X(x)T(t)$. Reemplazando en la EDP \eqref{eq:ec-onda} y dividiendo por $\psi_{\rm sep}$ encontramos:
+Buscamos entonces una solución separable, $\psi_{\rm sep}(x,t) = X(x)T(t)$. Reemplazando en la EDP \eqref{eq:ec-onda} y dividiendo por $\psi_{\rm sep}$ encontramos:
 \begin{align}
 \frac{1}{X}\frac{d^2 X}{dx^2}=\frac{1}{v^2}\frac{1}{T}\frac{d^2 T}{dt^2}.\label{eq:ec-separable}
 \end{align} 
 
-Como el primer miembro de la ecuaci'on \eqref{eq:ec-separable} depende de $x$ y el segundo miembro de $t$, ambos deben necesariamente ser constantes con respecto a ambas variables, vale decir
+Como el primer miembro de la ecuación \eqref{eq:ec-separable} depende de $x$ y el segundo miembro de $t$, ambos deben necesariamente ser constantes con respecto a ambas variables, vale decir
 \begin{align}
 \frac{1}{X}\frac{d^2 X}{dx^2}=\lambda, \qquad \frac{1}{v^2}\frac{1}{T}\frac{d^2 T}{dt^2}=\lambda,
 \end{align}
-donde la constante de separaci'on $\lambda$ puede asumir valores reales. Luego, podemos escribir la siguiente EDO para $X(x)$ como
+donde la constante de separación $\lambda$ puede asumir valores reales. Luego, podemos escribir la siguiente EDO para $X(x)$ como
 \begin{align}
 \frac{d^2 X}{dx^2}=\lambda X,
 \end{align}
-cuya soluci'on es de la forma
+cuya solución es de la forma
 \begin{align}
 X(x)=
 \begin{cases}
@@ -182,33 +182,33 @@ A'' e^{x\sqrt{\lambda}}+B'' e^{-x\sqrt{\lambda}}, & \text{si }\lambda >0
 \end{cases}.
 \end{align}
 
-Las condiciones de borde homog'eneas pueden trasladarse a las funciones $X(x)$, que entonces deben satisfacer que $X(0)=0$ y $X(L)=0$. 
+Las condiciones de borde homogéneas pueden trasladarse a las funciones $X(x)$, que entonces deben satisfacer que $X(0)=0$ y $X(L)=0$. 
 %Por lo tanto
 %\begin{align}
 %A \cos(0\sqrt{-\lambda})+B \sin(0\sqrt{-\lambda})=&A \cos(L\sqrt{-\lambda})+B \sin(L\sqrt{-\lambda})=0 & \text{ si }\lambda<0,\\
 %A' 0+B'=&A' L+B'=0 & \text{ si }\lambda=0,\\
 %A'' e^{0\sqrt{\lambda}}+B'' e^{-0\sqrt{\lambda}}=&A'' e^{L\sqrt{\lambda}}+B'' e^{-L\sqrt{\lambda}}=0 & \text{ si }\lambda >0.
 %\end{align}
-Tal como en el ejemplo anterior, no es dif'icil verificar que estas condiciones pueden ser satisfechas s'olo si $\lambda < 0$, $A=0$, y adem'as 
+Tal como en el ejemplo anterior, no es difícil verificar que estas condiciones pueden ser satisfechas sólo si $\lambda < 0$, $A=0$, y además 
 \begin{align}
 \sqrt{-\lambda}=\frac{n\pi}{L},\qquad n=1,2,\dots.
 \end{align} 
 
-Por lo tanto, los valores permitidos para la constante de separaci'on, tambi'en llamados ``autovalores'', son
+Por lo tanto, los valores permitidos para la constante de separación, también llamados ``autovalores'', son
 \begin{align}\label{LnEO1D}
 \lambda_{n}=-\frac{n^2 \pi^2}{L^2},\qquad n=1,2,\hdots.
 \end{align}
 
-Mientr'as que las ``autofunciones'' correspondientes est'an dadas por
+Mientrás que las ``autofunciones'' correspondientes están dadas por
 \begin{align}
 X_{n}(x)=B_n\sin\left(\frac{n \pi x}{L}\right),\qquad n=1,2,\hdots.
 \end{align}
 
-Dada la restricci'on \eqref{LnEO1D}, la EDO para la $T_{n}(t)$ adopta la forma
+Dada la restricción \eqref{LnEO1D}, la EDO para la $T_{n}(t)$ adopta la forma
 \begin{align}
 \frac{d^2 T_{n}}{dt^2}=-\frac{n^2 \pi^2v^2}{L^2}T_{n},
 \end{align}
-cuya soluci'on general est'a dada por
+cuya solución general está dada por
 \begin{align}
 T_{n}(t)=C_{n}\cos\left(\frac{n \pi vt}{L}\right)+D_{n}\sin\left(\frac{n\pi vt}{L}\right),
 \end{align}
@@ -222,9 +222,9 @@ Redefiniendo el valor de las constantes como $a_{n}:=C_{n}B_{n}$ y $b_{n}:=D_{n}
 \psi^{\rm sep}_{n}(x,t)=\left[a_{n}\cos\left(\frac{n \pi v}{L}t\right)+b_{n}\sin\left(\frac{n \pi v}{L}t\right)\right] \sin\left(\frac{n\pi x}{L}\right), \qquad n=1,2,\dots.
 \end{align}
 
-Es directo verificar que cada una de estas soluciones satisface las condiciones de borde homog'eneas \eqref{eq:cond-borde}. Sin embargo, ninguna de ellas, por separado satisface las condiciones iniciales \eqref{eq:cond-inicial}. Podemos encontrar la soluci'on al problema usando el hecho que la \eqref{eq:ec-onda} es lineal y homog'enea. Debido a esto, una superposici'on de soluciones $\psi_{n}(x,t)$, con distintos $n$, ser'a tambi'en soluci'on de la EDP. Adem'as, esta superposici'on seguirá satisfaciendo las condiciones de borde homogéneas (para cualquier valor de los coeficientes que determinan la combinaci'on lineal).
+Es directo verificar que cada una de estas soluciones satisface las condiciones de borde homogéneas \eqref{eq:cond-borde}. Sin embargo, ninguna de ellas, por separado satisface las condiciones iniciales \eqref{eq:cond-inicial}. Podemos encontrar la solución al problema usando el hecho que la \eqref{eq:ec-onda} es lineal y homogénea. Debido a esto, una superposición de soluciones $\psi_{n}(x,t)$, con distintos $n$, será también solución de la EDP. Además, esta superposición seguirá satisfaciendo las condiciones de borde homogéneas (para cualquier valor de los coeficientes que determinan la combinación lineal).
 
-Consideremos por tanto, una superposici'on general de todas las soluciones separables $\psi^{\rm sep}_{n}(x,t)$ disponibles:
+Consideremos por tanto, una superposición general de todas las soluciones separables $\psi^{\rm sep}_{n}(x,t)$ disponibles:
 \begin{align}
 \psi(x,t)=&\sum_{n=1}^{\infty}\psi^{\rm sep}_{n}(x,t)\\
 =&\sum_{n=1}^{\infty}\left[a_{n}\cos\left(\frac{n \pi v}{L}t\right)+b_{n}\sin\left(\frac{n \pi v}{L}t\right)\right] \sin\left(\frac{n\pi x}{L}\right).
@@ -236,24 +236,24 @@ Finalmente, los coeficientes pueden ser calculados al imponer las condiciones in
 v_{0}(x) &= \frac{\partial \psi}{\partial t}(x,0)=\sum_{n=1}^{\infty}\left( \frac{n \pi v}{L}\right) b_{n}\sin\left( \frac{n \pi x}{L}\right).\label{eq:v0}
 \end{align}
 
-De esta forma, multiplicando las ecuaciones precedentes por $\sin(n\pi x/L)$ y empleando la relaci'on de ortogonalidad en \eqref{eq:ortogo-sin-cos}, se encuentra que $a_{n}$ y $b_{n}$ son dadas por
+De esta forma, multiplicando las ecuaciones precedentes por $\sin(n\pi x/L)$ y empleando la relación de ortogonalidad en \eqref{eq:ortogo-sin-cos}, se encuentra que $a_{n}$ y $b_{n}$ son dadas por
 \begin{align}
 a_{n}=\frac{2}{L}\int_{0}^{L} \psi_{0}(x)\sin\left(\frac{k\pi x}{L}\right)dx, \qquad 
 b_{n}=\frac{2}{n \pi v}\int_{0}^{L} v_{0}(x)\sin\left(\frac{k\pi x}{L}\right)dx.
 \end{align}
 
-Puede encontrar la discusi'on de un ejemplo en \href{https://github.com/gfrubi/FM2/blob/master/Notebooks/Ejemplo-MSV-Ecuacion-Onda-1D.ipynb}{este notebook}.
+Puede encontrar la discusión de un ejemplo en \href{https://github.com/gfrubi/FM2/blob/master/Notebooks/Ejemplo-MSV-Ecuacion-Onda-1D.ipynb}{este notebook}.
 
 \section{Coordenadas polares}
 
-Considere la ecuaci'on de Laplace bidimensional, en coordenadas polares $(r,\varphi)$
+Considere la ecuación de Laplace bidimensional, en coordenadas polares $(r,\varphi)$
 
-Las soluciones separables de la ecuaci'on son de la forma
+Las soluciones separables de la ecuación son de la forma
 \begin{equation}
 \Psi_{\rm sep}(r,\varphi)=R(r)\Phi(\varphi), \qquad 0<r<\infty, \quad 0<\varphi<2\pi,
 \end{equation}
 
-La condici'on de periodidad $\Psi(r,\varphi)=\Psi(r,\varphi+2\pi)$ y restringe los valores de la constante de saparaci'on.
+La condición de periodidad $\Psi(r,\varphi)=\Psi(r,\varphi+2\pi)$ y restringe los valores de la constante de saparación.
 
 \begin{equation}
 \Psi(r,\varphi)=c_0+c_1\ln(r)+\sum_{n=1}^\infty\left(A_n\cos(n\varphi)+B_n\sin(n\varphi)\right)
@@ -304,13 +304,13 @@ y la condición inicial
 \begin{align}
 \psi(\vec{x},0) = \phi(\vec{x}).
 \end{align}
-\section{Coordenadas Cil\'indricas}
-\section{Coordenadas Esf'ericas}
-La ecuaci'on de Helmholtz (modificada),
+\section{Coordenadas Cilíndricas}
+\section{Coordenadas Esféricas}
+La ecuación de Helmholtz (modificada),
 \begin{equation}
 \nabla^2\Psi+\alpha\Psi=0,
 \end{equation}
-adopta, en coordenadas esf'ericas, la forma:
+adopta, en coordenadas esféricas, la forma:
 \begin{equation}
 \frac{1}{r^2}\frac{\partial\ }{\partial r}\left(r^2\frac{\partial\Psi}{\partial r}\right)   
 +\frac{1}{r^2\sen\theta}\frac{\partial}{\partial\theta}\left(\sen\theta\frac{
@@ -327,10 +327,10 @@ Buscaremos soluciones separables de la forma
 \frac{1}{\Theta\sen\theta}\frac{d\ }{d\theta}\left(\sen\theta\frac{
 d\Theta}{d\theta}\right) +\alpha r^2\right]+ \frac{1}{\Phi}\frac{d^2 \Phi}{d\varphi^2} = 0.
  \end{equation}
-De esta forma, podemos realizar la primera separaci'on, ya que necesariamente
+De esta forma, podemos realizar la primera separación, ya que necesariamente
 \begin{eqnarray}
 \frac{1}{\Phi} \frac{d^2\Phi}{d\varphi^2} = \text{const.} = -m^2. \end{eqnarray}\label{loes1}
-Las soluciones univaluadas, e.d. que satisfacen la condici'on de borde per'iodica $\Phi(\varphi+2\pi)=\Phi(\varphi)$, son
+Las soluciones univaluadas, e.d. que satisfacen la condición de borde períodica $\Phi(\varphi+2\pi)=\Phi(\varphi)$, son
 \begin{equation}\label{Phim}
 \Phi (\varphi) = e^{\pm im\varphi}, \qquad m=0,\pm 1,\pm 2, \cdots .
 \end{equation}
@@ -346,25 +346,25 @@ que, al dividir por $\sen^2\theta$ implica que
 +\frac{1}{\Theta\sen\theta}\frac{d\ }{d\theta}\left(\sen\theta\frac{
 d\Theta}{d\theta}\right) -\frac{m^2}{\sen^2\theta} = 0.
  \end{equation}
-Esta ecuaci'on est'a nuevamente separada, ya que los primeros dos t'erminos dependen s'olo de $r$ mientras que los 'ultimos dos s'olo de $\theta$. Por lo tanto, podemos introducir una segunda constante de separaci'on, $Q$, tal que las EDO's separadas se escriben como:
+Esta ecuación está nuevamente separada, ya que los primeros dos términos dependen sólo de $r$ mientras que los últimos dos sólo de $\theta$. Por lo tanto, podemos introducir una segunda constante de separación, $Q$, tal que las EDO's separadas se escriben como:
 \begin{gather}
 \frac{d\ }{dr}\left(r^2\frac{dR}{dr}\right)+\left(\alpha r^2-Q\right)R=0, \label{ecrHelmce}\\
 \frac{1}{\sen\theta}\frac{d}{d\theta}\left(\sen\theta\frac{d\Theta}{d\theta}\right)
 +\left(Q-\frac{m^2}{\sen^2\theta}\right) \Theta = 0. \label{ecThHelm}
 \end{gather}
 
-\subsubsection{Caso $\alpha=0$, ecuaci'on de Laplace}
- La ecuaci'on \eqref{ecrHelmce} es una ecuaci'on tipo Euler y puede ser resuelta con la
-substituci'on $r:=e^t$ , $y=U(r)=U(e^t)$, o bien con el Ansatz
+\subsubsection{Caso $\alpha=0$, ecuación de Laplace}
+ La ecuación \eqref{ecrHelmce} es una ecuación tipo Euler y puede ser resuelta con la
+substitución $r:=e^t$ , $y=U(r)=U(e^t)$, o bien con el Ansatz
  \begin{equation}
   U(r) = r^l,\quad l=\text{const.}
 \end{equation}
-  Reemplazando esta soluci'on en la ecuaci'on encontramos la condici'on
- $l(l+1)=Q$. La soluci'on general de la ecuaci'on para $U(r)$ es entonces
+  Reemplazando esta solución en la ecuación encontramos la condición
+ $l(l+1)=Q$. La solución general de la ecuación para $U(r)$ es entonces
 \begin{equation}
  R(r) = A\cdot r^{l_1} + B\cdot r^{l_2},\label{loes2}
 \end{equation}
-donde $A$ y $B$ son constantes arbitrarias y $l_1$ y $l_2$ son las soluciones de la ecuaci'on cuadr'atica $l^2+l-Q=0$, es decir
+donde $A$ y $B$ son constantes arbitrarias y $l_1$ y $l_2$ son las soluciones de la ecuación cuadrática $l^2+l-Q=0$, es decir
 \begin{equation}
 l_\pm = \frac{1}{2}\left(-1\pm\sqrt{1+4Q}\right)
 \end{equation}
@@ -372,10 +372,10 @@ l_\pm = \frac{1}{2}\left(-1\pm\sqrt{1+4Q}\right)
 Note que si $Q=-1/4$ entonces $l_+=l_-=-1/2$ y la solución es degenerada. En ese caso la segunda solución independiente es de la forma $R(r) = r^{-1/2}\ln r$. En el caso $Q<-1/4$ la soluciones son de la forma $r^{-1/2}\cos(y\ln r)$ y $r^{-1/2}\sen(y\ln r)$, donde $y=\Im(l_+)=\sqrt{-1-4Q}/2$.
 
 
-\subsubsection{Caso de simetr\'ia axial}
-Si por alguna raz'on justificada (usualmente, de simetr'ia de la situaci'on f'isica) se busca una \textit{soluci'on axialmente sim'etrica}, es decir, independiente de la variable $\varphi$, entonces $\Psi=\Psi(r,\theta)$. Desde el punto de vista de la formulaci'on del problema m'as general (sin simetr'ia) este caso particular requiere que $m=0$, ya que en ese caso las soluciones angulares $\Phi(\varphi)$ son constantes y por tanto la soluci'on no depender'a de $\varphi$. En este caso, la ecuaci'on se reduce a
+\subsubsection{Caso de simetría axial}
+Si por alguna razón justificada (usualmente, de simetría de la situación física) se busca una \textit{solución axialmente simétrica}, es decir, independiente de la variable $\varphi$, entonces $\Psi=\Psi(r,\theta)$. Desde el punto de vista de la formulación del problema más general (sin simetría) este caso particular requiere que $m=0$, ya que en ese caso las soluciones angulares $\Phi(\varphi)$ son constantes y por tanto la solución no dependerá de $\varphi$. En este caso, la ecuación se reduce a
 \begin{equation}
 \frac{1}{\sen\theta}\frac{d}{d\theta}\left(\sen\theta\frac{d\Theta}{d\theta}\right)
 +Q\Theta = 0
 \end{equation}
-que, como veremos a continuaci'on, es equivalente a la EDO de Legendre.
+que, como veremos a continuación, es equivalente a la EDO de Legendre.
