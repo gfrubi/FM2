@@ -1,6 +1,10 @@
 \chapter{Coordenadas curvilíneas}
 
-\section{Coordenadas cartesianas}
+\section{Coordenadas Cartesianas}
+\noindent Posición:
+\begin{eqnarray}
+\vec{x} &=& x {\hat x} + y {\hat y} + z {\hat z}
+\end{eqnarray}
 Vector:
 \begin{eqnarray}
 \vec{A}
@@ -11,7 +15,7 @@ Gradiente:
  \vec\nabla\Psi&=&{\partial\Psi\over \partial x} {\hat x} + {\partial\Psi\over
 \partial y} {\hat y}   + {\partial\Psi\over \partial z} {\hat z}
 \end{eqnarray}
-Divergencia:
+Divergencia
 \begin{eqnarray}
  \vec\nabla \cdot \vec{A}
 &=& \frac{\partial  A_x}{\partial x}+\frac{\partial  A_y}{\partial y}+\frac{\partial  A_z}{\partial z}
@@ -26,7 +30,7 @@ Rotor:
    \left({\partial A_y \over \partial x} - {\partial A_x \over
 \partial y}\right)  {\hat z}
 \end{eqnarray}
-Laplaciano:
+Laplaciano
 \begin{eqnarray}
  \nabla^2 \Psi
 &=& {\partial^2\Psi\over \partial x^2} + {\partial^2\Psi\over \partial y^2} +
@@ -46,11 +50,19 @@ Elemento de volumen:
  dV &=& dx\,dy\,dz
 \end{eqnarray}
 
-\section{Coordenadas cilíndricas}
-Definición:
+
+\section{Coordenadas Cilíndricas}
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale = 0.6]{figs/Coordenadas-Cilindricas.pdf}
+    \caption{Coordenadas cilíndricas $(\rho,\varphi, z)$ y sus vectores unitarios.}
+    \label{fig:Coordenadas-Cilindricas}
+\end{figure}
+
+\noindent Definición:
 \begin{equation}
     x  =  \rho\cos\varphi , \qquad
-    y  =  \rho\sen\varphi , \qquad
+    y  =  \rho\sin\varphi , \qquad
     z =  z
 \end{equation}
 \begin{equation}
@@ -58,7 +70,24 @@ Definición:
     \varphi  = \arctan{(y/x)}, \qquad
      z=  z
 \end{equation}
-Vector:
+Vectores unitarios:
+\begin{align}
+    \hat{\rho} &= %\frac{1}{\norm{\frac{\partial \Vec{x}}{\partial \rho}}}\frac{\partial \Vec{x}}{\partial \rho} =
+    				 \cos \varphi \,\hat{x} + \sin \varphi \,\hat{y}, \\
+    \hat{\varphi} &= %\frac{1}{\norm{\frac{\partial \Vec{x}}{\partial \varphi}}}\frac{\partial \Vec{x}}{\partial \varphi} = 
+    				- \sin \varphi \,\hat{x} + \cos \varphi \, \hat{y},  \\
+    \hat{z} &= %\frac{1}{\norm{\frac{\partial \Vec{x}}{\partial z}}}\frac{\partial \Vec{x}}{\partial z} = 
+    			\hat{z} .
+\end{align}
+\begin{align}
+    \hat{x} &= \cos \varphi \,\hat{\rho} - \sin \varphi \, \hat{\varphi}, \\
+    \hat{y} &= \sin\varphi \, \hat{\rho} + \cos \varphi \,\hat{\varphi}.
+\end{align}
+Posición:
+\begin{equation}
+\vec{x} = \rho \hat{\rho} + z \hat{z}.
+\end{equation}
+Vector
 \begin{equation}
 \vec{A} =A_\rho {\hat \rho} + A_\varphi {\hat \varphi} +
 A_z {\hat z}
@@ -69,7 +98,7 @@ Gradiente:
   + {1 \over \rho}{\partial\Psi\over \partial \varphi} {\hat \varphi}
   + {\partial\Psi\over \partial z} {\hat z}
 \end{eqnarray}
-Divergencia:
+Divergencia
 \begin{eqnarray}
  \vec\nabla \cdot \vec{A}
 &=&  {1 \over \rho}{\partial \left( \rho A_\rho  \right) \over \partial
@@ -86,7 +115,7 @@ Rotor:
 &&+  {1 \over \rho}\left({\partial \left( \rho A_\varphi \right) \over
 \partial \rho}     - {\partial A_\rho \over \partial \varphi}\right) {\hat z}
 \end{eqnarray}
-Laplaciano:
+Laplaciano
 \begin{eqnarray}
  \nabla^2 \Psi
 &=& {1 \over \rho}{\partial \over \partial \rho}\left(\rho {\partial\Psi\over
@@ -110,18 +139,47 @@ Elemento de volumen:
  dV
  &=& \rho\, d\rho\, d\varphi\, dz
 \end{eqnarray}
-
-\section{Coordenadas esféricas}
-Definición:
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.7]{figs/volumen-cilindricas.pdf}
+    \caption{Elementos infinitesimales en coordenadas cilíndricas. Adaptado a partir de versión de A. Tsagkaropoulos, disponible en \href{https://tikz.net/cylindrical_volume/}{esta página}.}
+    \label{fig:Vol-Cilindricas}
+\end{figure}
+\section{Coordenadas Esféricas}
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale = 0.5]{figs/Coordenadas-Esfericas.pdf}
+    \caption{Coordenadas esféricas $(r,\theta,\varphi)$ en conjunto con sus vectores unitarios.}
+    \label{fig:Coordenadas-Esfericas}
+\end{figure}
+\noindent Definición:
 \begin{equation}
-    x  =  r\sen\theta\cos\varphi, \qquad
-    y  =  r\sen\theta\sen\varphi , \qquad
+    x  =  r\sin\theta\cos\varphi, \qquad
+    y  =  r\sin\theta\sin\varphi , \qquad
     z  =  r\cos\theta
 \end{equation}
 \begin{equation}
     r  =  \sqrt{x^2 + y^2 + z^2} , \quad
     \theta  =  \arccos(\frac{z}{r}) = \arctan{\frac{\sqrt{x^2+y^2}}{z}}, \quad
     \varphi  =  \arctan{(y/x)}
+\end{equation}
+Vectores unitarios:
+\begin{align}
+    \hat{r} &= %\frac{1}{\norm{\frac{\partial \Vec{x}}{\partial r}}}\frac{\partial \Vec{x}}{\partial r} 
+    			\sin \theta \cos \varphi \,\hat{x} + \sin \theta \sin \varphi \,\hat{y} + \cos \theta \,\hat{z}, \label{rxyz} \\
+    \hat{\theta} &= %\frac{1}{\norm{\frac{\partial \Vec{x}}{\partial \theta}}}\frac{\partial \Vec{x}}{\partial \theta} 
+    			\cos \theta \cos \varphi \,\hat{x} + \cos \theta \sin \varphi \,\hat{y} - \sin \theta   \,\hat{z},  \\
+    \hat{\varphi} &= %\frac{1}{\norm{\frac{\partial \Vec{x}}{\partial \varphi}}}\frac{\partial \Vec{x}}{\partial \varphi} 
+    			- \sin \varphi \,\hat{x} + \cos \varphi \,\hat{y} . \label{varphixyz}
+\end{align}
+\begin{align}
+    \hat{x} &= \sin \theta \cos \varphi \,\hat{r} + \cos \theta \cos \varphi \,\hat{\theta} - \sin \varphi \,\hat{\varphi},\\
+    \hat{y} &= \sin \theta \sin\varphi \,\hat{r} + \cos \theta \sin \varphi \,\hat{\theta} + \cos \varphi \,\hat{\varphi}, \\
+    \hat{z} &= \cos \theta \,\hat{r} - \sin \theta \,\hat{\theta}.
+\end{align}
+Posición:
+\begin{equation}
+\vec{x} = r \hat{r}
 \end{equation}
 Vector:
 \begin{eqnarray}
@@ -134,56 +192,55 @@ Gradiente:
  \vec\nabla\Psi
  &=& {\partial\Psi\over \partial r} {\hat r}
   + {1 \over r}{\partial\Psi\over \partial \theta} {\hat \theta}
-  + {1 \over r\sen\theta}{\partial\Psi\over \partial \varphi} {\hat \varphi}
+  + {1 \over r\sin\theta}{\partial\Psi\over \partial \varphi} {\hat \varphi}
 \end{eqnarray}
-Divergencia:
+Divergencia
 \begin{eqnarray}
  \vec\nabla \cdot \vec{A}
 &=& {1 \over r^2}{\partial \left( r^2 A_r \right) \over \partial r}
-  + {1 \over r\sen\theta}{\partial \over \partial \theta} \left(
-A_\theta\sen\theta \right)
-  + {1 \over r\sen\theta}{\partial A_\varphi \over \partial \varphi}
+  + {1 \over r\sin\theta}{\partial \over \partial \theta} \left(
+A_\theta\sin\theta \right)
+  + {1 \over r\sin\theta}{\partial A_\varphi \over \partial \varphi}
 \end{eqnarray}
 Rotor:
 \begin{eqnarray}
 \vec\nabla \times  \vec{A}
-&=&  {1 \over r\sen\theta}\left({\partial \over \partial \theta}
-\left( A_\varphi\sen\theta \right)    - {\partial A_\theta \over \partial
+&=&  {1 \over r\sin\theta}\left({\partial \over \partial \theta}
+\left( A_\varphi\sin\theta \right)    - {\partial A_\theta \over \partial
 \varphi}\right) {\hat r} \nonumber\\
-&&+    {1 \over r}\left({1 \over \sen\theta}{\partial A_r \over \partial
+&&+    {1 \over r}\left({1 \over \sin\theta}{\partial A_r \over \partial
 \varphi} - {\partial \over \partial r} \left( r A_\varphi \right) \right)
  {\hat \theta}  +   {1 \over r}\left({\partial \over \partial r} \left( r
 A_\theta
 \right)  - {\partial A_r \over \partial \theta}\right)  {\hat \varphi}
 \end{eqnarray}
-Laplaciano:
+Laplaciano
 \begin{eqnarray}
  \nabla^2 \Psi
 &=&  {1 \over r^2}{\partial \over \partial r}\left(r^2 {\partial\Psi\over
-\partial r}\right)   + {1 \over r^2\sen\theta}{\partial \over \partial
-\theta}\left(\sen\theta {\partial\Psi\over \partial \theta}\right)
-  + {1 \over r^2\sen^2\theta}{\partial^2\Psi\over \partial \varphi^2}
+\partial r}\right)   + {1 \over r^2\sin\theta}{\partial \over \partial
+\theta}\left(\sin\theta {\partial\Psi\over \partial \theta}\right)
+  + {1 \over r^2\sin^2\theta}{\partial^2\Psi\over \partial \varphi^2}
 \end{eqnarray}
 Desplazamiento:
 \begin{eqnarray}
  d \vec{x}
-&= & dr {\hat r} + rd\theta {\hat \theta} +r\sen\theta d\varphi {\hat \varphi}
+&= & dr {\hat r} + rd\theta {\hat \theta} +r\sin\theta d\varphi {\hat \varphi}
 \end{eqnarray}
 Elemento de superficie:
 \begin{eqnarray}
  d \vec{S}
-&=& r^2 \sen\theta \,d\theta \,d\varphi \, {\hat r} + r\sen\theta
+&=& r^2 \sin\theta \,d\theta \,d\varphi \, {\hat r} + r\sin\theta
 \,dr\,d\varphi \, {\hat \theta} +  r\,dr\,d\theta\, {\hat \varphi}
 \end{eqnarray}
 Elemento de volumen:
 \begin{eqnarray}
  dV
-&=& r^2\sen\theta \,dr\,d\theta\, d\varphi
+&=& r^2\sin\theta \,dr\,d\theta\, d\varphi
 \end{eqnarray}
-Solución general (finita) de la ecuación de Laplace:
-\begin{equation}
-\Psi(r,\theta,\varphi) = \sum_{l=0}^\infty\sum_{m=-l}^l\left[
-A_{lm}\cdot r^l + B_{lm}\cdot r^{-(l+1)}\right]\cdot Y_{lm}(\theta,\varphi).
-\label{est31}
-\end{equation}
-
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.7]{figs/volumen-esfericas.pdf}
+    \caption{Elementos infinitesimales en coordenadas esféricas. Adaptado a partir de versión de A. Tsagkaropoulos, disponible en \href{https://tikz.net/spherical_volume/}{esta página}.}
+    \label{fig:Vol-Esfericas}
+\end{figure}
