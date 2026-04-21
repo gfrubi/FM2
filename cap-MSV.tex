@@ -305,7 +305,9 @@ y la condición inicial
 \begin{align}
     \psi(\vec{x},0) = \phi(\vec{x}).
 \end{align}
+
 \section{Coordenadas Cilíndricas}
+
 \section{Coordenadas Esféricas}
 La ecuación de Helmholtz (modificada),
 \begin{equation}
@@ -333,7 +335,7 @@ De esta forma, podemos realizar la primera separación, ya que necesariamente
     \frac{1}{\Phi} \frac{d^2\Phi}{d\varphi^2} = \text{const.} = -m^2. \end{eqnarray}\label{loes1}
 Las soluciones univaluadas, e.d. que satisfacen la condición de borde períodica $\Phi(\varphi+2\pi)=\Phi(\varphi)$, son
 \begin{equation}\label{Phim}
-    \Phi (\varphi) = e^{\pm im\varphi}, \qquad m=0,\pm 1,\pm 2, \cdots .
+    \Phi (\varphi) = e^{im\varphi}, \qquad m=0,\pm 1,\pm 2, \cdots .
 \end{equation}
 Con esto, \eqref{Hsep} se reduce a
 \begin{equation}
@@ -363,20 +365,20 @@ substitución $r:=e^t$ , $y=U(r)=U(e^t)$, o bien con el Ansatz
 Reemplazando esta solución en la ecuación encontramos la condición
 $l(l+1)=Q$. La solución general de la ecuación para $U(r)$ es entonces
 \begin{equation}
-    R(r) = A\cdot r^{l_1} + B\cdot r^{l_2},\label{loes2}
+    R(r) = A\cdot r^{l_+} + B\cdot r^{l_-},\label{loes2}
 \end{equation}
-donde $A$ y $B$ son constantes arbitrarias y $l_1$ y $l_2$ son las soluciones de la ecuación cuadrática $l^2+l-Q=0$, es decir
+donde $A$ y $B$ son constantes arbitrarias y $l_+$ y $l_-$ son las soluciones de la ecuación cuadrática $l^2+l-Q=0$, es decir
 \begin{equation}
-    l_\pm = \frac{1}{2}\left(-1\pm\sqrt{1+4Q}\right)
+    l_\pm = \frac{1}{2}\left(-1\pm\sqrt{1+4Q}\right).
 \end{equation}
 
-Note que si $Q=-1/4$ entonces $l_+=l_-=-1/2$ y la solución es degenerada. En ese caso la segunda solución independiente es de la forma $R(r) = r^{-1/2}\ln r$. En el caso $Q<-1/4$ la soluciones son de la forma $r^{-1/2}\cos(y\ln r)$ y $r^{-1/2}\sin(y\ln r)$, donde $y=\Im(l_+)=\sqrt{-1-4Q}/2$.
+Note que si $Q>-1/4$ tanto $l_+$ como $l_-$ son reales y distintos. Si $Q=-1/4$ entonces $l_+=l_-=-1/2$ y la solución es degenerada. En ese caso la segunda solución independiente es de la forma $R(r) = r^{-1/2}\ln r$. En el caso $Q<-1/4$ la soluciones son de la forma $r^{-1/2}\cos(y\ln r)$ y $r^{-1/2}\sin(y\ln r)$, donde $y=\Im(l_+)=\sqrt{-1-4Q}/2$.
 
 
 \subsubsection{Caso de simetría axial}
-Si por alguna razón justificada (usualmente, de simetría de la situación física) se busca una \textit{solución axialmente simétrica}, es decir, independiente de la variable $\varphi$, entonces $\Psi=\Psi(r,\theta)$. Desde el punto de vista de la formulación del problema más general (sin simetría) este caso particular requiere que $m=0$, ya que en ese caso las soluciones angulares $\Phi(\varphi)$ son constantes y por tanto la solución no dependerá de $\varphi$. En este caso, la ecuación se reduce a
+Si por alguna razón justificada (usualmente, de simetría de la situación física) se busca una \textit{solución axialmente simétrica}, es decir, independiente de la variable $\varphi$, entonces $\Psi=\Psi(r,\theta)$. Desde el punto de vista de la formulación del problema más general (sin simetría) este caso particular requiere que $m=0$, ya que en ese caso las soluciones angulares $\Phi(\varphi)$ son constantes y por tanto la solución no dependerá de $\varphi$. En este caso, la ecuación \eqref{ecThHelm} se reduce a
 \begin{equation}
     \frac{1}{\sin\theta}\frac{d}{d\theta}\left(\sin\theta\frac{d\Theta}{d\theta}\right)
-    +Q\Theta = 0
+    +Q\Theta(\theta) = 0
 \end{equation}
-que, como veremos a continuación, es equivalente a la EDO de Legendre.
+que, luego de un cambio de variable, es equivalente a la EDO de Legendre \eqref{ecLeg}.

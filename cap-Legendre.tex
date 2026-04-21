@@ -1,14 +1,14 @@
 \chapter{Funciones de Legendre, Asociadas de Legendre y Armónicos Esféricos}
 
-\section{E.D.O. Asociada de Legendre}
-Substituyendo $x:=\cos\theta$ tendremos que la ecuación diferencial \eqref{ecThHelm} para $\Theta(\theta)$ se transforma en 
+\section{EDO Asociada de Legendre}
+Definiendo\footnote{\textbf{Warning!} Esta nueva variable $x$ \underline{\textbf{no es}} la usual coordenada cartesiana $x=r\sin\theta\cos\varphi$.} $x:=\cos\theta$ tendremos que la ecuación diferencial \eqref{ecThHelm} para $\Theta(\theta)$ se transforma en 
 \begin{eqnarray}
 \frac{d}{dx}\left((1-x^2)\frac{dy}{dx}\right) +
 \left[Q-\frac{m^2}{1-x^2}\right]\cdot y(x) = 0, \qquad x\in [-1,1],\label{est22}
 \end{eqnarray}
 de modo que, dada una solución $y(x)$, la solución de \eqref{ecThHelm} es dada por $\Theta(\theta)=y(\cos\theta)$. 
 
-\subsection{E.D.O de Legendre}
+\subsection{EDO de Legendre}
 En el caso $m=0$, la ecuación (\ref{est22}) es llamada \textbf{ecuación
 diferencial de Legendre}:
 \begin{equation}\label{ecLeg}
@@ -16,13 +16,13 @@ diferencial de Legendre}:
 \end{equation}
 
  En la sección \ref{sec:FrobLeg} estudiaremos la solución general de esta ecuación, para valores arbitrarios de la constante $Q$. Ahí verificaremos que 
-\begin{quotation}
-\textbf{Teorema:} La ecuación \eqref{ecLeg} sólo posee soluciones \textit{finitas en los puntos extremos} ($x=\pm 1$) si y sólo si
+\begin{tcolorbox}
+\textbf{Teorema:} La ecuación \eqref{ecLeg} posee soluciones \textit{finitas en los puntos extremos} ($x=\pm 1$) si y sólo si
 \begin{equation}
 Q=n(n+1),\qquad n=0, 1,2, \cdots,
 \end{equation} 
 es decir, sólo si $Q=0,2,6,12,20,30,\dots$. En este caso las soluciones finitas son los \textbf{Polinomios de Legendre} de orden $n$. 
-\end{quotation}
+\end{tcolorbox}
 
 \subsection{Polinomios de Legendre y función generadora}
 Antes de abordar el problema más general, introduciremos los polinomios de Legendre por medio de su \textbf{función generadora}. Para esto, consideramos el siguiente argumento:
@@ -40,25 +40,20 @@ Expandiendo \eqref{PsisolLap} en potencias de $t:=a/r$, para $r>a$, obtenemos
 &= \frac{1}{r}\sum_{n=0}^\infty P_n(x)t^n \\
 &= \frac{1}{a}\sum_{n=0}^\infty P_n(x)t^{n+1}, \label{solPntn+1}
 \end{align}
-donde hemos introducido nuevamente $x:=\cos\theta$. De esta forma, tenemos una solución finita para todo $t<1$ que consiste en una superposición de soluciones separables $P_n(x)$ y $t^{n+1}$. Comparando esta solución con \eqref{loes2} vemos que \eqref{solPntn+1} corresponde al caso particular en que $Q=n(n+1)$. Por lo tanto, esperamos que las funciones $P_n(x)$ satisfagan la ecuación \eqref{ecLeg} en este caso.  
+donde hemos introducido nuevamente $x:=\cos\theta$. De esta forma, tenemos una solución finita para todo $t<1$ que consiste en una superposición de soluciones separables $P_n(x)$ y $t^{n+1}$. Comparando esta solución con \eqref{loes2} vemos que \eqref{solPntn+1} corresponde una suma de soluciones proporcionales a $r^{-(n+1)}$, es a $l=-(n+1)$, que implica a su vez que $Q=l(l+1)=n(n+1)$. Por lo tanto, esperamos que las funciones $P_n(x)$ satisfagan la ecuación \eqref{ecLeg} en este caso.  
 
+\begin{tcolorbox}
 Con esta motivación, podemos definir las funciones de Legendre de orden $n$, $P_n(x)$, como los \textit{coeficientes de la expansión en serie de Taylor de la ``función generadora''}  $g(t,x):=(1-2xt+t^2)^{-1/2}$, tal que
 \begin{equation}
 g(t,x):=\frac{1}{\sqrt{1-2xt+t^2}}=\sum_{n=0}^{\infty}P_{n}(x)t^{n}.
 \end{equation}
+\end{tcolorbox}
 Equivalentemente, tenemos entonces que
 \begin{equation}
 P_n(x)=\frac{1}{n!}\left.\left[\frac{\partial^ng(t,x)}{\partial t^n}\right]\right|_{t=0}.
 \end{equation}
 
-\subsubsection{Expresiones explícitas}
-Los primeros cuatro polinomios son
- \begin{align*}
-  P_0(x) &= 1, &P_1(x) &= x,\\
-  P_2(x) &= \frac 12(3x^2-1), &P_3(x) &= \frac 12(5x^3-3x),\\
-  P_4(x) &= \frac{35 x^{4}}{8} - \frac{15 x^{2}}{4} + \frac{3}{8}, \qquad 
-  &P_5(x) &= \frac{63 x^{5}}{8} - \frac{35 x^{3}}{4} + \frac{15 x}{8}.
- \end{align*}
+
  
 \subsubsection{Serie de potencias}
 Podemos encontrar una primera expresión para las funciones $P_n(x)$ en términos de una serie de potencias. Para esto, podemos expandir la función generadora en una serie, usando
@@ -68,7 +63,7 @@ Podemos encontrar una primera expresión para las funciones $P_n(x)$ en término
 con la identificación $x\rightarrow 2xt-t^2$, de modo que
 \begin{align}
 g(t,x) &= \sum_{n=0}^\infty\frac{(2n)!}{2^{2n}(n!)^2}(2xt-t^2)^n \\
-&= \sum_{n=0}^\infty\frac{(2n)!}{2^{2n}(n!)^2}t^n(2x-t)^n \\.
+&= \sum_{n=0}^\infty\frac{(2n)!}{2^{2n}(n!)^2}t^n(2x-t)^n .\\
 \end{align}
 Empleamos ahora la expansión binomial,
 \begin{equation}
@@ -89,6 +84,15 @@ y por lo tanto
 P_n(x)= \sum_{k=0}^{[n/2]}\frac{(-1)^{k}(2n-2k)!}{2^nk!(n-k)!(n-2k)!}x^{n-2k}.
 \end{equation}
 
+\subsubsection{Expresiones explícitas}
+Los primeros seis polinomios de Legendre son:
+ \begin{align*}
+  P_0(x) &= 1, &P_1(x) &= x,\\
+  P_2(x) &= \frac 12(3x^2-1), &P_3(x) &= \frac 12(5x^3-3x),\\
+  P_4(x) &= \frac{35 x^{4}}{8} - \frac{15 x^{2}}{4} + \frac{3}{8}, \qquad 
+  &P_5(x) &= \frac{63 x^{5}}{8} - \frac{35 x^{3}}{4} + \frac{15 x}{8}.
+ \end{align*}
+ 
 \subsubsection{Propiedades}
 Los polinomios de Legendre satisfacen las siguientes propiedades:
 \begin{itemize}
@@ -103,7 +107,7 @@ asumen siempre el valor $1$.
 P_n(-x) = (-1)^n P_n(x).
 \end{equation}
 Los polinomios $P_n$ son funciones simétricas si $n$ es par y antisimétricas
-si $n$ es impar
+si $n$ es impar.
 
 \item Valor en el origen:
 \begin{equation}\label{Pn0}
@@ -200,7 +204,7 @@ En particular, usando \eqref{Pn0} encontramos
 
 \subsection{Solución en serie de Potencias (Método de Frobenius)}\label{sec:FrobLeg}
 
-Primero escribimos la E.D.O. de Legendre \eqref{ecLeg} en su forma estandar:
+Primero escribimos la EDO de Legendre \eqref{ecLeg} en su forma estandar:
 \begin{equation}
 \label{eqn_legendre_eqn}
 \left( 1 - x^2 \right) y'' - 2 x y' + Q y = 0,
@@ -371,7 +375,7 @@ A partir de las definiciones \eqref{Q_n} es posible verificar la siguiente impor
 \textit{Las funciones de Legendre de segunda especie satisfacen las mismas relaciones de recurrencia que los polinomios de Legendre}.
 \end{quote} 
 
-Como consecuencia, \textit{todas} las relaciones de recurrencia que derivamos para los polinomios de Legendre son válidas para las correspondientes funciones de segunda especie. Podemos verificar nuevamente a partir de estas identidades que cada $Q_n(x)$ satisface la E.D.O. de Legendre.
+Como consecuencia, \textit{todas} las relaciones de recurrencia que derivamos para los polinomios de Legendre son válidas para las correspondientes funciones de segunda especie. Podemos verificar nuevamente a partir de estas identidades que cada $Q_n(x)$ satisface la EDO de Legendre.
 
 En particular, se demostrarán las siguientes relaciones (a partir de las cuales pueden derivarse todas las otras):
 \begin{gather}
@@ -728,12 +732,21 @@ Es decir, existen $2n+1$ valores permitidos de $m$ para cada $n=0,1,2,\cdots$.
 
 \subsection{Expresiones explícitas}
 \begin{align}
-P_1^1(x) &= (1-x^2)^{1/2}, \\
-P_2^1(x) &= 3x(1-x^2)^{1/2}, \\
-P_2^2(x) &= 3(1-x^2), \\
-P_3^1(x) &= \frac{3}{2}(1-x^2)^{1/2}(5x^2-1), \\
-P_3^2(x) &= 15(1-x^2)x, \\
-P_3^3(x) &= 15(1-x^2)^{3/2}. \\
+P_1^{-1}(x) &= \frac{1}{2}\sqrt{1-x^2}, \\
+P_1^0(x) &= x, \\
+P_1^1(x) &= -\sqrt{1-x^2}, \\
+P_2^{-2}(x) &= \frac{1}{8}(1-x^2),\\
+P_2^{-1}(x) &= \frac{1}{2}x\sqrt{1-x^2},\\
+P_2^0(x) &= \frac{1}{2}(3x^2-1),\\
+P_2^1(x) &= -3x\sqrt{1-x^2},\\
+P_2^2(x) &= 3(1-x^2),\\
+P_3^{-3}(x) &= \frac{1}{48}(1-x^2)^{3/2},\\
+P_3^{-2}(x) &= \frac{1}{8}x(1-x^2),\\
+P_3^{-1}(x) &= \frac{1}{8}(5x^2-1)\sqrt{1-x^2},\\
+P_3^0(x) &= \frac{1}{2}(5x^3-3x),\\
+P_3^1(x) &= -\frac{3}{2}(5x^2-1)\sqrt{1-x^2},\\
+P_3^2(x) &= 15x(1-x^2),\\
+P_3^3(x) &= -15(1-x^2)^{3/2}.
 \end{align}
 
 \begin{figure}[H]
