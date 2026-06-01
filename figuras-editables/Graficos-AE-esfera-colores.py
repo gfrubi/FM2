@@ -33,6 +33,7 @@ for n in range(nmax+1):
         ax.set_xlim(-1,1)
         ax.set_ylim(-1,1)
         ax.set_zlim(-1,1)
+        ax.set_box_aspect((1, 1, 1))
 plt.subplots_adjust(wspace=0, hspace=0)
 fig.tight_layout()
 #fig.show()
