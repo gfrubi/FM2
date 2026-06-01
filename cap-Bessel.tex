@@ -85,7 +85,7 @@ y(z)=c_1J_\nu(z)+c_2J_{-\nu}(z).
 \end{equation}
 Por razones históricas y de conveniencia futura se definen adicionalmente las \textbf{funciones de Bessel de segunda especie} de orden $\nu$, $Y_\nu(z)$ (también llamadas \textbf{funciones de Neumann} y denotadas por $Y_\nu(z)$), por
 \begin{equation}
-Y_\nu(z)=N_\nu(z):=\frac{\cos(\pi\nu)J_\nu(z)-J_{-\nu}(z)}{\sen(\pi\nu)}.
+Y_\nu(z)=N_\nu(z):=\frac{\cos(\pi\nu)J_\nu(z)-J_{-\nu}(z)}{\sin(\pi\nu)}.
 \end{equation}
 Entonces la solución general de \eqref{Besselec1} puede expresarse como una combinación lineal de la función de Bessel y de Neumann correspondiente:
 \begin{equation}
@@ -116,7 +116,7 @@ y(z)&=&z^{-1/2}\left(\sum_{k=0}^{+\infty}a_{2k}z^{2k}+\sum_{k=0}^{+\infty}a_{2k+
 
 Por lo tanto, la solución general de la E.D.O. de Bessel con $\nu^2=1/4$ es de la forma
 \begin{equation}
-\boxed{y(z)= z^{-1/2}\left(a_0\cos(z)+a_1\sen(z) \right).}
+\boxed{y(z)= z^{-1/2}\left(a_0\cos(z)+a_1\sin(z) \right).}
 \end{equation}
 
 Podemos verificar que estas soluciones no son independientes, sino que combinaciones lineales de $J_{1/2}(z)$ y $J_{-1/2}(z)$, ya que
@@ -127,7 +127,7 @@ J_{1/2}(z) &= \sum_{k=0}^\infty\frac{(-1)^k}{k!\Gamma(k+1/2+1)}
 \left(\frac{z}{2}\right)^{2k+1/2} \\
 &= \left(\frac{2}{\pi z}\right)^{1/2} \sum_{k=0}^\infty \frac{(-1)^k}
 {(2k+1)!} z^{2k+1} \\
-&= \left(\frac{2}{\pi z}\right)^{1/2} \sen z. \label{J1/2}
+&= \left(\frac{2}{\pi z}\right)^{1/2} \sin z. \label{J1/2}
 \end{align}
 Aquí hemos usado
 \begin{align}
@@ -264,7 +264,7 @@ Sustituyendo \eqref{intCG2} en \eqref{exttsum} llegamos directamente al resultad
 
 A partir de \eqref{RIJnu} podemos encotrar la expresión alternativa:
 \begin{equation}
-\boxed{J_\nu(x)=\frac{1}{\pi}\int_0^\pi\cos(\nu\theta-x\sen\theta)d\theta-\frac{\sen(\nu\pi)}{\pi}\int_0^\infty e^{-\nu t-x\senh t}dt.}
+\boxed{J_\nu(x)=\frac{1}{\pi}\int_0^\pi\cos(\nu\theta-x\sin\theta)d\theta-\frac{\sin(\nu\pi)}{\pi}\int_0^\infty e^{-\nu t-x\sinh t}dt.}
 \end{equation}
 
 \subsection{Forma asintótica}
@@ -412,41 +412,41 @@ Por lo tanto, obtenemos:
 \subsection{Representación integral}
 Substituyendo $t=e^{i\theta}$ en \eqref{gtzJ} encontramos,
 \begin{equation}\label{gteth}
-\boxed{g(t,e^{i\theta})=e^{iz\sen\theta}=\sum_{n = -\infty}^\infty J_n(z) e^{in\theta}.}
+\boxed{g(t,e^{i\theta})=e^{iz\sin\theta}=\sum_{n = -\infty}^\infty J_n(z) e^{in\theta}.}
 \end{equation}
-Esto significa que las \textit{funciones de Bessel son los coeficientes de la expansión en serie de Fourier de la función} $e^{iz\sen\theta}$. Por lo tanto,
+Esto significa que las \textit{funciones de Bessel son los coeficientes de la expansión en serie de Fourier de la función} $e^{iz\sin\theta}$. Por lo tanto,
 \begin{equation}
-\boxed{J_n(z)=\frac{1}{2\pi}\int_0^{2\pi}e^{iz\sen\theta}e^{-in\theta}\,d\theta.}
+\boxed{J_n(z)=\frac{1}{2\pi}\int_0^{2\pi}e^{iz\sin\theta}e^{-in\theta}\,d\theta.}
 \end{equation}
 Equivalentemente, ya que el integrando es periódico de periodo $2\pi$, podemos desplazar el intervalo de integración a $[-\pi,\pi]$, y escribir
 \begin{equation}
-J_n(z)=\frac{1}{2\pi}\int_{-\pi}^{\pi}e^{i(z\sen\theta-n\theta)}\,d\theta.
+J_n(z)=\frac{1}{2\pi}\int_{-\pi}^{\pi}e^{i(z\sin\theta-n\theta)}\,d\theta.
 \end{equation}
-Como $e^{i(z\sen\theta-n\theta)}=\cos(z\sen\theta-n\theta)+i\sen(z\sen\theta-n\theta)$, vemos que el integrando se divide en una contribución par y otra impar en $\theta$. Por lo tanto,
+Como $e^{i(z\sin\theta-n\theta)}=\cos(z\sin\theta-n\theta)+i\sin(z\sin\theta-n\theta)$, vemos que el integrando se divide en una contribución par y otra impar en $\theta$. Por lo tanto,
 \begin{equation}
-\boxed{J_n(z)=\frac{1}{\pi}\int_0^{\pi}\cos(z\sen\theta-n\theta)\,d\theta.}
+\boxed{J_n(z)=\frac{1}{\pi}\int_0^{\pi}\cos(z\sin\theta-n\theta)\,d\theta.}
 \end{equation}
 En particular,
 \begin{equation}
-\boxed{J_0(z)=\frac{1}{2\pi}\int_{-\pi}^{\pi}e^{iz\sen\theta}\,d\theta=\frac{1}{\pi}\int_0^{\pi}\cos(z\sen\theta)\,d\theta.}
+\boxed{J_0(z)=\frac{1}{2\pi}\int_{-\pi}^{\pi}e^{iz\sin\theta}\,d\theta=\frac{1}{\pi}\int_0^{\pi}\cos(z\sin\theta)\,d\theta.}
 \end{equation}
 
 \subsection{Sumatorias de funciones de Bessel}
 
 Adicionalmente, de la relación \eqref{gteth} podemos escribir,
 \begin{align}
-e^{iz\sen\theta} &= J_0(z)+\sum_{n=1}^\infty\left(J_n(z) e^{in\theta}+J_{-n}(z) e^{-in\theta}\right) \\
+e^{iz\sin\theta} &= J_0(z)+\sum_{n=1}^\infty\left(J_n(z) e^{in\theta}+J_{-n}(z) e^{-in\theta}\right) \\
 &=  J_0(z)+\sum_{n=1}^\infty\left(J_n(z) e^{in\theta}+(-1)^nJ_{n}(z) e^{-in\theta}\right) \\
 &=  J_0(z)+\sum_{\substack{n=1 \\ n \text{ impar}}}^\infty J_n(z)\left(e^{in\theta}-e^{-in\theta}\right)+\sum_{\substack{n=2 \\ n \text{ par}}}^\infty J_n(z)\left(e^{in\theta}+e^{-in\theta}\right) \\
-&=  J_0(z)+2i\sum_{\substack{n=1 \\ n \text{ impar}}}^\infty J_n(z)\sen(n\theta) +2\sum_{\substack{n=2 \\ n \text{ par}}}^\infty J_n(z)\cos(n\theta) \\
-&=  J_0(z)+2i\sum_{n=1}^\infty J_{2n-1}(z)\sen[(2n-1)\theta] +2\sum_{n=1}^\infty J_{2n}(z)\cos(2n\theta).
+&=  J_0(z)+2i\sum_{\substack{n=1 \\ n \text{ impar}}}^\infty J_n(z)\sin(n\theta) +2\sum_{\substack{n=2 \\ n \text{ par}}}^\infty J_n(z)\cos(n\theta) \\
+&=  J_0(z)+2i\sum_{n=1}^\infty J_{2n-1}(z)\sin[(2n-1)\theta] +2\sum_{n=1}^\infty J_{2n}(z)\cos(2n\theta).
 \end{align}
 Si el argumento de las funciones es real ($z=x$) entonces, igualando la parte real e imaginaria de ambos lados de la igualdad, obtenemos
 \begin{equation}
-\boxed{\cos(x\sen\theta)=J_0(x)+2\sum_{n=1}^\infty J_{2n}(x)\cos(2n\theta),}
+\boxed{\cos(x\sin\theta)=J_0(x)+2\sum_{n=1}^\infty J_{2n}(x)\cos(2n\theta),}
 \end{equation}
 \begin{equation}
-\boxed{\sen(x\sen\theta)=2\sum_{n=1}^\infty J_{2n-1}(x)\sen[(2n-1)\theta].}
+\boxed{\sin(x\sin\theta)=2\sum_{n=1}^\infty J_{2n-1}(x)\sin[(2n-1)\theta].}
 \end{equation}
 
 En particular, si $\theta=0$, obtenemos la relación
@@ -462,19 +462,19 @@ Podemos encontrar las otras funciones de Bessel de orden semi-entero usando las 
     J_{3/2}(z)
     &= \frac{(1/2)}{z} J_{1/2}(z) - J_{1/2}'(z) 
     \\
-    &= \frac{1}{2z} \left( \frac{2}{\pi} \right)^{1/2} z^{-1/2} \sen z
+    &= \frac{1}{2z} \left( \frac{2}{\pi} \right)^{1/2} z^{-1/2} \sin z
     - \left(-\frac{1}{2}\right) \left(\frac{2}{\pi}\right)^{1/2}
-    z^{-3/2} \sen z - \left(\frac{2}{\pi}\right)^{1/2} z^{-1/2}
+    z^{-3/2} \sin z - \left(\frac{2}{\pi}\right)^{1/2} z^{-1/2}
     \cos z 
     \\
-    &= 2^{-1/2} \pi^{-1/2} z^{-3/2} \sen z
-    + 2^{-1/2} \pi^{-1/2} z^{-3/2} \sen z
+    &= 2^{-1/2} \pi^{-1/2} z^{-3/2} \sin z
+    + 2^{-1/2} \pi^{-1/2} z^{-3/2} \sin z
     - 2^{-1/2} \pi^{-1/2} \cos z 
     \\
-    &= \left(\frac{2}{\pi}\right)^{1/2} z^{-3/2} \sen z
+    &= \left(\frac{2}{\pi}\right)^{1/2} z^{-3/2} \sin z
     - \left(\frac{2}{\pi}\right)^{1/2} z^{-1/2} \cos z 
     \\
-    &= \left(\frac{2}{\pi}\right)^{1/2} \left( z^{-3/2} \sen z
+    &= \left(\frac{2}{\pi}\right)^{1/2} \left( z^{-3/2} \sin z
       - z^{-1/2} \cos z \right).
   \end{align}
 
@@ -483,16 +483,16 @@ Podemos encontrar las otras funciones de Bessel de orden semi-entero usando las 
 \section{Funciones de Bessel de segunda especie}\label{sec:FB2E}
 Como hemos ya discutido en la sección \ref{secsolBess}, cuando $\nu$ no es un entero, las funciones de Bessel de segunda especie, también llamadas funciones de Neumann $Y_\nu(z)$ (ó $N_\nu(z)$), definidas por
 \begin{equation}\label{defNnu}
-Y_\nu (z):=  \frac{J_\nu(z) \cos(\nu \pi) - J_{-\nu}(z)}{\sen(\nu \pi)} , \qquad \nu\neq n=0, \pm 1, \pm, 2, \cdots,
+Y_\nu (z):=  \frac{J_\nu(z) \cos(\nu \pi) - J_{-\nu}(z)}{\sin(\nu \pi)} , \qquad \nu\neq n=0, \pm 1, \pm, 2, \cdots,
 \end{equation}
 son soluciones linealmente independientes de $J_\nu(z)$ de la ecuación de Bessel. Esta combinación lineal particular es útil puesto que, entre otras cosas, suministra una expresión complementaria a las funciones $J_\nu(z)$ en lo que respecta a su forma asintótica. En efecto, a partir de \eqref{asinJnu} encontramos que
 \begin{equation}\label{asinNnu}
-\boxed{Y_\nu(x)\approx \sqrt{\frac{2}{\pi x}}\sen\left(x-\frac{\nu\pi}{2}-\frac{\pi}{4}\right), 
+\boxed{Y_\nu(x)\approx \sqrt{\frac{2}{\pi x}}\sin\left(x-\frac{\nu\pi}{2}-\frac{\pi}{4}\right), 
 \qquad x\gg\left|\nu^2-\frac{1}{4}\right|.}
 \end{equation}
 Además, puede usarse la misma expresión \eqref{defNnu} en el caso en que $\nu$ es entero ($\nu=n$). Sabemos que en este caso, $J_{-n}(z)$ no es linealmente independiente de $J_{-n}(z)$ ya que se cumple \eqref{J-nJn}. No obstante, podemos usar \eqref{defNnu} para encontrar la segunda solución linealmente independiente, $Y_n(z)$, \textit{como el límite de \eqref{defNnu} cuando el parámetro $\nu$ se acerca al entero $n$}, es decir,
 \begin{equation}\label{Nnlim}
-Y_n(z):=  \lim_{\nu\to n}\frac{J_\nu(z) \cos(\nu \pi) - J_{-\nu}(z)}{\sen(\nu \pi)} , \qquad n=0, \pm 1, \pm, 2, \cdots .
+Y_n(z):=  \lim_{\nu\to n}\frac{J_\nu(z) \cos(\nu \pi) - J_{-\nu}(z)}{\sin(\nu \pi)} , \qquad n=0, \pm 1, \pm, 2, \cdots .
 \end{equation}
 Note que los coeficientes de la combinación lineal \eqref{defNnu} son tales que el límite es no trivial, ya que tanto el numerador como el denominador tienden a cero cuando $\nu$ tiende a $n$. Por esto, usando la regla de L'H\^opital, encontramos que
 \begin{equation}\label{Nnder}
@@ -504,7 +504,7 @@ Puede verificarse (hágalo!) que la función definida por \eqref{Nnder}, efectiv
 \end{equation}
 Por otro lado, de la expansión \eqref{J-nu} obtenemos que cerca de $z=0$, y para $\nu>0$,
 \begin{equation}
-Y_\nu(z)\approx -\frac{1}{\sen(\nu\pi)}\frac{1}{\Gamma(1-\nu)}\left(\frac{2}{z}\right)^\nu=-\frac{1}{\pi}\Gamma{(\nu)}\left(\frac{2}{z}\right)^\nu.
+Y_\nu(z)\approx -\frac{1}{\sin(\nu\pi)}\frac{1}{\Gamma(1-\nu)}\left(\frac{2}{z}\right)^\nu=-\frac{1}{\pi}\Gamma{(\nu)}\left(\frac{2}{z}\right)^\nu.
 \end{equation}
 Aquí hemos usamos la identidad \eqref{GzG1-z}. Por lo tanto, para $\nu\to n$, obtenemos
 \begin{equation}
@@ -521,9 +521,9 @@ donde $\gamma=-\Psi_0(1)$ es la constante de Euler-Mascheroni, $\gamma=0.5772\cd
 
 \subsection{Representación integral}
 \begin{equation}
-Y_n(x) =\frac{1}{\pi} \int_0^\pi \sen(x \sen\theta - n\theta) \, d\theta
+Y_n(x) =\frac{1}{\pi} \int_0^\pi \sin(x \sin\theta - n\theta) \, d\theta
 - \frac{1}{\pi} \int_0^\infty\left[ e^{n t} + (-1)^n e^{-n t} \right]
- e^{-x \senh t} \, dt.
+ e^{-x \sinh t} \, dt.
 \end{equation}
 
 
@@ -619,7 +619,7 @@ I_{\nu-1}(x)-I_{\nu+1}(x)=\frac{2\nu}{x}I_\nu(x).
 \subsection{Funciones Modificadas de Bessel de segunda especie}
 En analogía con lo visto en la sección \ref{sec:FB2E}, es conveniente introducir las funciones de segunda especie, ahora denotadas por $K_\nu(x)$, y definidas de la forma siguiente:
 \begin{equation}\label{defKnu}
-K_\nu(x) := \frac{\pi}{2}\left[\frac{I_{-\nu}(x)-I_\nu(x)}{\sen(\nu\pi)}\right], \qquad \nu\neq n=0,\pm 1,\pm 2, \cdots.
+K_\nu(x) := \frac{\pi}{2}\left[\frac{I_{-\nu}(x)-I_\nu(x)}{\sin(\nu\pi)}\right], \qquad \nu\neq n=0,\pm 1,\pm 2, \cdots.
 \end{equation}
 Note que como consecuencia de esta definición $K_{-\nu}(x)=K_\nu(x)$, por lo que es suficiente considerar $\nu\ge 0$.
 Con estas definiciones, $I_\nu$ y $K_\nu$ son l.i. para todo $\nu$, y su forma asintótica es nuevamente ``complementaria'' ya que
@@ -629,7 +629,7 @@ K_\nu(x) \approx \sqrt{\frac{\pi}{2x}} e^{-x}.
 
 En el caso de $\nu$ entero, la definición se realiza como el límite $\nu\to n$, es decir,
 \begin{equation}
-K_n(x) := \lim_{\nu\to n}\frac{\pi}{2}\left[\frac{I_{-\nu}(x)-I_\nu(x)}{\sen(\nu\pi)}\right], \qquad  n=0,1,2, \cdots.
+K_n(x) := \lim_{\nu\to n}\frac{\pi}{2}\left[\frac{I_{-\nu}(x)-I_\nu(x)}{\sin(\nu\pi)}\right], \qquad  n=0,1,2, \cdots.
 \end{equation}
 Usando nuevamente la regla de L'H\^opital, podemos escribir
 \begin{equation}\label{Knder}
@@ -670,7 +670,7 @@ y_{n}(x) := \sqrt{\frac{\pi}{2x}} Y_{n+1/2}(x) = (-1)^{n+1} \sqrt{\frac{\pi}{2x}
 \end{equation}
 El factor $\sqrt{\pi/2}$ es incluido por conveniencia, ya que entonces (ver \eqref{J1/2} y \eqref{J-1/2}) las primeras funciones resultan ser simples:
 \begin{equation}\label{j0n0}
-j_0(x) = \frac{\sen x}{x}, \qquad y_0(x)=-\,\frac{\cos x} {x}.
+j_0(x) = \frac{\sin x}{x}, \qquad y_0(x)=-\,\frac{\cos x} {x}.
 \end{equation}
 Podemos encontrar una expresión en serie simple a partir\footnote{y usando la ``fórmula de duplicación de Legendre'', ver por ejemplo ec. (10.66b) de \cite{Arfken}: $\Gamma(z+1)\Gamma(z+1/2)\equiv 2^{-2z}\pi^{1/2}\Gamma(2z+1)$, con $z=k+n+1/2$.} de \eqref{Besselnu},
 \begin{align}
@@ -722,24 +722,24 @@ y_n(x) = (-x)^n \left(\frac{1}{x}\frac{d}{dx}\right)^n\,y_0(x).
 
 De este modo, usando \eqref{j0n0} encontramos las siguientes útiles expresiones:
 \begin{equation}
-\boxed{j_n(x) = (-x)^n \left(\frac{1}{x}\frac{d}{dx}\right)^n\,\frac{\sen x}{x},}
+\boxed{j_n(x) = (-x)^n \left(\frac{1}{x}\frac{d}{dx}\right)^n\,\frac{\sin x}{x},}
 \end{equation}
 \begin{equation}
 \boxed{y_n(x) = -(-x)^n \left(\frac{1}{x}\frac{d}{dx}\right)^n\,\frac{\cos x}{x}.}
 \end{equation}
 Con ellas podemos calcular explícitamente las funciones que necesitemos. Por ejemplo:
 \begin{align}
-j_0(x) &= \frac{\sen x}{x}, \\
-j_1(x) &= \frac{\sen x} {x^2}- \frac{\cos x} {x}, \\
-j_2(x) &= \left(\frac{3} {x^2} - 1 \right)\frac{\sen x}{x} - \frac{3\cos x} {x^2}, \\
-j_3(x) &= \left(\frac{15}{x^3} - \frac{6}{x} \right)\frac{\sen x}{x} -\left(\frac{15}{x^2} - 1\right) \frac{\cos x} {x},
+j_0(x) &= \frac{\sin x}{x}, \\
+j_1(x) &= \frac{\sin x} {x^2}- \frac{\cos x} {x}, \\
+j_2(x) &= \left(\frac{3} {x^2} - 1 \right)\frac{\sin x}{x} - \frac{3\cos x} {x^2}, \\
+j_3(x) &= \left(\frac{15}{x^3} - \frac{6}{x} \right)\frac{\sin x}{x} -\left(\frac{15}{x^2} - 1\right) \frac{\cos x} {x},
 \end{align}
 \begin{align}
 y_0(x) &= -j_{-1}(x)=-\,\frac{\cos x} {x} ,\\
-y_1(x) &= j_{-2}(x)=-\,\frac{\cos x} {x^2}- \frac{\sen x} {x}, \\
-y_2(x) &=-j_{-3}(x)=\left(-\,\frac{3}{x^2}+1 \right)\frac{\cos x}{x}- \frac{3 \sen x} {x^2}, \\
+y_1(x) &= j_{-2}(x)=-\,\frac{\cos x} {x^2}- \frac{\sin x} {x}, \\
+y_2(x) &=-j_{-3}(x)=\left(-\,\frac{3}{x^2}+1 \right)\frac{\cos x}{x}- \frac{3 \sin x} {x^2}, \\
 y_{3}(x) &= j_{-4}(x) =\left( -\frac{15}{x^{3}}+\frac{6}{x}\right) \frac{\cos
-x}{x}-\left( \frac{15}{x^{2}}-1\right) \frac{\sen x}{x}.
+x}{x}-\left( \frac{15}{x^{2}}-1\right) \frac{\sin x}{x}.
 \end{align}
 \begin{figure}[H]
 \centering
@@ -782,7 +782,7 @@ y_n(x) &\approx -\frac{(2n)!}{2^nn!}\frac{1}{x^{n+1}}.
 \end{align}
 Para $x\gg n(n+1)$,
 \begin{align}
-j_n(x) &\approx \frac{1}{x}\sen\left(x-\frac{n\pi}{2}\right), \\
+j_n(x) &\approx \frac{1}{x}\sin\left(x-\frac{n\pi}{2}\right), \\
 y_n(x) &\approx -\frac{1}{x}\cos\left(x-\frac{n\pi}{2}\right), \\
 h^{(1)}_n(x) &\approx -\frac{i}{x}e^{i(x-{n\pi}/{2})}=(-i)^{n+1}\frac{e^{ix}}{x}, \\
 h^{(2)}_n(x) &\approx \frac{i}{x}e^{-i(x-{n\pi}/{2})}=(i)^{n+1}\frac{e^{-ix}}{x}.
@@ -824,15 +824,15 @@ i_n(x)\approx \frac{e^x}{2x}, \qquad k_n(x)\approx \frac{-e^x}{x}, \qquad x\gg \
 
 \subsubsection{Expresiones explícitas}
 \begin{equation}
-i_n(x)=x^n\left(\frac{1}{x}\frac{d\ }{dx}\right)^n\frac{\senh x}{x}, \qquad 
+i_n(x)=x^n\left(\frac{1}{x}\frac{d\ }{dx}\right)^n\frac{\sinh x}{x}, \qquad 
 k_n(x)=(-1)^nx^n\left(\frac{1}{x}\frac{d\ }{dx}\right)^n\frac{e^{-x}}{x},
 \end{equation}
 \begin{align}
-i_0(x) &= \frac{\senh (x)}{x}, \\
-i_1(x) &= \frac{\senh (x)}{x}-\cosh (x), \\
-i_2(x) &=\frac{\cosh (x)}{x}-\frac{\senh (x) }{{x}^{2}}, \\
-i_3(x) &= \frac{\senh (x)}{x}+\frac{3\,\senh (x) }{{x}^{3}}-\frac{3\,\cosh (x) }{{x}^{2}}, \\
-i_4(x) &= -\frac{6\,\senh (x) }{{x}^{2}}-\frac{15\,\senh (x) }{{x}^{4}}+\frac{\cosh (x) }{x}+\frac{15\,\cosh (x) }{{x}^{3}},
+i_0(x) &= \frac{\sinh (x)}{x}, \\
+i_1(x) &= \frac{\sinh (x)}{x}-\cosh (x), \\
+i_2(x) &=\frac{\cosh (x)}{x}-\frac{\sinh (x) }{{x}^{2}}, \\
+i_3(x) &= \frac{\sinh (x)}{x}+\frac{3\,\sinh (x) }{{x}^{3}}-\frac{3\,\cosh (x) }{{x}^{2}}, \\
+i_4(x) &= -\frac{6\,\sinh (x) }{{x}^{2}}-\frac{15\,\sinh (x) }{{x}^{4}}+\frac{\cosh (x) }{x}+\frac{15\,\cosh (x) }{{x}^{3}},
 \end{align}
 \begin{align}
 k_0(x) &= \frac{{e}^{-x}}{x} , \\

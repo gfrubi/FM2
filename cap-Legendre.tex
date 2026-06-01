@@ -126,25 +126,25 @@ completo de funciones definidas en $[-1,1]$.
 P_{n}(x)=\frac{1}{2^{n}n!}\frac{d^{n}}{dx^{n}}(x^2-1)^{n}
 \end{equation}
 
-Demostración:
-
-Usando:
+\begin{scriptsize}
+\paragraph{Demostración:}
+Si usamos la relación
 \begin{equation}
-    x^{l-2k} = \frac{(l-2k)!}{(2l-2k)!} \frac{d^l}{dx^l} (x^{2l-2k})
+    x^{l-2k} = \frac{(l-2k)!}{(2l-2k)!} \frac{d^l}{dx^l} (x^{2l-2k}),
 \end{equation}
-
+en la expresión \eqref{seriePn}, tenemos que
 \begin{align}
     P_n(x) &= \sum_{k=0}^{[n/2]} \frac{(-1)^k (2n-2k)!}{2^n k! (n-k)! (n-2k)!} \cdot \frac{(n-2k)!}{(2n-2k)!} \frac{d^n}{dx^n} (x^{2n-2k}) \\
-	&= \frac{1}{2^n} \frac{d^n}{dx^n} \left( \sum_{k=0}^{[n/2]} \frac{(-1)^k}{k! (n-k)!} x^{2(n-k)} \right)
+	&= \frac{1}{2^n} \frac{d^n}{dx^n} \left( \sum_{k=0}^{[n/2]} \frac{(-1)^k}{k! (n-k)!} x^{2(n-k)} \right),
 \end{align}
-donde $n-k = n, n-1, \dots, n-[n/2]$. Haciendo $m = n-k$:
+donde $n-k = n, n-1, \cdots, n-[n/2]$. Haciendo $m = n-k$, podemos escribir
 \begin{align}
     P_n(x) &= \frac{1}{2^n} \frac{d^n}{dx^n} \left( \sum_{m=n-[n/2]}^{n} \frac{(-1)^{n-m}}{(n-m)! m!} (x^2)^m \right) \\
     &= \frac{(-1)^n}{n! 2^n} \frac{d^n}{dx^n} \left( \sum_{m=0}^{n} \frac{l!}{m! (l-m)!} (-x^2)^m \right) \\
-    &= \frac{(-1)^n}{l! 2^n} \frac{d^n}{dx^n} (1-x^2)^n
+    &= \frac{(-1)^n}{l! 2^n} \frac{d^n}{dx^n} (1-x^2)^n.
 \end{align}
-
-Note que agregamos $\sum_{m=0}^{n-[n/2]-1} (-1)^{n-m} x^{2m}$ que se anula por las derivadas ${d^n}/{dx^n}$.
+Note que agregamos $\sum_{m=0}^{n-[n/2]-1} (-1)^{n-m} x^{2m}$ que se anula por las derivadas ${d^n}/{dx^n}$. $\blacksquare$
+\end{scriptsize}
 
 \item \textbf{Relaciones de recurrencia}:
 \begin{equation}\label{xPn}
@@ -912,6 +912,7 @@ es también solución de \eqref{est22}, pero con $m+1$ en lugar de $m$.
 \end{tcolorbox}
 Este resultado permite entonces generar nuevas soluciones, con distintos valores de $m$, a partir de una solución conocida, y en particular a partir de $P_n^0$ que definimos como los polinomios de Legendre, $P_n^0(x):=P_n(x)$. 
 
+\begin{scriptsize}
 \paragraph{Demostración:}
 
 Por hipótesis, la función $y(x) = P_Q^m(x)$ satisface la ecuación diferencial asociada de Legendre de orden $m$:
@@ -970,7 +971,8 @@ Reemplazando \eqref{mp1sqrt} en \eqref{ddx1mx2up} obtenemos, luego de simplifica
 \begin{equation}
     \frac{d}{dx}\left((1-x^2)u'\right) = - \left[Q-\frac{(m+1)^2}{1-x^2}\right]u,
 \end{equation}
-que es equivalente a \eqref{eq:objetivo}. QED.
+que es equivalente a \eqref{eq:objetivo}. $\blacksquare$
+\end{scriptsize}
 
 \subsection{Definición de las funciones asociadas de Legendre}
 \begin{tcolorbox}
