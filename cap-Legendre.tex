@@ -905,15 +905,80 @@ Q_n(0)=
 Podemos construir soluciones para la ecuación \eqref{est22} a partir del siguiente teorema:
 \begin{tcolorbox}
 Si $P_Q^m(x)$ es una solución de \eqref{est22} para un valor de $Q$ y $m$ datos, entonces 
-\begin{equation}
+\begin{equation}\label{defux}
 u(x):=(1-x^2)^{(m+1)/2}\frac{d\ }{dx}\left[(1-x^2)^{-m/2}P_Q^m(x)\right]
 \end{equation}
 es también solución de \eqref{est22}, pero con $m+1$ en lugar de $m$.
 \end{tcolorbox}
-Este resultado permite entonces generar nuevas soluciones, con distintos valores de $m$, a partir de una solución conocida, y en particular a partir de $P_n^0$ que definimos como los polinomios de Legendre, $P_n^0(x):=P_n(x)$. A partir de esto, podemos definir las funciones asociadas de Legendre $P_n^m$ tales que
-\begin{equation}\label{Pnm+1}
-P_n^{m+1}(x)=(1-x^2)^{(m+1)/2}\frac{d\ }{dx}\left[(1-x^2)^{-m/2}P_n^m(x)\right]
+Este resultado permite entonces generar nuevas soluciones, con distintos valores de $m$, a partir de una solución conocida, y en particular a partir de $P_n^0$ que definimos como los polinomios de Legendre, $P_n^0(x):=P_n(x)$. 
+
+\paragraph{Demostración:}
+
+Por hipótesis, la función $y(x) = P_Q^m(x)$ satisface la ecuación diferencial asociada de Legendre de orden $m$:
+\begin{equation}
+    \frac{d}{dx}\left((1-x^2)y'\right) + \left[Q-\frac{m^2}{1-x^2}\right]y = 0 .\label{eq:legendre_m}
 \end{equation}
+
+Expandiendo la derivada, podemos despejar el término $(1-x^2)y''$, obteniendo:
+\begin{equation}
+    (1-x^2)y'' = 2xy' - \left[Q-\frac{m^2}{1-x^2}\right]y .\label{eq:y_segunda}
+\end{equation}
+
+Queremos demostrar que la función $u(x)$, definida como:
+\begin{equation}
+    u(x) = (1-x^2)^{(m+1)/2}\frac{d}{dx}\left[(1-x^2)^{-m/2}y(x)\right] \label{eq:def_u}
+\end{equation}
+satisface la misma ecuación diferencial, pero para el orden $m+1$. Es decir, debemos probar 
+\begin{equation}
+    \frac{d}{dx}\left((1-x^2)u'\right) + \left[Q-\frac{(m+1)^2}{1-x^2}\right]u = 0. \label{eq:objetivo}
+\end{equation}
+
+Aplicando la regla del producto y de la cadena a la ecuación \eqref{eq:def_u}, obtenemos:
+\begin{align}
+    u &= (1-x^2)^{(m+1)/2} \left[ m x (1-x^2)^{-m/2-1} y + (1-x^2)^{-m/2} y' \right] \nonumber \\
+    &= \frac{mx}{\sqrt{1-x^2}} y + \sqrt{1-x^2} y' .\label{eq:u_desarrollado}
+\end{align}
+Por lo tanto, su derivada es dada por:
+\begin{align}
+    u' &= \left[ \frac{m}{\sqrt{1-x^2}} + \frac{m x^2}{(1-x^2)^{3/2}} \right] y + \frac{mx}{\sqrt{1-x^2}} y' - \frac{x}{\sqrt{1-x^2}} y' + \sqrt{1-x^2} y'' \\
+    &= \frac{m}{(1-x^2)^{3/2}} y + \frac{(m-1)x}{\sqrt{1-x^2}} y' + \sqrt{1-x^2} y''.
+\end{align}
+    Multiplicamos toda la expresión por $(1-x^2)$, obtenemos
+\begin{equation}
+    (1-x^2)u' = \frac{m}{\sqrt{1-x^2}} y + (m-1)x\sqrt{1-x^2} y' + \sqrt{1-x^2} \left[ (1-x^2)y'' \right].
+\end{equation}
+
+Sustituimos el término $(1-x^2)y''$ utilizando nuestra hipótesis, es decir la relación  \eqref{eq:y_segunda}. Entonces,
+\begin{align}
+    (1-x^2)u' &= \frac{m}{\sqrt{1-x^2}} y + (m-1)x\sqrt{1-x^2} y' + \sqrt{1-x^2} \left[ 2xy' - Qy + \frac{m^2}{1-x^2}y \right] \nonumber \\
+    &= \left[ \frac{m}{\sqrt{1-x^2}} - Q\sqrt{1-x^2} + \frac{m^2}{\sqrt{1-x^2}} \right] y + \left[ (m-1)x\sqrt{1-x^2} + 2x\sqrt{1-x^2} \right] y' \nonumber \\
+    &= \left[ \frac{m(m+1)}{\sqrt{1-x^2}} - Q\sqrt{1-x^2} \right] y + (m+1)x\sqrt{1-x^2} y'. \label{eq:termino_derivada}
+\end{align}
+
+Para construir el primer término de \eqref{eq:objetivo}, derivamos \ref{eq:termino_derivada} respecto a $x$, y así llegamos a
+\begin{align}\label{ddx1mx2up}
+    \frac{d}{dx}\left((1-x^2)u'\right) &= \left[ \frac{m(m+1)x}{(1-x^2)^{3/2}} + \frac{Qx}{\sqrt{1-x^2}} \right] y + \left[ \frac{m(m+1)}{\sqrt{1-x^2}} - Q\sqrt{1-x^2} \right] y' \nonumber \\
+    &\quad + (m+1)\sqrt{1-x^2} y' - \frac{(m+1)x^2}{\sqrt{1-x^2}} y' + (m+1)x\sqrt{1-x^2} y'' .
+\end{align}
+
+Nuevamente, reescribimos el término con $y''$ separando un factor $(1-x^2)$ para usar  \eqref{eq:y_segunda}:
+\begin{equation}\label{mp1sqrt}
+    (m+1)x\sqrt{1-x^2} y'' = \frac{(m+1)x}{\sqrt{1-x^2}} \left[ (1-x^2)y'' \right] = \frac{(m+1)x}{\sqrt{1-x^2}} \left[ 2xy' - Qy + \frac{m^2}{1-x^2}y \right].
+\end{equation}
+
+Reemplazando \eqref{mp1sqrt} en \eqref{ddx1mx2up} obtenemos, luego de simplificar los términos, que
+\begin{equation}
+    \frac{d}{dx}\left((1-x^2)u'\right) = - \left[Q-\frac{(m+1)^2}{1-x^2}\right]u,
+\end{equation}
+que es equivalente a \eqref{eq:objetivo}. QED.
+
+\subsection{Definición de las funciones asociadas de Legendre}
+\begin{tcolorbox}
+A partir de la propiedad \eqref{defux}, podemos definir las funciones asociadas de Legendre $P_n^m$ de modo que
+\begin{equation}\label{Pnm+1}
+P_n^{m+1}(x)=(1-x^2)^{(m+1)/2}\frac{d\ }{dx}\left[(1-x^2)^{-m/2}P_n^m(x)\right].
+\end{equation}
+\end{tcolorbox}
 Iterando la relación \eqref{Pnm+1} obtenemos, para $m=0,1,2,\cdots$, 
 \begin{eqnarray}\label{Pnm}
 P_n^m(x) =(1-x^2)^{m/2}\frac{d^m}{dx^m} P_n(x).
@@ -1028,12 +1093,14 @@ de Laplace. Usando (\ref{produkt1}), (\ref{Phim}) y el hecho que las funciones a
  \begin{equation}
 \Psi(r,\theta,\varphi)\propto R(r)P_l^m(\cos\theta)e^{im\varphi}.\label{est30}
  \end{equation}
+\begin{tcolorbox}
 Es por esto muy útil y común definir las \textit{funciones armónicas
 esféricas} $Y_l^m (\theta,\varphi)$ que, incorporando una normalización conveniente, son definidas por:
  \begin{eqnarray}
   Y_l^m (\theta,\varphi) := (-1)^m\sqrt\frac{2l+1}{4\pi}\cdot\sqrt\frac
    {(l-m)!}{(l+m)!}\cdot P_l^m(\cos\theta)\cdot e^{im\varphi}.\label{kugel1}
  \end{eqnarray}
+\end{tcolorbox}
   En la tabla \ref{tabelle1} se presentan los casos más usados.
 \begin{table}[htbp]
 \begin{tabular}{cc|c||cc|c}
