@@ -1,6 +1,6 @@
 \chapter{Funciones de Bessel}\label{capBessel}
 \section{Ecuación de Bessel}
-Consideraremos aquí la ecuación diferencial de Bessel con argumento complejo, $z\in\mathbb{C}$, ya que sus soluciones suminitrarán funciones que satisfacen la E.D.O. de Bessel con variables reales y la E.D.O. modificada de Bessel. Finalmente, buscaremos soluciones de la ecuación con un coeficiente $\nu^ 2$ real y positivo, pero no necesariamente entero.
+Consideraremos aquí la ecuación diferencial de Bessel con argumento complejo, $z\in\mathbb{C}$, ya que sus soluciones suminitrarán funciones que satisfacen la EDO de Bessel con variables reales y la EDO modificada de Bessel. Finalmente, buscaremos soluciones de la ecuación con un coeficiente $\nu^ 2$ real y positivo, pero no necesariamente entero.
 
 En resumen, buscamos soluciones de la ecuación
 \begin{equation}\label{Besselec1}
@@ -13,10 +13,9 @@ y'' + \frac{1}{z} y' + \left( 1 - \frac{\nu^2}{z^2} \right)y = 0.
 
 
 \section{Solución en serie en torno a $z = 0$}\label{secsolBess}
-Buscaremos soluciones en serie de potencias de \eqref{Besselec1}. Es conveniente encontrar una serie en torno a $z=0$ (el ``punto más simétrico de la ecuación''). Sin embargo, este punto es un punto singular de la ecuación, por lo que en general no es posible expresar la solución como una serie de la forma $y(z) = \sum_{n=0}^\infty a_n z^n$. Para entender esto más claramente, recuerde que los coeficientes $a_n$ serían entonces proporcionales a la $n-$ésima derivada de la solución $y(z)$, evaluada en $z=0$. Por lo tanto, encontrar la solución de esta forma es equivalente a requerir que cada una de las derivadas de la solución sean finitas en $z=0$. Como la E.D.O. es de segundo orden, se requieren dos condiciones iniciales, que pueden elegirse como $y(0)$ e $y'(0)$. Las derivadas superiores quedan determinadas por la E.D.O. Sin embargo, vemos de 
-\eqref{EDOBessel} que $y''(0)$ (y las derivadas superiores) será en general divergente, aún en el caso en que se elija $y'(0)$, debido al término $({\nu^2}/{z^2})y(z)$. 
+Buscaremos soluciones en serie de potencias de \eqref{Besselec1}. Es conveniente encontrar una serie en torno a $z=0$ (el ``punto más simétrico de la ecuación''). Sin embargo, este punto es un punto singular de la ecuación, por lo que en general no es posible expresar la solución como una serie de la forma $y(z) = \sum_{n=0}^\infty a_n z^n$. Para entender esto más claramente, recuerde que los coeficientes $a_n$ serían entonces proporcionales a la $n-$ésima derivada de la solución $y(z)$, evaluada en $z=0$. Por lo tanto, encontrar la solución de esta forma es equivalente a requerir que cada una de las derivadas de la solución sean finitas en $z=0$. Como la EDO es de segundo orden, se requieren dos condiciones iniciales, que pueden elegirse como $y(0)$ e $y'(0)$. Las derivadas superiores quedan determinadas por la EDO. Sin embargo, vemos de \eqref{EDOBessel} que $y''(0)$ (y las derivadas superiores) será en general divergente, aún en el caso en que se elija $y'(0)$, debido al término $({\nu^2}/{z^2})y(z)$. 
 
-Afortunadamente, sí es posible encontrar soluciones de la forma\footnote{Una forma alternativa de verificar que este es el caso es realizar el cambio de variable $y(z):=z^\alpha f(z)$ y ajustar la constante $\alpha$ de modo que la E.D.O. resultante para la función $f(z)$ sí pueda expresarse como una serie de potencias de la forma $f(z) = \sum_{n=0}^\infty a_n z^n$.}
+Afortunadamente, sí es posible encontrar soluciones de la forma\footnote{Una forma alternativa de verificar que éste es el caso es realizar el cambio de variable $y(z):=z^\alpha f(z)$ y ajustar la constante $\alpha$ de modo que la EDO resultante para la función $f(z)$ sí pueda expresarse como una serie de potencias de la forma $f(z) = \sum_{n=0}^\infty a_n z^n$.}
 \begin{equation}\label{yzasum}
 y(z) = z^\alpha \sum_{n=0}^\infty a_n z^n = \sum_{n=0}^\infty a_n z^{n+\alpha},
 \end{equation}
@@ -53,12 +52,12 @@ Aplicación sucesiva de \eqref{anan-2} conduce a
 a_{2 k} &= \frac{a_0(-1)^k}{2^{2k}k!}\frac{1}{(1+\alpha)(2+\alpha)(3+\alpha)\cdots (k+\alpha)}\\
 &= \frac{a_0 (-1)^k}{2^{2k} k!}\frac{\Gamma(1+\alpha)}{\Gamma(k +\alpha+ 1) }, \qquad k=0,1,2,\cdots. 
 \end{align}
-Aquí hemos introducido la función Gamma, ver apéndice \ref{app-Gamma}. Por lo tanto, para $\alpha=\nu$ hemos encontrado una solución de la forma
+Aquí hemos introducido la \textbf{función Gamma}, ver apéndice \ref{app-Gamma}. Por lo tanto, para $\alpha=\nu$ hemos encontrado una solución de la forma
 \begin{equation}
 y_\nu(z) = a_0 \sum_{k=0}^\infty \frac{(-1)^k}{2^{2k}k!}\frac{\Gamma(1+\nu)}{\Gamma(k+\nu+ 1) }
 z^{2k+\nu},
 \end{equation}
-donde $a_0$ es una constante arbitraria. Es conveniente definir las \textit{funciones de Bessel de primera especie y orden} $\nu$, $J_\nu(z)$, como las soluciones correspondientes al caso en que $a_0:=1/2^{\nu}\Gamma(\nu+1)$, de modo que
+donde $a_0$ es una constante arbitraria. Es conveniente definir las \textbf{funciones de Bessel de primera especie} y orden $\nu$, $J_\nu(z)$, como las soluciones correspondientes al caso en que $a_0:=1/2^{\nu}\Gamma(\nu+1)$, de modo que
 \begin{equation}\label{Besselnu}
 \boxed{J_\nu(z) = \sum_{k = 0}^\infty \frac{ (-1)^k }{ k! \Gamma(k + \nu + 1) }
 \left( \frac{z}{2} \right)^{2k+\nu}.}
@@ -71,7 +70,7 @@ J_\nu(z) &= \frac{1}{\Gamma(\nu+1)}\left(\frac{z}{2}\right)^{\nu}
 &= \frac{1}{\Gamma(\nu+1)}\left(\frac{z}{2}\right)^{\nu}\left[1-\frac{1}{(\nu+1)}\left(\frac{z}{2}\right)^2+\cdots \right].
 \end{align}
 
-Como la E.D.O. de Bessel \eqref{Besselec1} depende del cuadrado de $\nu$, tendremos que 
+Como la EDO de Bessel \eqref{Besselec1} depende del cuadrado de $\nu$, tendremos que 
 \begin{equation}
 J_{-\nu}(z) = \sum_{k = 0}^\infty \frac{ (-1)^k }{ k! \Gamma(k-\nu+1) }
 \left( \frac{z}{2} \right)^{2k-\nu},
@@ -85,7 +84,7 @@ y(z)=c_1J_\nu(z)+c_2J_{-\nu}(z).
 \end{equation}
 Por razones históricas y de conveniencia futura se definen adicionalmente las \textbf{funciones de Bessel de segunda especie} de orden $\nu$, $Y_\nu(z)$ (también llamadas \textbf{funciones de Neumann} y denotadas por $Y_\nu(z)$), por
 \begin{equation}
-Y_\nu(z)=N_\nu(z):=\frac{\cos(\pi\nu)J_\nu(z)-J_{-\nu}(z)}{\sin(\pi\nu)}.
+\boxed{Y_\nu(z)=N_\nu(z):=\frac{\cos(\pi\nu)J_\nu(z)-J_{-\nu}(z)}{\sin(\pi\nu)}.}
 \end{equation}
 Entonces la solución general de \eqref{Besselec1} puede expresarse como una combinación lineal de la función de Bessel y de Neumann correspondiente:
 \begin{equation}
@@ -114,7 +113,7 @@ y(z)&=&z^{-1/2}\left(\sum_{k=0}^{+\infty}a_{2k}z^{2k}+\sum_{k=0}^{+\infty}a_{2k+
 &=&z^{-1/2}\left(a_0\sum_{k=0}^{+\infty}\frac{(-1)^k}{(2k)!}z^{2k}+a_1\sum_{k=0}^{+\infty}\frac{(-1)^k}{(2k+1)!}z^{2k+1} \right).
 \end{eqnarray}
 
-Por lo tanto, la solución general de la E.D.O. de Bessel con $\nu^2=1/4$ es de la forma
+Por lo tanto, la solución general de la EDO de Bessel con $\nu^2=1/4$ es de la forma
 \begin{equation}
 \boxed{y(z)= z^{-1/2}\left(a_0\cos(z)+a_1\sin(z) \right).}
 \end{equation}
@@ -186,6 +185,7 @@ J_{\nu-1}(z)+J_{\nu+1}(z)=\frac{2\nu}{z}J_\nu(z),
 \begin{equation}\label{rrJnu2}
 J_{\nu-1}(z)-J_{\nu+1}(z)=2J'_\nu(z).
 \end{equation}
+\begin{scriptsize}
 Podemos verificar estas relaciones usando directamente la expresión en serie de potencias \eqref{Besselnu}. En efecto,
 \begin{align}
 J_{\nu-1}(z)+J_{\nu+1}(z) &= 
@@ -210,6 +210,8 @@ J_{\nu-1}(z)-J_{\nu+1}(z) &=
 &= 2\frac{d\ }{dz}\sum_{k=0}^\infty\frac{(-1)^k}{k!\Gamma(k+\nu+1)}\left(\frac{z}{2}\right)^{2k+\nu} \\
 &= 2J'_\nu(z).
 \end{align}
+\end{scriptsize}
+
 A partir de las relaciones \eqref{rrJnu1} y \eqref{rrJnu2} podemos derivar otras relaciones. Por ejemplo, sumando \eqref{rrJnu1} y \eqref{rrJnu2} llegamos a
 \begin{align}
 J_{\nu-1}(z) &= J'_{\nu}(z)+\frac{\nu}{z}J_\nu(z) \label{Jnu-1JpJ}\\
