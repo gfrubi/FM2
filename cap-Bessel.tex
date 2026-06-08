@@ -91,7 +91,7 @@ Entonces la solución general de \eqref{Besselec1} puede expresarse como una com
 y(z)=c_3J_\nu(z)+c_4Y_\nu(z).
 \end{equation}
 
-
+\begin{scriptsize}
 \subsubsection{Caso en que $\alpha=-1/2$}
 
 En este caso en general tendremos que $a_0\neq 0$ y $a_1\neq 0$, y la relación de recurrencia \eqref{anan-2} se reduce a 
@@ -174,6 +174,7 @@ z^{2k+\nu}.
 
 Eligiendo $a_1=1/(2^{\nu}\Gamma(1+\nu))$, se obtiene nuevamente la función de Bessel de primera especie, dada por \eqref{Besselnu}.
 
+\end{scriptsize}
 
 
 
@@ -241,7 +242,7 @@ Las funciones de Bessel de orden $\nu$ y argumento real pueden expresarse como l
 \end{equation}
 donde $t\in\mathbb{C}$ está integrado sobre el contorno $\cal C$ indicado en la figura XXX.
 
-Podemos probar esta relación a partir de la siguiente representación de la función Gamma (ver, por ejemplo, la expresión (11.21) \cite{Hassani}):
+Podemos probar esta relación a partir de la siguiente representación de la función Gamma (ver, por ejemplo, la expresión (11.21) de la referencia \cite{Hassani}):
 \begin{equation}\label{1sGint}
 \frac{1}{\Gamma(z)}=\frac{1}{2\pi i}\int_{\cal C}e^t t^{-z}dt.
 \end{equation}
@@ -264,7 +265,7 @@ Finalmente, realizando el cambio de variable $x':=xt/2$ y usando \eqref{1sGint} 
 \end{align}
 Sustituyendo \eqref{intCG2} en \eqref{exttsum} llegamos directamente al resultado deseado, luego de indentificar la expansión en serie de potencias \eqref{Besselnu} de la función $J_\nu(x)$.
 
-A partir de \eqref{RIJnu} podemos encotrar la expresión alternativa:
+A partir de \eqref{RIJnu} podemos encontrar la expresión alternativa:
 \begin{equation}
 \boxed{J_\nu(x)=\frac{1}{\pi}\int_0^\pi\cos(\nu\theta-x\sin\theta)d\theta-\frac{\sin(\nu\pi)}{\pi}\int_0^\infty e^{-\nu t-x\sinh t}dt.}
 \end{equation}
@@ -293,6 +294,8 @@ $\nu=4$ & 7.5883424 & 11.0647094 & 14.3725366 & 17.6159660 & 20.8269329 \\
 \label{tabla:alphanun}
 \end{center}
 \end{table}
+
+
 \begin{figure}[H]
 \centering
 \includegraphics[angle=0,width=0.7\textwidth]{figs/fig-Bessel-ceros-01.pdf}
@@ -306,7 +309,7 @@ $\nu=4$ & 7.5883424 & 11.0647094 & 14.3725366 & 17.6159660 & 20.8269329 \\
 \label{fig-0Jn2}
 \end{figure}
 Es también frecuente requerir calcular las \textit{raíces de las derivadas de las funciones de Bessel}. Éstas serán denotadas por $\beta_{\nu,n}$ y entonces satisfacen $J'_\nu(\beta_{\nu,n})=0$ y $\beta_{\nu,n+1}<\alpha_{\beta,n}$, $n=1,2,\cdots$. La tabla  \ref{tabla:betanun} resume algunos de estos valores:
-\begin{table}
+\begin{table}[h!]
 \begin{center}
 \begin{tabular}{ccccccc}
 \hline $\beta_{m,n}$ & $n=1$ & $n=2$ & $n=3$ & $n=4$ & $n=5$ \\ \hline 
@@ -323,6 +326,8 @@ $m=4$ & 5.3175531 &  9.2823962 & 12.6819084 & 15.9641070 & 19.1960288 \\
 \end{table}
 
 \subsection{Relaciones de Ortogonalidad}
+
+\begin{tcolorbox}
 Para $\nu\ge 0$, $\quad n,m=1,2,\cdots$ y $a>0$, tenemos que
 \begin{equation}\label{roJnualpha}
 \int_0^a J_\nu\left(\frac{\alpha_{\nu,n}}{a}\rho\right)J_\nu\left(\frac{\alpha_{\nu,m}}{a}\rho\right)\rho \, d\rho =\delta_{n,m}\frac{a^2}{2}\left[J'_{\nu}(\alpha_{\nu,n})\right]^2 =\delta_{n,m}\frac{a^2}{2}\left[J_{\nu+1}(\alpha_{\nu,n})\right]^2.
@@ -331,16 +336,85 @@ Similarmente,
 \begin{equation}\label{roJnubeta}
 \int_0^a J_\nu\left(\frac{\beta_{\nu,n}}{a}\rho\right)J_\nu\left(\frac{\beta_{\nu,m}}{a}\rho\right)\rho \, d\rho=\delta_{n,m}\frac{a^2}{2}\left(1-\frac{\nu^2}{\beta_{\nu,n}^2}\right)\left[J_\nu(\beta_{\nu,n})\right]^2.
 \end{equation}
+\end{tcolorbox}
 
-\begin{figure}[H]
-\centering
-\includegraphics[angle=0,width=0.7\textwidth]{figs/Demostracion_Ortogonalidad_Bessel_01.png}
-\end{figure}
+\begin{scriptsize}
+\textbf{Demostración:}
+Ya que las funciones de Bessel satisfacen la EDO
+\begin{equation}
+x \frac{d}{dx} \left( x J'_\nu(x) \right) + (x^2 - \nu^2) J_\nu(x) = 0,
+\end{equation}
+podemos escribir, realizando el cambio de variable $x = \alpha_{\nu,n}{\rho}/{a}$, donde $a>0$ y $\alpha_{\nu,n}$ es un cero de la función de Bessel $J_\nu$, que
+\begin{equation}\label{rdrJ}
+\frac{\alpha_{\nu,n}}{a}\rho \frac{d}{d\rho} \left( \rho J'_\nu \left(\frac{\alpha_{\nu,n}\rho}{a}\right) \right) + \left( \frac{\alpha_{\nu,n}^2}{a^2} \rho^2 - \nu^2 \right) J_\nu\left(\frac{\alpha_{\nu,n}\rho}{a}\right) = 0.
+\end{equation}
+Note que aquí $J'_\nu(\alpha_{\nu,n}\rho/a)$ representa la función derivada de $J_\nu(x)$ es decir $J'_\nu(x)$ evaluada en $x = \alpha_{\nu,n}{\rho}/{a}$, que difiere por un factor $\alpha_{\nu,n}/a$ de la derivada respecto a $\rho$ de la función $J_\nu$ evaluada en $x = \alpha_{\nu,n}{\rho}/{a}$.
 
-\begin{figure}[H]
-\centering
-\includegraphics[angle=0,width=0.7\textwidth]{figs/Demostracion_Ortogonalidad_Bessel_02.png}
-\end{figure}
+Multiplicando por $J_\nu\left(\alpha_{\nu,m} {\rho}/{a}\right)$ y dividiendo por $\rho$, encontramos
+\begin{equation}
+\frac{\alpha_{\nu,n}}{a}J_\nu\left(\frac{\alpha_{\nu,m}\rho}{a}\right) \frac{d\ }{d\rho}\left(\rho\,J'_\nu \left(\frac{\alpha_{\nu,n}\rho}{a}\right)\right) + \left( \frac{\alpha_{\nu,n}^2}{a^2} \rho - \frac{\nu^2}{\rho} \right) J_\nu\left(\frac{\alpha_{\nu,n}\rho}{a}\right) J_\nu\left(\frac{\alpha_{\nu,m}\rho}{a}\right) = 0.
+\end{equation}
+Ahora completamos la derivada en el primer término y entonces podemos escribir
+\begin{align}
+\frac{\alpha_{\nu,n}}{a}\frac{d}{d\rho} \Big[ J_\nu\left(\frac{\alpha_{\nu,m}\rho}{a}\right) \rho\, J'_\nu\left(\frac{\alpha_{\nu,n}\rho}{a}\right) \Big] &- \frac{\alpha_{\nu,n}}{a}\frac{\alpha_{\nu,m}}{a}\rho\, J'_\nu\left(\alpha_{\nu,m} \frac{\rho}{a}\right) J'_\nu\left(\alpha_{\nu,n} \frac{\rho}{a}\right) \\
+&+ \left( \frac{\alpha_{\nu,n}^2}{a^2} \rho - \frac{\nu^2}{\rho} \right) J_\nu \left(\alpha_{\nu,n} \frac{\rho}{a}\right)\, J_\nu \left(\alpha_{\nu,m} \frac{\rho}{a}\right) = 0.
+\end{align}
+
+Restamos ahora dos copias de esta relación, intercambiando $n \leftrightarrow m$. Así obtenemos
+\begin{align}
+\frac{\alpha_{\nu,n}}{a}\frac{d}{d\rho} \Big[ J_\nu\left(\frac{\alpha_{\nu,m} \rho}{a}\right) \rho\, J'_\nu\left(\frac{\alpha_{\nu,n} \rho}{a}\right) &- J_\nu\left(\frac{\alpha_{\nu,n}\rho}{a}\right) \rho\, J'_\nu\left(\frac{\alpha_{\nu,m}\rho}{a}\right) \Big] \\
+&+ \left( \alpha_{\nu,n}^2 - \alpha_{\nu,m}^2 \right) \frac{\rho}{a^2} J_\nu\left(\alpha_{\nu,n} \frac{\rho}{a}\right) J_\nu\left(\alpha_{\nu,m} \frac{\rho}{a}\right) = 0.
+\end{align}
+Integramos esta expresión respecto a $\rho$ en el intervalor $(0,a)$, entonces
+\begin{align}
+\frac{\alpha_{\nu,n}}{a}\left[ J_\nu\left(\alpha_{\nu,m} \frac{\rho}{a}\right) \rho J'_\nu \left(\alpha_{\nu,n} \frac{\rho}{a}\right) - J_\nu\left(\alpha_{\nu,n} \frac{\rho}{a}\right) \rho J'_\nu\left(\alpha_{\nu,m} \frac{\rho}{a}\right) \right] \Bigg|_0^a \nonumber \\
++ \left(\alpha_{\nu,n}^2 - \alpha_{\nu,m}^2\right) \frac{1}{a^2} \int_0^a J_\nu\left(\alpha_{\nu,m} \frac{\rho}{a}\right) J_\nu\left(\alpha_{\nu,n} \frac{\rho}{a}\right) \rho\, d\rho = 0. \label{intJJ}
+\end{align}
+
+Si $\nu \ge 0$ entonces $J_\nu(z) \propto z^\nu$ para $z \approx 0$ y $z J'_\nu \propto z^\nu$. 
+\begin{equation}
+ \lim_{\rho \to 0} \rho \frac{d}{d\rho} J_\nu\left(\alpha_{\nu,n} \frac{\rho}{a}\right) \to 0,  \qquad  \text{ para } \nu \ge 0.
+\end{equation}
+De esta forma, todos los términos en la primera línea de \eqref{intJJ} se anulan. Así encontramos que 
+\begin{equation}
+\left(\alpha_{\nu,n}^2 - \alpha_{\nu,m}^2\right) \int_0^a J_\nu\left(\alpha_{\nu,m} \frac{\rho}{a}\right) J_\nu\left(\alpha_{\nu,n} \frac{\rho}{a}\right) \rho\, d\rho = 0.
+\end{equation}
+Por lo tanto,
+\begin{equation}
+\int_0^a J_\nu\left(\alpha_{\nu,n} \frac{\rho}{a}\right) J_\nu\left(\alpha_{\nu,m} \frac{\rho}{a}\right) \rho\, d\rho = 0 \qquad \text{ si } m \neq n.
+\end{equation}
+
+Veamos ahora el caso $m=n$. Volvemos a la EDO \eqref{rdrJ} y multiplicamos por $2J'_\nu(\alpha_{\nu,n}\rho/a)$. Así podemos escribir 
+\begin{equation}
+\underbrace{2\frac{\alpha_{\nu,n}}{a} \rho J'_\nu \cdot \frac{d}{d\rho} \left( \rho J'_\nu \right)}_{\displaystyle \frac{\alpha_{\nu,n}}{a}\frac{d}{d\rho} \left( \rho^2 (J'_\nu)^2 \right)} + \left( \frac{\alpha_{\nu,n}^2 \rho^2}{a^2} - \nu^2 \right) \underbrace{2J'_\nu \cdot J_\nu}_{\displaystyle \frac{a}{\alpha_{\nu,n}}\frac{d}{d\rho} \left( J_\nu^2 \right)} = 0.
+\end{equation}
+Completamos ahora la derivada del segundo término, de modo que
+\begin{equation}
+\frac{\alpha_{\nu,n}}{a}\frac{d}{d\rho} \left( \left( \rho J'_\nu\right)^2 \right) + \frac{a}{\alpha_{\nu,n}}\frac{d}{d\rho} \left[ \left( \frac{\alpha_{\nu,n}^2 \rho^2}{a^2} - \nu^2 \right) J_\nu^2\left(\alpha_{\nu,n} \frac{\rho}{a}\right) \right] - 2 \frac{\alpha_{\nu,n}}{a} \rho\, J_\nu^2\left(\alpha_{\nu,n} \frac{\rho}{a}\right) = 0.
+\end{equation}
+
+Integramos ahora respecto a $\rho$ entre $0$ y $a$. Así, para $\nu \ge 0$, tendremos que 
+\begin{align}
+2 \int_0^a \rho J_\nu^2\left(\alpha_{\nu,n} \frac{\rho}{a}\right) d\rho &= \left( \rho J' \right)^2 \Bigg|_0^a + \left(\rho^2 - \frac{a}{\alpha_{\nu,n}}\nu^2 \right) J_\nu^2\left(\alpha_{\nu,n} \frac{\rho}{a}\right) \Bigg|_0^a \\
+ &= a^2 \left.\left[ J'_\nu \left( \alpha_{\nu,n} \frac{\rho}{a} \right) \right]^2\right|_{\rho=a} - 0 + 0 - (-\nu^2) J_\nu^2(0) \\
+&= a^2 \left[ J'_\nu(\alpha_{\nu,n}) \right]^2 + 0,
+\end{align}
+ya que $\nu \cdot J_\nu(0) = 0$ para $\nu\ge 0$. Por lo tanto,
+\begin{equation}
+\int_0^a J_\nu^2\left(\alpha_{\nu,n} \frac{\rho}{a}\right)\rho\, d\rho = \frac{1}{2} a^2 [J'_\nu(\alpha)]^2.
+\end{equation}
+
+ Usando la relación de recurrencia \eqref{rrJni+1} y evaluándola en $z=\alpha_{\nu,n}$, podemos escribir
+\begin{equation}
+J_{\nu+1}(\alpha_{\nu,n}) = -J'_\nu(\alpha_{\nu,n}) + \frac{\nu}{\alpha_{\nu,n}}  J_\nu(\alpha_{\nu,n}) = -J'_\nu(\alpha_{\nu,n})  + 0.
+\end{equation}
+Entonces,
+\begin{equation}
+[J'_\nu(\alpha_{\nu,n})]^2 = [J_{\nu+1}(\alpha_{\nu,n})]^2,
+\end{equation}
+que completa la demostración de \eqref{roJnualpha}. QED
+\end{scriptsize}
+
 
 \section{Funciones de Bessel de orden entero}
 \begin{figure}[H]
