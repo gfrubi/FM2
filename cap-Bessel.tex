@@ -362,12 +362,12 @@ Ahora completamos la derivada en el primer término y entonces podemos escribir
 
 Restamos ahora dos copias de esta relación, intercambiando $n \leftrightarrow m$. Así obtenemos
 \begin{align}
-\frac{\alpha_{\nu,n}}{a}\frac{d}{d\rho} \Big[ J_\nu\left(\frac{\alpha_{\nu,m} \rho}{a}\right) \rho\, J'_\nu\left(\frac{\alpha_{\nu,n} \rho}{a}\right) &- J_\nu\left(\frac{\alpha_{\nu,n}\rho}{a}\right) \rho\, J'_\nu\left(\frac{\alpha_{\nu,m}\rho}{a}\right) \Big] \\
+\frac{d}{d\rho} \Big[\frac{\alpha_{\nu,n}}{a} J_\nu\left(\frac{\alpha_{\nu,m} \rho}{a}\right) \rho\, J'_\nu\left(\frac{\alpha_{\nu,n} \rho}{a}\right) &- \frac{\alpha_{\nu,m}}{a}J_\nu\left(\frac{\alpha_{\nu,n}\rho}{a}\right) \rho\, J'_\nu\left(\frac{\alpha_{\nu,m}\rho}{a}\right) \Big] \\
 &+ \left( \alpha_{\nu,n}^2 - \alpha_{\nu,m}^2 \right) \frac{\rho}{a^2} J_\nu\left(\alpha_{\nu,n} \frac{\rho}{a}\right) J_\nu\left(\alpha_{\nu,m} \frac{\rho}{a}\right) = 0.
 \end{align}
 Integramos esta expresión respecto a $\rho$ en el intervalor $(0,a)$, entonces
 \begin{align}
-\frac{\alpha_{\nu,n}}{a}\left[ J_\nu\left(\alpha_{\nu,m} \frac{\rho}{a}\right) \rho J'_\nu \left(\alpha_{\nu,n} \frac{\rho}{a}\right) - J_\nu\left(\alpha_{\nu,n} \frac{\rho}{a}\right) \rho J'_\nu\left(\alpha_{\nu,m} \frac{\rho}{a}\right) \right] \Bigg|_0^a \nonumber \\
+\left[ \frac{\alpha_{\nu,n}}{a}J_\nu\left(\alpha_{\nu,m} \frac{\rho}{a}\right) \rho J'_\nu \left(\alpha_{\nu,n} \frac{\rho}{a}\right) - \frac{\alpha_{\nu,m}}{a}J_\nu\left(\alpha_{\nu,n} \frac{\rho}{a}\right) \rho J'_\nu\left(\alpha_{\nu,m} \frac{\rho}{a}\right) \right] \Bigg|_0^a \nonumber \\
 + \left(\alpha_{\nu,n}^2 - \alpha_{\nu,m}^2\right) \frac{1}{a^2} \int_0^a J_\nu\left(\alpha_{\nu,m} \frac{\rho}{a}\right) J_\nu\left(\alpha_{\nu,n} \frac{\rho}{a}\right) \rho\, d\rho = 0. \label{intJJ}
 \end{align}
 
@@ -381,7 +381,7 @@ De esta forma, todos los términos en la primera línea de \eqref{intJJ} se anul
 \end{equation}
 Por lo tanto,
 \begin{equation}
-\int_0^a J_\nu\left(\alpha_{\nu,n} \frac{\rho}{a}\right) J_\nu\left(\alpha_{\nu,m} \frac{\rho}{a}\right) \rho\, d\rho = 0 \qquad \text{ si } m \neq n.
+\int_0^a J_\nu\left(\alpha_{\nu,n} \frac{\rho}{a}\right) J_\nu\left(\alpha_{\nu,m} \frac{\rho}{a}\right) \rho\, d\rho = 0 \qquad \text{ si } m \neq n, \quad \nu>0.
 \end{equation}
 
 Veamos ahora el caso $m=n$. Volvemos a la EDO \eqref{rdrJ} y multiplicamos por $2J'_\nu(\alpha_{\nu,n}\rho/a)$. Así podemos escribir 
