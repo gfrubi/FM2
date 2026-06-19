@@ -728,16 +728,35 @@ K_{\nu-1}(x)-K_{\nu+1}(x)=-\frac{2\nu}{x}K_\nu(x),
 como puede verificarse a partir de \eqref{rrInu1}, \eqref{rrInu2}, \eqref{defKnu} y \eqref{Knder}. Note la diferencia de signo de estas relaciones con respecto a las correspondientes a las funciones de primera especie, \eqref{rrInu1} y \eqref{rrInu2}.
 
 \section{Funciones Esféricas de Bessel}
-Como vimos, en coordenadas esféricas la ecuación radial proveniente de la separación de variables de la ecuación de Helmholtz es \eqref{ecrHelmce}. Además, las soluciones finitas en $\theta=0$ y $\theta=\pi$ (es decir, sobre el eje $z$) de \eqref{ecThHelm} requieren que $Q=n(n+1)$. La ecuación resultante tiene entonces soluciones de la forma
-%\begin{equation}
-%x^2 \frac{d^2 y}{dx^2} + 2x \frac{dy}{dx} + [x^2 - n(n+1)]y = 0.
-%\end{equation}
+Como vimos, en coordenadas esféricas la ecuación radial proveniente de la separación de variables de la ecuación de Helmholtz es \eqref{ecrHelmce}. Además, las soluciones finitas en $\theta=0$ y $\theta=\pi$ (es decir, sobre el eje $z$) de \eqref{ecThHelm} requieren que $Q=n(n+1)$. La EDO radial puede ser reducida a la ecuación de Bessel por medio del cambio de variable
 \begin{equation}
-R_n(r) = \frac{u_n(kr)}{\sqrt{r}} ,
+R(r) = r^{-1/2}u(r).
 \end{equation}
-donde $k=\sqrt{|\alpha|}$ y $u_n(x)$ es solución de la ecuación (modificada, si $\alpha<0$) de Bessel de orden semientero, $\nu=n+1/2$.
 
-En el caso en que $\alpha>0$, las soluciones $u(x)$ serán entonces combinaciones de funciones de Bessel de primera y segunda especie. Por esto, es conveniente definir las funciones esféricas de Bessel (de primera y segunda especie) por:
+En efecto, con este cambio de variable tendremos que
+\begin{equation}
+\frac{dR}{dr} = -\frac{1}{2} r^{-3/2} u(r) + r^{-1/2} \frac{du}{dr}.
+\end{equation}
+Entonces, 
+\begin{equation}
+r^2 \frac{dR}{dr} = -\frac{1}{2} r^{1/2} u(r) + r^{3/2} \frac{du}{dr}.
+\end{equation}
+Por lo tanto,
+\begin{align}
+\frac{d}{dr}\left(r^2 \frac{dR}{dr}\right) &= -\frac{1}{4} r^{-1/2} u(r) - \frac{1}{2} r^{1/2} \frac{du}{dr} + \frac{3}{2} r^{1/2} \frac{du}{dr} + r^{3/2} \frac{d^2u}{dr^2} \\
+&= -\frac{1}{4} r^{-1/2} u(r) + r^{1/2} \frac{du}{dr} + r^{3/2} \frac{d^2u}{dr^2}.
+\end{align}
+Reemplazando esto en la EDO \eqref{ecrHelmce} obtenemos la EDO para $u(r)$:
+\begin{equation}
+r^2 \frac{d^2u}{dr^2} + r \frac{du}{dr} + \alpha r^2 u(r) - \left(n(n+1) + \frac{1}{4}\right) u(r) = 0.
+\end{equation}
+Pero $n(n+1) + 1/4 = (n+1/2)^2$ y por lo tanto obtenemos
+\begin{equation}
+r \frac{d}{dr}\left(r \frac{du}{dr}\right) + \Big[ \alpha r^2 - \left(n+\frac{1}{2}\right)^2 \Big] u(r) = 0,
+\end{equation}
+es decir, obtenemos la \textit{EDO de Bessel de orden semientero}, con $\nu = n+1/2$.
+
+Por lo tanto, en el caso en que $\alpha>0$, las soluciones $u(x)$ serán entonces combinaciones de funciones de Bessel de primera y segunda especie, $J_{n+1/2}(\sqrt{\alpha}r)$ y $Y_{n+1/2}(\sqrt{\alpha}r)$. Las funciones $R(r)$ serán entonces combinaciones lineales de $J_{n+1/2}(\sqrt{\alpha}r)/\sqrt{r}$ y $Y_{n+1/2}(\sqrt{\alpha}r)/\sqrt{r}$. Por esto, es conveniente definir las \textbf{funciones esféricas de Bessel de primera y segunda especie} por:
 \begin{equation}
 j_{n}(x) := \sqrt{\frac{\pi}{2x}} J_{n+1/2}(x),
 \end{equation}
