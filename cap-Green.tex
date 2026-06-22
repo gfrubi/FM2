@@ -2,17 +2,21 @@
 
 \section{Motivación}
 
-El método de las funciones de Green\footnote{George Green (1793-1841): matemático británico. Ver \url{http://es.wikipedia.org/wiki/George_Green}.} permite reducir el problema de encontrar una solución de una \textit{E.D.P. lineal inhomogénea} a una forma estándar.
+Hasta ahora, hemos revisado métodos para resolver EDP's lineales y homogéneas. Sin embargo, en muchas situaciones físicas se requiere encontrar soluciones de EDP's lineales \textit{inhomogéneas}, típicamente cuando se toman en cuenta las ``fuentes" del campo en cuestion (una fuente de calor, una fuente de campo electromagnético, etc.).
 
-Por ejemplo, en electrostática, el potencial satisface la ecuación de Poisson (3D):
+El \textbf{método de las funciones de Green}\footnote{George Green (1793-1841): matemático británico. Ver \url{http://es.wikipedia.org/wiki/George_Green}.} permite reducir el problema de encontrar una solución de una \textit{EDP lineal inhomogénea} a una forma estándar.
+
+Por ejemplo, en electrostática, el potencial $\phi(\vec{x})$ satisface la ecuación de Poisson (3D):
 \begin{equation}\label{Poisson}
-\nabla^2\phi=-\frac{\rho(x)}{\varepsilon_0}.
+\nabla^2\phi=-\frac{\rho(x)}{\varepsilon_0},
 \end{equation}
+donde $\rho(\vec{x})$ es la densida de carga eléctrica, que es ``la fuente'' del campo eléctrico.
+
 Además, sabemos que para una carga puntual ubicada en el punto con coordenadas $\vec{x}'$
 \begin{equation}
 \phi(\vec{x})=\frac{1}{4\pi\varepsilon_0}\frac{q}{\left|\vec{x}-\vec{x}'\right|},
 \end{equation}
-y que el potencial producido por una distribución continua de carga con densidad $\rho(\vec{x})$ es
+y que entonces, apelando al ``principio de superposición", el potencial producido por una distribución continua de carga con densidad $\rho(\vec{x})$, solución de \eqref{Poisson}, es
 \begin{equation}\label{phirho}
 \phi(\vec{x})=\frac{1}{4\pi\varepsilon_0}\int_V\frac{\rho(\vec{x}')}{\left|\vec{x}-\vec{x}'\right|}dV'.
 \end{equation}
@@ -28,7 +32,7 @@ La función \eqref{G1} satisface
 \begin{equation}\label{propG1}
 \nabla^2G(\vec{x}',\vec{x})=\delta^{(3)}(\vec{x}-\vec{x}').
 \end{equation}
-Como veremos a continuación, la propiedad \eqref{propG1} es la que permite encontrar soluciones de la ecuación inhomogénea \eqref{Poisson}.
+Como veremos a continuación, la propiedad \eqref{propG1} es la que permite encontrar soluciones de la ecuación inhomogénea \eqref{Poisson}. En efecto, podemos escribir
 \begin{align}
 \nabla^2\phi(\vec{x}) &= \nabla^2\int_V G(\vec{x},\vec{x}')\left(-\frac{\rho(\vec{x}')} {\varepsilon_0}\right)dV'\\
 &= \int_V \left[\nabla^2G(\vec{x},\vec{x}')\right]\left(-\frac{\rho(\vec{x}')}{\varepsilon_0}\right)dV' \\
@@ -38,17 +42,17 @@ Como veremos a continuación, la propiedad \eqref{propG1} es la que permite enco
 
 
 \section{Generalización}
-Consideremos la E.D.P. lineal inhomogénea de la forma (en $d$-dimensiones)
+Consideremos la EDP lineal inhomogénea de la forma (en $d$-dimensiones)
 \begin{equation}\label{EDP1}
 \hat{L}\Psi=f(\vec{x}),
 \end{equation}
-donde $f(\vec{x})$ es una función ``fuente'' conocida, y $\hat{L}$ es el operador lineal definido por
+donde $f(\vec{x})$ es una función ``fuente'' conocida, y $\hat{L}$ es un operador lineal de la forma
 \begin{equation}
 \hat{L}\Psi=\vec\nabla\cdot\left[p(\vec{x})\vec\nabla\Psi\right]+q(\vec{x})\Psi,
 \end{equation}
-y $p(\vec{x})$ y $q(\vec{x})$ son funciones conocidas.
+y $p(\vec{x})$ y $q(\vec{x})$ son funciones conocidas. Note que tanto la ecuación de Poisson como la ecuación de Helmholtz inhomogénea son casos particulares de esta ecuación general.
 
-Para solucionar la E.D.P. \eqref{EDP1} buscamos primero la función de Green $G(\vec{x},\vec{x}')$ asociada al operador $\hat L$, definida como la función que satisface
+Para solucionar la EDP \eqref{EDP1} buscamos primero la función de Green $G(\vec{x},\vec{x}')$ asociada al operador $\hat L$, definida como la función que satisface
 \begin{equation}\label{EDPG}
 \hat{L}G(\vec{x}',\vec{x})=\delta(\vec{x}-\vec{x}').
 \end{equation}
@@ -59,7 +63,7 @@ La utilidad de introducir la función de Green es que, conociendo una solución 
 \end{equation}
 Aquí $V$ denota el dominio en el que la solución $\Psi$ es válida (es decir, $\vec{x}\in V$) y  $\partial V$ su frontera.
 
-Para probar \eqref{solLG} partimos desde la integral sobre $\partial V$ en el en lado derecho de \eqref{solLG}, que luego podemos escribir como una integral de volumen, por medio del teorema de Gauss:
+Para probar \eqref{solLG} partimos desde la integral sobre $\partial V$ en el lado derecho de \eqref{solLG}, que luego podemos escribir como una integral de volumen, por medio del teorema de la divergencia:
 \begin{align}
 I &= \oint_{\partial V}p(\vec{x}')\left[\Psi(\vec{x}')\vec\nabla'G(\vec{x},\vec{x}')
 -G(\vec{x},\vec{x}')\vec\nabla'\Psi(\vec{x}')\right]\cdot d\vec{S}' \label{I1}\\
@@ -75,10 +79,10 @@ I &= \oint_{\partial V}p(\vec{x}')\left[\Psi(\vec{x}')\vec\nabla'G(\vec{x},\vec{
 \end{align}
 En el último paso, hemos asumido que el punto $\vec{x}\in V$  para evaluar la integral que involucra la delta de Dirac. El resultado \eqref{solLG} se sigue de igualar \eqref{I1} y \eqref{I2}.
 
-La solución de la ecuación \eqref{EDPG} queda determinada, además de la función fuente $f(\vec{x})$, por las condiciones de borde del problema. Típicamente, estas condiciones de borde se expresan como condiciones que la solución debe satisfacer en la frontera $\partial V$. Esta información modifica la solución a través de los términos de borde en \eqref{solLG}. Sin embargo, la integral sobre $\partial V$ en \eqref{solLG} depende tanto del valor de la incógnita como de su derivada normal, y usualmente no se conoce simultáneamente estos dos valores. Más aún, en general puede ser inconsistente imponer simultáneamente el valor de $\Psi$ y de su derivada normal en $\partial V$.
+La solución de la ecuación \eqref{EDPG} queda determinada por, además de la función fuente $f(\vec{x})$, las condiciones de borde del problema. Típicamente, estas condiciones de borde se expresan como condiciones que la solución debe satisfacer en la frontera $\partial V$. Esta información modifica la solución a través de los términos de borde en \eqref{solLG}. Sin embargo, la integral sobre $\partial V$ en \eqref{solLG} depende tanto del valor de la incógnita como de su derivada normal, y usualmente no se conoce simultáneamente estos dos valores. Más aún, en general puede ser inconsistente imponer simultáneamente el valor de $\Psi$ y de su derivada normal en $\partial V$.
 
 \begin{itemize}
-\item Si las condiciones de Borde son tipo Dirichlet, es decir, la función $\Psi$ es conocida en $\partial V$, entonces el primer término en la integral sobre $\partial V$ en \eqref{solLG} es queda determinado luego de encontrar la función de Green, no así el segundo término. Por esta razón, en estos casos es \textit{conveniente} elegir una función de Green que satisfaga condiciones de borde tipo Dirichlet homogéneas en $\partial V$, es decir
+\item Si las condiciones de Borde son tipo Dirichlet, es decir, la función $\Psi$ es conocida en $\partial V$, entonces el primer término en la integral sobre $\partial V$ en \eqref{solLG} queda determinado luego de encontrar la función de Green, no así el segundo término. Por esta razón, en estos casos es \textit{conveniente} elegir una función de Green que satisfaga condiciones de borde tipo Dirichlet homogéneas en $\partial V$, es decir
 \begin{equation}
 G(\vec{x},\vec{x}')=0, \qquad \forall\ \vec{x}'\in\partial V.
 \end{equation}
@@ -118,7 +122,7 @@ La función de Green definida por la ecuación \eqref{EDPG} no es única. Si $G_
 \begin{equation}
 \hat{L}H(\vec{x},\vec{x}')=0.
 \end{equation}
-Este hecho permite considerar soluciones soluciones particulares simples como base para otras funciones de Green, que pueden obtenerse agregando una solución de la ecuación homogénea de modo que la función resultante satisfaga las condiciones de borde que simplifiquen el problema.
+Este hecho permite considerar soluciones particulares simples como base para otras funciones de Green, que pueden obtenerse agregando una solución de la ecuación homogénea de modo que la función resultante satisfaga las condiciones de borde que simplifiquen el problema.
 
 \subsection{Operador Laplaciano}
 En este caso $p(\vec{x})=1$ y $q(\vec{x})=0$. En Física, usualmente se busca la función de Green que ``respete la homogeneidad e isotropía del espacio''. La primera condición (homogeneidad) significa que $G$ función que depende de $\vec{x}$ y $\vec{x}'$ sólo a través de su diferencia $\vec{x}-\vec{x}'$. La segunda condición (isotropía=invariancia bajo rotaciones) implica que $G$ sólo depende del módulo de $\vec{x}-\vec{x}'$. Esto reduce la función de Green básicamente a una función de una variable, ya que entonces
